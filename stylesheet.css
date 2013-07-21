@@ -1,0 +1,46 @@
+
+body {
+	background-color:	#586;
+}
+
+div#navbar {
+	position:		absolute;
+	left:			20px;
+	width:			160px;
+	top:			120px;
+	font-family:		sans-serif;
+	font-weight:		bold;
+	font-size:		100%;
+}
+
+div#navbar a {
+	display:		block;
+	background-color:	#464;
+	padding:		5px;
+	margin-bottom:		5px;
+}
+
+div#navbar a:visited {
+	color:			#def;
+}
+
+div#navbar a:link {
+	color:			#def;
+}
+
+div#main {
+	position:		absolute;
+	left:			200px;
+	right:			20px;
+	top:			120px;
+	background-color:	#ddd;
+	padding:		10px;
+}
+
+pre {
+	margin-left:		50px;
+	margin-right:		50px;
+	padding:		10px;
+	background-color:	#ffd;
+}
+

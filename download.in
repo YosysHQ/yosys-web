@@ -1,0 +1,33 @@
+@header Download@
+
+<h1>Download</h1>
+
+<p>At the moment there are no releases or pre-compiled binaries. You have to
+check out the development version of Yosys from GIT and build it manually.</p>
+
+<p><b>Note:</b> At the moment Yosys is only tested on Linux. Expect some
+difficulties when building on other platforms.</p>
+
+<h3>Building Development Sources</h3>
+
+Clone source code from GIT repository:
+
+<pre>git clone https://github.com/cliffordwolf/yosys.git</pre>
+
+Configure build and/or change build settings in Makefile:
+
+<pre>make config-release
+vi Makefile</pre>
+
+Build, test and install:
+
+<pre>make
+make test
+sudo make install</pre>
+
+Build and install ABC:
+
+<pre>make abc
+sudo make install-abc</pre>
+
+@footer@
