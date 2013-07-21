@@ -3,6 +3,12 @@ body {
 	background-color:	#586;
 }
 
+img#banner {
+	position:		absolute;
+	left:			50px;
+	top:			20px;
+}
+
 div#navbar {
 	position:		absolute;
 	left:			20px;
