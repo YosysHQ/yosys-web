@@ -6,10 +6,10 @@
 <img id="banner" src="images/banner.png" alt="Yosys -- Yosys Open SYnthesis Suite"/>
 
 <div id="navbar">
-  <a href="about.html">About</a>
-  <a href="documentation.html">Documentation</a>
-  <a href="download.html">Download</a>
-  <a href="https://github.com/cliffordwolf/yosys">GitHub</a>
+  <a class="nav@about@" href="about.html">About</a>
+  <a class="nav@documentation@" href="documentation.html">Documentation</a>
+  <a class="nav@download@" href="download.html">Download</a>
+  <a class="nav0" href="https://github.com/cliffordwolf/yosys">GitHub</a>
 </div>
 
 <div id="main"><!-- begin of content -->

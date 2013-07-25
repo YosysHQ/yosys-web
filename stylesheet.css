@@ -28,6 +28,10 @@ div#navbar a {
 	text-decoration:	none;
 }
 
+div#navbar a.nav1 {
+	text-shadow: 5px 3px 5px #020;
+}
+
 div#navbar a:hover {
 	background-color:	#575;
 }
