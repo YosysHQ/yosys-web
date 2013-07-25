@@ -1,0 +1,9 @@
+@cmd_header help@
+<h1>help - display help messages</h1>
+<pre>
+    help  .............  list all commands
+    help &lt;command&gt;  ...  print help message for given command
+    help -all  ........  print complete command reference
+
+</pre>
+@footer@

@@ -1,0 +1,37 @@
+@cmd_header hierarchy@
+<h1>hierarchy - check, expand and clean up design hierarchy</h1>
+<pre>
+    hierarchy [-check] [-top &lt;module&gt;]
+    hierarchy -generate &lt;cell-types&gt; &lt;port-decls&gt;
+
+In parametric designs, a module might exists in serveral variations with
+different parameter values. This pass looks at all modules in the current
+design an re-runs the language frontends for the parametric modules as
+needed.
+
+    -check
+        also check the design hierarchy. this generates an error when
+        an unknown module is used as cell type.
+
+    -top &lt;module&gt;
+        use the specified top module to built a design hierarchy. modules
+        outside this tree (unused modules) are removed.
+
+In -generate mode this pass generates placeholder modules for the given cell
+types (wildcards supported). For this the design is searched for cells that
+match the given types and then the given port declarations are used to
+determine the direction of the ports. The syntax for a port declaration is:
+
+    {i|o|io}[@&lt;num&gt;]:&lt;portname&gt;
+
+Input ports are specified with the 'i' prefix, output ports with the 'o'
+prefix and inout ports with the 'io' prefix. The optional &lt;num&gt; specifies
+the position of the port in the parameter list (needed when instanciated
+using positional arguments). When &lt;num&gt; is not specified, the &lt;portname&gt; can
+also contain wildcard characters.
+
+This pass ignores the current selection and always operates on all modules
+in the current design.
+
+</pre>
+@footer@

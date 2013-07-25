@@ -1,0 +1,9 @@
+@cmd_header opt_const@
+<h1>opt_const - perform const folding</h1>
+<pre>
+    opt_const [selection]
+
+This pass performs const folding on internal cell types with constant inputs.
+
+</pre>
+@footer@

@@ -1,0 +1,10 @@
+@cmd_header read_ilang@
+<h1>read_ilang - read modules from ilang file</h1>
+<pre>
+    read_ilang [filename]
+
+Load modules from an ilang file to the current design. (ilang is a text
+representation of a design in yosys's internal format.)
+
+</pre>
+@footer@

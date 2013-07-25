@@ -1,0 +1,11 @@
+@cmd_header proc_arst@
+<h1>proc_arst - detect asynchronous resets</h1>
+<pre>
+    proc_arst [selection]
+
+This pass identifies asynchronous resets in the processes and converts them
+to a different internal representation that is suitable for generating
+flip-flop cells with asynchronous resets.
+
+</pre>
+@footer@

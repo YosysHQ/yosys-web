@@ -1,0 +1,29 @@
+@cmd_header write_verilog@
+<h1>write_verilog - write design to verilog file</h1>
+<pre>
+    write_verilog [options] [filename]
+
+Write the current design to a verilog file.
+
+    -norename
+        without this option all internal object names (the ones with a dollar
+        instead of a backslash prefix) are changed to short names in the
+        format '_&lt;number&gt;_'.
+
+    -noattr
+        with this option no attributes are included in the output
+
+    -attr2comment
+        with this option attributes are included as comments in the output
+
+    -noexpr
+        without this option all internal cells are converted to verilog
+        expressions.
+
+    -placeholders
+        usually modules with the 'placeholder' attribute are ignored. with
+        this option set only the modules with the 'placeholder' attribute
+        are written to the output file.
+
+</pre>
+@footer@

@@ -1,0 +1,13 @@
+@cmd_header opt_share@
+<h1>opt_share - consolidate identical cells</h1>
+<pre>
+    opt_share [-nomux] [selection]
+
+This pass identifies cells with identical type and input signals. Such cells
+are then merged to one cell.
+
+    -nomux
+        Do not merge MUX cells.
+
+</pre>
+@footer@

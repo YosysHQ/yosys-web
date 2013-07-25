@@ -1,0 +1,34 @@
+@cmd_header techmap@
+<h1>techmap - simple technology mapper</h1>
+<pre>
+    techmap [-map filename] [selection]
+
+This pass implements a very simple technology mapper that replaces cells in
+the design with implementations given in form of a verilog or ilang source
+file.
+
+    -map filename
+        the library of cell implementations to be used.
+        without this parameter a builtin library is used that
+        transforms the internal RTL cells to the internal gate
+        library.
+
+When a module in the map file has the 'celltype' attribute set, it will match
+cells with a type that match the text value of this attribute.
+
+When a module in the map file contains a wire with the name 'TECHMAP_FAIL' (or
+one matching '*.TECHMAP_FAIL') then no substitution will be performed. The
+modules in the map file are tried in alphabetical order.
+
+When a module in the map file has a parameter where the according cell in the
+design has a port, the module from the map file is only used if the port in
+the design is connected to a constant value. The parameter is then set to the
+constant value.
+
+See 'help extract' for a pass that does the opposite thing.
+
+See 'help flatten' for a pass that does flatten the design (which is
+esentially techmap but using the design itself as map library).
+
+</pre>
+@footer@

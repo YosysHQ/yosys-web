@@ -1,0 +1,16 @@
+@cmd_header memory@
+<h1>memory - translate memories to basic cells</h1>
+<pre>
+    memory [-nomap] [selection]
+
+This pass calls all the other memory_* passes in a useful order:
+
+    memory_dff
+    memory_collect
+    memory_map          (skipped if called with -nomap)
+
+This converts memories to word-wide DFFs and address decoders
+or moultiport memory blocks if called with the -nomap option.
+
+</pre>
+@footer@

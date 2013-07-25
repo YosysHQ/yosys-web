@@ -1,0 +1,61 @@
+@cmd_header read_verilog@
+<h1>read_verilog - read modules from verilog file</h1>
+<pre>
+    read_verilog [filename]
+
+Load modules from a verilog file to the current design. A large subset of
+Verilog-2005 is supported.
+
+    -dump_ast
+        dump abstract syntax tree (after simplification)
+
+    -dump_ast_diff
+        dump ast differences before and after simplification
+
+    -dump_vlog
+        dump ast as verilog code (after simplification)
+
+    -yydebug
+        enable parser debug output
+
+    -nolatches
+        usually latches are synthesized into logic loops
+        this option prohibits this and sets the output to 'x'
+        in what would be the latches hold condition
+
+        this behavior can also be achieved by setting the
+        'nolatches' attribute on the respective module or
+        always block.
+
+    -nomem2reg
+        under certain conditions memories are converted to registers
+        early during simplification to ensure correct handling of
+        complex corner cases. this option disables this behavior.
+
+        this can also be achieved by setting the 'nomem2reg'
+        attribute on the respective module or register.
+
+    -mem2reg
+        always convert memories to registers. this can also be
+        achieved by setting the 'mem2reg' attribute on the respective
+        module or register.
+
+    -ppdump
+        dump verilog code after pre-processor
+
+    -nopp
+        do not run the pre-processor
+
+    -lib
+        only create empty placeholder modules
+
+    -noopt
+        don't perform basic optimizations (such as const folding) in the
+        high-level front-end.
+
+    -Dname[=definition]
+        define the preprocessor symbol 'name' and set its optional value
+        'definition'
+
+</pre>
+@footer@

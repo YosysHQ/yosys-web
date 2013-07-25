@@ -1,0 +1,16 @@
+<html><head>
+  <title>Yosys :: Command Reference :: @@</title>
+  <link rel="stylesheet" href="stylesheet.css">
+</head><body>
+
+<img id="banner" src="images/banner.png" alt="Yosys -- Yosys Open SYnthesis Suite"/>
+
+<div id="navbar">
+  <a class="nav0" href="about.html">About</a>
+  <a class="nav1" href="documentation.html">Documentation</a>
+  <a class="nav0" href="download.html">Download</a>
+  <a class="nav0" href="https://github.com/cliffordwolf/yosys">GitHub</a>
+</div>
+
+<div id="main">
+<!-- begin of content -->

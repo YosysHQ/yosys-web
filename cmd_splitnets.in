@@ -1,0 +1,12 @@
+@cmd_header splitnets@
+<h1>splitnets - split up multi-bit nets</h1>
+<pre>
+    splitnets [options] [selection]
+
+This command splits multi-bit nets into single-bit nets.
+
+    -ports
+        also split module ports. per default only internal signals are split.
+
+</pre>
+@footer@

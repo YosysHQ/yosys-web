@@ -1,0 +1,48 @@
+@cmd_header show@
+<h1>show - generate schematics using graphviz</h1>
+<pre>
+    show [options] [selection]
+
+Create a graphviz DOT file for the selected part of the design and compile it
+to a graphics file (usually SVG or PostScript).
+
+    -viewer &lt;viewer&gt;
+        Run the specified command with the graphics file as parameter.
+
+    -format &lt;format&gt;
+        Generate a graphics file in the specified format.
+        Usually &lt;format&gt; is 'svg' or 'ps'.
+
+    -lib &lt;verilog_or_ilang_file&gt;
+        Use the specified library file for determining whether cell ports are
+        inputs or outputs. This option can be used multiple times to specify
+        more than one library.
+
+    -prefix &lt;prefix&gt;
+        generate &lt;prefix&gt;.dot and &lt;prefix&gt;.ps instead of ~/.yosys_show.{dot,ps}
+
+    -color &lt;color&gt; &lt;wire&gt;
+        assign the specified color to the specified wire. The object can be
+        a single selection wildcard expressions or a saved set of objects in
+        the @&lt;name&gt; syntax (see "help select" for details).
+
+    -colors &lt;seed&gt;
+        Randomly assign colors to the wires. The integer argument is the seed
+        for the random number generator. Change the seed value if the colored
+        graph still is ambigous. A seed of zero deactivates the coloring.
+
+    -width
+        annotate busses with a label indicating the width of the bus.
+
+    -stretch
+        stretch the graph so all inputs are on the left side and all outputs
+        (including inout ports) are on the right side.
+
+When no &lt;format&gt; is specified, SVG is used. When no &lt;format&gt; and &lt;viewer&gt; is
+specified, 'yosys-svgviewer' is used to display the schematic.
+
+The generated output files are '~/.yosys_show.dot' and '~/.yosys_show.&lt;format&gt;',
+unless another prefix is specified using -prefix &lt;prefix&gt;.
+
+</pre>
+@footer@

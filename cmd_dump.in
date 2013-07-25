@@ -1,0 +1,13 @@
+@cmd_header dump@
+<h1>dump - print parts of the design in ilang format</h1>
+<pre>
+    dump [options] [selection]
+
+Write the selected parts of the design to the console or specified file in
+ilang format.
+
+    -outfile &lt;filename&gt;
+        Write to the specified file.
+
+</pre>
+@footer@

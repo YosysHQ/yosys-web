@@ -1,0 +1,9 @@
+@cmd_header script@
+<h1>script - execute commands from script file</h1>
+<pre>
+    script &lt;filename&gt;
+
+This command executes the yosys commands in the specified file.
+
+</pre>
+@footer@

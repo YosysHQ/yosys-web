@@ -1,0 +1,10 @@
+@cmd_header rename@
+<h1>rename - rename object in the design</h1>
+<pre>
+    rename old_name new_name
+
+Rename the specified object. Note that selection patterns are not supported
+by this command.
+
+</pre>
+@footer@
