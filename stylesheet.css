@@ -66,6 +66,11 @@ pre {
 	border-radius:		5px;
 }
 
+pre.small {
+	max-width:		500px;
+	font-size:		small;
+}
+
 img.show {
 	width:			calc(100% - 100px);
 	margin-left:		50px;
@@ -108,9 +113,16 @@ div.tab > table td {
 }
 
 ul.cmds {
-	max-width:		30em;
+	max-width:		500px;
 	overflow-x:		hidden;
 	list-style:		none;
+
+	margin:			13px;
+	margin-left:		50px;
+	margin-right:		50px;
+	background-color:	#dff;
+	border-radius:		5px;
+	padding:		10px;
 }
 
 ul.cmds li:before {
@@ -119,18 +131,17 @@ ul.cmds li:before {
 	white-space:		nowrap;
 	content:		". . . . . . . . . . . . . . . . . . . . "
 				". . . . . . . . . . . . . . . . . . . . "
-				". . . . . . . . . . . . . . . . . . . . "
 				". . . . . . . . . . . . . . . . . . . . ";
 }
 
 ul.cmds a {
 	padding-right:		0.33em;
-	background:		#ddd;
+	background:		#dff;
 }
 
 ul.cmds span {
 	float: right;
 	padding-left:		0.33em;
-	background:		#ddd;
+	background:		#dff;
 }
 
