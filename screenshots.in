@@ -1,0 +1,32 @@
+@header Screentshots@
+
+<h1>Screentshots</h1>
+
+This page contains examples of simple Yosys Synthesis Scripts and screenshots
+of the "show" commands output for the synthesised designs.
+
+<h2>Simple RTL Netlist</h2>
+
+<a href="images/show_rtl.png" target="_blank"><img class="show" src="images/show_rtl.png" alt="[Screenshot]" border="0"/></a>
+
+[[show_rtl.ys]]
+
+[[counter.v]]
+
+<h2>CMOS Gate-Level Netlist</h2>
+
+<a href="images/show_cmos.png" target="_blank"><img class="show" src="images/show_cmos.png" alt="[Screenshot]" border="0"/></a>
+
+[[show_cmos.ys]]
+
+[[cmos_cells.lib]]
+
+<h2>Coarse-Grain Netlist</h2>
+
+<a href="images/show_coarse.png" target="_blank"><img class="show" src="images/show_coarse.png" alt="[Screenshot]" border="0"/></a>
+
+[[show_coarse.ys]]
+
+[[coarse_cells.v]]
+
+@footer@

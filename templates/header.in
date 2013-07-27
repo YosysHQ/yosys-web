@@ -8,8 +8,9 @@
 <div id="navbar">
   <a class="nav@about@" href="about.html">About</a>
   <a class="nav@documentation@" href="documentation.html">Documentation</a>
+  <a class="nav@screenshots@" href="screenshots.html">Screenshots</a>
   <a class="nav@download@" href="download.html">Download</a>
   <a class="nav0" href="https://github.com/cliffordwolf/yosys">GitHub</a>
 </div>
 
-<div id="main"><!-- begin of content -->
+<div id="main"><div><!-- begin of content -->

@@ -49,6 +49,10 @@ div#main {
 	left:			200px;
 	right:			20px;
 	top:			120px;
+	padding-bottom:		20px;
+}
+
+div#main > div {
 	background-color:	#ddd;
 	padding:		10px;
 	border-radius:		5px;
@@ -60,6 +64,24 @@ pre {
 	padding:		10px;
 	background-color:	#ffd;
 	border-radius:		5px;
+}
+
+img.show {
+	width:			calc(100% - 100px);
+	margin-left:		50px;
+	border-radius:		5px;
+}
+
+div.file:before {
+	content: "Download: "
+}
+
+div.file {
+	margin-top:		-5px;
+	padding-top:		0px;
+	margin-left:		50px;
+	font-weight:		bold;
+	font-size:		small;
 }
 
 ul.cmds {

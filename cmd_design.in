@@ -1,0 +1,20 @@
+@cmd_header design@
+<h1>design - save, restore and reset current design</h1>
+<pre>
+    design -reset
+
+Clear the current design.
+
+
+    design -save &lt;name&gt;
+
+Save the current design under the given name.
+
+
+    design -load &lt;name&gt;
+
+Reset the current design and load the design previously saved under the given
+name.
+
+</pre>
+@footer@

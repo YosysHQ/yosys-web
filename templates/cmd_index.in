@@ -1,5 +1,6 @@
 <li><a href="cmd_abc.html"> abc</a> <span>use ABC for technology mapping</span></a>
 <li><a href="cmd_cd.html"> cd</a> <span>a shortcut for 'select -module &lt;name&gt;'</span></a>
+<li><a href="cmd_design.html"> design</a> <span>save, restore and reset current design</span></a>
 <li><a href="cmd_dfflibmap.html"> dfflibmap</a> <span>technology mapping of flip-flops</span></a>
 <li><a href="cmd_dump.html"> dump</a> <span>print parts of the design in ilang format</span></a>
 <li><a href="cmd_eval.html"> eval</a> <span>evaluate the circuit given an input</span></a>
