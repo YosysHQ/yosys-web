@@ -54,6 +54,7 @@ div#main {
 }
 
 div#main > div {
+	max-width:		800px;
 	background-color:	#ddd;
 	padding:		10px;
 	border-radius:		5px;
