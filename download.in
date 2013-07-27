@@ -8,7 +8,7 @@ check out the development version of Yosys from GIT and build it manually.</p>
 <p><b>Note:</b> At the moment Yosys is only tested on Linux. Expect some
 difficulties when building on other platforms.</p>
 
-<h3>Building Development Sources</h3>
+<h2>Building Development Sources</h2>
 
 Clone source code from GIT repository:
 

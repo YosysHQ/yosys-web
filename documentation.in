@@ -5,11 +5,11 @@
 <p>This page has links to all the documentaton resources
 available for Yosys.</p>
 
-<h3>Yosys Manual</h3>
+<h2>Yosys Manual</h2>
 
 <p>The Yosys manual can be downloaded <a href="files/manual.pdf">here</a>.</p>
 
-<h3>Papers and other Publications</h3>
+<h2>Papers and other Publications</h2>
 
 <p><i>This section is under construction.</i></p>
 
@@ -23,7 +23,7 @@ following BibTeX code:
 	howpublished = "\url{http://www.clifford.at/yosys/}"
 }</pre>
 
-<h3>Command Reference</h3>
+<h2>Command Reference</h2>
 
 <ul class="cmds">
 @cmd_index@
