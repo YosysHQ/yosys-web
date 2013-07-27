@@ -84,6 +84,29 @@ div.file {
 	font-size:		small;
 }
 
+div.tab {
+	margin:			13px;
+	margin-left:		50px;
+	margin-right:		50px;
+	background-color:	#dff;
+}
+
+div.tab > table {
+	border:			1px solid black;
+	width:			100%;
+	border-collapse:	collapse;
+}
+
+div.tab > table th {
+	border:			1px solid black;
+}
+
+div.tab > table td {
+	border:			1px solid black;
+	padding-left:		5px;
+	padding-right:		5px;
+}
+
 ul.cmds {
 	max-width:		30em;
 	overflow-x:		hidden;

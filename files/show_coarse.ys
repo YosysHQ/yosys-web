@@ -2,8 +2,8 @@
 read_verilog counter.v
 hierarchy -check
 
-# high level synthesis
-proc; opt; memory; opt
+# high-level synthesis
+proc; memory; opt; fsm; opt
 
 # mapping coarse-grain cells
 extract -map coarse_cells.v

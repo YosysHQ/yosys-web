@@ -3,7 +3,8 @@
 <h1>Screentshots</h1>
 
 This page contains examples of simple Yosys Synthesis Scripts and screenshots
-of the "show" commands output for the synthesised designs.
+of the "show" commands output for the synthesised designs. (The "show" command
+is using <a href="http://www.graphviz.org/">GraphViz</a> to generate schematics.)
 
 <h2>Simple RTL Netlist</h2>
 
