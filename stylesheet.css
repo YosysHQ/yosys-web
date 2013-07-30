@@ -25,7 +25,6 @@ div#navbar a {
 	background-color:	#464;
 	padding:		5px;
 	margin-bottom:		5px;
-	border-radius:		5px;
 	text-decoration:	none;
 }
 
@@ -57,7 +56,18 @@ div#main > div {
 	max-width:		800px;
 	background-color:	#ddd;
 	padding:		10px;
+}
+
+div#main > div h1 {
+	margin-top:		5px;
+}
+
+div#main > div, div#navbar a {
+	border-width:		1px;
+	border-color:		#000;
+	border-style:		solid;
 	border-radius:		5px;
+	box-shadow:		1px 2px 1px 1px #333;
 }
 
 pre {
