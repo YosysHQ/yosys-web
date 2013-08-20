@@ -1,0 +1,31 @@
+@header Links@
+
+<h1>Links</h1>
+
+This page contains links to other projects.
+
+<h2>Free Verilog Simulators</h2>
+
+<ul>
+<li><a href="http://iverilog.icarus.com/">Icarus Verilog</a>
+<li><a href="http://www.veripool.org/wiki/verilator">Verilator</a>
+</ul>
+
+<h2>Free Software for Circuit Synthesis and/or Analysis</h2>
+
+<ul>
+<li><a href="http://www.eecs.berkeley.edu/~alanmi/abc/">ABC</a>
+<li><a href="http://fmv.jku.at/aiger/">AIGER</a>
+<li><a href="http://minisat.se/">MiniSAT</a>
+<li><a href="http://vlsi.colorado.edu/~fabio/CUDD/">CUDD</a>
+</ul>
+
+<h2>Verilog Tutorials</h2>
+
+<ul>
+<li><a href="http://verilog.james.walms.co.uk/">Learning Verilog with Yosys</a>
+<li><a href="http://numato.com/learning-fpga-and-verilog-a-beginners-guide-part-1-introduction">Numato Lab Verilog Tutorial</a>
+<li><a href="http://www.asic-world.com/verilog/veritut.html">ASIC-World Verilog Tutorial</a>
+</ul>
+
+@footer@

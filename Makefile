@@ -1,7 +1,7 @@
 
 SHELL := /bin/bash
 
-PAGES := index.html about.html documentation.html screenshots.html download.html
+PAGES := index.html about.html documentation.html screenshots.html download.html links.html
 PAGES += $(addsuffix .html,$(basename $(wildcard cmd_*.in)))
 
 web: $(PAGES)
