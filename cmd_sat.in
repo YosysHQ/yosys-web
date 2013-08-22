@@ -20,6 +20,9 @@ and additional constraints passed as parameters.
         show the model for the specified signal. if no -show option is
         passed then a set of signals to be shown is automatically selected.
 
+    -ignore_div_by_zero
+        ignore all solutions that involve a division by zero
+
 The following options can be used to set up a sequential problem:
 
     -seq &lt;N&gt;

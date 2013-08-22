@@ -1,0 +1,15 @@
+@cmd_header freduce@
+<h1>freduce - perform functional reduction</h1>
+<pre>
+    freduce [options] [selection]
+
+This pass performs functional reduction in the circuit. I.e. if two nodes are
+equivialent, they are merged to one node and one of the redundant drivers is
+removed.
+
+    -try
+        do not issue an error when the analysis fails.
+        (usually beacause of logic loops in the design)
+
+</pre>
+@footer@

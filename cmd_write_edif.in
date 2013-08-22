@@ -1,0 +1,12 @@
+@cmd_header write_edif@
+<h1>write_edif - write design to EDIF netlist file</h1>
+<pre>
+    write_edif [options] [filename]
+
+Write the current design to an EDIF netlist file.
+
+    -top top_module
+        set the specified module as design top module
+
+</pre>
+@footer@

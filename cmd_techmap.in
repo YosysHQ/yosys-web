@@ -13,6 +13,10 @@ file.
         transforms the internal RTL cells to the internal gate
         library.
 
+    -opt
+        run 'opt' pass on all cells from map file before using them and run
+        'opt_const' on all replacement cells before mapping recursively.
+
 When a module in the map file has the 'celltype' attribute set, it will match
 cells with a type that match the text value of this attribute.
 

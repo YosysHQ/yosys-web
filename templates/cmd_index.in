@@ -1,11 +1,13 @@
 <li><a href="cmd_abc.html"> abc</a> <span>use ABC for technology mapping</span></a>
 <li><a href="cmd_cd.html"> cd</a> <span>a shortcut for 'select -module &lt;name&gt;'</span></a>
+<li><a href="cmd_clean.html"> clean</a> <span>remove unused cells and wires</span></a>
 <li><a href="cmd_design.html"> design</a> <span>save, restore and reset current design</span></a>
 <li><a href="cmd_dfflibmap.html"> dfflibmap</a> <span>technology mapping of flip-flops</span></a>
 <li><a href="cmd_dump.html"> dump</a> <span>print parts of the design in ilang format</span></a>
 <li><a href="cmd_eval.html"> eval</a> <span>evaluate the circuit given an input</span></a>
 <li><a href="cmd_extract.html"> extract</a> <span>find subcircuits and replace them with cells</span></a>
 <li><a href="cmd_flatten.html"> flatten</a> <span>flatten design</span></a>
+<li><a href="cmd_freduce.html"> freduce</a> <span>perform functional reduction</span></a>
 <li><a href="cmd_fsm.html"> fsm</a> <span>extract and optimize finite state machines</span></a>
 <li><a href="cmd_fsm_detect.html"> fsm_detect</a> <span>finding FSMs in design</span></a>
 <li><a href="cmd_fsm_expand.html"> fsm_expand</a> <span>expand FSM cells by merging logic into it</span></a>
@@ -50,6 +52,7 @@
 <li><a href="cmd_tcl.html"> tcl</a> <span>execute a TCL script file</span></a>
 <li><a href="cmd_techmap.html"> techmap</a> <span>simple technology mapper</span></a>
 <li><a href="cmd_write_autotest.html"> write_autotest</a> <span>generate simple test benches</span></a>
+<li><a href="cmd_write_edif.html"> write_edif</a> <span>write design to EDIF netlist file</span></a>
 <li><a href="cmd_write_ilang.html"> write_ilang</a> <span>write design to ilang file</span></a>
 <li><a href="cmd_write_intersynth.html"> write_intersynth</a> <span>write design to InterSynth netlist file</span></a>
 <li><a href="cmd_write_verilog.html"> write_verilog</a> <span>write design to verilog file</span></a>

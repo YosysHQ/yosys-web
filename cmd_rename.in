@@ -6,5 +6,11 @@
 Rename the specified object. Note that selection patterns are not supported
 by this command.
 
+
+    rename -enumerate [selection]
+
+Assign short auto-generated names to all selected wires and cells with private
+names.
+
 </pre>
 @footer@

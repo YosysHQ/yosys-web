@@ -6,11 +6,11 @@
 Load modules from a verilog file to the current design. A large subset of
 Verilog-2005 is supported.
 
-    -dump_ast
-        dump abstract syntax tree (after simplification)
+    -dump_ast1
+        dump abstract syntax tree (before simplification)
 
-    -dump_ast_diff
-        dump ast differences before and after simplification
+    -dump_ast2
+        dump abstract syntax tree (after simplification)
 
     -dump_vlog
         dump ast as verilog code (after simplification)
@@ -56,6 +56,10 @@ Verilog-2005 is supported.
     -Dname[=definition]
         define the preprocessor symbol 'name' and set its optional value
         'definition'
+
+    -Idir
+        add 'dir' to the directories which are used when searching include
+        files
 
 </pre>
 @footer@

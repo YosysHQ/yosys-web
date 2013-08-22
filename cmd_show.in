@@ -19,7 +19,7 @@ to a graphics file (usually SVG or PostScript).
         more than one library.
 
     -prefix &lt;prefix&gt;
-        generate &lt;prefix&gt;.dot and &lt;prefix&gt;.ps instead of ~/.yosys_show.{dot,ps}
+        generate &lt;prefix&gt;.* instead of ~/.yosys_show.*
 
     -color &lt;color&gt; &lt;wire&gt;
         assign the specified color to the specified wire. The object can be
