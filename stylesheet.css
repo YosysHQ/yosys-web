@@ -70,11 +70,6 @@ div#main > div, div#navbar a {
 	box-shadow:		1px 2px 1px 1px #333;
 }
 
-div#main li {
-	margin-top:		1em;
-	margin-right:		3em;
-}
-
 pre {
 	margin-left:		50px;
 	margin-right:		50px;
@@ -162,5 +157,11 @@ ul.cmds span {
 	padding-left:		0.33em;
 	padding-right:		10px;
 	background:		#dff;
+}
+
+ul.list li {
+	margin-top:		1em;
+	margin-right:		3em;
+	max-width:		600px;
 }
 

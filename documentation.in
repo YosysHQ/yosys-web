@@ -16,7 +16,7 @@ href="https://github.com/cliffordwolf/yosys/blob/master/README">README file</a>.
 
 <p><i>This section is under construction.</i></p>
 
-<ul><li>
+<ul class="list"><li>
 Clifford Wolf, Johann Glaser. Yosys - A Free Verilog Synthesis Suite.
 In <i>Proceedings of Austrochip 2013</i>. to appear.
 </li><li>
