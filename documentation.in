@@ -7,11 +7,25 @@ available for Yosys.</p>
 
 <h2>Yosys Manual</h2>
 
-<p>The Yosys manual can be downloaded <a href="files/manual.pdf">here</a>.</p>
+<p>A quick first-steps tutorial can be found in the <a
+href="https://github.com/cliffordwolf/yosys/blob/master/README">README file</a>.</p>
+
+<p>The Yosys manual can be downloaded <a href="files/manual.pdf">here</a> (PDF).</p>
 
 <h2>Papers and other Publications</h2>
 
 <p><i>This section is under construction.</i></p>
+
+<ul><li>
+Clifford Wolf, Johann Glaser. Yosys - A Free Verilog Synthesis Suite.
+In <i>Proceedings of Austrochip 2013</i>. to appear.
+</li><li>
+Johann Glaser and Clifford Wolf. Methodology and Example-Driven Interconnect
+Synthesis for Designing Heterogeneous Coarse-Grain Reconfigurable
+Architectures. In Jan Haase, editor, <i>Advances in Models, Methods, and Tools
+for Complex Chip Design - Selected contributions from FDL'12</i>. Springer,
+2013. to appear.
+</li></ul>
 
 In papers and reports, please refer to Yosys as follows: <b>Clifford Wolf.
 Yosys Open SYnthesis Suite. http://www.clifford.at/yosys/</b>, e.g. using the
