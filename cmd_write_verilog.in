@@ -25,5 +25,9 @@ Write the current design to a verilog file.
         this option set only the modules with the 'placeholder' attribute
         are written to the output file.
 
+    -selected
+        only write selected modules. modules must be selected entirely or
+        not at all.
+
 </pre>
 @footer@

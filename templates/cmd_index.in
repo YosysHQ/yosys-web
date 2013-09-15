@@ -52,7 +52,9 @@
 <li><a href="cmd_tcl.html"> tcl</a> <span>execute a TCL script file</span></a>
 <li><a href="cmd_techmap.html"> techmap</a> <span>simple technology mapper</span></a>
 <li><a href="cmd_write_autotest.html"> write_autotest</a> <span>generate simple test benches</span></a>
+<li><a href="cmd_write_blif.html"> write_blif</a> <span>write design to BLIF file</span></a>
 <li><a href="cmd_write_edif.html"> write_edif</a> <span>write design to EDIF netlist file</span></a>
 <li><a href="cmd_write_ilang.html"> write_ilang</a> <span>write design to ilang file</span></a>
 <li><a href="cmd_write_intersynth.html"> write_intersynth</a> <span>write design to InterSynth netlist file</span></a>
+<li><a href="cmd_write_spice.html"> write_spice</a> <span>write design to SPICE netlist file</span></a>
 <li><a href="cmd_write_verilog.html"> write_verilog</a> <span>write design to verilog file</span></a>

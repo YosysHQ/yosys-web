@@ -6,5 +6,8 @@
 Write the current design to an 'ilang' file. (ilang is a text representation
 of a design in yosys's internal format.)
 
+    -selected
+        only write selected parts of the design.
+
 </pre>
 @footer@

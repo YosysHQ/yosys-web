@@ -15,6 +15,10 @@ a tool for Coarse-Grain Example-Driven Interconnect Synthesis.
         inputs or outputs. This option can be used multiple times to specify
         more than one library.
 
+    -selected
+        only write selected modules. modules must be selected entirely or
+        not at all.
+
 http://www.clifford.at/intersynth/
 
 </pre>

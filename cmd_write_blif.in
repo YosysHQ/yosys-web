@@ -1,0 +1,28 @@
+@cmd_header write_blif@
+<h1>write_blif - write design to BLIF file</h1>
+<pre>
+    write_blif [options] [filename]
+
+Write the current design to an BLIF file.
+
+    -top top_module
+        set the specified module as design top module
+
+
+The following options can be usefull when the generated file is not going to be
+read by a BLIF parser but a custom tool. It is recommended to not name the output
+file *.blif when any of this options is used.
+
+    -subckt
+        do not translate Yosys's internal gates to generic BLIF logic
+        functions. Instead create .subckt lines for for all cells.
+
+    -conn
+        do not generate buffers for connected wires. instead use the
+        non-standard .conn statement.
+
+    -impltf
+        do not write definitions for the $true and $false wires.
+
+</pre>
+@footer@
