@@ -14,11 +14,12 @@ This page contains links to other projects.
 <h2>Free Software for Circuit Synthesis and/or Analysis</h2>
 
 <ul>
-<li><a href="http://www.eecs.berkeley.edu/~alanmi/abc/">ABC</a>
-<li><a href="http://fmv.jku.at/aiger/">AIGER</a>
-<li><a href="http://minisat.se/">MiniSAT</a>
-<li><a href="http://vlsi.colorado.edu/~fabio/CUDD/">CUDD</a>
-<li><a href="http://torc.isi.edu/">Torc</a>
+<li><a href="http://www.eecs.berkeley.edu/~alanmi/abc/">ABC</a> -- extensive tools for synthesis and verification of binary sequential logic
+<li><a href="http://fmv.jku.at/aiger/">AIGER</a> -- a format, library and set of utilities for And-Inverter Graphs
+<li><a href="http://minisat.se/">MiniSAT</a> -- the SAT solver library used in Yosys
+<li><a href="http://vlsi.colorado.edu/~fabio/CUDD/">CUDD</a> -- a decision diagram package
+<li><a href="http://torc.isi.edu/">Torc</a> -- infrastructure and tool set for mapping, placing, and routing
+<li><a href="http://opencircuitdesign.com/">Open Circuit Design</a> -- collection of open-source EDA tools
 </ul>
 
 <h2>Verilog Tutorials</h2>
