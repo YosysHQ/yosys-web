@@ -37,7 +37,7 @@ update_show:
 	git add images/show_*.png
 
 push: web
-	rsync -e ssh -av --delete --exclude .git . clifford@clifford.at:htdocs/clifford/yosys/.
+	rsync -e ssh -av --delete --exclude .git --exclude .*.swp . clifford@clifford.at:htdocs/clifford/yosys/.
 
 clean:
 	rm -f $(PAGES)
