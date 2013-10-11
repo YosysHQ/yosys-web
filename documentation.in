@@ -18,7 +18,8 @@ href="https://github.com/cliffordwolf/yosys/blob/master/README">README file</a>.
 
 <ul class="list"><li>
 Clifford Wolf, Johann Glaser. Yosys - A Free Verilog Synthesis Suite.
-In <i>Proceedings of Austrochip 2013</i>. to appear.
+In <i>Proceedings of Austrochip 2013</i>.
+[<a href="files/yosys-austrochip2013.pdf">download pdf</a>]
 </li><li>
 Johann Glaser and Clifford Wolf. Methodology and Example-Driven Interconnect
 Synthesis for Designing Heterogeneous Coarse-Grain Reconfigurable
