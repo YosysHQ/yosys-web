@@ -8,6 +8,12 @@ Write the current design to an BLIF file.
     -top top_module
         set the specified module as design top module
 
+    -buf &lt;cell-type&gt; &lt;in-port&gt; &lt;out-port&gt;
+        use cells of type &lt;cell-type&gt; with the specified port names for buffers
+
+    -true &lt;cell-type&gt; &lt;out-port&gt;
+    -false &lt;cell-type&gt; &lt;out-port&gt;
+        use the specified cell types to drive nets that are constant 1 or 0
 
 The following options can be usefull when the generated file is not going to be
 read by a BLIF parser but a custom tool. It is recommended to not name the output
@@ -15,7 +21,7 @@ file *.blif when any of this options is used.
 
     -subckt
         do not translate Yosys's internal gates to generic BLIF logic
-        functions. Instead create .subckt lines for for all cells.
+        functions. Instead create .subckt lines for all cells.
 
     -conn
         do not generate buffers for connected wires. instead use the

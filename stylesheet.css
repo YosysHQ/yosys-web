@@ -28,12 +28,20 @@ div#navbar a {
 	text-decoration:	none;
 }
 
+div#navbar a.navX {
+	background-color:	#445;
+}
+
 div#navbar a.nav1 {
 	text-shadow: 5px 3px 5px #020;
 }
 
 div#navbar a:hover {
 	background-color:	#575;
+}
+
+div#navbar a.navX:hover {
+	background-color:	#556;
 }
 
 div#navbar a:visited {

@@ -19,6 +19,7 @@
 <li><a href="cmd_fsm_recode.html"> fsm_recode</a> <span>recoding finite state machines</span></a>
 <li><a href="cmd_help.html"> help</a> <span>display help messages</span></a>
 <li><a href="cmd_hierarchy.html"> hierarchy</a> <span>check, expand and clean up design hierarchy</span></a>
+<li><a href="cmd_iopadmap.html"> iopadmap</a> <span>technology mapping of flip-flops</span></a>
 <li><a href="cmd_ls.html"> ls</a> <span>list modules or objects in modules</span></a>
 <li><a href="cmd_memory.html"> memory</a> <span>translate memories to basic cells</span></a>
 <li><a href="cmd_memory_collect.html"> memory_collect</a> <span>creating multi-port memory cells</span></a>

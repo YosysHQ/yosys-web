@@ -12,6 +12,14 @@ href="https://github.com/cliffordwolf/yosys/blob/master/README">README file</a>.
 
 <p>The Yosys manual can be downloaded <a href="files/manual.pdf">here</a> (PDF).</p>
 
+<h2>Support</h2>
+
+The best place to ask questions is on the <a
+href="http://www.reddit.com/r/yosys/">Yosys Subreddit</a>.
+
+The best place to report a bug is on <a
+href="https://github.com/cliffordwolf/yosys/issues/new">GitHub</a>.
+
 <h2>Papers and other Publications</h2>
 
 <p><i>This section is under construction.</i></p>

@@ -1,0 +1,25 @@
+@cmd_header iopadmap@
+<h1>iopadmap - technology mapping of flip-flops</h1>
+<pre>
+    iopadmap [options] [selection]
+
+Map module inputs/outputs to PAD cells from a library. This pass
+can only map to very simple PAD cells. Use 'techmap' to further map
+the resulting cells to more sophisticated PAD cells.
+
+    -inpad &lt;celltype&gt; &lt;portname&gt;
+        Map module input ports to the given cell type with
+        the given port name.
+
+    -outpad &lt;celltype&gt; &lt;portname&gt;
+    -inoutpad &lt;celltype&gt; &lt;portname&gt;
+        Similar to -inpad, but for output and inout ports.
+
+    -widthparam &lt;param_name&gt;
+        Use the specified parameter name to set the port width.
+
+    -nameparam &lt;param_name&gt;
+        Use the specified parameter to set the port name.
+
+</pre>
+@footer@

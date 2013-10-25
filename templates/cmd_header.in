@@ -10,8 +10,9 @@
   <a class="nav1" href="documentation.html">Documentation</a>
   <a class="nav0" href="screenshots.html">Screenshots</a>
   <a class="nav0" href="download.html">Download</a>
-  <a class="nav@links@" href="links.html">Links</a>
-  <a class="nav0" href="https://github.com/cliffordwolf/yosys">GitHub</a>
+  <a class="nav0" href="links.html">Links</a>
+  <a class="navX" href="http://www.reddit.com/r/yosys/">Reddit</a>
+  <a class="navX" href="https://github.com/cliffordwolf/yosys">GitHub</a>
 </div>
 
 <div id="main"><div>

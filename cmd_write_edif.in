@@ -8,5 +8,10 @@ Write the current design to an EDIF netlist file.
     -top top_module
         set the specified module as design top module
 
+Unfortunately there are different "flavors" of the EDIF file format. This
+command generates EDIF files for the Xilinx place&amp;route tools. It might be
+necessary to make small modifications to this command when a different tool
+is targeted.
+
 </pre>
 @footer@

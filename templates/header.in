@@ -11,7 +11,8 @@
   <a class="nav@screenshots@" href="screenshots.html">Screenshots</a>
   <a class="nav@download@" href="download.html">Download</a>
   <a class="nav@links@" href="links.html">Links</a>
-  <a class="nav0" href="https://github.com/cliffordwolf/yosys">GitHub</a>
+  <a class="navX" href="http://www.reddit.com/r/yosys/">Reddit</a>
+  <a class="navX" href="https://github.com/cliffordwolf/yosys">GitHub</a>
 </div>
 
 <div id="main"><div><!-- begin of content -->
