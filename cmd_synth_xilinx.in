@@ -1,0 +1,64 @@
+@cmd_header synth_xilinx@
+<h1>synth_xilinx - synthesis for Xilinx FPGAs</h1>
+<pre>
+    synth_xilinx [options]
+
+This command runs synthesis for Xilinx FPGAs. This command does not operate on
+partly selected designs.
+
+    -top &lt;module&gt;
+        use the specified module as top module (default='top')
+
+    -arch &lt;arch&gt;
+        select architecture. the following architectures are supported:
+            spartan6 (default), artix7, kintex7, virtex7, zynq7000
+            (this parameter is not used by the command at the moment)
+
+    -edif &lt;file&gt;
+        write the design to the specified edif file. writing of an output file
+        is omitted if this parameter is not specified.
+
+    -run &lt;from_label&gt;:&lt;to_label&gt;
+        only run the commands between the labels (see below). an empty
+        from label is synonymous to 'begin', and empty to label is
+        synonymous to the end of the command list.
+
+
+The following commands are executed by this synthesis command:
+
+    begin:
+        hierarchy -check -top &lt;top&gt;
+
+    coarse:
+        proc
+        opt
+        memory
+        clean
+        fsm
+        opt
+
+    fine:
+        techmap
+        opt
+
+    map_luts:
+        abc -lut 6
+        clean
+
+    map_cells:
+        techmap -map &lt;share_dir&gt;/xilinx/cells.v
+        clean
+
+    clkbuf:
+        select -set xilinx_clocks &lt;top&gt;/t:FDRE %x:+FDRE[C] &lt;top&gt;/t:FDRE %d
+        iopadmap -inpad BUFGP O:I @xilinx_clocks
+
+    iobuf:
+        select -set xilinx_nonclocks &lt;top&gt;/w:* &lt;top&gt;/t:BUFGP %x:+BUFGP[I] %d
+        iopadmap -outpad OBUF I:O -inpad IBUF O:I @xilinx_nonclocks
+
+    edif:
+        write_edif -top &lt;top&gt; synth.edif
+
+</pre>
+@footer@
