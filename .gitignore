@@ -5,3 +5,4 @@ screenshots.html
 download.html
 links.html
 cmd_*.html
+templates/cmd_header.in

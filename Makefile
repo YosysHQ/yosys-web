@@ -9,7 +9,11 @@ web: $(PAGES)
 index.html:
 	ln -s about.html index.html
 
-%.html: %.in templates/* files/*
+templates/cmd_header.in: templates/header.in
+	sed -r '/<title>/ s,::,:: Command Reference ::,; s,@documentation@,1,g; s,@[a-z]+@,0,g;' < templates/header.in > templates/cmd_header.in.new
+	mv templates/cmd_header.in.new templates/cmd_header.in
+
+%.html: %.in templates/cmd_header.in templates/* files/*
 	perl -pe ' #\
 		if (/^@(\S+)\s*(.*)@\s*$$/) { #\
 			open(F, "<templates/$$1.in") or die $$!; $$y=$$2; $$x=""; $$x.=$$_ while <F>; close F; #\
