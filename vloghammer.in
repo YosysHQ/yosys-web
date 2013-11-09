@@ -30,10 +30,10 @@ Verilog Simulators:</p>
 <li>Icarus Verilog (free software)</li>
 </ul>
 
-<p>We have found bugs in Yosys and all of the above tools (with the exception of
-Modelsim) using VlogHammer. The bugs in Yosys have been fixed and we share
-our results in the hope that it will help the vendors of the other tools to
-fix the bugs in their solutions.</p>
+<p>I have found bugs in Yosys and all of the above tools (with the exception of
+Modelsim) using VlogHammer. The bugs in Yosys have been fixed and I share
+my results in the hope that it will help the vendors of the other tools to
+fix the bugs in their programs.</p>
 
 <p>The VlogHammer source code can be found on GitHub: <a
 href="https://github.com/cliffordwolf/VlogHammer">https://github.com/cliffordwolf/VlogHammer</a></p>
@@ -44,8 +44,8 @@ href="https://github.com/cliffordwolf/VlogHammer">https://github.com/cliffordwol
 cases. The tests do not use behavioral modeling at the moment and concentrate
 on correct interpretation of Verilog expressions. Our experience with VlogHammer
 shows that while synthesis of Verilog expressions is not particular hard to do,
-it is hard-to-do-right for all corner cases. Thus we exposed bugs in all three
-3rd party synthesis tools under test.</p>
+it is hard-to-do-right for all corner cases. Thus we exposed bugs in Yosys as
+well as all three 3rd party synthesis tools under test.</p>
 
 <p>While the 3rd party tools are only used for simple logic synthesis, Yosys is used
 in various ways within VlogHammer, intensively testing the following sub-systems
@@ -68,14 +68,14 @@ The following procedure is used in VlogHammer
 
 <dl>
 <dt><b>Test case generation</b></dt>
-<dd>The auto-generated test cases are generated file names following the
+<dd>The auto-generated test cases are generated using file names following the
 pattern <tt>rtl/<i>&lt;category&gt;</i>_<i>&lt;id&gt;</i>.v</tt> and the
 hand-written tests are copied to the <tt>rtl/</tt> directory. This is usually
 done as a separate step, allowing for individual selection of test cases
 by modifying the <tt>rtl/</tt> directory. As a full run of VlogHammer may
 take a couple of days of CPU time, manually selecting individual tests is
 recommended for most situations. All further steps are conveniently wrapped
-using a <tt>make world</tt> command.</dd>
+using the <tt>make world</tt> command.</dd>
 <p/>
 <dt><b>Synthesis</b></dt>
 <dd>Yosys and the 3rd party synthesis tools are used to create Verilog netlists
@@ -85,8 +85,8 @@ with one netlist file per test case.</dd>
 <dt><b>Checking</b></dt>
 <dd>The Yosys SAT solver is used to verify the synthesis results against the
 Yosys coarse-grain RTL representation of the original Verilog input. Synthesizeable
-models of the xilinx and Altera technology cells are used to create a SAT
-model for the output of the 3rd party tools. Test cases where any of this
+models of the xilinx and Altera technology cells are used to create SAT
+models for the outputs of the 3rd party tools. Test cases where any of this
 verifications fail are marked for report generation. This step creates the
 <tt>check_<i>&lt;tool&gt;</i>/</tt> and <tt>cache_<i>&lt;tool&gt;</i>/</tt>
 directories.</dd>
@@ -99,11 +99,11 @@ report generation:
 <li>Formal verification of all synthesis results and the Yosys RTL
 representation against each other.</li>
 <li>Simulation of synthesis results and original Verilog using the counter-examples
-from the previous step and random bit pattern as test vectors.</li>
+from the previous step as well as random bit patterns as test vectors.</li>
 <li>Simulation using the Yosys internal const evaluation framework using the same
 test vectors. Cross-verification of this results with the forward-solutions from the
 SAT models for the same input.</li>
-<li>Generation of HTML report with the results of this tests.</li>
+<li>Generation of HTML reports with the results of this tests.</li>
 </ul></dd>
 <p/>
 <dt><b>Summary Report</b></dt>
@@ -128,7 +128,7 @@ that VlogHammer thinks have troubles with the test case. Note that the Yosys
 synthesis features are listed as "yosys" and the constant evaluation and SAT
 solving capabilities are listed as "yosim", although there is no actual
 software package that is distributed under the name "yosim".</li>
-<li>A table summarising the VlogHammer results.</li>
+<li>A table summarising the VlogHammer results for this test case.</li>
 <li>The Verilog source-code for the test case and a test bench that also
 contains the test vectors used. Note that this is not the actual test bench
 used by VlogHammer but a simpler stripped-down version of it.</li>
@@ -145,11 +145,11 @@ code fed into the simulator.</li>
 
 <p>In this example Altera Quartus II produces incorrect synthesis results and
 Xilinx ISIM produces incorrect simulation results. Modelsim on the other hand
-simulates the RTL correctly. So a good starting point for fixing this bug is by
-reproducing the bug using Modelsim and the provided test case and test bench.
-In case of the incorrect synthesis this can be done by trying to verify the
-synthesis results using Modelsim. In case of the ISIM bug by comparing ISIM and
-Modelsim behavior.</p>
+simulates the RTL correctly. So a good starting point for fixing this bugs is by
+reproducing the bug using Modelsim as known-good reference and the provided
+test case and test bench.  In case of the incorrect synthesis this can be done
+by trying to verify the synthesis results using Modelsim. In case of the ISIM
+bug by comparing ISIM and Modelsim output.</p>
 
 <p>The table can be divided into four regions of interest. The upper-left area
 contains results from the SAT checks that compare the different synthesis outputs:</p>
@@ -158,12 +158,8 @@ contains results from the SAT checks that compare the different synthesis output
 
 <p>This is of course always a symmetrical matrix and all entries on the main
 diagonal are always "PASS" as a logic netlist is always formally equivalent to
-itself. This area can contains false-negatives when undefined behavior (such as
+itself. This area can contain false-negatives when undefined behavior (such as
 results from division by zero) is implemented differently by the different tools.</p>
-
-<p>This matrix on its own allows for thee different interpretations: (1) the FAIL
-entries could be false negatives, (2) there is a bug in Quartus II or (3) there
-are identical bugs in Vivado, XST and Yosys.</p>
 
 <p>The line below that matrix contains the results of SAT checking the synthesis
 outputs from the different tools against the Yosys RTL representation:</p>
@@ -174,8 +170,8 @@ outputs from the different tools against the Yosys RTL representation:</p>
 support modeling of undefined behavior (aka. <tt>x</tt>-bits) at the moment.</p>
 
 <p>The lower right line contains checksums of simulation results for the
-different simulation tools for the original Verilog of the test case and the
-auto-generated test vectors:</p>
+different simulation tools for the original Verilog code of the test case and
+the auto-generated test vectors:</p>
 
 <img class="show" src="images/vloghammer_tableD.png" />
 
@@ -184,9 +180,10 @@ case than Modelsim and the Yosys internal const evaluator ("yosim"). Note that
 there is no column for Icarus Verilog in this case as Icarus Verilog crashed
 for this particular test case. This results are also used by VlogHammer to extract
 <tt>x</tt>-bits for the results for each individual test vector. The output of
-the synthesized modules is then treated as <tt>x</tt> for this bits for this
-individual test vectors, so that the implementation of undefined behavior in the
-different synthesizers does not effect the checksums.</p>
+the synthesized modules is then treated as <tt>x</tt> for the bits that have been
+<tt>x</tt> in the RTL simulation of this individual test vector, so that the
+implementation of undefined behavior in the different synthesizers does not
+effect the checksums.</p>
 
 <p>Finally the upper right region contains the checksums for the testbench outputs
 for the synthesized modules:</p>
@@ -203,7 +200,7 @@ solver could have generated a test pattern for undefined behavior and thus
 missed the opportunity to create a test pattern for a real problem (and also
 because of hash collisions, but this is very unlikely). However, false negatives
 are not possible here. So we know for certain that there is a bug in at least
-two tools here, and it is very likely that this two tools are Quartis II
+two tools here, and it is very likely that this two tools are Quartus II
 and Xilinx ISIM.</p>
 
 <p>The latest publicly released VlogHammer report can be viewed <a
@@ -217,13 +214,13 @@ tested with other browsers.</p>
 point in time with one version of the tools discussed. It is the authors hope
 that in the future all bugs revealed by VlogHammer will be fixed. So it is possible
 that by the time you read this, the tools discussed here do not suffer of any
-bug that can be found easily by VlogHammer.</p>
+bug that can be found by VlogHammer.</p>
 
 <p>In fairness I have to add that I have found more bugs in Yosys using VlogHammer
 than in any of the other tools. Now Yosys performs perfect in-sample. It is
 likely that there are bugs in Yosys that are exposed by other regressions
-tests. If anyone with access to different test cases is reading this, I would
-be delighted to gain access to this test cases.</p>
+tests. If anyone with access to different test cases is reading this: I would
+be delighted to gain access to those test cases.</p>
 
 @footer@
 
