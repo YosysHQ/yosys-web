@@ -13,6 +13,9 @@
   <a class="nav@links@" href="links.html">Links</a>
   <a class="navX" href="http://www.reddit.com/r/yosys/">Reddit</a>
   <a class="navX" href="https://github.com/cliffordwolf/yosys">GitHub</a>
+  <br/>
+  <b>Related Projects:</b><br/>
+  <a class="nav@vloghammer@" href="vloghammer.html">VlogHammer</a>
 </div>
 
 <div id="main"><div><!-- begin of content -->

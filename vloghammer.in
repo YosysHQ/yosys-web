@@ -38,6 +38,9 @@ fix the bugs in their programs.</p>
 <p>The VlogHammer source code can be found on GitHub: <a
 href="https://github.com/cliffordwolf/VlogHammer">https://github.com/cliffordwolf/VlogHammer</a></p>
 
+<p>The name VlogHammer is inspired by the MC Hammer project from the AArch64
+LLVM target. They got the cooler name but we got better google results. :)</p> 
+
 <h2>Scope of Tests</h2>
 
 <p>VlogHammer is using many auto-generated test cases and a few hand-written test
