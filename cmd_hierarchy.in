@@ -13,6 +13,10 @@ needed.
         also check the design hierarchy. this generates an error when
         an unknown module is used as cell type.
 
+    -keep_positionals
+        per default this pass also converts positional arguments in cells
+        to arguments using port names. this option disables this behavior.
+
     -top &lt;module&gt;
         use the specified top module to built a design hierarchy. modules
         outside this tree (unused modules) are removed.

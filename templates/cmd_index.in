@@ -1,4 +1,5 @@
 <li><a href="cmd_abc.html"> abc</a> <span>use ABC for technology mapping</span></a>
+<li><a href="cmd_add.html"> add</a> <span>add objects to the design</span></a>
 <li><a href="cmd_cd.html"> cd</a> <span>a shortcut for 'select -module &lt;name&gt;'</span></a>
 <li><a href="cmd_clean.html"> clean</a> <span>remove unused cells and wires</span></a>
 <li><a href="cmd_design.html"> design</a> <span>save, restore and reset current design</span></a>
@@ -36,6 +37,7 @@
 <li><a href="cmd_proc_arst.html"> proc_arst</a> <span>detect asynchronous resets</span></a>
 <li><a href="cmd_proc_clean.html"> proc_clean</a> <span>remove empty parts of processes</span></a>
 <li><a href="cmd_proc_dff.html"> proc_dff</a> <span>extract flip-flops from processes</span></a>
+<li><a href="cmd_proc_init.html"> proc_init</a> <span>convert initial block to init attributes</span></a>
 <li><a href="cmd_proc_mux.html"> proc_mux</a> <span>convert decision trees to multiplexers</span></a>
 <li><a href="cmd_proc_rmdead.html"> proc_rmdead</a> <span>eliminate dead trees in decision trees</span></a>
 <li><a href="cmd_read_ilang.html"> read_ilang</a> <span>read modules from ilang file</span></a>

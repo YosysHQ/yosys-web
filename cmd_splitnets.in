@@ -5,6 +5,11 @@
 
 This command splits multi-bit nets into single-bit nets.
 
+    -format char1[char2]
+        the first char is inserted between the net name and the bit index, the
+        second char is appended to the netname. e.g. -format () creates net
+        names like 'mysignal(42)'. the default is '[]'.
+
     -ports
         also split module ports. per default only internal signals are split.
 
