@@ -3,6 +3,8 @@
   <link rel="stylesheet" href="stylesheet.css">
 </head><body>
 
+<div id="container">
+
 <img id="banner" src="images/banner.png" alt="Yosys -- Yosys Open SYnthesis Suite"/>
 
 <div id="navbar">
