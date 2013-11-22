@@ -19,6 +19,9 @@ library to a target architecture.
         but keeps using yosys's internal gate library. This option is ignored if
         the -script option is also used.
 
+    -constr &lt;file&gt;
+        pass this file with timing constraints to ABC
+
     -lut &lt;width&gt;
         generate netlist using luts of (max) the specified width.
 

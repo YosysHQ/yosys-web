@@ -21,7 +21,7 @@ needed.
         use the specified top module to built a design hierarchy. modules
         outside this tree (unused modules) are removed.
 
-In -generate mode this pass generates placeholder modules for the given cell
+In -generate mode this pass generates blackbox modules for the given cell
 types (wildcards supported). For this the design is searched for cells that
 match the given types and then the given port declarations are used to
 determine the direction of the ports. The syntax for a port declaration is:

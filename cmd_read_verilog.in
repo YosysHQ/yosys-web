@@ -47,7 +47,7 @@ Verilog-2005 is supported.
         do not run the pre-processor
 
     -lib
-        only create empty placeholder modules
+        only create empty blackbox modules
 
     -noopt
         don't perform basic optimizations (such as const folding) in the

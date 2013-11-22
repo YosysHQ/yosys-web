@@ -20,9 +20,9 @@ Write the current design to a verilog file.
         without this option all internal cells are converted to verilog
         expressions.
 
-    -placeholders
-        usually modules with the 'placeholder' attribute are ignored. with
-        this option set only the modules with the 'placeholder' attribute
+    -blackboxes
+        usually modules with the 'blackbox' attribute are ignored. with
+        this option set only the modules with the 'blackbox' attribute
         are written to the output file.
 
     -selected
