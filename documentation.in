@@ -20,6 +20,12 @@ href="http://www.reddit.com/r/yosys/">Yosys Subreddit</a>.
 The best place to report a bug is on <a
 href="https://github.com/cliffordwolf/yosys/issues/new">GitHub</a>.
 
+<h2>Application Notes</h2>
+
+<ul class="list">
+<li><a href="files/yosys_appnote_010_verilog_to_blif.pdf">Yosys AppNote 010<a>: Converting Verilog to BLIF</li>
+</ul>
+
 <h2>Papers and other Publications</h2>
 
 <p><i>This section is under construction.</i></p>
