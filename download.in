@@ -25,9 +25,8 @@ Build, test and install:
 make test
 sudo make install</pre>
 
-Build and install ABC:
-
-<pre>make abc
-sudo make install-abc</pre>
+See the <a
+href="https://github.com/cliffordwolf/yosys/blob/master/README">README</a> file
+for detailed build instructions.
 
 @footer@
