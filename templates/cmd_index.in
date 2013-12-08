@@ -20,6 +20,7 @@
 <li><a href="cmd_fsm_recode.html"> fsm_recode</a> <span>recoding finite state machines</span></a>
 <li><a href="cmd_help.html"> help</a> <span>display help messages</span></a>
 <li><a href="cmd_hierarchy.html"> hierarchy</a> <span>check, expand and clean up design hierarchy</span></a>
+<li><a href="cmd_history.html"> history</a> <span>show last interactive commands</span></a>
 <li><a href="cmd_iopadmap.html"> iopadmap</a> <span>technology mapping of i/o pads (or buffers)</span></a>
 <li><a href="cmd_ls.html"> ls</a> <span>list modules or objects in modules</span></a>
 <li><a href="cmd_memory.html"> memory</a> <span>translate memories to basic cells</span></a>
@@ -50,7 +51,9 @@
 <li><a href="cmd_select.html"> select</a> <span>modify and view the list of selected objects</span></a>
 <li><a href="cmd_shell.html"> shell</a> <span>enter interactive command mode</span></a>
 <li><a href="cmd_show.html"> show</a> <span>generate schematics using graphviz</span></a>
+<li><a href="cmd_simplemap.html"> simplemap</a> <span>mapping simple coarse-grain cells</span></a>
 <li><a href="cmd_splitnets.html"> splitnets</a> <span>split up multi-bit nets</span></a>
+<li><a href="cmd_stat.html"> stat</a> <span>print some statistics</span></a>
 <li><a href="cmd_submod.html"> submod</a> <span>moving part of a module to a new submodule</span></a>
 <li><a href="cmd_synth_xilinx.html"> synth_xilinx</a> <span>synthesis for Xilinx FPGAs</span></a>
 <li><a href="cmd_tcl.html"> tcl</a> <span>execute a TCL script file</span></a>

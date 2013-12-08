@@ -6,6 +6,12 @@
 Write the selected parts of the design to the console or specified file in
 ilang format.
 
+    -m
+        also dump the module headers, even if only parts of a single        module is selected
+
+    -n
+        only dump the module headers if the entire module is selected
+
     -outfile &lt;filename&gt;
         Write to the specified file.
 

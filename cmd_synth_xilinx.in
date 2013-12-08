@@ -46,7 +46,7 @@ The following commands are executed by this synthesis command:
         clean
 
     map_cells:
-        techmap -map &lt;share_dir&gt;/xilinx/cells.v
+        techmap -share_map xilinx/cells.v
         clean
 
     clkbuf:
@@ -58,7 +58,7 @@ The following commands are executed by this synthesis command:
         iopadmap -outpad OBUF I:O -inpad IBUF O:I @xilinx_nonclocks
 
     edif:
-        write_edif -top &lt;top&gt; synth.edif
+        write_edif synth.edif
 
 </pre>
 @footer@

@@ -1,0 +1,15 @@
+@cmd_header stat@
+<h1>stat - print some statistics</h1>
+<pre>
+    stat [options] [selection]
+
+Print some statistics (number of objects) on the selected portion of the
+design.
+
+    -top &lt;module&gt;
+        print design hierarchy with this module as top. if the design is fully
+        selected and a module has the 'top' attribute set, this module is used
+        default value for this option.
+
+</pre>
+@footer@

@@ -38,6 +38,15 @@ to a graphics file (usually SVG or PostScript).
         stretch the graph so all inputs are on the left side and all outputs
         (including inout ports) are on the right side.
 
+    -pause
+        wait for the use to press enter to before returning
+
+    -enum
+        enumerate objects with internal ($-prefixed) names
+
+    -long
+        do not abbeviate objects with internal ($-prefixed) names
+
 When no &lt;format&gt; is specified, SVG is used. When no &lt;format&gt; and &lt;viewer&gt; is
 specified, 'yosys-svgviewer' is used to display the schematic.
 

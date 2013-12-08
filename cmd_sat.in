@@ -13,6 +13,14 @@ and additional constraints passed as parameters.
     -max &lt;N&gt;
         like -all, but limit number of solutions to &lt;N&gt;
 
+    -enable_undef
+        enable modeling of undef value (aka 'x-bits')
+        this option is implied by -set-def, -set-undef et. cetera
+
+    -max_undef
+        maximize the number of undef bits in solutions, giving a better
+        picture of which input bits are actually vital to the solution.
+
     -set &lt;signal&gt; &lt;value&gt;
         set the specified signal to the specified value.
 
@@ -33,6 +41,12 @@ The following options can be used to set up a sequential problem:
     -unset-at &lt;N&gt; &lt;signal&gt;
         set or unset the specified signal to the specified value in the
         given timestep. this has priority over a -set for the same signal.
+
+    -set-init &lt;signal&gt; &lt;value&gt;
+        set the initial value for the register driving the signal to the value
+
+    -set-init-undef
+        set all initial states (not set using -set-init) to undef
 
 The following additional options can be used to set up a proof. If also -seq
 is passed, a temporal induction proof is performed.
