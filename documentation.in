@@ -38,9 +38,10 @@ In <i>Proceedings of Austrochip 2013</i>.
 </li><li>
 Johann Glaser and Clifford Wolf. Methodology and Example-Driven Interconnect
 Synthesis for Designing Heterogeneous Coarse-Grain Reconfigurable
-Architectures. In Jan Haase, editor, <i>Advances in Models, Methods, and Tools
-for Complex Chip Design - Selected contributions from FDL'12</i>. Springer,
-2013. to appear.
+Architectures. In Jan Haase, editor, <i>Models, Methods, and Tools for
+Complex Chip Design. Lecture Notes in Electrical Engineering. Volume 265,
+2014, pp 201-221. Springer, 2013.</i>
+[<a href="files/intersynth-yosys-springer2013.pdf">download pdf</a>]
 </li></ul>
 
 In papers and reports, please refer to Yosys as follows: <b>Clifford Wolf.
