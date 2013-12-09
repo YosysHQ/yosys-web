@@ -28,7 +28,7 @@ read_verilog mydesign.v
 hierarchy -check -top mytop
 
 # the high-level stuff
-proc; memory; opt; fsm; opt
+proc; opt; memory; opt; fsm; opt
 
 # mapping to internal cell library
 techmap; opt
