@@ -24,6 +24,18 @@ and additional constraints passed as parameters.
     -set &lt;signal&gt; &lt;value&gt;
         set the specified signal to the specified value.
 
+    -set-def &lt;signal&gt;
+        add a constraint that all bits of the given signal must be defined
+
+    -set-any-undef &lt;signal&gt;
+        add a constraint that at least one bit of the given signal is undefined
+
+    -set-all-undef &lt;signal&gt;
+        add a constraint that all bits of the given signal are undefined
+
+    -set-def-inputs
+        add -set-def constraints for all module inputs
+
     -show &lt;signal&gt;
         show the model for the specified signal. if no -show option is
         passed then a set of signals to be shown is automatically selected.
@@ -42,6 +54,11 @@ The following options can be used to set up a sequential problem:
         set or unset the specified signal to the specified value in the
         given timestep. this has priority over a -set for the same signal.
 
+    -set-def-at &lt;N&gt; &lt;signal&gt;
+    -set-any-undef-at &lt;N&gt; &lt;signal&gt;
+    -set-all-undef-at &lt;N&gt; &lt;signal&gt;
+        add undef contraints in the given timestep.
+
     -set-init &lt;signal&gt; &lt;value&gt;
         set the initial value for the register driving the signal to the value
 
@@ -55,6 +72,10 @@ is passed, a temporal induction proof is performed.
         Attempt to proof that &lt;signal&gt; is always &lt;value&gt;. In a temporal
         induction proof it is proven that the condition holds forever after
         the number of time steps passed using -seq.
+
+    -prove-x &lt;signal&gt; &lt;value&gt;
+        Like -prove, but an undef (x) bit in the lhs matches any value on
+        the right hand side. Useful for equivialence checking.
 
     -maxsteps &lt;N&gt;
         Set a maximum length for the induction.
