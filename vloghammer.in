@@ -171,8 +171,9 @@ outputs from the different tools against the Yosys RTL representation:</p>
 
 <img class="show" src="images/vloghammer_tableC.png" />
 
-<p>This line can also contain false negatives as the RTL SAT models in Yosys do not
-support modeling of undefined behavior (aka. <tt>x</tt>-bits) at the moment.</p>
+<p>This line should not contain false negatives, as the RTL SAT models in Yosys do
+support modeling of undefined behavior (aka. <tt>x</tt>-bits) and only cases where
+defined behavior is implemented differently are used to indicate a "FAIL" here.</p>
 
 <p>The lower right line contains checksums of simulation results for the
 different simulation tools for the original Verilog code of the test case and
