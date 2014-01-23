@@ -164,7 +164,7 @@ code fed into the simulator.</li>
 
 <p>In this example Altera Quartus II produces incorrect synthesis results and
 Xilinx ISIM produces incorrect simulation results. Modelsim on the other hand
-simulates the RTL correctly. So a good starting point for fixing this bugs is by
+simulates the RTL correctly. So a good starting point for fixing this bug is by
 reproducing the bug using Modelsim as known-good reference and the provided
 test case and test bench.  In case of the incorrect synthesis this can be done
 by trying to verify the synthesis results using Modelsim. In case of the ISIM
