@@ -1,4 +1,4 @@
-<html><head><title>VlogHammer Bug Report: Quartus handling of constant first argument in Verilog ?: operator</title>
+<html><head><title>VlogHammer Bug Report: Quartus Verilog bug in handling $signed in an unsigned expression</title>
 <style><!--
 .codehilite .hll { background-color: #ffffcc }
 .codehilite  { background: #f0f0f0; margin-left: 3em; margin-right: 3em; }
@@ -65,45 +65,36 @@
 .state { background: #333; color: #fff; margin-left: 1em; margin-right: 1em; padding: 4px; padding-left: 1em; }
 a { text-decoration: none; }
 --></style></head>
-<body><h1>Quartus handling of constant first argument in Verilog ?: operator</h1>
+<body><h1>Quartus Verilog bug in handling $signed in an unsigned expression</h1>
 <div class="state"><strong>OPEN:</strong> last verified in <strong>Quartus 13.1</strong></div>
 
-<p>Consider the following test case:</p>
-<div class="codehilite"><pre><span class="n">module</span> <span class="nf">issue_001</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
-    <span class="n">input</span> <span class="p">[</span><span class="mi">2</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span> <span class="n">a</span><span class="p">;</span>
-    <span class="n">input</span> <span class="p">[</span><span class="mi">3</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span> <span class="n">b</span><span class="p">;</span>
-    <span class="n">output</span> <span class="p">[</span><span class="mi">0</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span> <span class="n">y</span><span class="p">;</span>
-    <span class="c1">// the ?: must evaluate to the max width of both cases,</span>
-    <span class="c1">// even if we can be sure that always the smaller case gets selected</span>
-    <span class="n">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="o">&amp;</span><span class="p">(</span> <span class="mi">1</span> <span class="o">?</span> <span class="n">a</span> <span class="o">:</span> <span class="n">b</span> <span class="p">);</span>
+<p>The following module should output constant <strong>0</strong>, but quartus 13.1 generates a
+module that outputs constant <strong>1</strong> instead.</p>
+<div class="codehilite"><pre><span class="n">module</span> <span class="nf">issue_002</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+  <span class="n">wire</span> <span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">2</span><span class="err">&#39;</span><span class="n">b</span>  <span class="mi">11</span><span class="p">;</span>
+  <span class="n">wire</span> <span class="p">[</span><span class="mi">2</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">3</span><span class="err">&#39;</span><span class="n">b</span> <span class="mi">111</span><span class="p">;</span>
+  <span class="n">output</span> <span class="p">[</span><span class="mi">0</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span> <span class="n">y</span><span class="p">;</span>
+  <span class="n">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="err">$</span><span class="kt">signed</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">==</span> <span class="n">b</span><span class="p">;</span>
 <span class="n">endmodule</span>
 </pre></div>
 
 
-<p>The output of this module should be constant zero. Here is a short analysis of why this is so:</p>
-<p>Sec. 5.1.13 of the Verilog Standard (IEEE Std 1364-2005), which describes the ?: statement, states:</p>
-<blockquote>
-<p>[...] If the lengths of expression2 and expression3 are different, the
-shorter operand shall be lengthened to match the longer and zero-filled from
-the left (the high-order end).</p>
-</blockquote>
-<p>So with the condition being constant true, the expression in the parentheses
-must evaluate to <strong>{1'b0, a}</strong> and not simply <strong>a</strong> because of the size
-difference of <strong>a</strong> and <strong>b</strong>, thus the &amp;-reduce operator should always see at
-least this one zero-bit and thus always return 0.</p>
-<p>But Quartus 13.1 does not perform the zero filling and therefore produces an
-incorrect result, which is equivalent to <strong>assign y = &a;</strong>.</p>
-<p>In my tests I have synthesized the module with</p>
-<div class="codehilite"><pre><span class="n">quartus_map</span> <span class="n">issue_001</span> <span class="o">--</span><span class="n">source</span><span class="o">=</span><span class="n">issue_001</span><span class="p">.</span><span class="n">v</span> <span class="o">--</span><span class="n">family</span><span class="o">=</span><span class="s">&quot;Cyclone III&quot;</span>
-<span class="n">quartus_fit</span> <span class="n">issue_001</span>
-<span class="n">quartus_eda</span> <span class="n">issue_001</span> <span class="o">--</span><span class="n">formal_verification</span> <span class="o">--</span><span class="n">tool</span><span class="o">=</span><span class="n">conformal</span>
+<p>Analysis: The argument of <strong>$signed</strong> is self determined. So even though the
+comparison is a 3 bit operator, $signed(a) returns the two bit value
+<strong>2'bs11</strong>. This is then extended to 3 bits, but because <strong>b</strong> is unsigned this
+is not a sign extension but a zero padding. Thus the expression is <strong>3'b011 ==
+3'b111</strong>, which is false.</p>
+<p>In my tests I have synthesized the module with:</p>
+<div class="codehilite"><pre><span class="n">quartus_map</span> <span class="n">issue_002</span> <span class="o">--</span><span class="n">source</span><span class="o">=</span><span class="n">issue_002</span><span class="p">.</span><span class="n">v</span> <span class="o">--</span><span class="n">family</span><span class="o">=</span><span class="s">&quot;Cyclone III&quot;</span>
+<span class="n">quartus_fit</span> <span class="n">issue_002</span>
+<span class="n">quartus_eda</span> <span class="n">issue_002</span> <span class="o">--</span><span class="n">formal_verification</span> <span class="o">--</span><span class="n">tool</span><span class="o">=</span><span class="n">conformal</span>
 </pre></div>
 
 
-<p>Crosscheck: Vivado 2013.4, Isim 14.7 and Modelsim 10.1d implement this
-correctly. Interestingly XST 14.7 suffers from <a href="issue_001_xst.html">the same bug</a>.</p>
-<p><strong>History:</strong><br />
-2014-01-13 Reported via Altera mySupport (SR #11021734)</p>
+<p>Crosscheck: Vivado 2013.4, XST 14.7, Isim 14.7 and Modelsim 10.1d implement this
+correctly.</p>
+<p><strong>History:</strong>
+2014-01-23 Reported via Altera mySupport (SR #11025071)</p>
 
 <div><a href="../vloghammer.html">&larr; Back to VlogHammer Project Page</a></div>
 </body></html>
