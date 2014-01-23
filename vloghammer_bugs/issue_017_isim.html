@@ -1,4 +1,4 @@
-<html><head><title>VlogHammer Bug Report: Icarus Verilog signedness handling in binary bitwise operations of constants</title>
+<html><head><title>VlogHammer Bug Report: Bug in ISIM when combining reduce op and $signed/$unsigned</title>
 <style><!--
 .codehilite .hll { background-color: #ffffcc }
 .codehilite  { background: #f0f0f0; margin-left: 3em; margin-right: 3em; }
@@ -65,29 +65,36 @@
 .state { background: #333; color: #fff; margin-left: 1em; margin-right: 1em; padding: 4px; padding-left: 1em; }
 a { text-decoration: none; }
 --></style></head>
-<body><h1>Icarus Verilog signedness handling in binary bitwise operations of constants</h1>
-<div class="state"><strong>OPEN:</strong> last verified in <strong>Icarus GIT d1c9dd5</strong></div>
+<body><h1>Bug in ISIM when combining reduce op and $signed/$unsigned</h1>
+<div class="state"><strong>OPEN:</strong> last verified in <strong>Isim 14.7</strong></div>
 
-<p>Bitwise operations of signed values should yield a signed value (see sec. 5.5.1
-of IEEE Std 1365-2005). This is implemented correctly in Icarus Verilog for
-operations involving at least one variable, but bit-wise boolean operations of
-two signed constants yield an unsigned constant.</p>
-<p>For example the following test case:</p>
-<div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_013</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
-  <span class="k">input</span> <span class="k">signed</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">a</span><span class="p">;</span>
-  <span class="k">output</span> <span class="p">[</span><span class="mh">1</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y</span><span class="p">;</span>
-  <span class="k">assign</span> <span class="n">y</span><span class="p">[</span><span class="mh">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="p">(</span><span class="mh">4</span><span class="p">&#39;</span><span class="n">sb1010</span> <span class="o">|</span> <span class="mh">4</span><span class="p">&#39;</span><span class="n">sd0</span><span class="p">);</span>
-  <span class="k">assign</span> <span class="n">y</span><span class="p">[</span><span class="mh">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">|</span> <span class="mh">4</span><span class="p">&#39;</span><span class="n">sd0</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mh">4</span><span class="p">&#39;</span><span class="n">sb1010</span><span class="p">;</span>
+<p>The following module should return <strong>3'b001</strong>:</p>
+<div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_017</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+  <span class="k">output</span> <span class="p">[</span><span class="mh">2</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y</span><span class="p">;</span>
+  <span class="k">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="o">&amp;</span><span class="p">(</span><span class="err">$</span><span class="k">signed</span><span class="p">(</span><span class="mh">2&#39;b11</span><span class="p">));</span>
+  <span class="k">initial</span> <span class="p">#</span><span class="mh">10</span> <span class="nb">$display</span><span class="p">(</span><span class="s">&quot;%b&quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
 <span class="k">endmodule</span>
 </pre></div>
 
 
-<p>For <strong>a=0</strong> this will assign <strong>[0]=0</strong> and <strong>[1]=1</strong>. The value for <strong>y[1]</strong> is
-correct (this is an all-signed expression). The value for <strong>y[0]</strong> is
-incorrect. (Tested with git d1c9dd5.)</p>
+<p>But isim 14.7 returns <strong>3'b000</strong> instead.</p>
+<p>I get the the same bug when I replace <strong>$signed</strong> with <strong>$unsigned</strong>. The bug goes away
+if I do not use <strong>$signed</strong> or <strong>$unsigned</strong> or reduce the size of <strong>y</strong>. Somehow the
+size of <strong>y</strong> "leaks through" to the self-determined operand of the <strong>&amp;</strong> reduce operator
+when used with <strong>$signed</strong> or <strong>$unsigned</strong>.</p>
+<p>In my tests I have run this module with:</p>
+<div class="codehilite"><pre><span class="n">vlogcomp</span> <span class="n">issue_017</span><span class="p">.</span><span class="n">v</span>
+<span class="n">fuse</span> <span class="o">-</span><span class="n">o</span> <span class="n">issue_017</span> <span class="n">issue_017</span>
+
+<span class="p">.</span><span class="o">/</span><span class="n">issue_017</span>
+<span class="n">ISim</span><span class="o">&gt;</span> <span class="n">run</span> <span class="n">all</span>
+</pre></div>
+
+
+<p>Crosscheck: Vivado 2013.4, XST 14.7, Quartus 13.1 and Modelsim 10.1d implement
+this correctly.</p>
 <p><strong>History:</strong><br />
-2014-01-06 <a href="https://github.com/steveicarus/iverilog/issues/8">Reported</a> bug on GitHub<br />
-</p>
+2014-01-23 <a href="http://forums.xilinx.com/t5/Simulation-and-Verification/Bug-in-ISIM-when-combining-reduce-op-and-signed-unsigned/td-p/406305">Reported</a> bug in Xilinx Support Forum</p>
 
 <div><a href="../vloghammer.html">&larr; Back to VlogHammer Project Page</a></div>
 </body></html>

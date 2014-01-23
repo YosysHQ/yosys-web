@@ -69,12 +69,12 @@ a { text-decoration: none; }
 <div class="state"><strong>OPEN:</strong> last verified in <strong>Quartus 13.1</strong></div>
 
 <p>The following module should return 0 for both outputs:</p>
-<div class="codehilite"><pre><span class="n">module</span> <span class="nf">issue016</span><span class="p">(</span><span class="n">y0</span><span class="p">,</span> <span class="n">y1</span><span class="p">);</span>
-  <span class="n">output</span> <span class="p">[</span><span class="mi">3</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span> <span class="n">y0</span><span class="p">;</span>
-  <span class="n">output</span> <span class="p">[</span><span class="mi">3</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span> <span class="n">y1</span><span class="p">;</span>
-  <span class="n">assign</span> <span class="n">y0</span>  <span class="o">=</span> <span class="o">-</span><span class="mi">4</span><span class="err">&#39;</span><span class="n">d1</span> <span class="o">**</span> <span class="o">-</span><span class="mi">4</span><span class="err">&#39;</span><span class="n">sd2</span><span class="p">;</span>
-  <span class="n">assign</span> <span class="n">y1</span>  <span class="o">=</span> <span class="o">-</span><span class="mi">4</span><span class="err">&#39;</span><span class="n">d1</span> <span class="o">**</span> <span class="o">-</span><span class="mi">4</span><span class="err">&#39;</span><span class="n">sd3</span><span class="p">;</span>
-<span class="n">endmodule</span>
+<div class="codehilite"><pre><span class="k">module</span> <span class="n">issue016</span><span class="p">(</span><span class="n">y0</span><span class="p">,</span> <span class="n">y1</span><span class="p">);</span>
+  <span class="k">output</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y0</span><span class="p">;</span>
+  <span class="k">output</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y1</span><span class="p">;</span>
+  <span class="k">assign</span> <span class="n">y0</span>  <span class="o">=</span> <span class="o">-</span><span class="mh">4</span><span class="mi">&#39;d1</span> <span class="o">**</span> <span class="o">-</span><span class="mh">4</span><span class="p">&#39;</span><span class="n">sd2</span><span class="p">;</span>
+  <span class="k">assign</span> <span class="n">y1</span>  <span class="o">=</span> <span class="o">-</span><span class="mh">4</span><span class="mi">&#39;d1</span> <span class="o">**</span> <span class="o">-</span><span class="mh">4</span><span class="p">&#39;</span><span class="n">sd3</span><span class="p">;</span>
+<span class="k">endmodule</span>
 </pre></div>
 
 
