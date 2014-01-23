@@ -1,0 +1,7 @@
+<tr><td valign="top"><a href="vloghammer_bugs/issue_000_xst.html">issue_000_xst</a></td><td valign="top">XST 14.7</td><td valign="top">XST sign handling bug in {N{...}} Verilog operator</td></tr>
+<tr><td valign="top"><a href="vloghammer_bugs/issue_001_quartus.html">issue_001_quartus</a></td><td valign="top">Quartus 13.1</td><td valign="top">Quartus handling of constant first argument in Verilog ?: operator</td></tr>
+<tr><td valign="top"><a href="vloghammer_bugs/issue_001_xst.html">issue_001_xst</a></td><td valign="top">XST 14.7</td><td valign="top">XST handling of constant first argument in Verilog ?: operator</td></tr>
+<tr><td valign="top"><a href="vloghammer_bugs/issue_004_vivado.html">issue_004_vivado</a></td><td valign="top">Vivado 2013.4</td><td valign="top">Strange output-const-zero bug with Vivado + >>> + signedness</td></tr>
+<tr><td valign="top"><a href="vloghammer_bugs/issue_010_vivado.html">issue_010_vivado</a></td><td valign="top">Vivado 2013.4</td><td valign="top">Vivado creates netlist with inputs shorted together</td></tr>
+<tr><td valign="top"><a href="vloghammer_bugs/issue_014_vivado.html">issue_014_vivado</a></td><td valign="top">Vivado 2013.4</td><td valign="top">Vivado GDpGen::implementDivMod(DFNode*, bool): Assertion `TBD' failed.</td></tr>
+<tr><td valign="top"><a href="vloghammer_bugs/issue_015_vivado.html">issue_015_vivado</a></td><td valign="top">Vivado 2013.4</td><td valign="top">Vivado bug in undef handling for relational operators</td></tr>
