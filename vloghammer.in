@@ -6,7 +6,7 @@
 Yosys's Verilog frontend. At the moment VlogHammer only tests combinatorial
 circuits described using Verilog expressions.</p>
 
-<p>Using VlogHammer also exposed a couple of bugs in other programs. Here is a
+<p>VlogHammer also exposed a couple of bugs in other programs. Here is a
 list of currently open bugs found using VlogHammer:</p>
 
 <p><table style="margin-left: 2em; font-size: small;">
