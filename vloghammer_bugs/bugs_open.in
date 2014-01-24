@@ -11,3 +11,4 @@
 <tr><td valign="top"><a href="vloghammer_bugs/issue_015_vivado.html">issue_015_vivado</a></td><td valign="top">Vivado 2013.4</td><td valign="top">Vivado bug in undef handling for relational operators</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_016_quartus.html">issue_016_quartus</a></td><td valign="top">Quartus 13.1</td><td valign="top">Bug in Quartus signed/unsigned handling in power operator</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_019_xsim.html">issue_019_xsim</a></td><td valign="top">XSim 2013.4</td><td valign="top">XSim implements 0 ** -1 incorrectly</td></tr>
+<tr><td valign="top"><a href="vloghammer_bugs/issue_020_xsim.html">issue_020_xsim</a></td><td valign="top">XSim 2013.4</td><td valign="top">XSim fails to recognize signed expression with shift in localparam</td></tr>
