@@ -10,5 +10,4 @@
 <tr><td valign="top"><a href="vloghammer_bugs/issue_014_vivado.html">issue_014_vivado</a></td><td valign="top">Vivado 2013.4</td><td valign="top">Vivado GDpGen::implementDivMod(DFNode*, bool): Assertion `TBD' failed.</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_015_vivado.html">issue_015_vivado</a></td><td valign="top">Vivado 2013.4</td><td valign="top">Vivado bug in undef handling for relational operators</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_016_quartus.html">issue_016_quartus</a></td><td valign="top">Quartus 13.1</td><td valign="top">Bug in Quartus signed/unsigned handling in power operator</td></tr>
-<tr><td valign="top"><a href="vloghammer_bugs/issue_017_isim.html">issue_017_isim</a></td><td valign="top">Isim 14.7</td><td valign="top">Bug in ISIM when combining reduce op and $signed/$unsigned</td></tr>
-<tr><td valign="top"><a href="vloghammer_bugs/issue_018_isim.html">issue_018_isim</a></td><td valign="top">Isim 14.7</td><td valign="top">ISIM handling width of localparam incorrectly</td></tr>
+<tr><td valign="top"><a href="vloghammer_bugs/issue_019_xsim.html">issue_019_xsim</a></td><td valign="top">XSim 2013.4</td><td valign="top">XSim implements 0 ** -1 incorrectly</td></tr>

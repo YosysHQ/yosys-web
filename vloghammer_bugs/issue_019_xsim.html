@@ -1,4 +1,4 @@
-<html><head><title>VlogHammer Bug Report: ISIM handling width of localparam incorrectly</title>
+<html><head><title>VlogHammer Bug Report: XSim implements 0 ** -1 incorrectly</title>
 <style><!--
 .codehilite .hll { background-color: #ffffcc }
 .codehilite  { background: #f0f0f0; margin-left: 3em; margin-right: 3em; }
@@ -65,37 +65,30 @@
 .state { background: #333; color: #fff; margin-left: 1em; margin-right: 1em; padding: 4px; padding-left: 1em; }
 a { text-decoration: none; }
 --></style></head>
-<body><h1>ISIM handling width of localparam incorrectly</h1>
-<div class="state"><strong>WONTFIX:</strong> last verified in <strong>Isim 14.7</strong>, vendor said he would not fix it</div>
+<body><h1>XSim implements 0 ** -1 incorrectly</h1>
+<div class="state"><strong>OPEN:</strong> last verified in <strong>XSim 2013.4</strong></div>
 
-<p>The following module should return <strong>4'b1110</strong>:</p>
-<div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_018</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
-  <span class="k">output</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y</span><span class="p">;</span>
-  <span class="k">localparam</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">p</span> <span class="o">=</span> <span class="o">~</span><span class="mh">1&#39;b1</span><span class="p">;</span>
-  <span class="k">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
-  <span class="k">initial</span> <span class="p">#</span><span class="mh">10</span> <span class="nb">$display</span><span class="p">(</span><span class="s">&quot;%b&quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+<p>The following module should return <strong>8'bx</strong> for both outputs (see table 5-6 of IEEE Std 1364-2005):</p>
+<div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_019</span><span class="p">(</span><span class="n">y0</span><span class="p">,</span> <span class="n">y1</span><span class="p">);</span>
+  <span class="k">output</span> <span class="p">[</span><span class="mh">7</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y0</span><span class="p">;</span>
+  <span class="k">output</span> <span class="p">[</span><span class="mh">7</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y1</span><span class="p">;</span>
+  <span class="k">assign</span> <span class="n">y0</span>  <span class="o">=</span> <span class="mh">8</span><span class="p">&#39;</span><span class="n">sd0</span> <span class="o">**</span> <span class="o">-</span><span class="mh">8</span><span class="p">&#39;</span><span class="n">sd1</span><span class="p">;</span>
+  <span class="k">assign</span> <span class="n">y1</span>  <span class="o">=</span> <span class="mh">8</span><span class="p">&#39;</span><span class="n">d</span> <span class="mh">0</span> <span class="o">**</span> <span class="o">-</span><span class="mh">8</span><span class="p">&#39;</span><span class="n">sd1</span><span class="p">;</span>
+  <span class="k">initial</span> <span class="p">#</span><span class="mh">10</span> <span class="nb">$display</span><span class="p">(</span><span class="s">&quot;%b %b&quot;</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">y1</span><span class="p">);</span>
 <span class="k">endmodule</span>
 </pre></div>
 
 
-<p>But isim 14.7 returns <strong>4'b0000</strong> instead.</p>
-<p>Like in an assignment to a wire, the width of a localparam should be used to
-determine the width of the right hand side expression. I.e. the right hand side
-of the localparam assignment should effectively be <strong>~4'b0001</strong>.</p>
+<p>But XSim 2013.4 returns <strong>8'b0</strong> instead.</p>
 <p>In my tests I have run this module with:</p>
-<div class="codehilite"><pre><span class="n">vlogcomp</span> <span class="n">issue_018</span><span class="p">.</span><span class="n">v</span>
-<span class="n">fuse</span> <span class="o">-</span><span class="n">o</span> <span class="n">issue_018</span> <span class="n">issue_018</span>
-
-<span class="p">.</span><span class="o">/</span><span class="n">issue_018</span>
-<span class="n">ISim</span><span class="o">&gt;</span> <span class="n">run</span> <span class="n">all</span>
+<div class="codehilite"><pre><span class="n">xvlog</span> <span class="n">issue_019</span><span class="p">.</span><span class="n">v</span>
+<span class="n">xelab</span> <span class="o">-</span><span class="n">R</span> <span class="n">work</span><span class="p">.</span><span class="n">issue_019</span>
 </pre></div>
 
 
-<p>Crosscheck: Vivado 2013.4, XST 14.7, Quartus 13.1 and Modelsim 10.1d implement
-this correctly.</p>
+<p>Crosscheck: Modelsim 10.1d implements this correctly. Isim 14.7 has the same bug.</p>
 <p><strong>History:</strong><br />
-2014-01-23 <a href="http://forums.xilinx.com/t5/Simulation-and-Verification/ISIM-handling-width-of-localparam-incorrectly/td-p/406335">Reported</a> bug in Xilinx Support Forum
-2014-01-24 WONTFIX-Notice from Xilinx</p>
+2014-01-24 <a href="http://forums.xilinx.com/t5/Simulation-and-Verification/XSim-implements-0-1-incorrectly/td-p/406517">Reported</a> bug in Xilinx Support Forum</p>
 
 <div><a href="../vloghammer.html">&larr; Back to VlogHammer Project Page</a></div>
 </body></html>

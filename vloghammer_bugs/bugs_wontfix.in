@@ -1,0 +1,2 @@
+<tr><td valign="top"><a href="vloghammer_bugs/issue_017_isim.html">issue_017_isim</a></td><td valign="top">Isim 14.7</td><td valign="top">Bug in ISIM when combining reduce op and $signed/$unsigned</td></tr>
+<tr><td valign="top"><a href="vloghammer_bugs/issue_018_isim.html">issue_018_isim</a></td><td valign="top">Isim 14.7</td><td valign="top">ISIM handling width of localparam incorrectly</td></tr>
