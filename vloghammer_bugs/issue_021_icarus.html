@@ -78,8 +78,11 @@ a { text-decoration: none; }
 
 <p>take forever to compile because the verinum pow() function (in <a href="https://github.com/steveicarus/iverilog/blob/master/verinum.cc">verinum.cc</a>) is
 actually using a loop to evaluate the power:</p>
-<p>for (long idx = 1 ;  idx &lt; pow_count ;  idx += 1)
-        result = result * left;</p>
+<div class="codehilite"><pre><span class="k">for</span> <span class="p">(</span><span class="kt">long</span> <span class="n">idx</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">;</span>  <span class="n">idx</span> <span class="o">&lt;</span> <span class="n">pow_count</span> <span class="p">;</span>  <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">result</span> <span class="o">*</span> <span class="n">left</span><span class="p">;</span>
+</pre></div>
+
+
 <p>(For exponents that do not fit into a long long this would also return
 incorrect values, but I think no-one would wait for such a case to finish
 compiling..)</p>
