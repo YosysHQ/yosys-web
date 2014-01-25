@@ -13,3 +13,4 @@
 <tr><td valign="top"><a href="vloghammer_bugs/issue_017_xsim.html">issue_017_xsim</a></td><td valign="top">XSim 2013.4</td><td valign="top">Bug in XSIM when combining reduce op and $signed/$unsigned</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_019_xsim.html">issue_019_xsim</a></td><td valign="top">XSim 2013.4</td><td valign="top">XSim implements 0 ** -1 incorrectly</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_020_xsim.html">issue_020_xsim</a></td><td valign="top">XSim 2013.4</td><td valign="top">XSim fails to recognize signed expression with shift in localparam</td></tr>
+<tr><td valign="top"><a href="vloghammer_bugs/issue_021_icarus.html">issue_021_icarus</a></td><td valign="top">Icarus GIT d1c9dd5</td><td valign="top">Icarus Verilog efficiency of verinum and vpp_net pow() functions</td></tr>

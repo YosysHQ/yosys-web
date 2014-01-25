@@ -14,6 +14,7 @@ list of currently open bugs found using VlogHammer:</p>
 @vloghammer_bugs_open@
 </table></p>
 
+<!--
 <p>The following bugs have been reported to the tool vendor and the final word from the vendor is that they would not fix the bug:
 
 <p><table style="margin-left: 2em; font-size: small;">
@@ -22,6 +23,9 @@ list of currently open bugs found using VlogHammer:</p>
 </table></p>
 
 <p>And finally here is a list of now closed bugs found using VlogHammer:</p>
+-->
+
+<p>And here is a list of now closed bugs found using VlogHammer:</p>
 
 <p><table style="margin-left: 2em; font-size: small;">
 <tr><td width="120"><strong>Bug ID</strong></td><td width="120"><strong>Fixed in</strong></td><td><strong>Title</strong></td></tr>
@@ -50,6 +54,7 @@ Verilog Simulators:</p>
 
 <ul>
 <li>Xilinx Isim (bundled with Xilinx ISE)</li>
+<li>Xilinx XSim (bundled with Xilinx Vivado)</li>
 <li>Mentor Modelsim (bundled with Altera Quartus II)</li>
 <li>Icarus Verilog (free software)</li>
 </ul>
