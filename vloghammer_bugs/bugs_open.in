@@ -14,3 +14,5 @@
 <tr><td valign="top"><a href="vloghammer_bugs/issue_019_xsim.html">issue_019_xsim</a></td><td valign="top">XSim 2013.4</td><td valign="top">XSim implements 0 ** -1 incorrectly</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_020_xsim.html">issue_020_xsim</a></td><td valign="top">XSim 2013.4</td><td valign="top">XSim fails to recognize signed expression with shift in localparam</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_021_icarus.html">issue_021_icarus</a></td><td valign="top">Icarus GIT d1c9dd5</td><td valign="top">Icarus Verilog efficiency of verinum and vpp_net pow() functions</td></tr>
+<tr><td valign="top"><a href="vloghammer_bugs/issue_021_quartus.html">issue_021_quartus</a></td><td valign="top">Quartus 13.1</td><td valign="top">Quartus hangs on power operations with large exponents</td></tr>
+<tr><td valign="top"><a href="vloghammer_bugs/issue_021_xsim.html">issue_021_xsim</a></td><td valign="top">XSim 2013.4</td><td valign="top">XSim hangs on power operations with large exponents</td></tr>
