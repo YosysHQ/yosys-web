@@ -40,7 +40,7 @@ dfflibmap -liberty mycells.lib
 abc -liberty mycells.lib
 
 # cleanup
-opt
+clean
 
 # write synthesized design
 write_verilog synth.v</pre>
