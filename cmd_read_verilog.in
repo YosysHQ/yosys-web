@@ -53,9 +53,15 @@ Verilog-2005 is supported.
         don't perform basic optimizations (such as const folding) in the
         high-level front-end.
 
+    -icells
+        interpret cell types starting with '$' as internal cell types
+
     -ignore_redef
         ignore re-definitions of modules. (the default behavior is to
         create an error message.)
+
+    -setattr &lt;attribute_name&gt;
+        set the specified attribute (to the value 1) on all loaded modules
 
     -Dname[=definition]
         define the preprocessor symbol 'name' and set its optional value
@@ -64,6 +70,9 @@ Verilog-2005 is supported.
     -Idir
         add 'dir' to the directories which are used when searching include
         files
+
+The command 'verilog_defaults' can be used to register default options for
+subsequent calls to 'read_verilog'.
 
 </pre>
 @footer@

@@ -2,10 +2,15 @@
 <li><a href="cmd_add.html"> add</a> <span>add objects to the design</span></a>
 <li><a href="cmd_cd.html"> cd</a> <span>a shortcut for 'select -module &lt;name&gt;'</span></a>
 <li><a href="cmd_clean.html"> clean</a> <span>remove unused cells and wires</span></a>
+<li><a href="cmd_connect.html"> connect</a> <span>create or remove connections</span></a>
+<li><a href="cmd_copy.html"> copy</a> <span>copy modules in the design</span></a>
+<li><a href="cmd_delete.html"> delete</a> <span>delete objects in the design</span></a>
 <li><a href="cmd_design.html"> design</a> <span>save, restore and reset current design</span></a>
 <li><a href="cmd_dfflibmap.html"> dfflibmap</a> <span>technology mapping of flip-flops</span></a>
 <li><a href="cmd_dump.html"> dump</a> <span>print parts of the design in ilang format</span></a>
+<li><a href="cmd_echo.html"> echo</a> <span>turning echoing back of commands on and off</span></a>
 <li><a href="cmd_eval.html"> eval</a> <span>evaluate the circuit given an input</span></a>
+<li><a href="cmd_expose.html"> expose</a> <span>convert internal signals to module ports</span></a>
 <li><a href="cmd_extract.html"> extract</a> <span>find subcircuits and replace them with cells</span></a>
 <li><a href="cmd_flatten.html"> flatten</a> <span>flatten design</span></a>
 <li><a href="cmd_freduce.html"> freduce</a> <span>perform functional reduction</span></a>
@@ -20,6 +25,7 @@
 <li><a href="cmd_fsm_recode.html"> fsm_recode</a> <span>recoding finite state machines</span></a>
 <li><a href="cmd_help.html"> help</a> <span>display help messages</span></a>
 <li><a href="cmd_hierarchy.html"> hierarchy</a> <span>check, expand and clean up design hierarchy</span></a>
+<li><a href="cmd_hilomap.html"> hilomap</a> <span>technology mapping of constant hi- and/or lo-drivers</span></a>
 <li><a href="cmd_history.html"> history</a> <span>show last interactive commands</span></a>
 <li><a href="cmd_iopadmap.html"> iopadmap</a> <span>technology mapping of i/o pads (or buffers)</span></a>
 <li><a href="cmd_ls.html"> ls</a> <span>list modules or objects in modules</span></a>
@@ -27,6 +33,8 @@
 <li><a href="cmd_memory_collect.html"> memory_collect</a> <span>creating multi-port memory cells</span></a>
 <li><a href="cmd_memory_dff.html"> memory_dff</a> <span>merge input/output DFFs into memories</span></a>
 <li><a href="cmd_memory_map.html"> memory_map</a> <span>translate multiport memories to basic cells</span></a>
+<li><a href="cmd_memory_unpack.html"> memory_unpack</a> <span>unpack multi-port memory cells</span></a>
+<li><a href="cmd_miter.html"> miter</a> <span>automatically create a miter circuit</span></a>
 <li><a href="cmd_opt.html"> opt</a> <span>perform simple optimizations</span></a>
 <li><a href="cmd_opt_clean.html"> opt_clean</a> <span>remove unused cells and wires</span></a>
 <li><a href="cmd_opt_const.html"> opt_const</a> <span>perform const folding</span></a>
@@ -49,6 +57,9 @@
 <li><a href="cmd_scc.html"> scc</a> <span>detect strongly connected components (logic loops)</span></a>
 <li><a href="cmd_script.html"> script</a> <span>execute commands from script file</span></a>
 <li><a href="cmd_select.html"> select</a> <span>modify and view the list of selected objects</span></a>
+<li><a href="cmd_setattr.html"> setattr</a> <span>set/unset attributes on objects</span></a>
+<li><a href="cmd_setparam.html"> setparam</a> <span>set/unset parameters on objects</span></a>
+<li><a href="cmd_setundef.html"> setundef</a> <span>replace undef values with defined constants</span></a>
 <li><a href="cmd_shell.html"> shell</a> <span>enter interactive command mode</span></a>
 <li><a href="cmd_show.html"> show</a> <span>generate schematics using graphviz</span></a>
 <li><a href="cmd_simplemap.html"> simplemap</a> <span>mapping simple coarse-grain cells</span></a>
@@ -57,9 +68,11 @@
 <li><a href="cmd_submod.html"> submod</a> <span>moving part of a module to a new submodule</span></a>
 <li><a href="cmd_synth_xilinx.html"> synth_xilinx</a> <span>synthesis for Xilinx FPGAs</span></a>
 <li><a href="cmd_tcl.html"> tcl</a> <span>execute a TCL script file</span></a>
-<li><a href="cmd_techmap.html"> techmap</a> <span>simple technology mapper</span></a>
+<li><a href="cmd_techmap.html"> techmap</a> <span>generic technology mapper</span></a>
+<li><a href="cmd_verilog_defaults.html"> verilog_defaults</a> <span>set default options for read_verilog</span></a>
 <li><a href="cmd_write_autotest.html"> write_autotest</a> <span>generate simple test benches</span></a>
 <li><a href="cmd_write_blif.html"> write_blif</a> <span>write design to BLIF file</span></a>
+<li><a href="cmd_write_btor.html"> write_btor</a> <span>write design to BTOR file</span></a>
 <li><a href="cmd_write_edif.html"> write_edif</a> <span>write design to EDIF netlist file</span></a>
 <li><a href="cmd_write_ilang.html"> write_ilang</a> <span>write design to ilang file</span></a>
 <li><a href="cmd_write_intersynth.html"> write_intersynth</a> <span>write design to InterSynth netlist file</span></a>

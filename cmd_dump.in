@@ -14,7 +14,10 @@ ilang format.
         only dump the module headers if the entire module is selected
 
     -outfile &lt;filename&gt;
-        Write to the specified file.
+        write to the specified file.
+
+    -append &lt;filename&gt;
+        like -outfile but append instead of overwrite
 
 </pre>
 @footer@

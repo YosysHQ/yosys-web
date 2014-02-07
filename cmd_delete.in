@@ -1,0 +1,10 @@
+@cmd_header delete@
+<h1>delete - delete objects in the design</h1>
+<pre>
+    delete [selection]
+
+Deletes the selected objects. This will also remove entire modules, if the
+whole module is selected.
+
+</pre>
+@footer@

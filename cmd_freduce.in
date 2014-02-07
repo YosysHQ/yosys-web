@@ -5,11 +5,19 @@
 
 This pass performs functional reduction in the circuit. I.e. if two nodes are
 equivialent, they are merged to one node and one of the redundant drivers is
-removed.
+unconnected. A subsequent call to 'clean' will remove the redundant drivers.
 
-    -try
-        do not issue an error when the analysis fails.
-        (usually beacause of logic loops in the design)
+    -v, -vv
+        enable verbose or very verbose output
+
+    -inv
+        enable explicit handling of inverted signals
+
+This pass is undef-aware, i.e. it considers don't-care values for detecting
+equivialent nodes.
+
+All selected wires are considered for rewiring. The selected cells cover the
+circuit that is analyzed.
 
 </pre>
 @footer@

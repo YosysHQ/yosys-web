@@ -9,7 +9,8 @@ in the given map file and replaces them with instances of this modules. The
 map file can be a verilog source file (*.v) or an ilang file (*.il).
 
     -map &lt;map_file&gt;
-        use the modules in this file as reference
+        use the modules in this file as reference. This option can be used
+        multiple times.
 
     -verbose
         print debug output while analyzing

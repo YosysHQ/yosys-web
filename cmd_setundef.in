@@ -1,0 +1,22 @@
+@cmd_header setundef@
+<h1>setundef - replace undef values with defined constants</h1>
+<pre>
+    setundef [options] [selection]
+
+This command replaced undef (x) constants with defined (0/1) constants.
+
+    -undriven
+        also set undriven nets to constant values
+
+    -zero
+        replace with bits cleared (0)
+
+    -one
+        replace with bits set (1)
+
+    -random &lt;seed&gt;
+        replace with random bits using the specified integer als seed
+        value for the random number generator.
+
+</pre>
+@footer@

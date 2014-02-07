@@ -12,5 +12,10 @@ by this command.
 Assign short auto-generated names to all selected wires and cells with private
 names.
 
+    rename -hide [selection]
+
+Assign private names (the ones with $-prefix) to all selected wires and cells
+with public names. This ignores all selected ports.
+
 </pre>
 @footer@

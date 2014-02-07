@@ -1,0 +1,21 @@
+@cmd_header expose@
+<h1>expose - convert internal signals to module ports</h1>
+<pre>
+    expose [options] [selection]
+
+This command exposes all selected internal signals of a module as additional
+outputs.
+
+    -dff
+        only consider wires that are directly driven by register cell.
+
+    -shared
+        only expose those signals that are shared ammong the selected modules.
+        this is useful for preparing modules for equivialence checking.
+
+    -evert
+        also turn connections to instances of other modules to additional
+        inputs and outputs and remove the module instances.
+
+</pre>
+@footer@

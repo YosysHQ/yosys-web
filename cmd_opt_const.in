@@ -1,9 +1,18 @@
 @cmd_header opt_const@
 <h1>opt_const - perform const folding</h1>
 <pre>
-    opt_const [selection]
+    opt_const [options] [selection]
 
 This pass performs const folding on internal cell types with constant inputs.
+
+    -mux_undef
+        remove 'undef' inputs from $mux, $pmux and $_MUX_ cells
+
+    -mux_bool
+        replace $mux cells with inverters or buffers when possible
+
+    -undriven
+        replace undriven nets with undef (x) constants
 
 </pre>
 @footer@

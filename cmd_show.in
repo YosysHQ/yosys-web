@@ -21,9 +21,14 @@ to a graphics file (usually SVG or PostScript).
     -prefix &lt;prefix&gt;
         generate &lt;prefix&gt;.* instead of ~/.yosys_show.*
 
-    -color &lt;color&gt; &lt;wire&gt;
-        assign the specified color to the specified wire. The object can be
+    -color &lt;color&gt; &lt;object&gt;
+        assign the specified color to the specified object. The object can be
         a single selection wildcard expressions or a saved set of objects in
+        the @&lt;name&gt; syntax (see "help select" for details).
+
+    -label &lt;text&gt; &lt;object&gt;
+        assign the specified label text to the specified object. The object can
+        be a single selection wildcard expressions or a saved set of objects in
         the @&lt;name&gt; syntax (see "help select" for details).
 
     -colors &lt;seed&gt;
@@ -46,6 +51,9 @@ to a graphics file (usually SVG or PostScript).
 
     -long
         do not abbeviate objects with internal ($-prefixed) names
+
+    -notitle
+        do not add the module name as graph title to the dot file
 
 When no &lt;format&gt; is specified, SVG is used. When no &lt;format&gt; and &lt;viewer&gt; is
 specified, 'yosys-svgviewer' is used to display the schematic.

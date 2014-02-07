@@ -1,5 +1,5 @@
 @cmd_header techmap@
-<h1>techmap - simple technology mapper</h1>
+<h1>techmap - generic technology mapper</h1>
 <pre>
     techmap [-map filename] [selection]
 

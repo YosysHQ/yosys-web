@@ -13,21 +13,51 @@ library to a target architecture.
     -script &lt;file&gt;
         use the specified ABC script file instead of the default script.
 
+        if &lt;file&gt; starts with a plus sign (+), then the rest of the filename
+        string is interprated as the command string to be passed to ABC. the
+        leading plus sign is removed and all commas (,) in the string are
+        replaced with blanks before the string is passed to ABC.
+
+        if no -script parameter is given, the following scripts are used:
+
+        for -liberty without -constr:
+          strash; retime; balance; dch; map; topo
+
+        for -liberty with -constr:
+          strash; retime; balance; dch; map; topo; buffer; upsize; dnsize; stime
+
+        for -lut:
+          strash; retime; balance; dch; if
+
+        otherwise:
+          strash; retime; balance; dch; map
+
     -liberty &lt;file&gt;
         generate netlists for the specified cell library (using the liberty
-        file format). Without this option, ABC is used to optimize the netlist
-        but keeps using yosys's internal gate library. This option is ignored if
-        the -script option is also used.
+        file format).
 
     -constr &lt;file&gt;
-        pass this file with timing constraints to ABC
+        pass this file with timing constraints to ABC. use with -liberty.
 
     -lut &lt;width&gt;
         generate netlist using luts of (max) the specified width.
 
+    -dff
+        also pass $_DFF_?_ cells through ABC (only one clock domain, if many
+        clock domains are present in a module, the one with the largest number
+        of $_DFF_?_ cells in it is used)
+
+    -clk [!]&lt;signal-name&gt;
+        use the specified clock domain. (when this option is used in combination
+        with -dff, then it falls back to the automatic dection of clock domain
+        if the specified clock is not found in a module.)
+
     -nocleanup
         when this option is used, the temporary files created by this pass
         are not removed. this is useful for debugging.
+
+When neither -liberty nor -lut is used, the Yosys standard cell library is
+loaded into ABC before the ABC script is executed.
 
 This pass does not operate on modules with unprocessed processes in it.
 (I.e. the 'proc' pass should be used first to convert processes to netlists.)

@@ -2,6 +2,7 @@
 <h1>select - modify and view the list of selected objects</h1>
 <pre>
     select [ -add | -del | -set &lt;name&gt; ] &lt;selection&gt;
+    select [ -assert-none | -assert-any ] &lt;selection&gt;
     select [ -list | -write &lt;filename&gt; | -count | -clear ]
     select -module &lt;modname&gt;
 
@@ -20,7 +21,18 @@ described here.
 
     -set &lt;name&gt;
         do not modify the current selection. instead save the new selection
-        under the given name (see @&lt;name&gt; below).
+        under the given name (see @&lt;name&gt; below). to save the current selection,
+        use "select -set &lt;name&gt; %"
+
+    -assert-none
+        do not modify the current selection. instead assert that the given
+        selection is empty. i.e. produce an error if any object matching the
+        selection is found.
+
+    -assert-any
+        do not modify the current selection. instead assert that the given
+        selection is non-empty. i.e. produce an error if no object matching
+        the selection is found.
 
     -list
         list all objects in the current selection
@@ -32,8 +44,12 @@ described here.
         count all objects in the current selection
 
     -clear
-        clear the current selection. this effectively selects the
-        whole design.
+        clear the current selection. this effectively selects the whole
+        design. it also resets the selected module (see -module). use the
+        command 'select *' to select everything but stay in the current module.
+
+    -none
+        create an empty selection. the current module is unchanged.
 
     -module &lt;modname&gt;
         limit the current scope to the specified module.
@@ -63,14 +79,24 @@ Pushing (selecting) object when in -module mode:
     &lt;obj_pattern&gt;
         select the specified object(s) from the current module
 
-A &lt;mod_pattern&gt; can be a module name or wildcard expression (*, ?, [..])
-matching module names.
+A &lt;mod_pattern&gt; can be a module name, wildcard expression (*, ?, [..])
+matching module names, or one of the following:
+
+    A:&lt;pattern&gt;, A:&lt;pattern&gt;=&lt;pattern&gt;
+        all modules with an attribute matching the given pattern
+        in addition to = also &lt;, &lt;=, &gt;=, and &gt; are supported
 
 An &lt;obj_pattern&gt; can be an object name, wildcard expression, or one of
 the following:
 
     w:&lt;pattern&gt;
         all wires with a name matching the given wildcard pattern
+
+    i:&lt;pattern&gt;, o:&lt;pattern&gt;, x:&lt;pattern&gt;
+        all inputs (i:), outputs (o:) or any ports (x:) with matching names
+
+    s:&lt;size&gt;, s:&lt;min&gt;:&lt;max&gt;
+        all wires with a matching width
 
     m:&lt;pattern&gt;
         all memories with a name matching the given pattern
@@ -88,7 +114,11 @@ the following:
         all objects with an attribute name matching the given pattern
 
     a:&lt;pattern&gt;=&lt;pattern&gt;
-        all objects with a matching attribute name-value-pair
+        all objects with a matching attribute name-value-pair.
+        in addition to = also &lt;, &lt;=, &gt;=, and &gt; are supported
+
+    r:&lt;pattern&gt;, r:&lt;pattern&gt;=&lt;pattern&gt;
+        cells with matching parameters. also with &lt;, &lt;=, &gt;= and &gt;.
 
     n:&lt;pattern&gt;
         all objects with a name matching the given pattern
@@ -133,6 +163,13 @@ The following actions can be performed on the top sets on the stack:
     %ci[&lt;num1&gt;|*][.&lt;num2&gt;][:&lt;rule&gt;[:&lt;rule&gt;..]]
     %co[&lt;num1&gt;|*][.&lt;num2&gt;][:&lt;rule&gt;[:&lt;rule&gt;..]]
         simmilar to %x, but only select input (%ci) or output cones (%co)
+
+    %s
+        expand top set by adding all modules of instantiated cells in selected
+        modules
+
+    %m
+        expand top set by selecting all modules that contain selected objects
 
 Example: the following command selects all wires that are connected to a
 'GATE' input of a 'SWITCH' cell:

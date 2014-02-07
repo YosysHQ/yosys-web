@@ -13,6 +13,15 @@ needed.
         also check the design hierarchy. this generates an error when
         an unknown module is used as cell type.
 
+    -purge_lib
+        by default the hierarchy command will not remove library (blackbox)
+        module. use this options to also remove unused blackbox modules.
+
+    -libdir &lt;directory&gt;
+        search for files named &lt;module_name&gt;.v in the specified directory
+        for unkown modules and automatically run read_verilog for each
+        unknown module.
+
     -keep_positionals
         per default this pass also converts positional arguments in cells
         to arguments using port names. this option disables this behavior.

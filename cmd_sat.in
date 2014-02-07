@@ -40,8 +40,14 @@ and additional constraints passed as parameters.
         show the model for the specified signal. if no -show option is
         passed then a set of signals to be shown is automatically selected.
 
+    -show-inputs, -show-outputs
+        add all module input (output) ports to the list of shown signals
+
     -ignore_div_by_zero
         ignore all solutions that involve a division by zero
+
+    -ignore_unknown_cells
+        ignore all cells that can not be matched to a SAT model
 
 The following options can be used to set up a sequential problem:
 
@@ -65,17 +71,33 @@ The following options can be used to set up a sequential problem:
     -set-init-undef
         set all initial states (not set using -set-init) to undef
 
+    -set-init-def
+        do not force a value for the initial state but do not allow undef
+
+    -set-init-zero
+        set all initial states (not set using -set-init) to zero
+
 The following additional options can be used to set up a proof. If also -seq
 is passed, a temporal induction proof is performed.
 
+    -tempinduct
+        Perform a temporal induction proof. In a temporalinduction proof it is
+        proven that the condition holds forever after the number of time steps
+        specified using -seq.
+
+    -tempinduct-def
+        Perform a temporal induction proof. Assume an initial state with all
+        registers set to defined values for the induction step.
+
     -prove &lt;signal&gt; &lt;value&gt;
-        Attempt to proof that &lt;signal&gt; is always &lt;value&gt;. In a temporal
-        induction proof it is proven that the condition holds forever after
-        the number of time steps passed using -seq.
+        Attempt to proof that &lt;signal&gt; is always &lt;value&gt;.
 
     -prove-x &lt;signal&gt; &lt;value&gt;
         Like -prove, but an undef (x) bit in the lhs matches any value on
         the right hand side. Useful for equivialence checking.
+
+    -prove-asserts
+        Prove that all asserts in the design hold.
 
     -maxsteps &lt;N&gt;
         Set a maximum length for the induction.
@@ -88,6 +110,12 @@ is passed, a temporal induction proof is performed.
 
     -verify-no-timeout
         Like -verify but do not return an error for timeouts.
+
+    -falsify
+        Return an error and stop the synthesis script if the proof succeeds.
+
+    -falsify-no-timeout
+        Like -falsify but do not return an error for timeouts.
 
 </pre>
 @footer@
