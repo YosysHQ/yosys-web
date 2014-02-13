@@ -17,13 +17,20 @@ This page contains links to other projects.
 <li><a href="http://www.veripool.org/wiki/verilator">Verilator</a>
 </ul>
 
-<h2>Free Software for Circuit Synthesis and/or Analysis</h2>
+<h2>Free Software for High-Level Circuit Synthesis and/or Analysis</h2>
+
+<ul>
+<li><a href="http://panda.dei.polimi.it/">PandA</a> -- high-level synthesis of C based descriptions
+<li><a href="http://www.myhdl.org/">MyHDL</a> -- an open source Python package that lets you go from Python to silicon
+<li><a href="http://milkymist.org/3/migen.html">Migen</a> -- a Python-based tool that aims at automating further the VLSI design process
+</ul>
+
+<h2>Free Software for Low-Level Circuit Synthesis and/or Analysis</h2>
 
 <ul>
 <li><a href="http://www.eecs.berkeley.edu/~alanmi/abc/">ABC</a> -- extensive tools for synthesis and verification of binary sequential logic
 <li><a href="http://fmv.jku.at/aiger/">AIGER</a> -- a format, library and set of utilities for And-Inverter Graphs
 <li><a href="http://minisat.se/">MiniSAT</a> -- the SAT solver library used in Yosys
-<li><a href="http://vlsi.colorado.edu/~fabio/CUDD/">CUDD</a> -- a decision diagram package
 <li><a href="http://torc.isi.edu/">Torc</a> -- infrastructure and tool set for mapping, placing, and routing
 <li><a href="http://opencircuitdesign.com/">Open Circuit Design</a> -- collection of open-source EDA tools
 </ul>
