@@ -1,3 +1,3 @@
 <tr><td valign="top"><a href="vloghammer_bugs/issue_011_icarus.html">issue_011_icarus</a></td><td valign="top">Icarus GIT d1c9dd5</td><td valign="top">Icarus Verilog vvp asserts on reduce of one-bit .arith/sub</td></tr>
-<tr><td valign="top"><a href="vloghammer_bugs/issue_012_icarus.html">issue_012_icarus</a></td><td valign="top">Icarus GIT d1c9dd5</td><td valign="top">Icarus Verilog undef propagation bug in power operator</td></tr>
-<tr><td valign="top"><a href="vloghammer_bugs/issue_013_icarus.html">issue_013_icarus</a></td><td valign="top">Icarus GIT d1c9dd5</td><td valign="top">Icarus Verilog signedness handling in binary bitwise operations of constants</td></tr>
+<tr><td valign="top"><a href="vloghammer_bugs/issue_012_icarus.html">issue_012_icarus</a></td><td valign="top">Icarus GIT 68f8de2</td><td valign="top">Icarus Verilog undef propagation bug in power operator</td></tr>
+<tr><td valign="top"><a href="vloghammer_bugs/issue_013_icarus.html">issue_013_icarus</a></td><td valign="top">Icarus GIT ac3aee0</td><td valign="top">Icarus Verilog signedness handling in binary bitwise operations of constants</td></tr>
