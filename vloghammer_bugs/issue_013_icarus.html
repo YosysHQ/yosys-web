@@ -66,7 +66,7 @@
 a { text-decoration: none; }
 --></style></head>
 <body><h1>Icarus Verilog signedness handling in binary bitwise operations of constants</h1>
-<div class="state"><strong>OPEN:</strong> last verified in <strong>Icarus GIT d1c9dd5</strong></div>
+<div class="state"><strong>CLOSED:</strong> fixed in <strong>Icarus GIT d1c9dd5</strong></div>
 
 <p>Bitwise operations of signed values should yield a signed value (see sec. 5.5.1
 of IEEE Std 1365-2005). This is implemented correctly in Icarus Verilog for
@@ -87,7 +87,7 @@ correct (this is an all-signed expression). The value for <strong>y[0]</strong> 
 incorrect. (Tested with git d1c9dd5.)</p>
 <p><strong>History:</strong><br />
 2014-01-06 <a href="https://github.com/steveicarus/iverilog/issues/8">Reported</a> bug on GitHub<br />
-</p>
+2014-02-15 Fixed in GIT commit <a href="https://github.com/steveicarus/iverilog/commit/ac3aee01720773002f995b9185d2e2024e736177">ac3aee0</a></p>
 
 <div><a href="../vloghammer.html">&larr; Back to VlogHammer Project Page</a></div>
 </body></html>
