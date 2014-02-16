@@ -1,3 +1,5 @@
 <tr><td valign="top"><a href="vloghammer_bugs/issue_011_icarus.html">issue_011_icarus</a></td><td valign="top">Icarus GIT d1c9dd5</td><td valign="top">Icarus Verilog vvp asserts on reduce of one-bit .arith/sub</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_012_icarus.html">issue_012_icarus</a></td><td valign="top">Icarus GIT 68f8de2</td><td valign="top">Icarus Verilog undef propagation bug in power operator</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_013_icarus.html">issue_013_icarus</a></td><td valign="top">Icarus GIT ac3aee0</td><td valign="top">Icarus Verilog signedness handling in binary bitwise operations of constants</td></tr>
+<tr><td valign="top"><a href="vloghammer_bugs/issue_021_icarus.html">issue_021_icarus</a></td><td valign="top">Icarus GIT 66bdbb7</td><td valign="top">Icarus Verilog efficiency of verinum and vpp_net pow() functions</td></tr>
+<tr><td valign="top"><a href="vloghammer_bugs/issue_022_icarus.html">issue_022_icarus</a></td><td valign="top">Icarus GIT ecce1d2</td><td valign="top">Icarus Verilog: internal error: lval-rval width mismatch</td></tr>
