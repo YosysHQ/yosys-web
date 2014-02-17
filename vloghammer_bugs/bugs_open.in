@@ -13,3 +13,5 @@
 <tr><td valign="top"><a href="vloghammer_bugs/issue_020_xsim.html">issue_020_xsim</a></td><td valign="top">XSim 2013.4</td><td valign="top">XSim fails to recognize signed expression with shift in localparam</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_021_quartus.html">issue_021_quartus</a></td><td valign="top">Quartus 13.1</td><td valign="top">Quartus hangs on power operations with large exponents</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_021_xsim.html">issue_021_xsim</a></td><td valign="top">XSim 2013.4</td><td valign="top">XSim hangs on power operations with large exponents</td></tr>
+<tr><td valign="top"><a href="vloghammer_bugs/issue_023_icarus.html">issue_023_icarus</a></td><td valign="top">Icarus GIT b1ef099</td><td valign="top">Icarus Verilog creates huge in-memory arrays for shifts with large rhs</td></tr>
+<tr><td valign="top"><a href="vloghammer_bugs/issue_024_icarus.html">issue_024_icarus</a></td><td valign="top">Icarus GIT b1ef099</td><td valign="top">Icarus Verilog bug in processing "1'b1 >= |1'bx"</td></tr>
