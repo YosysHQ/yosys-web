@@ -1,4 +1,4 @@
-<html><head><title>VlogHammer Bug Report: Icarus Verilog bug in processing "1'b1 >= |1'bx"</title>
+<html><head><title>VlogHammer Bug Report: Icarus does undef propagation of const adds incorrectly</title>
 <style><!--
 .codehilite .hll { background-color: #ffffcc }
 .codehilite  { background: #f0f0f0; margin-left: 3em; margin-right: 3em; }
@@ -65,21 +65,24 @@
 .state { background: #333; color: #fff; margin-left: 1em; margin-right: 1em; padding: 4px; padding-left: 1em; }
 a { text-decoration: none; }
 --></style></head>
-<body><h1>Icarus Verilog bug in processing "1'b1 &gt;= |1'bx"</h1>
-<div class="state"><strong>CLOSED:</strong> fixed in <strong>Icarus GIT 5a06602</strong></div>
+<body><h1>Icarus does undef propagation of const adds incorrectly</h1>
+<div class="state"><strong>OPEN:</strong> last verified in <strong>Icarus GIT 5a06602</strong></div>
 
-<p>The following module should set y to <strong>1'bx</strong>. But Icarus Verilog (git b1ef099)
-sets the output to <strong>1'b1</strong>.</p>
-<div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_024</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
-  <span class="k">output</span> <span class="n">y</span><span class="p">;</span>
-  <span class="k">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="mh">1&#39;b1</span> <span class="o">&gt;=</span> <span class="o">|</span><span class="mh">1</span><span class="p">&#39;</span><span class="n">bx</span><span class="p">;</span>
+<p>The following module should set both outputs to constant <strong>4'bxxx</strong>:</p>
+<div class="codehilite"><pre><span class="k">module</span> <span class="n">test</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">y2</span><span class="p">);</span>
+  <span class="k">input</span> <span class="p">[</span><span class="mh">1</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">a</span><span class="p">;</span>
+  <span class="k">output</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y1</span><span class="p">,</span> <span class="n">y2</span><span class="p">;</span>
+  <span class="k">assign</span> <span class="n">y1</span> <span class="o">=</span> <span class="mh">4</span><span class="p">&#39;</span><span class="n">bxx00</span> <span class="o">+</span> <span class="mh">2&#39;b00</span><span class="p">;</span>
+  <span class="k">assign</span> <span class="n">y2</span> <span class="o">=</span> <span class="mh">4</span><span class="p">&#39;</span><span class="n">bxx00</span> <span class="o">+</span> <span class="n">a</span><span class="p">;</span>
 <span class="k">endmodule</span>
 </pre></div>
 
 
+<p>But Icarus Verilog (git 5a06602) does only the case involving a variable
+correctly. In the constant case it is too smart and outputs <strong>4'bxx00</strong> instead.</p>
 <p><strong>History:</strong><br />
-2014-02-17 <a href="https://github.com/steveicarus/iverilog/issues/14">Reported</a> bug on GitHub<br />
-2014-02-16 Fixed in GIT commit <a href="https://github.com/steveicarus/iverilog/commit/5a06602af2a0c4087ecc99f16ebc5e0d67f78dcd">5a06602</a></p>
+2014-02-20 <a href="https://github.com/steveicarus/iverilog/issues/15">Reported</a> bug on GitHub<br />
+</p>
 
 <div><a href="../vloghammer.html">&larr; Back to VlogHammer Project Page</a></div>
 </body></html>
