@@ -1,4 +1,4 @@
-<html><head><title>VlogHammer Bug Report: Icarus does undef propagation of const multiplies incorrectly</title>
+<html><head><title>VlogHammer Bug Report: Icarus only using the lowest 32 bits of right shift operand</title>
 <style><!--
 .codehilite .hll { background-color: #ffffcc }
 .codehilite  { background: #f0f0f0; margin-left: 3em; margin-right: 3em; }
@@ -65,21 +65,21 @@
 .state { background: #333; color: #fff; margin-left: 1em; margin-right: 1em; padding: 4px; padding-left: 1em; }
 a { text-decoration: none; }
 --></style></head>
-<body><h1>Icarus does undef propagation of const multiplies incorrectly</h1>
-<div class="state"><strong>CLOSED:</strong> fixed in <strong>Icarus GIT ed2e339</strong></div>
+<body><h1>Icarus only using the lowest 32 bits of right shift operand</h1>
+<div class="state"><strong>OPEN:</strong> last verified in <strong>Icarus GIT ed2e339</strong></div>
 
-<p>The following module should set the output to constant <strong>4'bxxxx</strong>:</p>
-<div class="codehilite"><pre><span class="k">module</span> <span class="n">test</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+<p>The following module should set the output to constant <strong>4'b0000</strong>:</p>
+<div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_029</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
   <span class="k">output</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y</span><span class="p">;</span>
-  <span class="k">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="mh">4&#39;b0</span> <span class="o">*</span> <span class="mh">4</span><span class="p">&#39;</span><span class="n">bx</span><span class="p">;</span>
+  <span class="k">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="mh">4&#39;b1</span> <span class="o">&lt;&lt;</span> <span class="mh">33&#39;h100000000</span><span class="p">;</span>
 <span class="k">endmodule</span>
 </pre></div>
 
 
-<p>But Icarus Verilog (git a3450bf) is too smart and outputs <strong>4'b0000</strong> instead.</p>
+<p>But Icarus Verilog (git ed2e339) assigns <strong>4'b0001</strong> instead.</p>
 <p><strong>History:</strong><br />
-2014-02-27 <a href="https://github.com/steveicarus/iverilog/issues/18">Reported</a> bug on GitHub<br />
-2014-02-25 Fixed in GIT commit <a href="https://github.com/steveicarus/iverilog/commit/ed2e339dd6ea366864969cbd929325e117ec23e9">ed2e339</a></p>
+2014-02-27 <a href="https://github.com/steveicarus/iverilog/issues/19">Reported</a> bug on GitHub<br />
+</p>
 
 <div><a href="../vloghammer.html">&larr; Back to VlogHammer Project Page</a></div>
 </body></html>
