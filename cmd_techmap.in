@@ -61,10 +61,27 @@ modules in the map file:
         When a parameter with this name exists, it will be set to the type name
         of the cell that matches the module.
 
+    _TECHMAP_CONSTMSK_&lt;port-name&gt;_
+    _TECHMAP_CONSTVAL_&lt;port-name&gt;_
+        When this pair of parameters is available in a module for a port, then
+        former has a 1-bit for each constant input bit and the latter has the
+        value for this bit. The unused bits of the latter are set to undef (x).
+
+    _TECHMAP_BITS_CONNMAP_
+    _TECHMAP_CONNMAP_&lt;port-name&gt;_
+        For an N-bit port, the _TECHMAP_CONNMAP_&lt;port-name&gt;_ parameter, if it
+        exists, will be set to an N*_TECHMAP_BITS_CONNMAP_ bit vector containing
+        N words (of _TECHMAP_BITS_CONNMAP_ bits each) that assign each single
+        bit driver a unique id. The values 0-3 are reserved for 0, 1, x, and z.
+        This can be used to detect shorted inputs.
+
 When a module in the map file has a parameter where the according cell in the
 design has a port, the module from the map file is only used if the port in
 the design is connected to a constant value. The parameter is then set to the
 constant value.
+
+A cell with the name _TECHMAP_REPLACE_ in the map file will inherit the name
+of the cell that is beeing replaced.
 
 See 'help extract' for a pass that does the opposite thing.
 

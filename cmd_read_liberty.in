@@ -1,0 +1,19 @@
+@cmd_header read_liberty@
+<h1>read_liberty - read cells from liberty file</h1>
+<pre>
+    read_liberty [filename]
+
+Read cells from liberty file as modules into current design.
+
+    -lib
+        only create empty blackbox modules
+
+    -ignore_redef
+        ignore re-definitions of modules. (the default behavior is to
+        create an error message.)
+
+    -setattr &lt;attribute_name&gt;
+        set the specified attribute (to the value 1) on all loaded modules
+
+</pre>
+@footer@

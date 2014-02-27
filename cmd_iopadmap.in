@@ -23,5 +23,10 @@ the resulting cells to more sophisticated PAD cells.
     -nameparam &lt;param_name&gt;
         Use the specified parameter to set the port name.
 
+    -bits
+        create individual bit-wide buffers even for ports that
+        are wider. (the default behavio is to create word-wide
+        buffers use -widthparam to set the word size on the cell.)
+
 </pre>
 @footer@

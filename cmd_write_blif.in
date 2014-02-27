@@ -19,13 +19,20 @@ The following options can be usefull when the generated file is not going to be
 read by a BLIF parser but a custom tool. It is recommended to not name the output
 file *.blif when any of this options is used.
 
-    -subckt
+    -icells
         do not translate Yosys's internal gates to generic BLIF logic
-        functions. Instead create .subckt lines for all cells.
+        functions. Instead create .subckt or .gate lines for all cells.
+
+    -gates
+        print .gate instead of .subckt lines for all cells that are not
+        instantiations of other modules from this design.
 
     -conn
         do not generate buffers for connected wires. instead use the
         non-standard .conn statement.
+
+    -param
+        use the non-standard .param statement to write module parameters
 
     -impltf
         do not write definitions for the $true and $false wires.

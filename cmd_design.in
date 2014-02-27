@@ -16,6 +16,16 @@ Save the current design under the given name.
 Save the current design under the given name and then clear the current design.
 
 
+    design -push
+
+Push the current design to the stack and then clear the current design.
+
+
+    design -pop
+
+Reset the current design and pop the last design from the stack.
+
+
     design -load &lt;name&gt;
 
 Reset the current design and load the design previously saved under the given

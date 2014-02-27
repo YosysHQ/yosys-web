@@ -21,16 +21,17 @@ library to a target architecture.
         if no -script parameter is given, the following scripts are used:
 
         for -liberty without -constr:
-          strash; retime; balance; dch; map; topo
+          strash; scorr -v; ifraig -v; retime -v; strash; dch -vf; map -v
 
         for -liberty with -constr:
-          strash; retime; balance; dch; map; topo; buffer; upsize; dnsize; stime
+          strash; scorr -v; ifraig -v; retime -v; strash; dch -vf; map -v;
+               buffer -v; upsize -v; dnsize -v; stime -p
 
         for -lut:
-          strash; retime; balance; dch; if
+          strash; scorr -v; ifraig -v; retime -v; strash; dch -vf; if -v
 
         otherwise:
-          strash; retime; balance; dch; map
+          strash; scorr -v; ifraig -v; retime -v; strash; dch -vf; map -v
 
     -liberty &lt;file&gt;
         generate netlists for the specified cell library (using the liberty
@@ -38,6 +39,14 @@ library to a target architecture.
 
     -constr &lt;file&gt;
         pass this file with timing constraints to ABC. use with -liberty.
+
+        a constr file contains two lines:
+            set_driving_cell &lt;cell_name&gt;
+            set_load &lt;floating_point_number&gt;
+
+        the set_driving_cell statement defines which cell type is assumed to
+        drive the primary inputs and the set_load statement sets the load in
+        femtofarads for each primary output.
 
     -lut &lt;width&gt;
         generate netlist using luts of (max) the specified width.
@@ -51,6 +60,10 @@ library to a target architecture.
         use the specified clock domain. (when this option is used in combination
         with -dff, then it falls back to the automatic dection of clock domain
         if the specified clock is not found in a module.)
+
+    -keepff
+        set the "keep" attribute on flip-flop output wires. (and thus preserve
+        them, for example for equivialence checking.)
 
     -nocleanup
         when this option is used, the temporary files created by this pass

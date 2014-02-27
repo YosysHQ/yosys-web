@@ -164,6 +164,10 @@ The following actions can be performed on the top sets on the stack:
     %co[&lt;num1&gt;|*][.&lt;num2&gt;][:&lt;rule&gt;[:&lt;rule&gt;..]]
         simmilar to %x, but only select input (%ci) or output cones (%co)
 
+    %a
+        expand top set by selecting all wires that are (at least in part)
+        aliases for selected wires.
+
     %s
         expand top set by adding all modules of instantiated cells in selected
         modules

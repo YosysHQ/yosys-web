@@ -1,0 +1,26 @@
+@cmd_header vhdl2verilog@
+<h1>vhdl2verilog - importing VHDL designs using vhdl2verilog</h1>
+<pre>
+    vhdl2verilog [options] &lt;vhdl-file&gt;..
+
+This pass looks for subcircuits that are isomorphic to any of the modules
+in the given map file and replaces them with instances of this modules. The
+map file can be a verilog source file (*.v) or an ilang file (*.il).
+
+    -out &lt;out_file&gt;
+        do not import the vhdl2verilog output. instead write it to the
+        specified file.
+
+    -vhdl2verilog_dir &lt;directory&gt;
+        do use the specified vhdl2verilog installations. this is the directory
+        that contains the setup_env.sh file. when this option is not present,
+        it is assumed that vhdl2verilog is in the PATH environment variable.
+
+    -top &lt;top-entity-name&gt;
+        The name of the top entity. This option is mandatory.
+
+vhdl2verilog can be obtained from:
+http://www.edautils.com/vhdl2verilog.html
+
+</pre>
+@footer@

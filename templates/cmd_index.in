@@ -3,6 +3,7 @@
 <li><a href="cmd_cd.html"> cd</a> <span>a shortcut for 'select -module &lt;name&gt;'</span></a>
 <li><a href="cmd_clean.html"> clean</a> <span>remove unused cells and wires</span></a>
 <li><a href="cmd_connect.html"> connect</a> <span>create or remove connections</span></a>
+<li><a href="cmd_connwrappers.html"> connwrappers</a> <span>replace undef values with defined constants</span></a>
 <li><a href="cmd_copy.html"> copy</a> <span>copy modules in the design</span></a>
 <li><a href="cmd_delete.html"> delete</a> <span>delete objects in the design</span></a>
 <li><a href="cmd_design.html"> design</a> <span>save, restore and reset current design</span></a>
@@ -28,6 +29,7 @@
 <li><a href="cmd_hilomap.html"> hilomap</a> <span>technology mapping of constant hi- and/or lo-drivers</span></a>
 <li><a href="cmd_history.html"> history</a> <span>show last interactive commands</span></a>
 <li><a href="cmd_iopadmap.html"> iopadmap</a> <span>technology mapping of i/o pads (or buffers)</span></a>
+<li><a href="cmd_log.html"> log</a> <span>print text and log files</span></a>
 <li><a href="cmd_ls.html"> ls</a> <span>list modules or objects in modules</span></a>
 <li><a href="cmd_memory.html"> memory</a> <span>translate memories to basic cells</span></a>
 <li><a href="cmd_memory_collect.html"> memory_collect</a> <span>creating multi-port memory cells</span></a>
@@ -50,6 +52,7 @@
 <li><a href="cmd_proc_mux.html"> proc_mux</a> <span>convert decision trees to multiplexers</span></a>
 <li><a href="cmd_proc_rmdead.html"> proc_rmdead</a> <span>eliminate dead trees in decision trees</span></a>
 <li><a href="cmd_read_ilang.html"> read_ilang</a> <span>read modules from ilang file</span></a>
+<li><a href="cmd_read_liberty.html"> read_liberty</a> <span>read cells from liberty file</span></a>
 <li><a href="cmd_read_verilog.html"> read_verilog</a> <span>read modules from verilog file</span></a>
 <li><a href="cmd_rename.html"> rename</a> <span>rename object in the design</span></a>
 <li><a href="cmd_sat.html"> sat</a> <span>solve a SAT problem in the circuit</span></a>
@@ -63,6 +66,7 @@
 <li><a href="cmd_shell.html"> shell</a> <span>enter interactive command mode</span></a>
 <li><a href="cmd_show.html"> show</a> <span>generate schematics using graphviz</span></a>
 <li><a href="cmd_simplemap.html"> simplemap</a> <span>mapping simple coarse-grain cells</span></a>
+<li><a href="cmd_splice.html"> splice</a> <span>create explicit splicing cells</span></a>
 <li><a href="cmd_splitnets.html"> splitnets</a> <span>split up multi-bit nets</span></a>
 <li><a href="cmd_stat.html"> stat</a> <span>print some statistics</span></a>
 <li><a href="cmd_submod.html"> submod</a> <span>moving part of a module to a new submodule</span></a>
@@ -70,6 +74,7 @@
 <li><a href="cmd_tcl.html"> tcl</a> <span>execute a TCL script file</span></a>
 <li><a href="cmd_techmap.html"> techmap</a> <span>generic technology mapper</span></a>
 <li><a href="cmd_verilog_defaults.html"> verilog_defaults</a> <span>set default options for read_verilog</span></a>
+<li><a href="cmd_vhdl2verilog.html"> vhdl2verilog</a> <span>importing VHDL designs using vhdl2verilog</span></a>
 <li><a href="cmd_write_autotest.html"> write_autotest</a> <span>generate simple test benches</span></a>
 <li><a href="cmd_write_blif.html"> write_blif</a> <span>write design to BLIF file</span></a>
 <li><a href="cmd_write_btor.html"> write_btor</a> <span>write design to BTOR file</span></a>

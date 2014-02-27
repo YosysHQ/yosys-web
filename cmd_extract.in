@@ -12,6 +12,10 @@ map file can be a verilog source file (*.v) or an ilang file (*.il).
         use the modules in this file as reference. This option can be used
         multiple times.
 
+    -map %&lt;design-name&gt;
+        use the modules in this in-memory design as reference. This option can
+        be used multiple times.
+
     -verbose
         print debug output while analyzing
 
@@ -43,6 +47,12 @@ map file can be a verilog source file (*.v) or an ilang file (*.il).
 
     -wire_attr &lt;attribute_name&gt;
         Attributes on wires with the given name must match.
+
+    -ignore_parameters
+        Do not use parameters when matching cells.
+
+    -ignore_param &lt;cell_type&gt; &lt;parameter_name&gt;
+        Do not use this parameter when matching cells.
 
 This pass does not operate on modules with uprocessed processes in it.
 (I.e. the 'proc' pass should be used first to convert processes to netlists.)

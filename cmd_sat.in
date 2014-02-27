@@ -77,6 +77,13 @@ The following options can be used to set up a sequential problem:
     -set-init-zero
         set all initial states (not set using -set-init) to zero
 
+    -dump_vcd &lt;vcd-file-name&gt;
+        dump SAT model (counter example in proof) to VCD file
+
+    -dump_cnf &lt;cnf-file-name&gt;
+        dump CNF of SAT problem (in DIMACS format). in temporal induction
+        proofs this is the CNF of the first induction step.
+
 The following additional options can be used to set up a proof. If also -seq
 is passed, a temporal induction proof is performed.
 
@@ -101,6 +108,9 @@ is passed, a temporal induction proof is performed.
 
     -maxsteps &lt;N&gt;
         Set a maximum length for the induction.
+
+    -initsteps &lt;N&gt;
+        Set initial length for the induction.
 
     -timeout &lt;N&gt;
         Maximum number of seconds a single SAT instance may take.
