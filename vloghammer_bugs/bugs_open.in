@@ -14,3 +14,4 @@
 <tr><td valign="top"><a href="vloghammer_bugs/issue_021_quartus.html">issue_021_quartus</a></td><td valign="top">Quartus 13.1</td><td valign="top">Quartus hangs on power operations with large exponents</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_021_xsim.html">issue_021_xsim</a></td><td valign="top">XSim 2013.4</td><td valign="top">XSim hangs on power operations with large exponents</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_029_icarus.html">issue_029_icarus</a></td><td valign="top">Icarus GIT ed2e339</td><td valign="top">Icarus only using the lowest 32 bits of right shift operand</td></tr>
+<tr><td valign="top"><a href="vloghammer_bugs/issue_032_icarus.html">issue_032_icarus</a></td><td valign="top">Icarus GIT 3e41a93</td><td valign="top">Icarus confused about signed/unsigned in strange ?: example</td></tr>
