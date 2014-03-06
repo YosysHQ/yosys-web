@@ -3,9 +3,8 @@
 <pre>
     vhdl2verilog [options] &lt;vhdl-file&gt;..
 
-This pass looks for subcircuits that are isomorphic to any of the modules
-in the given map file and replaces them with instances of this modules. The
-map file can be a verilog source file (*.v) or an ilang file (*.il).
+This command reads VHDL source files using the 'vhdl2verilog' tool and the
+Yosys Verilog frontend.
 
     -out &lt;out_file&gt;
         do not import the vhdl2verilog output. instead write it to the

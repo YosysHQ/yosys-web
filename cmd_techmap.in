@@ -18,6 +18,9 @@ file.
         yosys data files are). this is mainly used internally when techmap
         is called from other commands.
 
+    -max_iter &lt;number&gt;
+        only run the specified number of iterations.
+
     -D &lt;define&gt;, -I &lt;incdir&gt;
         this options are passed as-is to the verilog frontend for loading the
         map file. Note that the verilog frontend is also called with the
