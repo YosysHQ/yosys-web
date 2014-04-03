@@ -73,6 +73,7 @@
 <li><a href="cmd_synth_xilinx.html"> synth_xilinx</a> <span>synthesis for Xilinx FPGAs</span></a>
 <li><a href="cmd_tcl.html"> tcl</a> <span>execute a TCL script file</span></a>
 <li><a href="cmd_techmap.html"> techmap</a> <span>generic technology mapper</span></a>
+<li><a href="cmd_verific.html"> verific</a> <span>load Verilog and VHDL designs using Verific</span></a>
 <li><a href="cmd_verilog_defaults.html"> verilog_defaults</a> <span>set default options for read_verilog</span></a>
 <li><a href="cmd_vhdl2verilog.html"> vhdl2verilog</a> <span>importing VHDL designs using vhdl2verilog</span></a>
 <li><a href="cmd_write_autotest.html"> write_autotest</a> <span>generate simple test benches</span></a>

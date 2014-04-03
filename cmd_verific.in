@@ -1,0 +1,23 @@
+@cmd_header verific@
+<h1>verific - load Verilog and VHDL designs using Verific</h1>
+<pre>
+    verific {-vlog95|-vlog2k|-sv2005|-sv2009|-sv} &lt;verilog-file&gt;..
+
+Load the specified Verilog/SystemVerilog files into Verific.
+
+
+    verific {-vhdl87|-vhdl93|-vhdl2k|-vhdl2008} &lt;vhdl-file&gt;..
+
+Load the specified VHDL files into Verific.
+
+
+    verific -import [-gates] {-all | &lt;top-module&gt;..}
+
+Elaborate the design for the sepcified top modules, import to Yosys and
+reset the internal state of Verific. A gate-level netlist is created
+when called with -gates.
+
+Visit http://verific.com/ for more information on Verific.
+
+</pre>
+@footer@
