@@ -1,4 +1,4 @@
-<html><head><title>VlogHammer Bug Report: Icarus confused about signed/unsigned in strange ?: example</title>
+<html><head><title>VlogHammer Bug Report: Verilator bug in handling $signed in an unsigned expression</title>
 <style><!--
 .codehilite .hll { background-color: #ffffcc }
 .codehilite  { background: #f0f0f0; margin-left: 3em; margin-right: 3em; }
@@ -65,26 +65,29 @@
 .state { background: #333; color: #fff; margin-left: 1em; margin-right: 1em; padding: 4px; padding-left: 1em; }
 a { text-decoration: none; }
 --></style></head>
-<body><h1>Icarus confused about signed/unsigned in strange ?: example</h1>
-<div class="state"><strong>CLOSED:</strong> fixed in <strong>Icarus GIT bc9382e</strong></div>
+<body><h1>Verilator bug in handling $signed in an unsigned expression</h1>
+<div class="state"><strong>OPEN:</strong> last verified in <strong>Verilator 3.856</strong></div>
 
-<p>The following module should set the output to constant <strong>0</strong>, because
-the <strong>4'b0</strong> makes the whole expression unsigned.</p>
-<div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_032</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
-  <span class="kt">wire</span> <span class="k">signed</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="mh">5</span><span class="p">;</span>
-  <span class="kt">wire</span> <span class="k">signed</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">b</span> <span class="o">=</span>  <span class="mh">0</span><span class="p">;</span>
-  <span class="k">output</span> <span class="n">y</span><span class="p">;</span>
-  <span class="k">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="mh">1</span> <span class="o">?</span> <span class="n">a</span> <span class="o">:</span> <span class="mh">4&#39;b0</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mh">1</span> <span class="o">?</span> <span class="n">b</span> <span class="o">:</span> <span class="n">b</span><span class="p">);</span> 
-  <span class="k">initial</span> <span class="p">#</span><span class="mh">1</span> <span class="nb">$display</span><span class="p">(</span><span class="s">&quot;%b&quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+<p>The following module should output <strong>0</strong> for <strong>a = 2'b11</strong> and <strong>b = 3'b111</strong>.
+But Verilator 3.856 outputs <strong>1</strong> instead.</p>
+<div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_002</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+  <span class="k">input</span> <span class="p">[</span><span class="mh">1</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">a</span><span class="p">;</span>
+  <span class="k">input</span> <span class="p">[</span><span class="mh">2</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">b</span><span class="p">;</span>
+  <span class="k">output</span> <span class="p">[</span><span class="mh">0</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y</span><span class="p">;</span>
+  <span class="k">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="err">$</span><span class="k">signed</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">==</span> <span class="n">b</span><span class="p">;</span>
 <span class="k">endmodule</span>
 </pre></div>
 
 
-<p>But Icarus Verilog (git 3e41a93) assigns <strong>1</strong> instead. Interestingly
-the bug goes away if the <strong>(1 ? b : b)</strong> is replaced by <strong>b</strong>.</p>
+<p>Analysis: The argument of <strong>$signed</strong> is self determined. So even though the
+comparison is a 3 bit operator, $signed(a) returns the two bit value
+<strong>2'bs11</strong>. This is then extended to 3 bits, but because <strong>b</strong> is unsigned this
+is not a sign extension but a zero padding. Thus the expression is <strong>3'b011 ==
+3'b111</strong>, which is false.</p>
+<p>Crosscheck: Vivado 2013.4, XST 14.7, Isim 14.7 and Modelsim 10.1d implement this
+correctly.</p>
 <p><strong>History:</strong><br />
-2014-03-06 <a href="https://github.com/steveicarus/iverilog/issues/20">Reported</a> bug on GitHub<br />
-2014-03-06 Fixed in GIT commit <a href="https://github.com/steveicarus/iverilog/commit/bc9382eea39b65119c5496a54675d55a1162416d">bc9382e</a></p>
+2014-04-03 Reported as (Issue #729)[http://www.veripool.org/issues/729-Verilator-Verilator-bug-in-handling-signed-in-an-unsigned-expression]</p>
 
 <div><a href="../vloghammer.html">&larr; Back to VlogHammer Project Page</a></div>
 </body></html>

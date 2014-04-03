@@ -7,3 +7,4 @@
 <tr><td valign="top"><a href="vloghammer_bugs/issue_024_icarus.html">issue_024_icarus</a></td><td valign="top">Icarus GIT 5a06602</td><td valign="top">Icarus Verilog bug in processing "1'b1 >= |1'bx"</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_025_icarus.html">issue_025_icarus</a></td><td valign="top">Icarus GIT a3450bf</td><td valign="top">Icarus does undef propagation of const adds incorrectly</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_028_icarus.html">issue_028_icarus</a></td><td valign="top">Icarus GIT ed2e339</td><td valign="top">Icarus does undef propagation of const multiplies incorrectly</td></tr>
+<tr><td valign="top"><a href="vloghammer_bugs/issue_032_icarus.html">issue_032_icarus</a></td><td valign="top">Icarus GIT bc9382e</td><td valign="top">Icarus confused about signed/unsigned in strange ?: example</td></tr>

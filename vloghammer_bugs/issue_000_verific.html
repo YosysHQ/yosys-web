@@ -1,4 +1,4 @@
-<html><head><title>VlogHammer Bug Report: Icarus confused about signed/unsigned in strange ?: example</title>
+<html><head><title>VlogHammer Bug Report: Verific sign handling bug in {N{...}} Verilog operator</title>
 <style><!--
 .codehilite .hll { background-color: #ffffcc }
 .codehilite  { background: #f0f0f0; margin-left: 3em; margin-right: 3em; }
@@ -65,26 +65,29 @@
 .state { background: #333; color: #fff; margin-left: 1em; margin-right: 1em; padding: 4px; padding-left: 1em; }
 a { text-decoration: none; }
 --></style></head>
-<body><h1>Icarus confused about signed/unsigned in strange ?: example</h1>
-<div class="state"><strong>CLOSED:</strong> fixed in <strong>Icarus GIT bc9382e</strong></div>
+<body><h1>Verific sign handling bug in {N{...}} Verilog operator</h1>
+<div class="state"><strong>OPEN:</strong> last verified in <strong>Verific 35_463_32_140306</strong></div>
 
-<p>The following module should set the output to constant <strong>0</strong>, because
-the <strong>4'b0</strong> makes the whole expression unsigned.</p>
-<div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_032</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
-  <span class="kt">wire</span> <span class="k">signed</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="mh">5</span><span class="p">;</span>
-  <span class="kt">wire</span> <span class="k">signed</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">b</span> <span class="o">=</span>  <span class="mh">0</span><span class="p">;</span>
-  <span class="k">output</span> <span class="n">y</span><span class="p">;</span>
-  <span class="k">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="mh">1</span> <span class="o">?</span> <span class="n">a</span> <span class="o">:</span> <span class="mh">4&#39;b0</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mh">1</span> <span class="o">?</span> <span class="n">b</span> <span class="o">:</span> <span class="n">b</span><span class="p">);</span> 
-  <span class="k">initial</span> <span class="p">#</span><span class="mh">1</span> <span class="nb">$display</span><span class="p">(</span><span class="s">&quot;%b&quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+<p>According to the Verilog standard (see sec. 5.1.14 of IEEE Std 1364-2005) the
+expressions for <strong>y0</strong> and <strong>y1</strong> in the following example are equivialent and should
+yield the same results:</p>
+<div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_000</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">y1</span><span class="p">);</span>
+    <span class="k">input</span> <span class="k">signed</span> <span class="p">[</span><span class="mh">1</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">a</span><span class="p">;</span>
+    <span class="k">output</span> <span class="p">[</span><span class="mh">4</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y0</span><span class="p">;</span>
+    <span class="k">output</span> <span class="p">[</span><span class="mh">4</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y1</span><span class="p">;</span>
+    <span class="c1">// concatenate and replicate operators do not preserve signedness.</span>
+    <span class="c1">// the MSB of of y0 and y1 must be constant zero.</span>
+    <span class="k">assign</span> <span class="n">y0</span> <span class="o">=</span> <span class="p">{</span><span class="n">a</span><span class="p">,</span><span class="n">a</span><span class="p">};</span>
+    <span class="k">assign</span> <span class="n">y1</span> <span class="o">=</span> <span class="p">{</span><span class="mh">2</span><span class="p">{</span><span class="n">a</span><span class="p">}};</span>
 <span class="k">endmodule</span>
 </pre></div>
 
 
-<p>But Icarus Verilog (git 3e41a93) assigns <strong>1</strong> instead. Interestingly
-the bug goes away if the <strong>(1 ? b : b)</strong> is replaced by <strong>b</strong>.</p>
+<p>However, Verific handles <strong>{a,a}</strong> as an unsigned and <strong>{2{a}}</strong> as a signed expression (it should be handled as unsigned in both cases).</p>
+<p>In other words, Verific connects the MSB of <strong>y0</strong> to GND and the MSB of <strong>y1</strong> to the MSB of <strong>a</strong>, but it should set the MSB of <strong>y1</strong> to zero as well.</p>
 <p><strong>History:</strong><br />
-2014-03-06 <a href="https://github.com/steveicarus/iverilog/issues/20">Reported</a> bug on GitHub<br />
-2014-03-06 Fixed in GIT commit <a href="https://github.com/steveicarus/iverilog/commit/bc9382eea39b65119c5496a54675d55a1162416d">bc9382e</a></p>
+2014-03-08 Reported bug to Verific support<br />
+2014-03-18 Bug added to issue tracker: VIPER Issue #8510</p>
 
 <div><a href="../vloghammer.html">&larr; Back to VlogHammer Project Page</a></div>
 </body></html>
