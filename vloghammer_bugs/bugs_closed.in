@@ -5,6 +5,7 @@
 <tr><td valign="top"><a href="vloghammer_bugs/issue_012_icarus.html">issue_012_icarus</a></td><td valign="top">Icarus GIT 68f8de2</td><td valign="top">Icarus Verilog undef propagation bug in power operator</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_013_icarus.html">issue_013_icarus</a></td><td valign="top">Icarus GIT ac3aee0</td><td valign="top">Icarus Verilog signedness handling in binary bitwise operations of constants</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_016_verilator.html">issue_016_verilator</a></td><td valign="top">Verilator GIT ff19dd9</td><td valign="top">Bug in Verilator signed/unsigned handling in power operator</td></tr>
+<tr><td valign="top"><a href="vloghammer_bugs/issue_020_xsim.html">issue_020_xsim</a></td><td valign="top">XSim 2014.1</td><td valign="top">XSim fails to recognize signed expression with shift in localparam</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_021_icarus.html">issue_021_icarus</a></td><td valign="top">Icarus GIT 66bdbb7</td><td valign="top">Icarus Verilog efficiency of verinum and vpp_net pow() functions</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_022_icarus.html">issue_022_icarus</a></td><td valign="top">Icarus GIT ecce1d2</td><td valign="top">Icarus Verilog: internal error: lval-rval width mismatch</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_023_icarus.html">issue_023_icarus</a></td><td valign="top">Icarus GIT 5dcd2e8</td><td valign="top">Icarus Verilog creates huge in-memory arrays for shifts with large rhs</td></tr>
@@ -12,3 +13,4 @@
 <tr><td valign="top"><a href="vloghammer_bugs/issue_025_icarus.html">issue_025_icarus</a></td><td valign="top">Icarus GIT a3450bf</td><td valign="top">Icarus does undef propagation of const adds incorrectly</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_028_icarus.html">issue_028_icarus</a></td><td valign="top">Icarus GIT ed2e339</td><td valign="top">Icarus does undef propagation of const multiplies incorrectly</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_032_icarus.html">issue_032_icarus</a></td><td valign="top">Icarus GIT bc9382e</td><td valign="top">Icarus confused about signed/unsigned in strange ?: example</td></tr>
+<tr><td valign="top"><a href="vloghammer_bugs/issue_034_verilator.html">issue_034_verilator</a></td><td valign="top">Verilator GIT d04eb97</td><td valign="top">Verilator thinks ~|a and ~(|a) are the same thing</td></tr>

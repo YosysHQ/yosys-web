@@ -14,17 +14,6 @@ list of currently open bugs found using VlogHammer:</p>
 @vloghammer_bugs_open@
 </table></p>
 
-<!--
-<p>The following bugs have been reported to the tool vendor and the final word from the vendor is that they would not fix the bug:
-
-<p><table style="margin-left: 2em; font-size: small;">
-<tr><td width="120"><strong>Bug ID</strong></td><td width="120"><strong>Fixed in</strong></td><td><strong>Title</strong></td></tr>
-@vloghammer_bugs_wontfix@
-</table></p>
-
-<p>And finally here is a list of now closed bugs found using VlogHammer:</p>
--->
-
 <p>And here is a list of now closed bugs found using VlogHammer:</p>
 
 <p><table style="margin-left: 2em; font-size: small;">
