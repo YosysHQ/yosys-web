@@ -15,6 +15,9 @@ Yosys binaries on Ubuntu:
 sudo apt-get update                                                                                                                                                                                              
 sudo apt-get install yosys yosys-abc</pre>
 
+At the moment his PPA only provides packages for Ubuntu precise (12.04) and
+saucy (13.10).
+
 <h2>Building Development Sources</h2>
 
 Clone source code from GIT repository:
