@@ -1,12 +1,22 @@
 @header Download@
 
-<h1>Download</h1>
+<h1>Download / Install</h1>
 
 <p>At the moment there are no releases or pre-compiled binaries. You have to
 check out the development version of Yosys from GIT and build it manually.</p>
 
 <p><b>Note:</b> At the moment Yosys is only tested on Linux. Expect some
 difficulties when building on other platforms.</p>
+
+<h2>Installing on Ubuntu</h2>
+
+<a href="https://launchpad.net/~saltmakrell">Ruben Undheim</a> maintains a PPA
+with Yosys Ubuntu packages. Use the following commands to install pre-compiled
+Yosys binaries on Ubuntu:
+
+<pre>sudo add-apt-repository ppa:saltmakrell/ppa
+sudo apt-get update                                                                                                                                                                                              
+sudo apt-get install yosys yosys-abc</pre>
 
 <h2>Building Development Sources</h2>
 
