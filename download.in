@@ -15,8 +15,8 @@ Yosys binaries on Ubuntu:
 sudo apt-get update                                                                                                                                                                                              
 sudo apt-get install yosys yosys-abc</pre>
 
-At the moment his PPA only provides packages for Ubuntu precise (12.04) and
-saucy (13.10).
+At the moment his PPA only provides packages for currently officially supported
+Ubuntu desktop versions: precise (12.04 LTS), saucy (13.10) and trusty (14.04 LTS).
 
 <h2>Building Development Sources</h2>
 
