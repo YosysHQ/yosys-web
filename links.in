@@ -32,6 +32,7 @@ This page contains links to other projects.
 <li><a href="http://fmv.jku.at/aiger/">AIGER</a> -- a format, library and set of utilities for And-Inverter Graphs
 <li><a href="http://minisat.se/">MiniSAT</a> -- the SAT solver library used in Yosys
 <li><a href="http://torc.isi.edu/">Torc</a> -- infrastructure and tool set for mapping, placing, and routing
+<li><a href="http://rapidsmith.sourceforge.net/">RapidSmith</a> -- a research-based, open source FPGA CAD tool for modern Xilinx FPGAs
 <li><a href="http://opencircuitdesign.com/">Open Circuit Design</a> -- collection of open-source EDA tools
 </ul>
 
