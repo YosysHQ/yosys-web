@@ -16,3 +16,4 @@
 <tr><td valign="top"><a href="vloghammer_bugs/issue_032_icarus.html">issue_032_icarus</a></td><td valign="top">Icarus GIT bc9382e</td><td valign="top">Icarus confused about signed/unsigned in strange ?: example</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_034_verilator.html">issue_034_verilator</a></td><td valign="top">Verilator GIT d04eb97</td><td valign="top">Verilator thinks ~|a and ~(|a) are the same thing</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_035_verilator.html">issue_035_verilator</a></td><td valign="top">Verilator GIT adb39ce</td><td valign="top">Verilator bug in signed/unsigned expression eval</td></tr>
+<tr><td valign="top"><a href="vloghammer_bugs/issue_037_verilator.html">issue_037_verilator</a></td><td valign="top">Verilator GIT a985a1f</td><td valign="top">Verilator bug with signedness and arithmetic shift</td></tr>
