@@ -1,4 +1,4 @@
-<html><head><title>VlogHammer Bug Report: Verilator bug in signdness of {..}</title>
+<html><head><title>VlogHammer Bug Report: Verilator Internal Error for shift by undef value</title>
 <style><!--
 .codehilite .hll { background-color: #ffffcc }
 .codehilite  { background: #f0f0f0; margin-left: 3em; margin-right: 3em; }
@@ -65,25 +65,21 @@
 .state { background: #333; color: #fff; margin-left: 1em; margin-right: 1em; padding: 4px; padding-left: 1em; }
 a { text-decoration: none; }
 --></style></head>
-<body><h1>Verilator bug in signdness of {..}</h1>
-<div class="state"><strong>CLOSED:</strong> fixed in <strong>Verilator GIT 4a58e85</strong></div>
+<body><h1>Verilator Internal Error for shift by undef value</h1>
+<div class="state"><strong>OPEN:</strong> last verified in <strong>Verilator GIT 4a58e85</strong></div>
 
-<p>Verilator a985a1f returns 11001 instead of 01001, i.e. verilator
-performs sign extension even though the result of <code>{ .. }</code> is unsigned.</p>
-<div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_038</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
-    <span class="k">output</span> <span class="p">[</span><span class="mh">4</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y</span><span class="p">;</span>
-    <span class="k">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="p">{</span> <span class="o">-</span><span class="mh">4</span><span class="p">&#39;</span><span class="n">sd7</span> <span class="p">};</span>
+<p>Verilator 4a58e85 creates the following error:<br />
+<code>%Error: Internal Error: ../V3Number.cpp:521: toUInt with 4-state 4'bxxxx</code></p>
+<div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_039</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+  <span class="k">input</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">a</span><span class="p">;</span>
+  <span class="k">output</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y</span><span class="p">;</span>
+  <span class="k">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="n">a</span> <span class="o">&gt;&gt;&gt;</span> <span class="mh">4</span><span class="p">&#39;</span><span class="n">bx</span><span class="p">;</span>
 <span class="k">endmodule</span>
 </pre></div>
 
 
-<p>Self-contained test case:
-<a href="http://svn.clifford.at/handicraft/2014/verilatortest/test010.v">test010.v</a>,
-<a href="http://svn.clifford.at/handicraft/2014/verilatortest/test010.cc">test010.cc</a>,
-<a href="http://svn.clifford.at/handicraft/2014/verilatortest/test010.sh">test010.sh</a></p>
 <p><strong>History:</strong><br />
-2014-05-03 Reported as <a href="http://www.veripool.org/issues/759-Verilator-Verilator-bug-in-signdness-of-">Issue #759</a><br />
-2014-05-03 Fixed in GIT commit 4a58e85</p>
+2014-05-04 Reported as <a href="http://www.veripool.org/issues/760-Verilator-Verilator-Internal-Error-for-shift-by-undef-value">Issue #760</a></p>
 
 <div><a href="../vloghammer.html">&larr; Back to VlogHammer Project Page</a></div>
 </body></html>
