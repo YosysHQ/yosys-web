@@ -1,4 +1,4 @@
-<html><head><title>VlogHammer Bug Report: Verilator Internal Error for shift by undef value</title>
+<html><head><title>VlogHammer Bug Report: Bug in evaluating (defined) expression with undef bits</title>
 <style><!--
 .codehilite .hll { background-color: #ffffcc }
 .codehilite  { background: #f0f0f0; margin-left: 3em; margin-right: 3em; }
@@ -65,22 +65,25 @@
 .state { background: #333; color: #fff; margin-left: 1em; margin-right: 1em; padding: 4px; padding-left: 1em; }
 a { text-decoration: none; }
 --></style></head>
-<body><h1>Verilator Internal Error for shift by undef value</h1>
-<div class="state"><strong>CLOSED:</strong> fixed in <strong>Verilator GIT 621c515</strong></div>
+<body><h1>Bug in evaluating (defined) expression with undef bits</h1>
+<div class="state"><strong>CLOSED:</strong> fixed in <strong>Verilator GIT 5f5a3db</strong></div>
 
-<p>Verilator 4a58e85 creates the following error:<br />
-<code>%Error: Internal Error: ../V3Number.cpp:521: toUInt with 4-state 4'bxxxx</code></p>
-<div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_039</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
-  <span class="k">input</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">a</span><span class="p">;</span>
+<p>This should set y=1, but verilator 6ce2a52 sets y=0 instead.</p>
+<div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_042</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
   <span class="k">output</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y</span><span class="p">;</span>
-  <span class="k">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="n">a</span> <span class="o">&gt;&gt;&gt;</span> <span class="mh">4</span><span class="p">&#39;</span><span class="n">bx</span><span class="p">;</span>
+  <span class="k">localparam</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">p11</span> <span class="o">=</span> <span class="mh">1</span><span class="p">&#39;</span><span class="n">bx</span><span class="p">;</span>
+  <span class="k">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="o">~&amp;</span><span class="n">p11</span><span class="p">;</span>
 <span class="k">endmodule</span>
 </pre></div>
 
 
+<p>Self-contained test case:
+<a href="http://svn.clifford.at/handicraft/2014/verilatortest/test013.v">test013.v</a>,
+<a href="http://svn.clifford.at/handicraft/2014/verilatortest/test013.cc">test013.cc</a>,
+<a href="http://svn.clifford.at/handicraft/2014/verilatortest/test013.sh">test013.sh</a></p>
 <p><strong>History:</strong><br />
-2014-05-04 Reported as <a href="http://www.veripool.org/issues/760-Verilator-Verilator-Internal-Error-for-shift-by-undef-value">Issue #760</a><br />
-2014-05-04 Fixed in GIT commit 621c515</p>
+2014-05-11 Reported as <a href="http://www.veripool.org/issues/764-Verilator-Bug-in-evaluating-defined-expression-with-undef-bits">Issue #764</a><br />
+2014-05-11 Fixed in GIT commit 5f5a3db</p>
 
 <div><a href="../vloghammer.html">&larr; Back to VlogHammer Project Page</a></div>
 </body></html>

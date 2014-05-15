@@ -17,4 +17,4 @@
 <tr><td valign="top"><a href="vloghammer_bugs/issue_029_icarus.html">issue_029_icarus</a></td><td valign="top">Icarus GIT ed2e339</td><td valign="top">Icarus only using the lowest 32 bits of right shift operand</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_029_verific.html">issue_029_verific</a></td><td valign="top">Verific 35_463_32_140306</td><td valign="top">Verific only using the lowest 32 bits of right shift operand</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_033_verific.html">issue_033_verific</a></td><td valign="top">Verific 35_463_32_140306</td><td valign="top">Verific incorrectly const folds a == 1'bx</td></tr>
-<tr><td valign="top"><a href="vloghammer_bugs/issue_039_verilator.html">issue_039_verilator</a></td><td valign="top">Verilator GIT 4a58e85</td><td valign="top">Verilator Internal Error for shift by undef value</td></tr>
+<tr><td valign="top"><a href="vloghammer_bugs/issue_040_verilator.html">issue_040_verilator</a></td><td valign="top">Verilator GIT 621c515</td><td valign="top">Verilator uses undeclared helper function for power op > 64 bits</td></tr>
