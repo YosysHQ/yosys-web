@@ -66,7 +66,7 @@
 a { text-decoration: none; }
 --></style></head>
 <body><h1>Icarus only using the lowest 32 bits of right shift operand</h1>
-<div class="state"><strong>OPEN:</strong> last verified in <strong>Icarus GIT ed2e339</strong></div>
+<div class="state"><strong>CLOSED:</strong> fixed in <strong>Icarus GIT 020e280</strong></div>
 
 <p>The following modules should set the output to constant <strong>4'b0000</strong>:</p>
 <div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_029</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
@@ -85,7 +85,8 @@ a { text-decoration: none; }
 
 <p>But Icarus Verilog (git ed2e339) assigns <strong>4'b0001</strong> instead.</p>
 <p><strong>History:</strong><br />
-2014-02-27 <a href="https://github.com/steveicarus/iverilog/issues/19">Reported</a> bug on GitHub  </p>
+2014-02-27 <a href="https://github.com/steveicarus/iverilog/issues/19">Reported</a> bug on GitHub<br />
+2014-05-04 Fixed in GIT commit 020e280</p>
 
 <div><a href="../vloghammer.html">&larr; Back to VlogHammer Project Page</a></div>
 </body></html>

@@ -14,7 +14,9 @@
 <tr><td valign="top"><a href="vloghammer_bugs/issue_021_quartus.html">issue_021_quartus</a></td><td valign="top">Quartus 13.1</td><td valign="top">Quartus hangs on power operations with large exponents</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_021_verific.html">issue_021_verific</a></td><td valign="top">Verific 35_463_32_140306</td><td valign="top">Verific hangs on power operations with large exponents</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_021_xsim.html">issue_021_xsim</a></td><td valign="top">XSim 2014.1</td><td valign="top">XSim hangs on power operations with large exponents</td></tr>
-<tr><td valign="top"><a href="vloghammer_bugs/issue_029_icarus.html">issue_029_icarus</a></td><td valign="top">Icarus GIT ed2e339</td><td valign="top">Icarus only using the lowest 32 bits of right shift operand</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_029_verific.html">issue_029_verific</a></td><td valign="top">Verific 35_463_32_140306</td><td valign="top">Verific only using the lowest 32 bits of right shift operand</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_033_verific.html">issue_033_verific</a></td><td valign="top">Verific 35_463_32_140306</td><td valign="top">Verific incorrectly const folds a == 1'bx</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_040_verilator.html">issue_040_verilator</a></td><td valign="top">Verilator GIT 621c515</td><td valign="top">Verilator uses undeclared helper function for power op > 64 bits</td></tr>
+<tr><td valign="top"><a href="vloghammer_bugs/issue_051_verilator.html">issue_051_verilator</a></td><td valign="top">Verilator GIT f705f9b</td><td valign="top">Another Verilotor bug with large shifts</td></tr>
+<tr><td valign="top"><a href="vloghammer_bugs/issue_052_verilator.html">issue_052_verilator</a></td><td valign="top">Verilator GIT f705f9b</td><td valign="top">Strange Verilator "Unsupported" Error</td></tr>
+<tr><td valign="top"><a href="vloghammer_bugs/issue_053_verilator.html">issue_053_verilator</a></td><td valign="top">Verilator GIT f705f9b</td><td valign="top">Incorrect results with XNOR/shift expression</td></tr>

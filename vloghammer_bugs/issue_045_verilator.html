@@ -1,4 +1,4 @@
-<html><head><title>VlogHammer Bug Report: Verific hangs on power operations with large exponents</title>
+<html><head><title>VlogHammer Bug Report: Verilator internal fault related to huge shifts</title>
 <style><!--
 .codehilite .hll { background-color: #ffffcc }
 .codehilite  { background: #f0f0f0; margin-left: 3em; margin-right: 3em; }
@@ -65,25 +65,27 @@
 .state { background: #333; color: #fff; margin-left: 1em; margin-right: 1em; padding: 4px; padding-left: 1em; }
 a { text-decoration: none; }
 --></style></head>
-<body><h1>Verific hangs on power operations with large exponents</h1>
-<div class="state"><strong>OPEN:</strong> last verified in <strong>Verific 35_463_32_140306</strong></div>
+<body><h1>Verilator internal fault related to huge shifts</h1>
+<div class="state"><strong>CLOSED:</strong> fixed in <strong>Verilator GIT 06744b6</strong></div>
 
-<p>The following module should set y to constant <strong>6'b110011</strong>, but instead it just
-hangs Verific:</p>
-<div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_021</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
-    <span class="k">input</span> <span class="p">[</span><span class="mh">31</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">a</span><span class="p">;</span>
-    <span class="k">output</span> <span class="p">[</span><span class="mh">5</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y</span><span class="p">;</span>
-    <span class="k">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="mh">6</span><span class="mi">&#39;d3</span> <span class="o">**</span> <span class="mh">123456789</span><span class="p">;</span>
+<p>Verilator d7e4bc1 fails with an internal error on the following code:</p>
+<div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_045</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+  <span class="k">input</span> <span class="k">signed</span> <span class="p">[</span><span class="mh">15</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">a</span><span class="p">;</span>
+  <span class="k">output</span> <span class="p">[</span><span class="mh">15</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y</span><span class="p">;</span>
+  <span class="k">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="mh">16</span><span class="p">)</span> <span class="o">&gt;&gt;&gt;</span> <span class="mh">32&#39;h7ffffff1</span><span class="p">;</span>
 <span class="k">endmodule</span>
 </pre></div>
 
 
-<p>It seems as if Verific tries to calculate the power by simply performing
-123456789 (or rather 123456788) multiplications. But the power operator should
-of course be implemented using a proper power-modulus algorithm.</p>
+<p>The error created is:</p>
+<div class="codehilite"><pre><span class="c">%Error: Verilator internal fault, sorry.  Consider trying --debug --gdbbt</span>
+<span class="c">%Error: Command Failed /usr/local/bin/verilator_bin -cc -Wno-fatal -DSIMLIB_NOMEM -DSIMLIB_NOSR -DSIMLIB_NOLUT --top-module test rtl/test.v</span>
+</pre></div>
+
+
 <p><strong>History:</strong><br />
-2014-03-22 Reported bug to Verific support<br />
-2014-03-26 Bug added to issue tracker: VIPER Issue #8533</p>
+2014-05-15 Reported as <a href="http://www.veripool.org/issues/766-Verilator-Verilator-internal-fault-related-to-huge-shifts">Issue #766</a><br />
+2014-05-16 Fixed in GIT commit 06744b6</p>
 
 <div><a href="../vloghammer.html">&larr; Back to VlogHammer Project Page</a></div>
 </body></html>
