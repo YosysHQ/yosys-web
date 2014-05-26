@@ -8,6 +8,7 @@
 <tr><td valign="top"><a href="vloghammer_bugs/issue_010_vivado.html">issue_010_vivado</a></td><td valign="top">Vivado 2014.1</td><td valign="top">Vivado creates netlist with inputs shorted together</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_014_vivado.html">issue_014_vivado</a></td><td valign="top">Vivado 2014.1</td><td valign="top">Vivado GDpGen::implementDivMod(DFNode*, bool): Assertion `TBD' failed.</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_015_vivado.html">issue_015_vivado</a></td><td valign="top">Vivado 2014.1</td><td valign="top">Vivado bug in undef handling for relational operators</td></tr>
+<tr><td valign="top"><a href="vloghammer_bugs/issue_016_dc.html">issue_016_dc</a></td><td valign="top">DC G-2012.06-SP4</td><td valign="top">Design Compiler bug in power operator</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_016_quartus.html">issue_016_quartus</a></td><td valign="top">Quartus 13.1</td><td valign="top">Bug in Quartus signed/unsigned handling in power operator</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_017_xsim.html">issue_017_xsim</a></td><td valign="top">XSim 2014.1</td><td valign="top">Bug in XSIM when combining reduce op and $signed/$unsigned</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_019_xsim.html">issue_019_xsim</a></td><td valign="top">XSim 2014.1</td><td valign="top">XSim implements 0 ** -1 incorrectly</td></tr>
@@ -16,6 +17,8 @@
 <tr><td valign="top"><a href="vloghammer_bugs/issue_021_xsim.html">issue_021_xsim</a></td><td valign="top">XSim 2014.1</td><td valign="top">XSim hangs on power operations with large exponents</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_029_verific.html">issue_029_verific</a></td><td valign="top">Verific 35_463_32_140306</td><td valign="top">Verific only using the lowest 32 bits of right shift operand</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_033_verific.html">issue_033_verific</a></td><td valign="top">Verific 35_463_32_140306</td><td valign="top">Verific incorrectly const folds a == 1'bx</td></tr>
+<tr><td valign="top"><a href="vloghammer_bugs/issue_036_dc.html">issue_036_dc</a></td><td valign="top">DC G-2012.06-SP4</td><td valign="top">Design Compiler bug regarding shift operations and bit width</td></tr>
+<tr><td valign="top"><a href="vloghammer_bugs/issue_039_dc.html">issue_039_dc</a></td><td valign="top">DC G-2012.06-SP4</td><td valign="top">Design Compiler refuses input with ELAB-922 error</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_040_verilator.html">issue_040_verilator</a></td><td valign="top">Verilator GIT 621c515</td><td valign="top">Verilator uses undeclared helper function for power op > 64 bits</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_051_verilator.html">issue_051_verilator</a></td><td valign="top">Verilator GIT f705f9b</td><td valign="top">Another Verilotor bug with large shifts</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_052_verilator.html">issue_052_verilator</a></td><td valign="top">Verilator GIT f705f9b</td><td valign="top">Strange Verilator "Unsupported" Error</td></tr>
