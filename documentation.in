@@ -20,6 +20,10 @@ href="http://www.reddit.com/r/yosys/">Yosys Subreddit</a>.
 The best place to report a bug is on <a
 href="https://github.com/cliffordwolf/yosys/issues/new">GitHub</a>.
 
+<h2>Presentation Slides</h2>
+
+<p><a href="files/yosys_presentation.pdf">This presentation slides</a> cover a wide range of topics related to Yosys. (The LaTeX source is part of the Yosys source distribution. Fell free to adapt the slides as needed.)</p>
+
 <h2>Application Notes</h2>
 
 <ul class="list">
