@@ -1,4 +1,3 @@
-<tr><td valign="top"><a href="vloghammer_bugs/issue_000_verific.html">issue_000_verific</a></td><td valign="top">Verific 35_463_32_140306</td><td valign="top">Verific sign handling bug in {N{...}} Verilog operator</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_000_xst.html">issue_000_xst</a></td><td valign="top">XST 14.7</td><td valign="top">XST sign handling bug in {N{...}} Verilog operator</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_001_quartus.html">issue_001_quartus</a></td><td valign="top">Quartus 13.1</td><td valign="top">Quartus handling of constant first argument in Verilog ?: operator</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_001_xst.html">issue_001_xst</a></td><td valign="top">XST 14.7</td><td valign="top">XST handling of constant first argument in Verilog ?: operator</td></tr>
@@ -13,9 +12,8 @@
 <tr><td valign="top"><a href="vloghammer_bugs/issue_017_xsim.html">issue_017_xsim</a></td><td valign="top">XSim 2014.1</td><td valign="top">Bug in XSIM when combining reduce op and $signed/$unsigned</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_019_xsim.html">issue_019_xsim</a></td><td valign="top">XSim 2014.1</td><td valign="top">XSim implements 0 ** -1 incorrectly</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_021_quartus.html">issue_021_quartus</a></td><td valign="top">Quartus 13.1</td><td valign="top">Quartus hangs on power operations with large exponents</td></tr>
-<tr><td valign="top"><a href="vloghammer_bugs/issue_021_verific.html">issue_021_verific</a></td><td valign="top">Verific 35_463_32_140306</td><td valign="top">Verific hangs on power operations with large exponents</td></tr>
+<tr><td valign="top"><a href="vloghammer_bugs/issue_021_verific.html">issue_021_verific</a></td><td valign="top">Verific 35_463_32_140722</td><td valign="top">Verific hangs on power operations with large exponents</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_021_xsim.html">issue_021_xsim</a></td><td valign="top">XSim 2014.1</td><td valign="top">XSim hangs on power operations with large exponents</td></tr>
-<tr><td valign="top"><a href="vloghammer_bugs/issue_029_verific.html">issue_029_verific</a></td><td valign="top">Verific 35_463_32_140306</td><td valign="top">Verific only using the lowest 32 bits of right shift operand</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_033_verific.html">issue_033_verific</a></td><td valign="top">Verific 35_463_32_140306</td><td valign="top">Verific incorrectly const folds a == 1'bx</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_036_dc.html">issue_036_dc</a></td><td valign="top">DC G-2012.06-SP4</td><td valign="top">Design Compiler bug regarding shift operations and bit width</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_039_dc.html">issue_039_dc</a></td><td valign="top">DC G-2012.06-SP4</td><td valign="top">Design Compiler refuses input with ELAB-922 error</td></tr>
@@ -23,3 +21,4 @@
 <tr><td valign="top"><a href="vloghammer_bugs/issue_051_verilator.html">issue_051_verilator</a></td><td valign="top">Verilator GIT f705f9b</td><td valign="top">Another Verilotor bug with large shifts</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_052_verilator.html">issue_052_verilator</a></td><td valign="top">Verilator GIT f705f9b</td><td valign="top">Strange Verilator "Unsupported" Error</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_053_verilator.html">issue_053_verilator</a></td><td valign="top">Verilator GIT f705f9b</td><td valign="top">Incorrect results with XNOR/shift expression</td></tr>
+<tr><td valign="top"><a href="vloghammer_bugs/issue_054_verific.html">issue_054_verific</a></td><td valign="top">Verific 35_463_32_140722</td><td valign="top">Verific hangs on power operations with large exponents</td></tr>

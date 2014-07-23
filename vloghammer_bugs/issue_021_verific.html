@@ -66,10 +66,10 @@
 a { text-decoration: none; }
 --></style></head>
 <body><h1>Verific hangs on power operations with large exponents</h1>
-<div class="state"><strong>OPEN:</strong> last verified in <strong>Verific 35_463_32_140306</strong></div>
+<div class="state"><strong>OPEN:</strong> last verified in <strong>Verific 35_463_32_140722</strong></div>
 
 <p>The following module should set y to constant <strong>6'b110011</strong>, but instead it just
-hangs Verific:</p>
+hangs Verific 35_463_32_140306:</p>
 <div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_021</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
     <span class="k">input</span> <span class="p">[</span><span class="mh">31</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">a</span><span class="p">;</span>
     <span class="k">output</span> <span class="p">[</span><span class="mh">5</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y</span><span class="p">;</span>
@@ -83,7 +83,8 @@ hangs Verific:</p>
 of course be implemented using a proper power-modulus algorithm.</p>
 <p><strong>History:</strong><br />
 2014-03-22 Reported bug to Verific support<br />
-2014-03-26 Bug added to issue tracker: VIPER Issue #8533</p>
+2014-03-26 Bug added to issue tracker: VIPER Issue #8533<br />
+2014-07-23 Fixed in Verific 35_463_32_140722</p>
 
 <div><a href="../vloghammer.html">&larr; Back to VlogHammer Project Page</a></div>
 </body></html>

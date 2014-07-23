@@ -1,3 +1,4 @@
+<tr><td valign="top"><a href="vloghammer_bugs/issue_000_verific.html">issue_000_verific</a></td><td valign="top">Verific 35_463_32_140722</td><td valign="top">Verific sign handling bug in {N{...}} Verilog operator</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_002_verilator.html">issue_002_verilator</a></td><td valign="top">Verilator GIT 14fcfd8</td><td valign="top">Verilator bug in handling $signed in an unsigned expression</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_003_verilator.html">issue_003_verilator</a></td><td valign="top">Verilator GIT b631b59</td><td valign="top">Verilator bug with shift, expression width and signedness</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_005_verilator.html">issue_005_verilator</a></td><td valign="top">Verilator GIT 5c39420</td><td valign="top">Verilator bug in extending $signed</td></tr>
@@ -14,6 +15,7 @@
 <tr><td valign="top"><a href="vloghammer_bugs/issue_025_icarus.html">issue_025_icarus</a></td><td valign="top">Icarus GIT a3450bf</td><td valign="top">Icarus does undef propagation of const adds incorrectly</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_028_icarus.html">issue_028_icarus</a></td><td valign="top">Icarus GIT ed2e339</td><td valign="top">Icarus does undef propagation of const multiplies incorrectly</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_029_icarus.html">issue_029_icarus</a></td><td valign="top">Icarus GIT 020e280</td><td valign="top">Icarus only using the lowest 32 bits of right shift operand</td></tr>
+<tr><td valign="top"><a href="vloghammer_bugs/issue_029_verific.html">issue_029_verific</a></td><td valign="top">Verific 35_463_32_140722</td><td valign="top">Verific only using the lowest 32 bits of right shift operand</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_032_icarus.html">issue_032_icarus</a></td><td valign="top">Icarus GIT bc9382e</td><td valign="top">Icarus confused about signed/unsigned in strange ?: example</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_034_verilator.html">issue_034_verilator</a></td><td valign="top">Verilator GIT d04eb97</td><td valign="top">Verilator thinks ~|a and ~(|a) are the same thing</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_035_verilator.html">issue_035_verilator</a></td><td valign="top">Verilator GIT adb39ce</td><td valign="top">Verilator bug in signed/unsigned expression eval</td></tr>
