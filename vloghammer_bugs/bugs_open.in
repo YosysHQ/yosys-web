@@ -12,9 +12,8 @@
 <tr><td valign="top"><a href="vloghammer_bugs/issue_017_xsim.html">issue_017_xsim</a></td><td valign="top">XSim 2014.1</td><td valign="top">Bug in XSIM when combining reduce op and $signed/$unsigned</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_019_xsim.html">issue_019_xsim</a></td><td valign="top">XSim 2014.1</td><td valign="top">XSim implements 0 ** -1 incorrectly</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_021_quartus.html">issue_021_quartus</a></td><td valign="top">Quartus 13.1</td><td valign="top">Quartus hangs on power operations with large exponents</td></tr>
-<tr><td valign="top"><a href="vloghammer_bugs/issue_021_verific.html">issue_021_verific</a></td><td valign="top">Verific 35_463_32_140722</td><td valign="top">Verific hangs on power operations with large exponents</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_021_xsim.html">issue_021_xsim</a></td><td valign="top">XSim 2014.1</td><td valign="top">XSim hangs on power operations with large exponents</td></tr>
-<tr><td valign="top"><a href="vloghammer_bugs/issue_033_verific.html">issue_033_verific</a></td><td valign="top">Verific 35_463_32_140306</td><td valign="top">Verific incorrectly const folds a == 1'bx</td></tr>
+<tr><td valign="top"><a href="vloghammer_bugs/issue_033_verific.html">issue_033_verific</a></td><td valign="top">Verific 35_463_32_140722</td><td valign="top">Verific incorrectly const folds a == 1'bx</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_036_dc.html">issue_036_dc</a></td><td valign="top">DC G-2012.06-SP4</td><td valign="top">Design Compiler bug regarding shift operations and bit width</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_039_dc.html">issue_039_dc</a></td><td valign="top">DC G-2012.06-SP4</td><td valign="top">Design Compiler refuses input with ELAB-922 error</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_040_verilator.html">issue_040_verilator</a></td><td valign="top">Verilator GIT 621c515</td><td valign="top">Verilator uses undeclared helper function for power op > 64 bits</td></tr>
