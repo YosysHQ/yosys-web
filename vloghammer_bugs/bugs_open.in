@@ -21,3 +21,5 @@
 <tr><td valign="top"><a href="vloghammer_bugs/issue_052_verilator.html">issue_052_verilator</a></td><td valign="top">Verilator GIT f705f9b</td><td valign="top">Strange Verilator "Unsupported" Error</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_053_verilator.html">issue_053_verilator</a></td><td valign="top">Verilator GIT f705f9b</td><td valign="top">Incorrect results with XNOR/shift expression</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_054_verific.html">issue_054_verific</a></td><td valign="top">Verific 35_463_32_140722</td><td valign="top">Verific sign handling in {N{...}} and {...} again</td></tr>
+<tr><td valign="top"><a href="vloghammer_bugs/issue_055_verific.html">issue_055_verific</a></td><td valign="top">Verific 35_463_32_140722</td><td valign="top">Verific uses incorrect width for self-determined division</td></tr>
+<tr><td valign="top"><a href="vloghammer_bugs/issue_056_verific.html">issue_056_verific</a></td><td valign="top">Verific 35_463_32_140722</td><td valign="top">Strange Verific bug with replicate and xor-reduce</td></tr>
