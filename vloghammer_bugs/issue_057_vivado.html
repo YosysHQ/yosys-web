@@ -1,4 +1,4 @@
-<html><head><title>VlogHammer Bug Report: Quartus Verilog bug in signdness handling of 2nd shift operand</title>
+<html><head><title>VlogHammer Bug Report: Vivado handling of partly out-of-bounds parts select</title>
 <style><!--
 .codehilite .hll { background-color: #ffffcc }
 .codehilite  { background: #f0f0f0; margin-left: 3em; margin-right: 3em; }
@@ -65,36 +65,25 @@
 .state { background: #333; color: #fff; margin-left: 1em; margin-right: 1em; padding: 4px; padding-left: 1em; }
 a { text-decoration: none; }
 --></style></head>
-<body><h1>Quartus Verilog bug in signdness handling of 2nd shift operand</h1>
-<div class="state"><strong>OPEN:</strong> last verified in <strong>Quartus 14.0</strong></div>
+<body><h1>Vivado handling of partly out-of-bounds parts select</h1>
+<div class="state"><strong>OPEN:</strong> last verified in <strong>Vivado 2014.2</strong></div>
 
-<p>The following module should output <strong>5'b11000</strong>, but quartus 13.1 generates a 
-module that outputs <strong>5'b00000</strong> instead.</p>
-<div class="codehilite"><pre><span class="n">module</span> <span class="nf">issue_003</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
-  <span class="n">output</span> <span class="p">[</span><span class="mi">4</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span> <span class="n">y</span><span class="p">;</span>
-  <span class="n">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">4</span><span class="err">&#39;</span><span class="n">b1111</span> <span class="o">&lt;&lt;</span> <span class="o">-</span><span class="mi">2</span><span class="err">&#39;</span><span class="n">sd1</span><span class="p">;</span>
-<span class="n">endmodule</span>
+<p>Consider the following test case:</p>
+<div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_057</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+  <span class="k">input</span> <span class="p">[</span><span class="mh">2</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">a</span><span class="p">;</span>
+  <span class="k">output</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y</span><span class="p">;</span>
+  <span class="k">localparam</span> <span class="p">[</span><span class="mh">5</span><span class="o">:</span><span class="mh">15</span><span class="p">]</span> <span class="n">p</span> <span class="o">=</span> <span class="mh">51681708</span><span class="p">;</span>
+  <span class="k">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mh">15</span> <span class="o">+</span> <span class="n">a</span> <span class="o">-:</span> <span class="mh">5</span><span class="p">];</span>
+<span class="k">endmodule</span>
 </pre></div>
 
 
-<p>Analysis: The 2nd argument of the shift operators (such as <strong>&lt;&lt;</strong>) are
-self-determined and are always interpreted as unsigned (see sec. 5.1.12 and
-table 5-22 of IEEE Std 1364-2005). So the shift operator in the example
-above should implement a three bit left shift.</p>
-<p>In my tests I have synthesized the module with</p>
-<div class="codehilite"><pre><span class="n">quartus_map</span> <span class="n">issue_003</span> <span class="o">--</span><span class="n">source</span><span class="o">=</span><span class="n">issue_003</span><span class="p">.</span><span class="n">v</span> <span class="o">--</span><span class="n">family</span><span class="o">=</span><span class="s">&quot;Cyclone III&quot;</span>
-<span class="n">quartus_fit</span> <span class="n">issue_003</span>
-<span class="n">quartus_eda</span> <span class="n">issue_003</span> <span class="o">--</span><span class="n">formal_verification</span> <span class="o">--</span><span class="n">tool</span><span class="o">=</span><span class="n">conformal</span>
-</pre></div>
-
-
-<p>Crosscheck: Vivado 2013.4, XST 14.7, Isim 14.7 and Modelsim 10.1d implement this
-correctly.</p>
+<p>This is expected to set <strong>y[3]=1</strong> for <strong>a=1</strong>, but the vivado 2014.2 synthesis output 
+sets <strong>y[3]=0</strong>.</p>
+<p>Crosscheck: Verific 35_463_32_140722, Modelsim 10.1e, XSim 2014.2 and Icarus Verilog
+(git 1572dcd) implement this correctly. Quartus 14.0 suffers from the same bug.</p>
 <p><strong>History:</strong><br />
-2014-01-23 Reported via Altera mySupport (SR #11025074)<br />
-2014-01-27 Answer from Altera: Synplify is behaving the same as Quartus II. Altera will investigate.<br />
-2014-02-06 Bugfix for Quartus II v14.1 prospected by Altera Support<br />
-2014-09-28 Verified that bug is still present in Quartus II v14.0  </p>
+2014-09-27 <a href="http://forums.xilinx.com/t5/Synthesis/Vivado-bug-in-handling-of-partly-out-of-bounds-parts-select/td-p/524661">Reported</a> bug in Xilinx Support Forum  </p>
 
 <div><a href="../vloghammer.html">&larr; Back to VlogHammer Project Page</a></div>
 </body></html>

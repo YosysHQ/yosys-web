@@ -66,7 +66,7 @@
 a { text-decoration: none; }
 --></style></head>
 <body><h1>Quartus Verilog bug in handling $signed in an unsigned expression</h1>
-<div class="state"><strong>OPEN:</strong> last verified in <strong>Quartus 13.1</strong></div>
+<div class="state"><strong>OPEN:</strong> last verified in <strong>Quartus 14.0</strong></div>
 
 <p>The following module should output constant <strong>0</strong>, but quartus 13.1 generates a
 module that outputs constant <strong>1</strong> instead.</p>
@@ -95,7 +95,8 @@ is not a sign extension but a zero padding. Thus the expression is <strong>3'b01
 correctly.</p>
 <p><strong>History:</strong><br />
 2014-01-23 Reported via Altera mySupport (SR #11025071)<br />
-2014-03-22 Bugfix for Quartus II v14.1 prospected by Altera Support</p>
+2014-03-22 Bugfix for Quartus II v14.1 prospected by Altera Support<br />
+2014-09-28 Verified that bug is still present in Quartus II v14.0  </p>
 
 <div><a href="../vloghammer.html">&larr; Back to VlogHammer Project Page</a></div>
 </body></html>
