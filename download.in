@@ -21,10 +21,10 @@ Yosys binaries on Ubuntu:
 
 <pre>sudo add-apt-repository ppa:saltmakrell/ppa
 sudo apt-get update                                                                                                                                                                                              
-sudo apt-get install yosys yosys-abc</pre>
+sudo apt-get install yosys</pre>
 
 At the moment his PPA only provides packages for currently officially supported
-Ubuntu desktop versions: precise (12.04 LTS), saucy (13.10) and trusty (14.04 LTS).
+Ubuntu desktop LTS versions: precise (12.04 LTS) and trusty (14.04 LTS).
 
 <h2>Yosys on MS Windows</h2>
 
