@@ -4,7 +4,7 @@
     hierarchy [-check] [-top &lt;module&gt;]
     hierarchy -generate &lt;cell-types&gt; &lt;port-decls&gt;
 
-In parametric designs, a module might exists in serveral variations with
+In parametric designs, a module might exists in several variations with
 different parameter values. This pass looks at all modules in the current
 design an re-runs the language frontends for the parametric modules as
 needed.
@@ -19,12 +19,17 @@ needed.
 
     -libdir &lt;directory&gt;
         search for files named &lt;module_name&gt;.v in the specified directory
-        for unkown modules and automatically run read_verilog for each
+        for unknown modules and automatically run read_verilog for each
         unknown module.
 
     -keep_positionals
         per default this pass also converts positional arguments in cells
         to arguments using port names. this option disables this behavior.
+
+    -nokeep_asserts
+        per default this pass sets the "keep" attribute on all modules
+        that directly or indirectly contain one or more $assert cells. this
+        option disables this behavior.
 
     -top &lt;module&gt;
         use the specified top module to built a design hierarchy. modules

@@ -1,0 +1,43 @@
+@cmd_header test_cell@
+<h1>test_cell - automatically test the implementation of a cell type</h1>
+<pre>
+    test_cell [options] {cell-types}
+
+Tests the internal implementation of the given cell type (for example '$add')
+by comparing SAT solver, EVAL and TECHMAP implementations of the cell types..
+
+Run with 'all' instead of a cell type to run the test on all supported
+cell types.
+
+    -n {integer}
+        create this number of cell instances and test them (default = 100).
+
+    -s {positive_integer}
+        use this value as rng seed value (default = unix time).
+
+    -f {ilang_file}
+        don't generate circuits. instead load the specified ilang file.
+
+    -map {filename}
+        pass this option to techmap.
+
+    -simlib
+        use "techmap -map +/simlib.v -max_iter 2 -autoproc"
+
+    -script {script_file}
+        instead of calling "techmap", call "script {script_file}".
+
+    -const
+        set some input bits to random constant values
+
+    -nosat
+        do not check SAT model or run SAT equivalence checking
+
+    -v
+        print additional debug information to the console
+
+    -vlog {filename}
+        create a verilog test bench to test simlib and write_verilog
+
+</pre>
+@footer@

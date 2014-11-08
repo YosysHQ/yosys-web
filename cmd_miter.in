@@ -23,5 +23,8 @@ detected.
     -make_assert
         also create an 'assert' cell that checks if trigger is always low.
 
+    -flatten
+        call 'flatten; opt_const -keepdc -undriven;;' on the miter circuit.
+
 </pre>
 @footer@

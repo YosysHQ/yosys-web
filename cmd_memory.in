@@ -6,6 +6,9 @@
 This pass calls all the other memory_* passes in a useful order:
 
     memory_dff
+    opt_clean
+    memory_share
+    opt_clean
     memory_collect
     memory_map          (skipped if called with -nomap)
 

@@ -1,7 +1,7 @@
 @cmd_header opt_reduce@
 <h1>opt_reduce - simplify large MUXes and AND/OR gates</h1>
 <pre>
-    opt_reduce [selection]
+    opt_reduce [options] [selection]
 
 This pass performs two interlinked optimizations:
 
@@ -10,6 +10,12 @@ duplicated inputs.
 
 2. it identifies duplicated inputs to MUXes and replaces them with a single
 input with the original control signals OR'ed together.
+
+    -fine
+      perform fine-grain optimizations
+
+    -full
+      alias for -fine
 
 </pre>
 @footer@

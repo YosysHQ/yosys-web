@@ -34,6 +34,10 @@ described here.
         selection is non-empty. i.e. produce an error if no object matching
         the selection is found.
 
+    -assert-count N
+        do not modify the current selection. instead assert that the given
+        selection contains exactly N objects.
+
     -list
         list all objects in the current selection
 
@@ -147,12 +151,18 @@ The following actions can be performed on the top sets on the stack:
     %d
         pop the top set from the stack and subtract it from the new top
 
+    %D
+        like %d but swap the roles of two top sets on the stack
+
+    %c
+        create a copy of the top set rom the stack and push it
+
     %x[&lt;num1&gt;|*][.&lt;num2&gt;][:&lt;rule&gt;[:&lt;rule&gt;..]]
         expand top set &lt;num1&gt; num times according to the specified rules.
         (i.e. select all cells connected to selected wires and select all
         wires connected to selected cells) The rules specify which cell
         ports to use for this. the syntax for a rule is a '-' for exclusion
-        and a '+' for inclusion, followed by an optional comma seperated
+        and a '+' for inclusion, followed by an optional comma separated
         list of cell types followed by an optional comma separated list of
         cell ports in square brackets. a rule can also be just a cell or wire
         name that limits the expansion (is included but does not go beyond).

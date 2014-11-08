@@ -1,7 +1,7 @@
-@cmd_header write_autotest@
-<h1>write_autotest - generate simple test benches</h1>
+@cmd_header test_autotb@
+<h1>test_autotb - generate simple test benches</h1>
 <pre>
-    write_autotest [filename]
+    test_autotb [options] [filename]
 
 Automatically create primitive verilog test benches for all modules in the
 design. The generated testbenches toggle the input pins of the module in
@@ -17,6 +17,9 @@ be forced to be interpreted as clock signal by setting the attribute
 The attribute 'gentb_constant' can be used to force a signal to a constant
 value after initialization. This can e.g. be used to force a reset signal
 low in order to explore more inner states in a state machine.
+
+    -n &lt;int&gt;
+        number of iterations the test bench shuld run (default = 1000)
 
 </pre>
 @footer@

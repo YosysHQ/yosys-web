@@ -11,5 +11,9 @@ design.
         selected and a module has the 'top' attribute set, this module is used
         default value for this option.
 
+    -width
+        annotate internal cell types with their word width.
+        e.g. $add_8 for an 8 bit wide $add cell.
+
 </pre>
 @footer@

@@ -25,10 +25,12 @@ synthesized results as Verilog netlist to <tt>synth.v</tt>:</p>
 
 <pre># read design 
 read_verilog mydesign.v
+
+# elaborate design hierarchy
 hierarchy -check -top mytop
 
 # the high-level stuff
-proc; opt; memory; opt; fsm; opt
+proc; opt; fsm; opt; memory; opt
 
 # mapping to internal cell library
 techmap; opt
@@ -45,23 +47,23 @@ clean
 # write synthesized design
 write_verilog synth.v</pre>
 
-<h2>Reference Designs</h2>
+<p>The <tt>synth</tt> command provides a good default script that can be used
+as basis for simple synthesis scripts:</p>
 
-The following reference designs have been used to test Yosys. The correctness of the synthesis
-results have been verified using a commercial formal verification tool.
+<pre># read design 
+read_verilog mydesign.v
 
-<div class="tab"><table>
-<tr><th>Test-Design</th><th>Source</th><th>Gates</th><th>Description / Comments</th></tr>
-<tr><td><tt> aes_core    </tt></td><td>  IWLS2005 </td><td align="right"> 41837 </td><td> AES Cipher written by Rudolf Usselmann                 </td></tr>
-<tr><td><tt> i2c         </tt></td><td>  IWLS2005 </td><td align="right">  1072 </td><td> WISHBONE compliant I2C Master by Richard Herveille     </td></tr>
-<tr><td><tt> openmsp430  </tt></td><td> OpenCores </td><td align="right">  7173 </td><td> MSP430 compatible CPU by Olivier Girard                </td></tr>
-<tr><td><tt> or1200      </tt></td><td> OpenCores </td><td align="right"> 42675 </td><td> The OpenRISC 1200 CPU by Damjan Lampret                </td></tr>
-<tr><td><tt> sasc        </tt></td><td>  IWLS2005 </td><td align="right">   456 </td><td> Simple Async. Serial Comm. Device by Rudolf Usselmann  </td></tr>
-<tr><td><tt> simple_spi  </tt></td><td>  IWLS2005 </td><td align="right">   690 </td><td> MC68HC11E based SPI interface by Richard Herveille     </td></tr>
-<tr><td><tt> spi         </tt></td><td>  IWLS2005 </td><td align="right">  2478 </td><td> SPI IP core by Simon Srot                              </td></tr>
-<tr><td><tt> ss_pcm      </tt></td><td>  IWLS2005 </td><td align="right">   279 </td><td> PCM IO Slave by Rudolf Usselmann                       </td></tr>
-<tr><td><tt> systemcaes  </tt></td><td>  IWLS2005 </td><td align="right">  6893 </td><td> AES core (using SystemC to Verilog) by Javier Castillo </td></tr>
-<tr><td><tt> usb_phy     </tt></td><td>  IWLS2005 </td><td align="right">   515 </td><td> USB 1.1 PHY by Rudolf Usselmann                        </td></tr>
-</table></div>
+# generic synthesis
+synth -top mytop
+
+# mapping to mycells.lib
+dfflibmap -liberty mycells.lib
+abc -liberty mycells.lib
+clean
+
+# write synthesized design
+write_verilog synth.v</pre>
+
+<p>See <a href="cmd_synth.html"><tt>help synth</tt></a> for details on the <tt>synth</tt> command.
 
 @footer@

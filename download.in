@@ -18,6 +18,18 @@ sudo apt-get install yosys yosys-abc</pre>
 At the moment his PPA only provides packages for currently officially supported
 Ubuntu desktop versions: precise (12.04 LTS), saucy (13.10) and trusty (14.04 LTS).
 
+<h2>Yosys on MS Windows</h2>
+
+There are two versions of Yosys for Win32. First there is the "official binary release"
+of Yosys for Win32 which is cross-compiled using <a href="http://mxe.cc/">MXE</a>:
+
+<ul><li><a href="nogit/win32/yosys-win32-mxebin-0.4.zip">yosys-win32-mxebin-0.4.zip</a></ul>
+
+And then there is a source code export for VisualStudio for users who want to do
+Yosys C++ development on Windows:
+
+<ul><li><a href="nogit/win32/yosys-win32-vcxsrc-0.4.zip">yosys-win32-vcxsrc-0.4.zip</a></ul>
+
 <h2>Building Development Sources</h2>
 
 Clone source code from GIT repository:

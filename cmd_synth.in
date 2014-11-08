@@ -1,0 +1,47 @@
+@cmd_header synth@
+<h1>synth - generic synthesis script</h1>
+<pre>
+    synth [options]
+
+This command runs the default synthesis script. This command does not operate
+on partly selected designs.
+
+    -top &lt;module&gt;
+        use the specified module as top module (default='top')
+
+    -run &lt;from_label&gt;[:&lt;to_label&gt;]
+        only run the commands between the labels (see below). an empty
+        from label is synonymous to 'begin', and empty to label is
+        synonymous to the end of the command list.
+
+
+The following commands are executed by this synthesis command:
+
+    begin:
+        hierarchy -check [-top &lt;top&gt;]
+
+    coarse:
+        proc
+        opt
+        wreduce
+        alumacc
+        share
+        opt
+        fsm
+        opt -fast
+        memory -nomap
+        opt_clean
+
+    fine:
+        opt -fast -full
+        memory_map
+        opt -full
+        techmap
+        opt -fast
+
+    abc:
+        abc -fast
+        opt -fast
+
+</pre>
+@footer@

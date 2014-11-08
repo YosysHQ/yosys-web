@@ -39,6 +39,10 @@ to a graphics file (usually SVG or PostScript).
     -width
         annotate busses with a label indicating the width of the bus.
 
+    -signed
+        mark ports (A, B) that are declarted as signed (using the [AB]_SIGNED
+        cell parameter) with an asterisk next to the port name.
+
     -stretch
         stretch the graph so all inputs are on the left side and all outputs
         (including inout ports) are on the right side.
@@ -55,8 +59,8 @@ to a graphics file (usually SVG or PostScript).
     -notitle
         do not add the module name as graph title to the dot file
 
-When no &lt;format&gt; is specified, SVG is used. When no &lt;format&gt; and &lt;viewer&gt; is
-specified, 'yosys-svgviewer' is used to display the schematic.
+When no &lt;format&gt; is specified, 'dot' is used. When no &lt;format&gt; and &lt;viewer&gt; is
+specified, 'xdot' is used to display the schematic.
 
 The generated output files are '~/.yosys_show.dot' and '~/.yosys_show.&lt;format&gt;',
 unless another prefix is specified using -prefix &lt;prefix&gt;.

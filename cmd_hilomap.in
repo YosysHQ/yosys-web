@@ -3,9 +3,7 @@
 <pre>
     hilomap [options] [selection]
 
-Map module inputs/outputs to PAD cells from a library. This pass
-can only map to very simple PAD cells. Use 'techmap' to further map
-the resulting cells to more sophisticated PAD cells.
+Map constants to 'tielo' and 'tiehi' driver cells.
 
     -hicell &lt;celltype&gt; &lt;portname&gt;
         Replace constant hi bits with this cell.

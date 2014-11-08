@@ -13,13 +13,33 @@ file.
         transforms the internal RTL cells to the internal gate
         library.
 
+    -map %&lt;design-name&gt;
+        like -map above, but with an in-memory design instead of a file.
+
     -share_map filename
         like -map, but look for the file in the share directory (where the
         yosys data files are). this is mainly used internally when techmap
         is called from other commands.
 
+    -extern
+        load the cell implementations as separate modules into the design
+        instead of inlining them.
+
     -max_iter &lt;number&gt;
         only run the specified number of iterations.
+
+    -recursive
+        instead of the iterative breadth-first algorithm use a recursive
+        depth-first algorithm. both methods should yield equivialent results,
+        but may differ in performance.
+
+    -autoproc
+        Automatically call "proc" on implementations that contain processes.
+
+    -assert
+        this option will cause techmap to exit with an error if it can't map
+        a selected cell. only cell types that end on an underscore are accepted
+        as final cell types by this mode.
 
     -D &lt;define&gt;, -I &lt;incdir&gt;
         this options are passed as-is to the verilog frontend for loading the
@@ -32,6 +52,13 @@ the module name will be used to match the cell.
 
 When a module in the map file has the 'techmap_simplemap' attribute set, techmap
 will use 'simplemap' (see 'help simplemap') to map cells matching the module.
+
+When a module in the map file has the 'techmap_maccmap' attribute set, techmap
+will use 'maccmap' (see 'help maccmap') to map cells matching the module.
+
+When a module in the map file has the 'techmap_wrap' attribute set, techmap
+will create a wrapper for the cell and then run the command string that the
+attribute is set to on the wrapper module.
 
 All wires in the modules from the map file matching the pattern _TECHMAP_*
 or *._TECHMAP_* are special wires that are used to pass instructions from
@@ -56,6 +83,20 @@ wires are supported:
         evaluated, an error is produced. That means it is possible for such a
         wire to start out as non-constant and evaluate to a constant value
         during processing of other _TECHMAP_DO_* commands.
+
+        A _TECHMAP_DO_* command may start with the special token 'CONSTMAP; '.
+        in this case techmap will create a copy for each distinct configuration
+        of constant inputs and shorted inputs at this point and import the
+        constant and connected bits into the map module. All further commands
+        are executed in this copy. This is a very convenient way of creating
+        optimizied specializations of techmap modules without using the special
+        parameters described below.
+
+        A _TECHMAP_DO_* command may start with the special token 'RECURSION; '.
+        then techmap will recursively replace the cells in the module with their
+        implementation. This is not affected by the -max_iter option.
+
+        It is possible to combine both prefixes to 'RECURSION; CONSTMAP; '.
 
 In addition to this special wires, techmap also supports special parameters in
 modules in the map file:

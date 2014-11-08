@@ -15,7 +15,7 @@ Write the current design to an BLIF file.
     -false &lt;cell-type&gt; &lt;out-port&gt;
         use the specified cell types to drive nets that are constant 1 or 0
 
-The following options can be usefull when the generated file is not going to be
+The following options can be useful when the generated file is not going to be
 read by a BLIF parser but a custom tool. It is recommended to not name the output
 file *.blif when any of this options is used.
 

@@ -1,23 +1,36 @@
 @cmd_header opt@
 <h1>opt - perform simple optimizations</h1>
 <pre>
-    opt [-purge] [-mux_undef] [-mux_bool] [-undriven] [selection]
+    opt [options] [selection]
 
 This pass calls all the other opt_* passes in a useful order. This performs
 a series of trivial optimizations and cleanups. This pass executes the other
 passes in the following order:
 
-    opt_const
+    opt_const [-mux_undef] [-mux_bool] [-undriven] [-fine] [-full] [-keepdc]
     opt_share -nomux
 
     do
         opt_muxtree
-        opt_reduce
+        opt_reduce [-fine] [-full]
         opt_share
         opt_rmdff
         opt_clean [-purge]
-        opt_const [-mux_undef] [-mux_bool] [-undriven]
-    while [changed design]
+        opt_const [-mux_undef] [-mux_bool] [-undriven] [-fine] [-full] [-keepdc]
+    while &lt;changed design&gt;
+
+When called with -fast the following script is used instead:
+
+    do
+        opt_const [-mux_undef] [-mux_bool] [-undriven] [-fine] [-full] [-keepdc]
+        opt_share
+        opt_rmdff
+        opt_clean [-purge]
+    while &lt;changed design in opt_rmdff&gt;
+
+Note: Options in square brackets (such as [-keepdc]) are passed through to
+the opt_* commands when given to 'opt'.
+
 
 </pre>
 @footer@

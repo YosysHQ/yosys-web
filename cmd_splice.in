@@ -9,12 +9,12 @@ synthesis, where dedidacted hardware is needed to splice signals.
 
     -sel_by_cell
         only select the cell ports to rewire by the cell. if the selection
-        contains a cell, than all cell inputs are rewired, if neccessary.
+        contains a cell, than all cell inputs are rewired, if necessary.
 
     -sel_by_wire
         only select the cell ports to rewire by the wire. if the selection
         contains a wire, than all cell ports driven by this wire are wired,
-        if neccessary.
+        if necessary.
 
     -sel_any_bit
         it is sufficient if the driver of any bit of a cell port is selected.

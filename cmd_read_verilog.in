@@ -1,10 +1,14 @@
 @cmd_header read_verilog@
 <h1>read_verilog - read modules from verilog file</h1>
 <pre>
-    read_verilog [filename]
+    read_verilog [options] [filename]
 
 Load modules from a verilog file to the current design. A large subset of
 Verilog-2005 is supported.
+
+    -sv
+        enable support for SystemVerilog features. (only a small subset
+        of SystemVerilog is supported)
 
     -dump_ast1
         dump abstract syntax tree (before simplification)

@@ -13,7 +13,7 @@ design.
 
     -all_cell_types
         Usually this command only considers internal non-memory cells. With
-        this option set, all cells are considered. For unkown cells all ports
+        this option set, all cells are considered. For unknown cells all ports
         are assumed to be bidirectional 'inout' ports.
 
     -set_attr &lt;name&gt; &lt;value&gt;

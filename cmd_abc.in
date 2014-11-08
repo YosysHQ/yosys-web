@@ -21,17 +21,36 @@ library to a target architecture.
         if no -script parameter is given, the following scripts are used:
 
         for -liberty without -constr:
-          strash; scorr -v; ifraig -v; retime -v; strash; dch -vf; map -v
+          strash; scorr -v; ifraig -v; retime -v {D}; strash; dch -vf;
+               map -v {D}
 
         for -liberty with -constr:
-          strash; scorr -v; ifraig -v; retime -v; strash; dch -vf; map -v;
-               buffer -v; upsize -v; dnsize -v; stime -p
+          strash; scorr -v; ifraig -v; retime -v {D}; strash; dch -vf;
+               map -v {D}; buffer -v; upsize -v {D}; dnsize -v {D};
+               stime -p
 
         for -lut:
           strash; scorr -v; ifraig -v; retime -v; strash; dch -vf; if -v
 
         otherwise:
           strash; scorr -v; ifraig -v; retime -v; strash; dch -vf; map -v
+
+    -fast
+        use different default scripts that are slightly faster (at the cost
+        of output quality):
+
+        for -liberty without -constr:
+          retime -v {D}; map -v {D}
+
+        for -liberty with -constr:
+          retime -v {D}; map -v {D}; buffer -v; upsize -v {D};
+               dnsize -v {D}; stime -p
+
+        for -lut:
+          retime -v; if -v
+
+        otherwise:
+          retime -v; map -v
 
     -liberty &lt;file&gt;
         generate netlists for the specified cell library (using the liberty
@@ -47,6 +66,10 @@ library to a target architecture.
         the set_driving_cell statement defines which cell type is assumed to
         drive the primary inputs and the set_load statement sets the load in
         femtofarads for each primary output.
+
+    -D &lt;picoseconds&gt;
+        set delay target. the string {D} in the default scripts above is
+        replaced by this option when used, and an empty string otherwise.
 
     -lut &lt;width&gt;
         generate netlist using luts of (max) the specified width.

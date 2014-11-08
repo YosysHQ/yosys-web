@@ -63,7 +63,7 @@ The following options can be used to set up a sequential problem:
     -set-def-at &lt;N&gt; &lt;signal&gt;
     -set-any-undef-at &lt;N&gt; &lt;signal&gt;
     -set-all-undef-at &lt;N&gt; &lt;signal&gt;
-        add undef contraints in the given timestep.
+        add undef constraints in the given timestep.
 
     -set-init &lt;signal&gt; &lt;value&gt;
         set the initial value for the register driving the signal to the value
@@ -105,6 +105,9 @@ is passed, a temporal induction proof is performed.
 
     -prove-asserts
         Prove that all asserts in the design hold.
+
+    -prove-skip &lt;N&gt;
+        Do not enforce the prove-condition for the first &lt;N&gt; time steps.
 
     -maxsteps &lt;N&gt;
         Set a maximum length for the induction.

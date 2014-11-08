@@ -5,10 +5,10 @@
 
 This is identical to 'opt_clean', but less verbose.
 
-When commands are seperated using the ';;' token, this command will be executed
+When commands are separated using the ';;' token, this command will be executed
 between the commands.
 
-When commands are seperated using the ';;;' token, this command will be executed
+When commands are separated using the ';;;' token, this command will be executed
 in -purge mode between the commands.
 
 </pre>

@@ -7,10 +7,12 @@ Rename the specified object. Note that selection patterns are not supported
 by this command.
 
 
-    rename -enumerate [selection]
+    rename -enumerate [-pattern &lt;pattern&gt;] [selection]
 
 Assign short auto-generated names to all selected wires and cells with private
-names.
+names. The -pattern option can be used to set the pattern for the new names.
+The character % in the pattern is replaced with a integer number. The default
+pattern is '_%_'.
 
     rename -hide [selection]
 
