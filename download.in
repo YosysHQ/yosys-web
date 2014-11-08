@@ -46,8 +46,9 @@ Clone source code from GIT repository:
 
 Configure build and/or change build settings in Makefile:
 
-<pre>make config-release
-vi Makefile</pre>
+<pre>make config-clang
+vi Makefile
+vi Makefile.conf</pre>
 
 Build, test and install:
 
