@@ -38,6 +38,9 @@ Yosys C++ development on Windows:
 
 <ul><li><a href="nogit/win32/yosys-win32-vcxsrc-0.4.zip">yosys-win32-vcxsrc-0.4.zip</a></li></ul>
 
+<b>Warning:</b> This is the first release of Yosys for Windows. There are known bugs,
+such as crashes in certain situations.
+
 <h2>Building Development Sources</h2>
 
 Clone source code from GIT repository:

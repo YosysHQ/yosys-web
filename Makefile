@@ -43,10 +43,10 @@ update_show:
 
 pull_nogit:
 	mkdir -p nogit
-	rsync -e ssh -av --delete clifford@clifford.at:htdocs/clifford/yosys/nogit/. nogit/.
+	rsync -e ssh -av --delete clifford@clifford.at:/var/www/clifford/yosys/nogit/. nogit/.
 
 push: web
-	rsync -e ssh -av --delete --exclude .git --exclude .*.swp --exclude nogit . clifford@clifford.at:htdocs/clifford/yosys/.
+	rsync -e ssh -av --delete --exclude .git --exclude .*.swp --exclude nogit . clifford@clifford.at:/var/www/clifford/yosys/.
 
 clean:
 	rm -f $(PAGES)
