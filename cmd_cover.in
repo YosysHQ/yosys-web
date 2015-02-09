@@ -42,7 +42,7 @@ Hint: Use the following AWK command to consolidate Yosys coverage files:
       printf "%-60s %10d %s\n", p[i], c[i], i; }' {files} | sort -k3
 
 
-Coverage counters are only available in debug builds of Yosys for Linux.
+Coverage counters are only available in Yosys for Linux.
 
 </pre>
 @footer@

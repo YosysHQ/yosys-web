@@ -4,15 +4,11 @@
     synth_xilinx [options]
 
 This command runs synthesis for Xilinx FPGAs. This command does not operate on
-partly selected designs.
+partly selected designs. At the moment this command creates netlists that are
+compatible with 7-Series Xilinx devices.
 
     -top &lt;module&gt;
         use the specified module as top module (default='top')
-
-    -arch &lt;arch&gt;
-        select architecture. the following architectures are supported:
-            spartan6 (default), artix7, kintex7, virtex7, zynq7000
-            (this parameter is not used by the command at the moment)
 
     -edif &lt;file&gt;
         write the design to the specified edif file. writing of an output file
@@ -23,39 +19,45 @@ partly selected designs.
         from label is synonymous to 'begin', and empty to label is
         synonymous to the end of the command list.
 
+    -flatten
+        flatten design before synthesis
+
+    -retime
+        run 'abc' with -dff option
+
 
 The following commands are executed by this synthesis command:
 
     begin:
+        read_verilog -lib +/xilinx/cells_sim.v
         hierarchy -check -top &lt;top&gt;
 
-    coarse:
+    flatten:     (only if -flatten)
         proc
-        opt
-        memory
-        clean
-        fsm
-        opt
+        flatten
+
+    coarse:
+        synth -run coarse
+        dff2dffe
+
+    bram:
+        memory_bram -rules +/xilinx/brams.txt
+        techmap -map +/xilinx/brams_map.v
 
     fine:
-        techmap
-        opt
+        opt -fast -full
+        memory_map
+        opt -full
+        techmap -map +/techmap.v -map +/xilinx/arith_map.v
+        opt -fast
 
     map_luts:
-        abc -lut 6
+        abc -lut 5:8 [-dff]
         clean
 
     map_cells:
-        techmap -share_map xilinx/cells.v
+        techmap -map +/xilinx/cells_map.v
         clean
-
-    clkbuf:
-        select -set xilinx_clocks &lt;top&gt;/t:FDRE %x:+FDRE[C] &lt;top&gt;/t:FDRE %d
-        iopadmap -inpad BUFGP O:I @xilinx_clocks
-
-    iobuf:
-        select -set xilinx_nonclocks &lt;top&gt;/w:* &lt;top&gt;/t:BUFGP %x:+BUFGP[I] %d
-        iopadmap -outpad OBUF I:O -inpad IBUF O:I @xilinx_nonclocks
 
     edif:
         write_edif synth.edif

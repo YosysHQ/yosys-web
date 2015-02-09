@@ -7,7 +7,7 @@ Tests the internal implementation of the given cell type (for example '$add')
 by comparing SAT solver, EVAL and TECHMAP implementations of the cell types..
 
 Run with 'all' instead of a cell type to run the test on all supported
-cell types.
+cell types. Use for example 'all /$add' for all cell types except $add.
 
     -n {integer}
         create this number of cell instances and test them (default = 100).
@@ -18,11 +18,19 @@ cell types.
     -f {ilang_file}
         don't generate circuits. instead load the specified ilang file.
 
+    -w {filename_prefix}
+        don't test anything. just generate the circuits and write them
+        to ilang files with the specified prefix
+
     -map {filename}
         pass this option to techmap.
 
     -simlib
         use "techmap -map +/simlib.v -max_iter 2 -autoproc"
+
+    -muxdiv
+        when creating test benches with dividers, create an additional mux
+        to mask out the division-by-zero case
 
     -script {script_file}
         instead of calling "techmap", call "script {script_file}".

@@ -3,8 +3,8 @@
 <pre>
     alumacc [selection]
 
-This pass translates arithmetic operations $add, $mul, $lt, etc. to $alu and
-$macc cells.
+This pass translates arithmetic operations like $add, $mul, $lt, etc. to $alu
+and $macc cells.
 
 </pre>
 @footer@

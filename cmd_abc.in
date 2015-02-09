@@ -21,36 +21,33 @@ library to a target architecture.
         if no -script parameter is given, the following scripts are used:
 
         for -liberty without -constr:
-          strash; scorr -v; ifraig -v; retime -v {D}; strash; dch -vf;
-               map -v {D}
+          strash; scorr; ifraig; retime {D}; strash; dch -f; map {D}
 
         for -liberty with -constr:
-          strash; scorr -v; ifraig -v; retime -v {D}; strash; dch -vf;
-               map -v {D}; buffer -v; upsize -v {D}; dnsize -v {D};
-               stime -p
+          strash; scorr; ifraig; retime {D}; strash; dch -f; map {D};
+               buffer; upsize {D}; dnsize {D}; stime -p
 
         for -lut:
-          strash; scorr -v; ifraig -v; retime -v; strash; dch -vf; if -v
+          strash; scorr; ifraig; retime; strash; dch -f; if
 
         otherwise:
-          strash; scorr -v; ifraig -v; retime -v; strash; dch -vf; map -v
+          strash; scorr; ifraig; retime; strash; dch -f; map
 
     -fast
         use different default scripts that are slightly faster (at the cost
         of output quality):
 
         for -liberty without -constr:
-          retime -v {D}; map -v {D}
+          retime {D}; map {D}
 
         for -liberty with -constr:
-          retime -v {D}; map -v {D}; buffer -v; upsize -v {D};
-               dnsize -v {D}; stime -p
+          retime {D}; map {D}; buffer; upsize {D}; dnsize {D}; stime -p
 
         for -lut:
-          retime -v; if -v
+          retime; if
 
         otherwise:
-          retime -v; map -v
+          retime; map
 
     -liberty &lt;file&gt;
         generate netlists for the specified cell library (using the liberty
@@ -74,15 +71,20 @@ library to a target architecture.
     -lut &lt;width&gt;
         generate netlist using luts of (max) the specified width.
 
-    -dff
-        also pass $_DFF_?_ cells through ABC (only one clock domain, if many
-        clock domains are present in a module, the one with the largest number
-        of $_DFF_?_ cells in it is used)
+    -lut &lt;w1&gt;:&lt;w2&gt;
+        generate netlist using luts of (max) the specified width &lt;w2&gt;. All
+        luts with width &lt;= &lt;w1&gt; have constant cost. for luts larger than &lt;w1&gt;
+        the area cost doubles with each additional input bit. the delay cost
+        is still constant for all lut widths.
 
-    -clk [!]&lt;signal-name&gt;
-        use the specified clock domain. (when this option is used in combination
-        with -dff, then it falls back to the automatic dection of clock domain
-        if the specified clock is not found in a module.)
+    -dff
+        also pass $_DFF_?_ and $_DFFE_??_ cells through ABC. modules with many
+        clock domains are automatically partitioned in clock domains and each
+        domain is passed through ABC independently.
+
+    -clk [!]&lt;clock-signal-name&gt;[,[!]&lt;enable-signal-name&gt;]
+        use only the specified clock domain. this is like -dff, but only FF
+        cells that belong to the specified clock domain are used.
 
     -keepff
         set the "keep" attribute on flip-flop output wires. (and thus preserve
@@ -91,6 +93,15 @@ library to a target architecture.
     -nocleanup
         when this option is used, the temporary files created by this pass
         are not removed. this is useful for debugging.
+
+    -showtmp
+        print the temp dir name in log. usually this is suppressed so that the
+        command output is identical across runs.
+
+    -markgroups
+        set a 'abcgroup' attribute on all objects created by ABC. The value of
+        this attribute is a unique integer for each ABC process started. This
+        is useful for debugging the partitioning of clock domains.
 
 When neither -liberty nor -lut is used, the Yosys standard cell library is
 loaded into ABC before the ABC script is executed.

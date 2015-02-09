@@ -13,10 +13,10 @@ ilang format.
     -n
         only dump the module headers if the entire module is selected
 
-    -outfile &lt;filename&gt;
+    -o &lt;filename&gt;
         write to the specified file.
 
-    -append &lt;filename&gt;
+    -a &lt;filename&gt;
         like -outfile but append instead of overwrite
 
 </pre>

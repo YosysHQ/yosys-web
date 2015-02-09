@@ -9,9 +9,17 @@
 <li><a href="cmd_cover.html"> cover</a> <span>print code coverage counters</span></a>
 <li><a href="cmd_delete.html"> delete</a> <span>delete objects in the design</span></a>
 <li><a href="cmd_design.html"> design</a> <span>save, restore and reset current design</span></a>
+<li><a href="cmd_dff2dffe.html"> dff2dffe</a> <span>transform $dff cells to $dffe cells</span></a>
 <li><a href="cmd_dfflibmap.html"> dfflibmap</a> <span>technology mapping of flip-flops</span></a>
 <li><a href="cmd_dump.html"> dump</a> <span>print parts of the design in ilang format</span></a>
 <li><a href="cmd_echo.html"> echo</a> <span>turning echoing back of commands on and off</span></a>
+<li><a href="cmd_equiv_add.html"> equiv_add</a> <span>add a $equiv cell</span></a>
+<li><a href="cmd_equiv_induct.html"> equiv_induct</a> <span>proving $equiv cells using temporal induction</span></a>
+<li><a href="cmd_equiv_make.html"> equiv_make</a> <span>prepare a circuit for equivalence checking</span></a>
+<li><a href="cmd_equiv_miter.html"> equiv_miter</a> <span>extract miter from equiv circuit</span></a>
+<li><a href="cmd_equiv_remove.html"> equiv_remove</a> <span>remove $equiv cells</span></a>
+<li><a href="cmd_equiv_simple.html"> equiv_simple</a> <span>try proving simple $equiv instances</span></a>
+<li><a href="cmd_equiv_status.html"> equiv_status</a> <span>print status of equivalent checking module</span></a>
 <li><a href="cmd_eval.html"> eval</a> <span>evaluate the circuit given an input</span></a>
 <li><a href="cmd_expose.html"> expose</a> <span>convert internal signals to module ports</span></a>
 <li><a href="cmd_extract.html"> extract</a> <span>find subcircuits and replace them with cells</span></a>
@@ -35,6 +43,7 @@
 <li><a href="cmd_ls.html"> ls</a> <span>list modules or objects in modules</span></a>
 <li><a href="cmd_maccmap.html"> maccmap</a> <span>mapping macc cells</span></a>
 <li><a href="cmd_memory.html"> memory</a> <span>translate memories to basic cells</span></a>
+<li><a href="cmd_memory_bram.html"> memory_bram</a> <span>map memories to block rams</span></a>
 <li><a href="cmd_memory_collect.html"> memory_collect</a> <span>creating multi-port memory cells</span></a>
 <li><a href="cmd_memory_dff.html"> memory_dff</a> <span>merge input/output DFFs into memories</span></a>
 <li><a href="cmd_memory_map.html"> memory_map</a> <span>translate multiport memories to basic cells</span></a>
@@ -95,5 +104,6 @@
 <li><a href="cmd_write_file.html"> write_file</a> <span>write a text to a file</span></a>
 <li><a href="cmd_write_ilang.html"> write_ilang</a> <span>write design to ilang file</span></a>
 <li><a href="cmd_write_intersynth.html"> write_intersynth</a> <span>write design to InterSynth netlist file</span></a>
+<li><a href="cmd_write_smt2.html"> write_smt2</a> <span>write design to SMT-LIBv2 file</span></a>
 <li><a href="cmd_write_spice.html"> write_spice</a> <span>write design to SPICE netlist file</span></a>
 <li><a href="cmd_write_verilog.html"> write_verilog</a> <span>write design to verilog file</span></a>

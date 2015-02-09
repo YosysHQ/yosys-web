@@ -36,6 +36,10 @@ to a graphics file (usually SVG or PostScript).
         for the random number generator. Change the seed value if the colored
         graph still is ambigous. A seed of zero deactivates the coloring.
 
+    -colorattr &lt;attribute_name&gt;
+        Use the specified attribute to assign colors. A unique color is
+        assigned to each unique value of this attribute.
+
     -width
         annotate busses with a label indicating the width of the bus.
 

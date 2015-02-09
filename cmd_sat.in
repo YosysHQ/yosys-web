@@ -40,8 +40,8 @@ and additional constraints passed as parameters.
         show the model for the specified signal. if no -show option is
         passed then a set of signals to be shown is automatically selected.
 
-    -show-inputs, -show-outputs
-        add all module input (output) ports to the list of shown signals
+    -show-inputs, -show-outputs, -show-ports
+        add all module (input/output) ports to the list of shown signals
 
     -ignore_div_by_zero
         ignore all solutions that involve a division by zero

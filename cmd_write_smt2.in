@@ -1,0 +1,78 @@
+@cmd_header write_smt2@
+<h1>write_smt2 - write design to SMT-LIBv2 file</h1>
+<pre>
+    write_smt2 [options] [filename]
+
+Write a SMT-LIBv2 [1] description of the current design. For a module with name
+'&lt;mod&gt;' this will declare the sort '&lt;mod&gt;_s' (state of the module) and the the
+function '&lt;mod&gt;_t' (state transition function).
+
+The '&lt;mod&gt;_s' sort represents a module state. Additional '&lt;mod&gt;_n' functions
+are provided that can be used to access the values of the signals in the module.
+Only ports, and signals with the 'keep' attribute set are made available via
+such functions. Without the -bv option, multi-bit wires are exported as
+separate functions of type Bool for the individual bits. With the -bv option
+multi-bit wires are exported as single functions of type BitVec.
+
+The '&lt;mod&gt;_t' function evaluates to 'true' when the given pair of states
+describes a valid state transition.
+
+    -bv
+        enable support for BitVec (FixedSizeBitVectors theory). with this
+        option set multi-bit wires are represented using the BitVec sort and
+        support for coarse grain cells (incl. arithmetic) is enabled.
+
+    -tpl &lt;template_file&gt;
+        use the given template file. the line containing only the token '%%'
+        is replaced with the regular output of this command.
+
+[1] For more information on SMT-LIBv2 visit http://smt-lib.org/ or read David
+R. Cok's tutorial: http://www.grammatech.com/resources/smt/SMTLIBTutorial.pdf
+
+---------------------------------------------------------------------------
+
+Example:
+
+Consider the following module (test.v). We want to prove that the output can
+never transition from a non-zero value to a zero value.
+
+        module test(input clk, output reg [3:0] y);
+          always @(posedge clk)
+            y &lt;= (y &lt;&lt; 1) | ^y;
+        endmodule
+
+For this proof we create the following template (test.tpl).
+
+        ; we need QF_UFBV for this poof
+        (set-logic QF_UFBV)
+
+        ; insert the auto-generated code here
+        %%
+
+        ; declare two state variables s1 and s2
+        (declare-fun s1 () test_s)
+        (declare-fun s2 () test_s)
+
+        ; state s2 is the successor of state s1
+        (assert (test_t s1 s2))
+
+        ; we are looking for a model with y non-zero in s1
+        (assert (distinct (|test_n y| s1) #b0000))
+
+        ; we are looking for a model with y zero in s2
+        (assert (= (|test_n y| s2) #b0000))
+
+        ; is there such a model?
+        (check-sat)
+
+The following yosys script will create a 'test.smt2' file for our proof:
+
+        read_verilog test.v
+        hierarchy; proc; techmap; opt -fast
+        write_smt2 -bv -tpl test.tpl test.smt2
+
+Running 'cvc4 test.smt2' will print 'unsat' because y can never transition
+from non-zero to zero in the test design.
+
+</pre>
+@footer@

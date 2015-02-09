@@ -1,17 +1,11 @@
 @cmd_header ls@
 <h1>ls - list modules or objects in modules</h1>
 <pre>
-    ls [pattern]
+    ls [selection]
 
-When no active module is selected, this prints a list of all modules.
+When no active module is selected, this prints a list of modules.
 
 When an active module is selected, this prints a list of objects in the module.
-
-If a pattern is given, the objects matching the pattern are printed
-
-Note that this command does not use the selection mechanism and always operates
-on the whole design or whole active module. Use 'select -list' to show a list
-of currently selected objects.
 
 </pre>
 @footer@

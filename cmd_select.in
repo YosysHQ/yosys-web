@@ -1,8 +1,8 @@
 @cmd_header select@
 <h1>select - modify and view the list of selected objects</h1>
 <pre>
-    select [ -add | -del | -set &lt;name&gt; ] &lt;selection&gt;
-    select [ -assert-none | -assert-any ] &lt;selection&gt;
+    select [ -add | -del | -set &lt;name&gt; ] {-read &lt;filename&gt; | &lt;selection&gt;}
+    select [ -assert-none | -assert-any ] {-read &lt;filename&gt; | &lt;selection&gt;}
     select [ -list | -write &lt;filename&gt; | -count | -clear ]
     select -module &lt;modname&gt;
 
@@ -43,6 +43,9 @@ described here.
 
     -write &lt;filename&gt;
         like -list but write the output to the specified file
+
+    -read &lt;filename&gt;
+        read the specified file (written by -write)
 
     -count
         count all objects in the current selection

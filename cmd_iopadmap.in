@@ -25,8 +25,8 @@ the resulting cells to more sophisticated PAD cells.
 
     -bits
         create individual bit-wide buffers even for ports that
-        are wider. (the default behavio is to create word-wide
-        buffers use -widthparam to set the word size on the cell.)
+        are wider. (the default behavior is to create word-wide
+        buffers using -widthparam to set the word size on the cell.)
 
 </pre>
 @footer@

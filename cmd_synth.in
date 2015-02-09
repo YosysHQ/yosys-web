@@ -9,6 +9,12 @@ on partly selected designs.
     -top &lt;module&gt;
         use the specified module as top module (default='top')
 
+    -encfile &lt;file&gt;
+        passed to 'fsm_recode' via 'fsm'
+
+    -noabc
+        do not run abc (as if yosys was compiled without ABC support)
+
     -run &lt;from_label&gt;[:&lt;to_label&gt;]
         only run the commands between the labels (see below). an empty
         from label is synonymous to 'begin', and empty to label is
