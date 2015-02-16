@@ -1,0 +1,83 @@
+@header VlogHammer@
+
+<h1>YosysJS</h1>
+
+<p>YosysJS is a JavaScript port of Yosys done with <a href="http://emscripten.org/">Emscripten</a>.
+It is primarily ment for buildin educational web applications. YosysJS is under development. A
+preview can be found <a href="http://scratch.clifford.at/yosysjs-0.5+38/">here</a>.</p>
+
+<h2>API Reference</h2>
+
+<p>Include <tt>yosysjs.js</tt> (not <tt>yosys.js</tt>!) in your HTML file:<pre>
+&#60;script type&#61;&#34;text&#47;javascript&#34; src&#61;&#34;<i>path_to_yosysjs</i>/yosysjs&#46;js&#34;&#62;&#60;&#47;script&#62;
+</pre></p>
+
+<p>Then initialize YosysJS:<pre>
+// needed for YosysJS.dot_to_svg() and YosysJS.dot_into_svg()
+YosysJS.load_viz();
+
+// create a Yosys instance
+var ys = YosysJS.create();
+</pre></p>
+
+<p>The created Yosys instance will reside in a hidden <tt>&lt;iframe&gt;</tt> in your page. You
+can pass the id of an iframe element or the DOM element itself as first parameter. Then
+this iframe will be used instead. You can also pass a <tt>&lt;textarea&gt;</tt> (id or
+DOM object). Then the textarea will be replaced by an iframe (with the same CSS style) and
+the value of the textarea (the text in it) will be executed as Yosys script.</p>
+
+<p>There is also an optional 2nd parameter to <tt>YosysJS.create()</tt>, a callback function
+that is called as soon as the Yosys instance has been initialized. Set the first parameter
+to to an empty string if you want to use the callback function but don't want
+to specify an existing DOM element for the iframe.<pre>
+&lt;iframe id="ys_iframe" style="width: 100%;"&gt;&lt;/iframe&gt;
+
+...
+
+var ys = YosysJS.create('ys_iframe', function() { console.log("ready."); });
+</pre></p>
+
+<p>Next you need to configure the new Yosys instance. Set the following member variables to
+configure the object (the values below reflect the default settings):<pre>
+// Print all Yosys output messages to the iframe
+ys.verbose = false;
+
+// Print all Yosys output messages to the JavaScript console
+ys.logprint = false;
+
+// Echo back commands
+ys.echo = false;
+</pre></p>
+
+<p>The virtual filesystem seen by Yosys can be accessed using the following methods:<pre>
+// Create/write files
+ys.write_file(filename, text);
+
+// Read files
+text = ys.read_file(filename);
+
+// Read directory listing
+listing = ys.read_dir('.');
+</pre></p>
+
+<p>Most importantly executing Yosys commands:<pre>
+ys.run(command_string);
+</pre></p>
+
+<p>The <tt>.prompt</tt> method can be used to read the Yosys prompt:<pre>
+ys.run(window.prompt(ys.prompt()));
+</pre></p>
+
+<p>Creating SVG text from a DOT file (the Yosys <tt>show</tt> command per default
+writes to <tt>show.dot</tt> in YostysJS):<pre>
+ys.run('show');
+dot_text = ys.read_file('show.dot');
+svg_text = YosysJS.dot_to_svg(dot_text);
+</pre></p>
+
+<p>Writing SVG directly into a <tt>&lt;svg&gt;</tt> element:<pre>
+YosysJS.dot_into_svg(dot_text, svg_element_or_id);
+</pre></p>
+
+@footer@
+
