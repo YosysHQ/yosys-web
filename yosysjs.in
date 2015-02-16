@@ -65,7 +65,7 @@ output_text = ys.run(command_string);
 </pre></p>
 
 <p>Creating SVG text from a DOT file (the Yosys <tt>show</tt> command per default
-writes to <tt>show.dot</tt> in YostysJS):<pre>
+writes to <tt>show.dot</tt> in YosysJS):<pre>
 ys.run('show');
 dot_text = ys.read_file('show.dot');
 svg_text = YosysJS.dot_to_svg(dot_text);
