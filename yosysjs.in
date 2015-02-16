@@ -60,12 +60,8 @@ text = ys.read_file(filename);
 listing = ys.read_dir('.');
 </pre></p>
 
-<p>Most importantly executing Yosys commands:<pre>
-ys.run(command_string);
-</pre></p>
-
-<p>The <tt>.prompt</tt> method can be used to read the Yosys prompt:<pre>
-ys.run(window.prompt(ys.prompt()));
+<p>And most importantly executing Yosys commands:<pre>
+output_text = ys.run(command_string);
 </pre></p>
 
 <p>Creating SVG text from a DOT file (the Yosys <tt>show</tt> command per default
