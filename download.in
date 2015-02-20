@@ -23,8 +23,9 @@ Yosys binaries on Ubuntu:
 sudo apt-get update                                                                                                                                                                                              
 sudo apt-get install yosys</pre>
 
-At the moment his PPA only provides packages for currently officially supported
-Ubuntu desktop LTS versions: precise (12.04 LTS) and trusty (14.04 LTS).
+His PPA only provides updated packages for the latest
+Ubuntu desktop LTS version - trusty (14.04 LTS). As of vivid (15.04), yosys
+will be available in the standard package repository for Ubuntu.
 
 <h2>Yosys on MS Windows</h2>
 
