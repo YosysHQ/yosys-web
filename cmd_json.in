@@ -1,12 +1,14 @@
 @cmd_header json@
-<h1>json - write design to a JSON file</h1>
+<h1>json - write design in JSON format</h1>
 <pre>
-    write_json [options] [selection]
+    json [options] [selection]
 
 Write a JSON netlist of all selected objects.
 
     -o &lt;filename&gt;
         write to the specified file.
+
+See 'help write_json' for a description of the JSON format used.
 
 </pre>
 @footer@
