@@ -29,6 +29,7 @@ href="https://github.com/cliffordwolf/yosys/issues/new">GitHub</a>.
 <ul class="list">
 <li><a href="files/yosys_appnote_010_verilog_to_blif.pdf">Yosys AppNote 010<a>: Converting Verilog to BLIF</li>
 <li><a href="files/yosys_appnote_011_design_investigation.pdf">Yosys AppNote 011<a>: Interactive Design Investigation</li>
+<li><a href="files/yosys_appnote_012_verilog_to_btor.pdf">Yosys AppNote 012<a>: Converting Verilog to BTOR</li>
 </ul>
 
 <h2>Papers and other Publications</h2>

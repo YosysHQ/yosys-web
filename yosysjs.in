@@ -3,7 +3,7 @@
 <h1>YosysJS</h1>
 
 <p>YosysJS is a JavaScript port of Yosys done with <a href="http://emscripten.org/">Emscripten</a>.
-It is primarily ment for buildin educational web applications. YosysJS is under development. A
+It is primarily ment for building educational web applications. YosysJS is under development. A
 preview can be found <a href="nogit/YosysJS/snapshot/">here</a>.</p>
 
 <h2>API Reference</h2>
