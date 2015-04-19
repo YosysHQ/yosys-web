@@ -20,9 +20,11 @@ This page contains links to other projects.
 <h2>Free Software for High-Level Circuit Synthesis and/or Analysis</h2>
 
 <ul>
+<li><a href="https://chisel.eecs.berkeley.edu/">Chisel</a> -- Constructing Hardware in a Scala Embedded Language
 <li><a href="http://panda.dei.polimi.it/">PandA</a> -- high-level synthesis of C based descriptions
 <li><a href="http://www.myhdl.org/">MyHDL</a> -- an open source Python package that lets you go from Python to silicon
 <li><a href="http://milkymist.org/3/migen.html">Migen</a> -- a Python-based tool that aims at automating further the VLSI design process
+<li><a href="http://cx-lang.org/">Cx</a> -- A modern C-like language to create digital hardware
 </ul>
 
 <h2>Free Software for Low-Level Circuit Synthesis and/or Analysis</h2>
@@ -33,7 +35,8 @@ This page contains links to other projects.
 <li><a href="http://minisat.se/">MiniSAT</a> -- the SAT solver library used in Yosys
 <li><a href="http://torc.isi.edu/">Torc</a> -- infrastructure and tool set for mapping, placing, and routing
 <li><a href="http://rapidsmith.sourceforge.net/">RapidSmith</a> -- a research-based, open source FPGA CAD tool for modern Xilinx FPGAs
-<li><a href="http://opencircuitdesign.com/">Open Circuit Design</a> -- collection of open-source EDA tools
+<li><a href="http://opencircuitdesign.com/">Open Circuit Design</a> -- collection of open-source EDA tools, including Qflow
+<li><a href="https://soc-extras.lip6.fr/en/coriolis/coriolis2-users-guide/">Coriolis2</a> -- an ASIC place and route flow
 </ul>
 
 <h2>Verilog Tutorials</h2>

@@ -27,6 +27,11 @@ His PPA only provides updated packages for the latest
 Ubuntu desktop LTS version - trusty (14.04 LTS). As of vivid (15.04), yosys
 will be available in the standard package repository for Ubuntu.
 
+<h2>Installing on RHEL/Fedora</h2>
+
+Yosys 0.5 RPM packages for RHEL6/7 and Fedora20 can be found here:
+<a href="ftp://www-soc.lip6.fr/pub/yosys/">ftp://www-soc.lip6.fr/pub/yosys/</a>
+
 <h2>Yosys on MS Windows</h2>
 
 There are two versions of Yosys for Win32. First there is the "official binary release"

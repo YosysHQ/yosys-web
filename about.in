@@ -4,16 +4,27 @@
 
 <p>Yosys is a framework for Verilog RTL synthesis. It currently has
 extensive Verilog-2005 support and provides a basic set of
-synthesis algorithms for various application domains.</p>
+synthesis algorithms for various application domains. Selected features
+and typical applications:</p>
+
+<ul>
+<li>Process almost any synthesizable Verilog-2005 design
+<li>Converting Verilog to BLIF / EDIF/ BTOR / SMT-LIB / simple RTL Verilog / etc.
+<li>Built-in formal methods for checking property and equivalence
+<li>Mapping to ASIC standard cell libraries (in Liberty File Format)
+<li>Mapping to Xilinx 7-Series and Lattice iCE40 FPGAs (use git head)
+<li>Foundation and/or front-end for custom flows
+</ul>
 
 <p>Yosys can be adapted to perform any synthesis job by combining
 the existing passes (algorithms) using synthesis scripts and
-adding additional passes as needed by extending the yosys C++
+adding additional passes as needed by extending the Yosys C++
 code base.</p>
 
-<p>Yosys is free software licensed under the ISC license (a GPL
-compatible license that is similar in terms to the MIT license
-or the 2-clause BSD license).</p>
+<p>Yosys is free software licensed under the <a
+href="http://en.wikipedia.org/wiki/ISC_license">ISC license</a> (a GPL
+compatible license that is similar in terms to the MIT license or the
+2-clause BSD license).</p>
 
 <h2>Example Usage</h2>
 
