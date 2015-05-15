@@ -1,4 +1,4 @@
-<html><head><title>VlogHammer Bug Report: Vivado handling of partly out-of-bounds parts select</title>
+<html><head><title>VlogHammer Bug Report: Incorrect bit-extension of undef const in ?: operator</title>
 <style><!--
 .codehilite .hll { background-color: #ffffcc }
 .codehilite  { background: #f0f0f0; margin-left: 3em; margin-right: 3em; }
@@ -65,26 +65,31 @@
 .state { background: #333; color: #fff; margin-left: 1em; margin-right: 1em; padding: 4px; padding-left: 1em; }
 a { text-decoration: none; }
 --></style></head>
-<body><h1>Vivado handling of partly out-of-bounds parts select</h1>
+<body><h1>Incorrect bit-extension of undef const in ?: operator</h1>
 <div class="state"><strong>OPEN:</strong> last verified in <strong>Vivado 2015.1</strong></div>
 
 <p>Consider the following test case:</p>
-<div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_057</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
-  <span class="k">input</span> <span class="p">[</span><span class="mh">2</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">a</span><span class="p">;</span>
+<div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_026</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+  <span class="k">input</span> <span class="p">[</span><span class="mh">1</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">a</span><span class="p">;</span>
+  <span class="k">input</span> <span class="p">[</span><span class="mh">1</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">b</span><span class="p">;</span>
   <span class="k">output</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y</span><span class="p">;</span>
-  <span class="k">localparam</span> <span class="p">[</span><span class="mh">5</span><span class="o">:</span><span class="mh">15</span><span class="p">]</span> <span class="n">p</span> <span class="o">=</span> <span class="mh">51681708</span><span class="p">;</span>
-  <span class="k">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mh">15</span> <span class="o">+</span> <span class="n">a</span> <span class="o">-:</span> <span class="mh">5</span><span class="p">];</span>
+  <span class="kt">wire</span> <span class="p">[</span><span class="mh">1</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y1</span><span class="p">;</span>
+  <span class="kt">wire</span> <span class="p">[</span><span class="mh">1</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y2</span><span class="p">;</span>
+  <span class="kt">wire</span> <span class="n">u</span> <span class="o">=</span> <span class="mh">1</span><span class="p">&#39;</span><span class="n">bx</span><span class="p">;</span>
+  <span class="k">assign</span> <span class="n">y1</span> <span class="o">=</span> <span class="n">a</span> <span class="o">?</span> <span class="mh">1</span><span class="p">&#39;</span><span class="n">bx</span> <span class="o">:</span> <span class="n">b</span><span class="p">;</span>
+  <span class="k">assign</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">a</span> <span class="o">?</span> <span class="n">u</span> <span class="o">:</span> <span class="n">b</span><span class="p">;</span>
+  <span class="k">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="p">{</span> <span class="n">y1</span><span class="p">,</span> <span class="n">y2</span> <span class="p">};</span>
 <span class="k">endmodule</span>
 </pre></div>
 
 
-<p>This is expected to set <strong>y[3]=1</strong> for <strong>a=1</strong>, but the vivado 2014.2 synthesis output 
-sets <strong>y[3]=0</strong>.</p>
-<p>Crosscheck: Verific 35_463_32_140722, Modelsim 10.1e, XSim 2014.2 and Icarus Verilog
-(git 1572dcd) implement this correctly. Quartus 14.0 suffers from the same bug.</p>
+<p>This is expected to set the MSBs of y1 and y2 to 0 for a=2'b11 and
+b=2'b11, but the Vivado 2015.1 synthesis output sets <strong>y2=2'b11</strong>.</p>
+<p>Crosscheck: XSim 2015.1, Modelsim 10.3d, Icarus Verilog (git 02ee387), and
+Verilator (git e5af46d) implement this correctly. Quartus 15.0 gets y2
+right but has a bug regarding y1.</p>
 <p><strong>History:</strong><br />
-2014-09-27 <a href="http://forums.xilinx.com/t5/Synthesis/Vivado-bug-in-handling-of-partly-out-of-bounds-parts-select/td-p/524661">Reported</a> bug in Xilinx Support Forum<br />
-2015-05-15 Still broken in Vivado 2015.1  </p>
+2015-05-15 <a href="?">Reported</a> bug in Xilinx Support Forum  </p>
 
 <div><a href="../vloghammer.html">&larr; Back to VlogHammer Project Page</a></div>
 </body></html>

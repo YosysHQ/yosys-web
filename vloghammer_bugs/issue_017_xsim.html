@@ -66,7 +66,7 @@
 a { text-decoration: none; }
 --></style></head>
 <body><h1>Bug in XSIM when combining reduce op and $signed/$unsigned</h1>
-<div class="state"><strong>OPEN:</strong> last verified in <strong>XSim 2014.1</strong></div>
+<div class="state"><strong>CLOSED:</strong> fixed in <strong>XSim 2015.1</strong></div>
 
 <p>The following module should return <strong>3'b001</strong>:</p>
 <div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_017</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
@@ -92,7 +92,8 @@ when used with <strong>$signed</strong> or <strong>$unsigned</strong>.</p>
 this correctly.</p>
 <p><strong>History:</strong><br />
 2014-01-25 <a href="http://forums.xilinx.com/t5/Simulation-and-Verification/Bug-in-XSIM-when-combining-reduce-op-and-signed-unsigned/td-p/406801">Reported</a> bug in Xilinx Support Forum<br />
-2014-04-16 <a href="http://forums.xilinx.com/t5/Synthesis/Bugs-in-Vivado-2014-1/td-p/440750">Still broken in XSim 2014.1</a>  </p>
+2014-04-16 <a href="http://forums.xilinx.com/t5/Synthesis/Bugs-in-Vivado-2014-1/td-p/440750">Still broken in XSim 2014.1</a><br />
+2015-05-15 Fixed in XSim 2015.1  </p>
 
 <div><a href="../vloghammer.html">&larr; Back to VlogHammer Project Page</a></div>
 </body></html>

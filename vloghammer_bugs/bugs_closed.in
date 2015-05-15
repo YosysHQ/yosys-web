@@ -11,6 +11,8 @@
 <tr><td valign="top"><a href="vloghammer_bugs/issue_014_vivado.html">issue_014_vivado</a></td><td valign="top">Vivado 2014.2</td><td valign="top">Vivado GDpGen::implementDivMod(DFNode*, bool): Assertion `TBD' failed.</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_015_vivado.html">issue_015_vivado</a></td><td valign="top">Vivado 2014.2</td><td valign="top">Vivado bug in undef handling for relational operators</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_016_verilator.html">issue_016_verilator</a></td><td valign="top">Verilator GIT ff19dd9</td><td valign="top">Bug in Verilator signed/unsigned handling in power operator</td></tr>
+<tr><td valign="top"><a href="vloghammer_bugs/issue_017_xsim.html">issue_017_xsim</a></td><td valign="top">XSim 2015.1</td><td valign="top">Bug in XSIM when combining reduce op and $signed/$unsigned</td></tr>
+<tr><td valign="top"><a href="vloghammer_bugs/issue_019_xsim.html">issue_019_xsim</a></td><td valign="top">XSim 2015.1</td><td valign="top">XSim implements 0 ** -1 incorrectly</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_020_xsim.html">issue_020_xsim</a></td><td valign="top">XSim 2014.1</td><td valign="top">XSim fails to recognize signed expression with shift in localparam</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_021_icarus.html">issue_021_icarus</a></td><td valign="top">Icarus GIT 66bdbb7</td><td valign="top">Icarus Verilog efficiency of verinum and vpp_net pow() functions</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_021_verific.html">issue_021_verific</a></td><td valign="top">Verific 35_463_32_140722</td><td valign="top">Verific hangs on power operations with large exponents</td></tr>
