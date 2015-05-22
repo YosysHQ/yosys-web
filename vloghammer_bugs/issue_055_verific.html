@@ -66,7 +66,7 @@
 a { text-decoration: none; }
 --></style></head>
 <body><h1>Verific uses incorrect width for self-determined division</h1>
-<div class="state"><strong>OPEN:</strong> last verified in <strong>Verific 35_463_32_140722</strong></div>
+<div class="state"><strong>CLOSED:</strong> fixed in <strong>Verific 482_32_150519</strong></div>
 
 <p>The self determined size of a division is max(SIZE(left), SIZE(right)).<br />
 (see IEEE Std. 1364-2005 table 5-22 or IEEE Std. 1800-2012 table 11-21)</p>
@@ -83,11 +83,12 @@ to constant zero.</p>
 </pre></div>
 
 
-<p>It looks like Verific 35_463_32_140722 uses only SIZE(left), thus evaluating
+<p>It looks like Verific 463_32_140722 uses only SIZE(left), thus evaluating
 <strong>a=2'b11</strong> and <strong>b=2'b01</strong> to <strong>y=4'b0001</strong>.</p>
 <p><strong>History:</strong><br />
 2014-07-25 Reported bug to Verific support<br />
-2014-07-26 Bug added to issue tracker: VIPER Issue #8861  </p>
+2014-07-26 Bug added to issue tracker: VIPER Issue #8861<br />
+2015-05-20 Fixed in Verific 482_32_150519  </p>
 
 <div><a href="../vloghammer.html">&larr; Back to VlogHammer Project Page</a></div>
 </body></html>

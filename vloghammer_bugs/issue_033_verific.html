@@ -66,7 +66,7 @@
 a { text-decoration: none; }
 --></style></head>
 <body><h1>Verific incorrectly const folds a == 1'bx</h1>
-<div class="state"><strong>OPEN:</strong> last verified in <strong>Verific 35_463_32_140722</strong></div>
+<div class="state"><strong>CLOSED:</strong> fixed in <strong>Verific 482_32_150519</strong></div>
 
 <p>Consider the following module:</p>
 <div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_033</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
@@ -82,12 +82,13 @@ extended to <strong>2'b0x</strong>. Unlike the relational operators, the <strong
 <strong>!=</strong> operators do not automatically output <strong>1'bx</strong> if any bit in the
 arguments is <strong>1'bx</strong>. Instead it must only output <strong>1'bx</strong> if the
 result is ambiguous. See also 5.1.8 in IEE Std 1364-2005.)</p>
-<p>However, Verific 35_463_32_140306 optimizes all logic out of this module and
+<p>However, Verific 463_32_140306 optimizes all logic out of this module and
 sets the output to constant <strong>1'bx</strong>.</p>
 <p><strong>History:</strong><br />
 2014-03-22 Reported bug to Verific support<br />
 2014-03-26 Bug added to issue tracker: VIPER Issue #8535<br />
-2014-07-23 Still broken in Verific 35_463_32_140722</p>
+2014-07-23 Still broken in Verific 463_32_140722<br />
+2015-05-20 Fixed in Verific 482_32_150519  </p>
 
 <div><a href="../vloghammer.html">&larr; Back to VlogHammer Project Page</a></div>
 </body></html>

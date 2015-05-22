@@ -66,7 +66,7 @@
 a { text-decoration: none; }
 --></style></head>
 <body><h1>Verific only using the lowest 32 bits of right shift operand</h1>
-<div class="state"><strong>CLOSED:</strong> fixed in <strong>Verific 35_463_32_140722</strong></div>
+<div class="state"><strong>CLOSED:</strong> fixed in <strong>Verific 463_32_140722</strong></div>
 
 <p>The following module should output constant <strong>0</strong>.</p>
 <div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_029</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
@@ -77,7 +77,7 @@ a { text-decoration: none; }
 </pre></div>
 
 
-<p>However, Verific 35_463_32_140306 seems to only use the lower 32 bits of the
+<p>However, Verific 463_32_140306 seems to only use the lower 32 bits of the
 right operand and thus returns <strong>1</strong> instead.</p>
 <p>Crosscheck: Quartus 13.1 and XST 14.7 inherit this bug from Verific. Xsim 
 2013.4 has the same problem. Vivado 2013.4 and Modelsim 10.1d implement 
@@ -85,7 +85,7 @@ this correctly.</p>
 <p><strong>History:</strong><br />
 2014-03-22 Reported bug to Verific support<br />
 2014-03-26 Bug added to issue tracker: VIPER Issue #8534<br />
-2014-07-23 Fixed in Verific 35_463_32_140722</p>
+2014-07-23 Fixed in Verific 463_32_140722</p>
 
 <div><a href="../vloghammer.html">&larr; Back to VlogHammer Project Page</a></div>
 </body></html>

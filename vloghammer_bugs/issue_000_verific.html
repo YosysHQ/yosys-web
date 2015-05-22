@@ -66,7 +66,7 @@
 a { text-decoration: none; }
 --></style></head>
 <body><h1>Verific sign handling bug in {N{...}} Verilog operator</h1>
-<div class="state"><strong>CLOSED:</strong> fixed in <strong>Verific 35_463_32_140722</strong></div>
+<div class="state"><strong>CLOSED:</strong> fixed in <strong>Verific 463_32_140722</strong></div>
 
 <p>According to the Verilog standard (see sec. 5.1.14 of IEEE Std 1364-2005) the
 expressions for <strong>y0</strong> and <strong>y1</strong> in the following example are equivialent and should
@@ -83,12 +83,12 @@ yield the same results:</p>
 </pre></div>
 
 
-<p>However, Verific 35_463_32_140306 handles <strong>{a,a}</strong> as an unsigned and <strong>{2{a}}</strong> as a signed expression (it should be handled as unsigned in both cases).</p>
+<p>However, Verific 463_32_140306 handles <strong>{a,a}</strong> as an unsigned and <strong>{2{a}}</strong> as a signed expression (it should be handled as unsigned in both cases).</p>
 <p>In other words, Verific connects the MSB of <strong>y0</strong> to GND and the MSB of <strong>y1</strong> to the MSB of <strong>a</strong>, but it should set the MSB of <strong>y1</strong> to zero as well.</p>
 <p><strong>History:</strong><br />
 2014-03-08 Reported bug to Verific support<br />
 2014-03-18 Bug added to issue tracker: VIPER Issue #8510<br />
-2014-07-23 Fixed in Verific 35_463_32_140722</p>
+2014-07-23 Fixed in Verific 463_32_140722</p>
 
 <div><a href="../vloghammer.html">&larr; Back to VlogHammer Project Page</a></div>
 </body></html>

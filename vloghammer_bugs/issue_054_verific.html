@@ -66,10 +66,10 @@
 a { text-decoration: none; }
 --></style></head>
 <body><h1>Verific sign handling in {N{...}} and {...} again</h1>
-<div class="state"><strong>OPEN:</strong> last verified in <strong>Verific 35_463_32_140722</strong></div>
+<div class="state"><strong>CLOSED:</strong> fixed in <strong>Verific 482_32_150519</strong></div>
 
 <p>The following test case is similar to issue_000 (VIPER Issue #8510).
-Verific 35_463_32_140722 passes issue_000 but fails to implement
+Verific 463_32_140722 passes issue_000 but fails to implement
 <strong>y1</strong> and <strong>y5</strong> correctly in the following module:</p>
 <div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_054</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">y3</span><span class="p">,</span> <span class="n">y4</span><span class="p">,</span> <span class="n">y5</span><span class="p">,</span> <span class="n">y6</span><span class="p">,</span> <span class="n">y7</span><span class="p">);</span>
   <span class="k">input</span> <span class="k">signed</span> <span class="p">[</span><span class="mh">1</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">a</span><span class="p">;</span>
@@ -91,7 +91,8 @@ Verific 35_463_32_140722 passes issue_000 but fails to implement
 expression to unsigned (I suppose because it is optimized away), leading to
 signed instead of unsigned extension to 8 bits.</p>
 <p><strong>History:</strong><br />
-2014-07-23 Reported bug to Verific support  </p>
+2014-07-23 Reported bug to Verific support<br />
+2015-05-20 Fixed in Verific 482_32_150519  </p>
 
 <div><a href="../vloghammer.html">&larr; Back to VlogHammer Project Page</a></div>
 </body></html>
