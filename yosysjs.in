@@ -89,14 +89,15 @@ tar xvzf emsdk-portable.tar.gz
 cd emsdk_portable
 ./emsdk install latest
 ./emsdk activate --embedded latest
+./emsdk_env.sh
 cd ..
 </pre></p>
 
 <p>Finally download Yosys and build YosysJS:<pre>
 git clone git@github.com:cliffordwolf/yosys.git
 cd yosys
+source ../emsdk_portable/emsdk_set_env.sh
 make config-emcc
-source ../emsdk_portable/emsdk_env.sh
 make
 ls -l yosysjs-*
 </pre></p>
