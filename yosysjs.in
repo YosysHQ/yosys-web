@@ -75,6 +75,51 @@ svg_text = YosysJS.dot_to_svg(dot_text);
 YosysJS.dot_into_svg(dot_text, svg_element_or_id);
 </pre></p>
 
+<h2>WebWorker API Reference</h2>
+
+<p>The <tt>YosysJS.create()</tt>-based API described above creates a Yosys instance within
+the browser window main javascript thread. This means that whenever Yosys is running, the
+browser window becomes unresponsive. The following alternative API creates a Yosys instance
+within a separate WebWorker thread.</p>
+
+<p>Creating a Yosys instance within a WebWorker:<pre>
+function create_worker_callback() { ... }
+var ys = YosysJS.create_worker(create_worker_callback);
+</pre></p>
+
+<p>Running a command the Yosy WebWorker:<pre>
+function run_callback(output_text, error_message() { ... }
+ys.run(command_text, run_callback);
+</pre></p>
+
+<p>Accessing the virtual filesystem:<pre>
+function write_file_callback() { ... }
+ys.write_file(file_name, text_content, write_file_callback);
+
+function read_file_callback(text_content) { ... }
+ys.read_file(file_name, read_file_callback);
+
+function read_dir_callback(file_list) { ... }
+ys.read_dir(dir_name, read_dir_callback);
+
+function remove_file_callback() { ... }
+ys.remove_file(file_name, remove_file_callback);
+</pre></p>
+
+<p>Switching Yosys into verbose mode (i.e. write all messages to JavaScript console):<pre>
+function verbose_callback() { ... }
+ys.verbose(true, verbose_callback()); // enable verbose mode
+ys.verbose(false, verbose_callback()); // disable verbose mode (default)
+</pre></p>
+
+<p>All callback arguments are optional. Requests are processes in-order. I.e.
+it is possible to issue a sequence of commands and only use a callback on the
+last in the sequence. For example:<pre>
+ys.write_file("input.v", verilog_input_text);
+ys.run("design -reset; read_verilog input.v; synth; write_verilog output.v");
+ys.read_file("output.v", (function(text){ console.log("Output: ", text); }));
+</pre></p>
+
 <h2>Building YosysJS</h2>
 
 <p>The following is a step-by-step guide for building Emscripten and YosysJS. First
