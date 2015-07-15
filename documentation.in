@@ -14,8 +14,9 @@ href="https://github.com/cliffordwolf/yosys/blob/master/README">README file</a>.
 
 <h2>Support</h2>
 
-The best place to ask questions is on the <a
-href="http://www.reddit.com/r/yosys/">Yosys Subreddit</a>.
+The best places to ask questions are the <a
+href="http://www.reddit.com/r/yosys/">Yosys Subreddit</a> and <a
+href="http://stackoverflow.com/questions/tagged/yosys">Stack Overflow</a>.
 
 The best place to report a bug is on <a
 href="https://github.com/cliffordwolf/yosys/issues/new">GitHub</a>.
