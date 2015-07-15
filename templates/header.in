@@ -15,6 +15,7 @@
   <a class="nav@links@" href="links.html">Links</a>
   <a class="nav@donate@_donate" href="donate.html">Donate</a>
   <a class="navX" href="http://www.reddit.com/r/yosys/">Reddit</a>
+  <a class="navX" href="http://stackoverflow.com/questions/tagged/yosys">Stack Overflow</a>
   <a class="navX" href="https://github.com/cliffordwolf/yosys">GitHub</a>
   <br/>
   <b>Related Projects:</b><br/>
