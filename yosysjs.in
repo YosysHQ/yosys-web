@@ -87,7 +87,7 @@ function create_worker_callback() { ... }
 var ys = YosysJS.create_worker(create_worker_callback);
 </pre></p>
 
-<p>Running a command the Yosy WebWorker:<pre>
+<p>Running a command in the Yosys WebWorker:<pre>
 function run_callback(output_text, error_message() { ... }
 ys.run(command_text, run_callback);
 </pre></p>
@@ -108,13 +108,13 @@ ys.remove_file(file_name, remove_file_callback);
 
 <p>Switching Yosys into verbose mode (i.e. write all messages to JavaScript console):<pre>
 function verbose_callback() { ... }
-ys.verbose(true, verbose_callback()); // enable verbose mode
-ys.verbose(false, verbose_callback()); // disable verbose mode (default)
+ys.verbose(true, verbose_callback); // enable verbose mode
+ys.verbose(false, verbose_callback); // disable verbose mode (default)
 </pre></p>
 
 <p>All callback arguments are optional. Requests are processes in-order. I.e.
 it is possible to issue a sequence of commands and only use a callback on the
-last in the sequence. For example:<pre>
+last command in the sequence. For example:<pre>
 ys.write_file("input.v", verilog_input_text);
 ys.run("design -reset; read_verilog input.v; synth; write_verilog output.v");
 ys.read_file("output.v", (function(text){ console.log("Output: ", text); }));
