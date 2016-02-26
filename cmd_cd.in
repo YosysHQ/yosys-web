@@ -9,7 +9,7 @@ This is just a shortcut for 'select -module &lt;modname&gt;'.
     cd &lt;cellname&gt;
 
 When no module with the specified name is found, but there is a cell
-with the specified name in the current module, then this is equivialent
+with the specified name in the current module, then this is equivalent
 to 'cd &lt;celltype&gt;'.
 
     cd ..

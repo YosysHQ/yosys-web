@@ -11,13 +11,14 @@ The rules file contains a set of block ram description and a sequence of match
 rules. A block ram description looks like this:
 
     bram RAMB1024X32     # name of BRAM cell
+      init 1             # set to '1' if BRAM can be initialized
       abits 10           # number of address bits
       dbits 32           # number of data bits
       groups 2           # number of port groups
       ports  1 1         # number of ports in each group
       wrmode 1 0         # set to '1' if this groups is write ports
-      enable 4 0         # number of enable bits (for write ports)
-      transp 0 2         # transparatent (for read ports)
+      enable 4 1         # number of enable bits
+      transp 0 2         # transparent (for read ports)
       clocks 1 2         # clock configuration
       clkpol 2 2         # clock polarity configuration
     endbram
@@ -35,7 +36,7 @@ and a value greater than 1 means configurable. All groups with the same value
 greater than 1 share the same configuration bit.
 
 Using the same bram name in different bram blocks will create different variants
-of the bram. Verilog configration parameters for the bram are created as needed.
+of the bram. Verilog configuration parameters for the bram are created as needed.
 
 It is also possible to create variants by repeating statements in the bram block
 and appending '@&lt;label&gt;' to the individual statements.
@@ -68,7 +69,7 @@ It is possible to match against the following values with min/max rules:
     dcells  .......  number of cells in 'data-direction'
     cells  ........  total number of cells (acells*dcells*dups)
 
-The interface for the created bram instances is dervived from the bram
+The interface for the created bram instances is derived from the bram
 description. Use 'techmap' to convert the created bram instances into
 instances of the actual bram cells of your target architecture.
 
@@ -78,6 +79,9 @@ the next also has 'or_next_if_better' set, and so forth).
 
 A match containing the command 'make_transp' will add external circuitry
 to simulate 'transparent read', if necessary.
+
+A match containing the command 'make_outreg' will add external flip-flops
+to implement synchronous read ports, if necessary.
 
 A match containing the command 'shuffle_enable A' will re-organize
 the data bits to accommodate the enable pattern of port A.

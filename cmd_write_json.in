@@ -5,6 +5,10 @@
 
 Write a JSON netlist of the current design.
 
+    -aig
+        include AIG models for the different gate types
+
+
 The general syntax of the JSON output created by this command is as follows:
 
     {
@@ -23,7 +27,10 @@ The general syntax of the JSON output created by this command is as follows:
             ...
           }
         }
-      }
+      },
+      "models": {
+        ...
+      },
     }
 
 Where &lt;port_details&gt; is:
@@ -46,6 +53,10 @@ And &lt;cell_details&gt; is:
         &lt;attribute_name&gt;: &lt;attribute_value&gt;,
         ...
       },
+      "port_directions": {
+        &lt;port_name&gt;: &lt;"input" | "output" | "inout"&gt;,
+        ...
+      },
       "connections": {
         &lt;port_name&gt;: &lt;bit_vector&gt;,
         ...
@@ -62,13 +73,16 @@ And &lt;net_details&gt; is:
 The "hide_name" fields are set to 1 when the name of this cell or net is
 automatically created and is likely not of interest for a regular user.
 
+The "port_directions" section is only included for cells for which the
+interface is known.
+
 Module and cell ports and nets can be single bit wide or vectors of multiple
 bits. Each individual signal bit is assigned a unique integer. The &lt;bit_vector&gt;
 values referenced above are vectors of this integers. Signal bits that are
 connected to a constant driver are denoted as string "0" or "1" instead of
 a number.
 
-For example the following verilog code:
+For example the following Verilog code:
 
     module test(input x, y);
       (* keep *) foo #(.P(42), .Q(1337))
@@ -128,6 +142,60 @@ Translates to the following JSON output:
         }
       }
     }
+
+The models are given as And-Inverter-Graphs (AIGs) in the following form:
+
+    "models": {
+      &lt;model_name&gt;: [
+        /*   0 */ [ &lt;node-spec&gt; ],
+        /*   1 */ [ &lt;node-spec&gt; ],
+        /*   2 */ [ &lt;node-spec&gt; ],
+        ...
+      ],
+      ...
+    },
+
+The following node-types may be used:
+
+    [ "port", &lt;portname&gt;, &lt;bitindex&gt;, &lt;out-list&gt; ]
+      - the value of the specified input port bit
+
+    [ "nport", &lt;portname&gt;, &lt;bitindex&gt;, &lt;out-list&gt; ]
+      - the inverted value of the specified input port bit
+
+    [ "and", &lt;node-index&gt;, &lt;node-index&gt;, &lt;out-list&gt; ]
+      - the ANDed value of the speciefied nodes
+
+    [ "nand", &lt;node-index&gt;, &lt;node-index&gt;, &lt;out-list&gt; ]
+      - the inverted ANDed value of the speciefied nodes
+
+    [ "true", &lt;out-list&gt; ]
+      - the constant value 1
+
+    [ "false", &lt;out-list&gt; ]
+      - the constant value 0
+
+All nodes appear in topological order. I.e. only nodes with smaller indices
+are referenced by "and" and "nand" nodes.
+
+The optional &lt;out-list&gt; at the end of a node specification is a list of
+output portname and bitindex pairs, specifying the outputs driven by this node.
+
+For example, the following is the model for a 3-input 3-output $reduce_and cell
+inferred by the following code:
+
+    module test(input [2:0] in, output [2:0] out);
+      assign in = &amp;out;
+    endmodule
+
+    "$reduce_and:3U:3": [
+      /*   0 */ [ "port", "A", 0 ],
+      /*   1 */ [ "port", "A", 1 ],
+      /*   2 */ [ "and", 0, 1 ],
+      /*   3 */ [ "port", "A", 2 ],
+      /*   4 */ [ "and", 2, 3, "Y", 0 ],
+      /*   5 */ [ "false", "Y", 1, "Y", 2 ]
+    ]
 
 Future version of Yosys might add support for additional fields in the JSON
 format. A program processing this format must ignore all unkown fields.

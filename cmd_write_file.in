@@ -3,7 +3,7 @@
 <pre>
     write_file [options] output_file [input_file]
 
-Write the text fron the input file to the output file.
+Write the text from the input file to the output file.
 
     -a
         Append to output file (instead of overwriting)

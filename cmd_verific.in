@@ -13,7 +13,7 @@ Load the specified VHDL files into Verific.
 
     verific -import [-gates] {-all | &lt;top-module&gt;..}
 
-Elaborate the design for the sepcified top modules, import to Yosys and
+Elaborate the design for the specified top modules, import to Yosys and
 reset the internal state of Verific. A gate-level netlist is created
 when called with -gates.
 

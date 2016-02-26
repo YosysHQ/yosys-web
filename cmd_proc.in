@@ -10,10 +10,12 @@ This pass calls all the other proc_* passes in the most common order.
     proc_init
     proc_arst
     proc_mux
+    proc_dlatch
     proc_dff
     proc_clean
 
-This replaces the processes in the design with multiplexers and flip-flops.
+This replaces the processes in the design with multiplexers,
+flip-flops and latches.
 
 The following options are supported:
 

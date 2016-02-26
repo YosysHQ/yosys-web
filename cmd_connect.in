@@ -3,8 +3,8 @@
 <pre>
     connect [-nomap] [-nounset] -set &lt;lhs-expr&gt; &lt;rhs-expr&gt;
 
-Create a connection. This is equivialent to adding the statement 'assign
-&lt;lhs-expr&gt; = &lt;rhs-expr&gt;;' to the verilog input. Per default, all existing
+Create a connection. This is equivalent to adding the statement 'assign
+&lt;lhs-expr&gt; = &lt;rhs-expr&gt;;' to the Verilog input. Per default, all existing
 drivers for &lt;lhs-expr&gt; are unconnected. This can be overwritten by using
 the -nounset option.
 

@@ -14,7 +14,7 @@ library to a target architecture.
         use the specified ABC script file instead of the default script.
 
         if &lt;file&gt; starts with a plus sign (+), then the rest of the filename
-        string is interprated as the command string to be passed to ABC. the
+        string is interpreted as the command string to be passed to ABC. The
         leading plus sign is removed and all commas (,) in the string are
         replaced with blanks before the string is passed to ABC.
 
@@ -77,6 +77,15 @@ library to a target architecture.
         the area cost doubles with each additional input bit. the delay cost
         is still constant for all lut widths.
 
+    -luts &lt;cost1&gt;,&lt;cost2&gt;,&lt;cost3&gt;,&lt;sizeN&gt;:&lt;cost4-N&gt;,..
+        generate netlist using luts. Use the specified costs for luts with 1,
+        2, 3, .. inputs.
+
+    -g type1,type2,...
+        Map the the specified list of gate types. Supported gates types are:
+        AND, NAND, OR, NOR, XOR, XNOR, MUX, AOI3, OAI3, AOI4, OAI4.
+        (The NOT gate is always added to this list automatically.)
+
     -dff
         also pass $_DFF_?_ and $_DFFE_??_ cells through ABC. modules with many
         clock domains are automatically partitioned in clock domains and each
@@ -88,7 +97,7 @@ library to a target architecture.
 
     -keepff
         set the "keep" attribute on flip-flop output wires. (and thus preserve
-        them, for example for equivialence checking.)
+        them, for example for equivalence checking.)
 
     -nocleanup
         when this option is used, the temporary files created by this pass

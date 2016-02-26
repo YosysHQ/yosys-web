@@ -14,7 +14,7 @@ to work with the created equivalent checking module.
         Do not match cells or signals that match the names in the file.
 
     -encfile &lt;file&gt;
-        Match FSM encodings using the desiption from the file.
+        Match FSM encodings using the description from the file.
         See 'help fsm_recode' for details.
 
 Note: The circuit created by this command is not a miter (with something like

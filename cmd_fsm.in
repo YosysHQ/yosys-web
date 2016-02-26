@@ -4,7 +4,7 @@
     fsm [options] [selection]
 
 This pass calls all the other fsm_* passes in a useful order. This performs
-FSM extraction and optimiziation. It also calls opt_clean as needed:
+FSM extraction and optimization. It also calls opt_clean as needed:
 
     fsm_detect          unless got option -nodetect
     fsm_extract
@@ -29,7 +29,7 @@ Options:
     -expand, -norecode, -export, -nomap
         enable or disable passes as indicated above
 
-    -encoding tye
+    -encoding type
     -fm_set_fsm_file file
     -encfile file
         passed through to fsm_recode pass

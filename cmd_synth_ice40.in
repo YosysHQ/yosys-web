@@ -1,0 +1,98 @@
+@cmd_header synth_ice40@
+<h1>synth_ice40 - synthesis for iCE40 FPGAs</h1>
+<pre>
+    synth_ice40 [options]
+
+This command runs synthesis for iCE40 FPGAs. This work is experimental.
+
+    -top &lt;module&gt;
+        use the specified module as top module (default='top')
+
+    -blif &lt;file&gt;
+        write the design to the specified BLIF file. writing of an output file
+        is omitted if this parameter is not specified.
+
+    -edif &lt;file&gt;
+        write the design to the specified edif file. writing of an output file
+        is omitted if this parameter is not specified.
+
+    -run &lt;from_label&gt;:&lt;to_label&gt;
+        only run the commands between the labels (see below). an empty
+        from label is synonymous to 'begin', and empty to label is
+        synonymous to the end of the command list.
+
+    -noflatten
+        do not flatten design before synthesis
+
+    -retime
+        run 'abc' with -dff option
+
+    -nocarry
+        do not use SB_CARRY cells in output netlist
+
+    -nobram
+        do not use SB_RAM40_4K* cells in output netlist
+
+    -abc2
+        run two passes of 'abc' for slightly improved logic density
+
+
+The following commands are executed by this synthesis command:
+
+    begin:
+        read_verilog -lib +/ice40/cells_sim.v
+        hierarchy -check -top &lt;top&gt;
+
+    flatten:         (unless -noflatten)
+        proc
+        flatten
+        tribuf -logic
+
+    coarse:
+        synth -run coarse
+
+    bram:            (skip if -nobram)
+        memory_bram -rules +/ice40/brams.txt
+        techmap -map +/ice40/brams_map.v
+
+    fine:
+        opt -fast -mux_undef -undriven -fine
+        memory_map
+        opt -undriven -fine
+        techmap -map +/techmap.v [-map +/ice40/arith_map.v]
+        abc -dff     (only if -retime)
+        ice40_opt
+
+    map_ffs:
+        dffsr2dff
+        dff2dffe -direct-match $_DFF_*
+        techmap -map +/ice40/cells_map.v
+        opt_const -mux_undef
+        simplemap
+        ice40_ffinit
+        ice40_ffssr
+        ice40_opt -full
+
+    map_luts:
+        abc          (only if -abc2)
+        ice40_opt    (only if -abc2)
+        abc -lut 4
+        clean
+
+    map_cells:
+        techmap -map +/ice40/cells_map.v
+        clean
+
+    check:
+        hierarchy -check
+        stat
+        check -noinit
+
+    blif:
+        write_blif -gates -attr -param &lt;file-name&gt;
+
+    edif:
+        write_edif &lt;file-name&gt;
+
+</pre>
+@footer@

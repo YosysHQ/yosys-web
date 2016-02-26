@@ -1,5 +1,5 @@
 @cmd_header wreduce@
-<h1>wreduce - reduce the word size of operations is possible</h1>
+<h1>wreduce - reduce the word size of operations if possible</h1>
 <pre>
     wreduce [options] [selection]
 

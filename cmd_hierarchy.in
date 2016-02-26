@@ -15,7 +15,7 @@ needed.
 
     -purge_lib
         by default the hierarchy command will not remove library (blackbox)
-        module. use this options to also remove unused blackbox modules.
+        modules. use this option to also remove unused blackbox modules.
 
     -libdir &lt;directory&gt;
         search for files named &lt;module_name&gt;.v in the specified directory
@@ -39,6 +39,9 @@ needed.
         specified top module. otherwise a module with the 'top' attribute set
         will implicitly be used as top module, if such a module exists.
 
+    -auto-top
+        automatically determine the top of the design hierarchy and mark it.
+
 In -generate mode this pass generates blackbox modules for the given cell
 types (wildcards supported). For this the design is searched for cells that
 match the given types and then the given port declarations are used to
@@ -48,7 +51,7 @@ determine the direction of the ports. The syntax for a port declaration is:
 
 Input ports are specified with the 'i' prefix, output ports with the 'o'
 prefix and inout ports with the 'io' prefix. The optional &lt;num&gt; specifies
-the position of the port in the parameter list (needed when instanciated
+the position of the port in the parameter list (needed when instantiated
 using positional arguments). When &lt;num&gt; is not specified, the &lt;portname&gt; can
 also contain wildcard characters.
 

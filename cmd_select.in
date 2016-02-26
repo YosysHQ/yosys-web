@@ -158,7 +158,7 @@ The following actions can be performed on the top sets on the stack:
         like %d but swap the roles of two top sets on the stack
 
     %c
-        create a copy of the top set rom the stack and push it
+        create a copy of the top set from the stack and push it
 
     %x[&lt;num1&gt;|*][.&lt;num2&gt;][:&lt;rule&gt;[:&lt;rule&gt;..]]
         expand top set &lt;num1&gt; num times according to the specified rules.
@@ -175,18 +175,30 @@ The following actions can be performed on the top sets on the stack:
 
     %ci[&lt;num1&gt;|*][.&lt;num2&gt;][:&lt;rule&gt;[:&lt;rule&gt;..]]
     %co[&lt;num1&gt;|*][.&lt;num2&gt;][:&lt;rule&gt;[:&lt;rule&gt;..]]
-        simmilar to %x, but only select input (%ci) or output cones (%co)
+        similar to %x, but only select input (%ci) or output cones (%co)
+
+    %xe[...] %cie[...] %coe
+        like %x, %ci, and %co but only consider combinatorial cells
 
     %a
         expand top set by selecting all wires that are (at least in part)
         aliases for selected wires.
 
     %s
-        expand top set by adding all modules of instantiated cells in selected
+        expand top set by adding all modules that implement cells in selected
         modules
 
     %m
         expand top set by selecting all modules that contain selected objects
+
+    %M
+        select modules that implement selected cells
+
+    %C
+        select cells that implement selected modules
+
+    %R[&lt;num&gt;]
+        select &lt;num&gt; random objects from top selection (default 1)
 
 Example: the following command selects all wires that are connected to a
 'GATE' input of a 'SWITCH' cell:

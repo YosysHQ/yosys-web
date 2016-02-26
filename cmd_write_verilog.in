@@ -1,9 +1,9 @@
 @cmd_header write_verilog@
-<h1>write_verilog - write design to verilog file</h1>
+<h1>write_verilog - write design to Verilog file</h1>
 <pre>
     write_verilog [options] [filename]
 
-Write the current design to a verilog file.
+Write the current design to a Verilog file.
 
     -norename
         without this option all internal object names (the ones with a dollar
@@ -17,7 +17,7 @@ Write the current design to a verilog file.
         with this option attributes are included as comments in the output
 
     -noexpr
-        without this option all internal cells are converted to verilog
+        without this option all internal cells are converted to Verilog
         expressions.
 
     -blackboxes

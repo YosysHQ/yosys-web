@@ -40,7 +40,7 @@ evaluated in the other design.
 
     design -copy-to &lt;name&gt; [-as &lt;new_mod_name&gt;] [selection]
 
-Copy modules from the current design into the soecified one.
+Copy modules from the current design into the specified one.
 
 </pre>
 @footer@

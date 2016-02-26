@@ -3,7 +3,7 @@
 <pre>
     test_autotb [options] [filename]
 
-Automatically create primitive verilog test benches for all modules in the
+Automatically create primitive Verilog test benches for all modules in the
 design. The generated testbenches toggle the input pins of the module in
 a semi-random manner and dumps the resulting output signals.
 
@@ -19,7 +19,7 @@ value after initialization. This can e.g. be used to force a reset signal
 low in order to explore more inner states in a state machine.
 
     -n &lt;int&gt;
-        number of iterations the test bench shuld run (default = 1000)
+        number of iterations the test bench should run (default = 1000)
 
 </pre>
 @footer@

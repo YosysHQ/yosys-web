@@ -1,7 +1,7 @@
 @cmd_header dff2dffe@
 <h1>dff2dffe - transform $dff cells to $dffe cells</h1>
 <pre>
-    dff2dffe [selection]
+    dff2dffe [options] [selection]
 
 This pass transforms $dff cells driven by a tree of multiplexers with one or
 more feedback paths to $dffe cells. It also works on gate-level cells such as
@@ -17,8 +17,14 @@ $_DFF_P_, $_DFF_N_ and $_MUX_.
         &lt;external_gate_type&gt; is the cell type name for a cell with an
         identical interface to the &lt;internal_gate_type&gt;, except it
         also has an high-active enable port 'E'.
-          Usually &lt;external_gate_type&gt; is an intemediate cell type
+          Usually &lt;external_gate_type&gt; is an intermediate cell type
         that is then translated to the final type using 'techmap'.
+
+    -direct-match &lt;pattern&gt;
+        like -direct for all DFF cell types matching the expression.
+        this will use $__DFFE_* as &lt;external_gate_type&gt; matching the
+        internal gate type $_DFF_*_, except for $_DFF_[NP]_, which is
+        converted to $_DFFE_[NP]_.
 
 </pre>
 @footer@

@@ -3,7 +3,7 @@
 <pre>
     proc_init [selection]
 
-This pass extracts the 'init' actions from processes (generated from verilog
+This pass extracts the 'init' actions from processes (generated from Verilog
 'initial' blocks) and sets the initial value to the 'init' attribute on the
 respective wire.
 

@@ -1,0 +1,14 @@
+@cmd_header dffinit@
+<h1>dffinit - set INIT param on FF cells</h1>
+<pre>
+    dffinit [options] [selection]
+
+This pass sets an FF cell parameter to the the initial value of the net it
+drives. (This is primarily used in FPGA flows.)
+
+    -ff &lt;cell_name&gt; &lt;output_port&gt; &lt;init_param&gt;
+        operate on the specified cell type. this option can be used
+        multiple times.
+
+</pre>
+@footer@

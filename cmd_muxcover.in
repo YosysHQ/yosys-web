@@ -1,0 +1,18 @@
+@cmd_header muxcover@
+<h1>muxcover - cover trees of MUX cells with wider MUXes</h1>
+<pre>
+    muxcover [options] [selection]
+
+Cover trees of $_MUX_ cells with $_MUX{4,8,16}_ cells
+
+    -mux4, -mux8, -mux16
+        Use the specified types of MUXes. If none of those options are used,
+        the effect is the same as if all of them where used.
+
+    -nodecode
+        Do not insert decoder logic. This reduces the number of possible
+        substitutions, but guarantees that the resulting circuit is not
+        less efficient than the original circuit.
+
+</pre>
+@footer@

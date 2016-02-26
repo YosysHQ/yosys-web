@@ -1,0 +1,44 @@
+@cmd_header prep@
+<h1>prep - generic synthesis script</h1>
+<pre>
+    prep [options]
+
+This command runs a conservative RTL synthesis. A typical application for this
+is the preparation stage of a verification flow. This command does not operate
+on partly selected designs.
+
+    -top &lt;module&gt;
+        use the specified module as top module (default='top')
+
+    -nordff
+        passed to 'memory_dff'. prohibits merging of FFs into memory read ports
+
+    -run &lt;from_label&gt;[:&lt;to_label&gt;]
+        only run the commands between the labels (see below). an empty
+        from label is synonymous to 'begin', and empty to label is
+        synonymous to the end of the command list.
+
+
+The following commands are executed by this synthesis command:
+
+    begin:
+        hierarchy -check [-top &lt;top&gt;]
+
+    prep:
+        proc
+        opt_const
+        opt_clean
+        check
+        opt -keepdc
+        wreduce
+        memory_dff [-nordff]
+        opt_clean
+        memory_collect
+        opt -keepdc -fast
+
+    check:
+        stat
+        check
+
+</pre>
+@footer@

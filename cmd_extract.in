@@ -6,7 +6,7 @@
 
 This pass looks for subcircuits that are isomorphic to any of the modules
 in the given map file and replaces them with instances of this modules. The
-map file can be a verilog source file (*.v) or an ilang file (*.il).
+map file can be a Verilog source file (*.v) or an ilang file (*.il).
 
     -map &lt;map_file&gt;
         use the modules in this file as reference. This option can be used
@@ -35,11 +35,11 @@ map file can be a verilog source file (*.v) or an ilang file (*.il).
         match. This option can be used multiple times.
 
     -swap &lt;needle_type&gt; &lt;port1&gt;,&lt;port2&gt;[,...]
-        Register a set of swapable ports for a needle cell type.
+        Register a set of swappable ports for a needle cell type.
         This option can be used multiple times.
 
     -perm &lt;needle_type&gt; &lt;port1&gt;,&lt;port2&gt;[,...] &lt;portA&gt;,&lt;portB&gt;[,...]
-        Register a valid permutation of swapable ports for a needle
+        Register a valid permutation of swappable ports for a needle
         cell type. This option can be used multiple times.
 
     -cell_attr &lt;attribute_name&gt;
@@ -54,7 +54,7 @@ map file can be a verilog source file (*.v) or an ilang file (*.il).
     -ignore_param &lt;cell_type&gt; &lt;parameter_name&gt;
         Do not use this parameter when matching cells.
 
-This pass does not operate on modules with uprocessed processes in it.
+This pass does not operate on modules with unprocessed processes in it.
 (I.e. the 'proc' pass should be used first to convert processes to netlists.)
 
 This pass can also be used for mining for frequent subcircuits. In this mode

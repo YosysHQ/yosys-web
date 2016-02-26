@@ -7,7 +7,7 @@ This pass detects DFFs at memory ports and merges them into the memory port.
 I.e. it consumes an asynchronous memory port and the flip-flops at its
 interface and yields a synchronous memory port.
 
-    -wr_only
+    -nordfff
         do not merge registers on read ports
 
 </pre>

@@ -14,8 +14,8 @@ outputs.
         signal path at that wire.
 
     -shared
-        only expose those signals that are shared ammong the selected modules.
-        this is useful for preparing modules for equivialence checking.
+        only expose those signals that are shared among the selected modules.
+        this is useful for preparing modules for equivalence checking.
 
     -evert
         also turn connections to instances of other modules to additional

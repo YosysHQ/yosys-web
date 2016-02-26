@@ -1,14 +1,18 @@
 @cmd_header read_verilog@
-<h1>read_verilog - read modules from verilog file</h1>
+<h1>read_verilog - read modules from Verilog file</h1>
 <pre>
     read_verilog [options] [filename]
 
-Load modules from a verilog file to the current design. A large subset of
+Load modules from a Verilog file to the current design. A large subset of
 Verilog-2005 is supported.
 
     -sv
         enable support for SystemVerilog features. (only a small subset
         of SystemVerilog is supported)
+
+    -formal
+        enable support for assert() and assume() from SystemVerilog
+        replace the implicit -D SYNTHESIS with -D FORMAL
 
     -dump_ast1
         dump abstract syntax tree (before simplification)
@@ -17,7 +21,7 @@ Verilog-2005 is supported.
         dump abstract syntax tree (after simplification)
 
     -dump_vlog
-        dump ast as verilog code (after simplification)
+        dump ast as Verilog code (after simplification)
 
     -yydebug
         enable parser debug output
@@ -39,19 +43,31 @@ Verilog-2005 is supported.
         this can also be achieved by setting the 'nomem2reg'
         attribute on the respective module or register.
 
+        This is potentially dangerous. Usually the front-end has good
+        reasons for converting an array to a list of registers.
+        Prohibiting this step will likely result in incorrect synthesis
+        results.
+
     -mem2reg
         always convert memories to registers. this can also be
         achieved by setting the 'mem2reg' attribute on the respective
         module or register.
 
+    -nomeminit
+        do not infer $meminit cells and instead convert initialized
+        memories to registers directly in the front-end.
+
     -ppdump
-        dump verilog code after pre-processor
+        dump Verilog code after pre-processor
 
     -nopp
         do not run the pre-processor
 
+    -nodpi
+        disable DPI-C support
+
     -lib
-        only create empty blackbox modules
+        only create empty blackbox modules. This implies -DBLACKBOX.
 
     -noopt
         don't perform basic optimizations (such as const folding) in the
@@ -69,6 +85,9 @@ Verilog-2005 is supported.
         to a later 'hierarchy' command. Useful in cases where the default
         parameters of modules yield invalid or not synthesizable code.
 
+    -noautowire
+        make the default of `default_nettype be "none" instead of "wire".
+
     -setattr &lt;attribute_name&gt;
         set the specified attribute (to the value 1) on all loaded modules
 
@@ -85,7 +104,7 @@ subsequent calls to 'read_verilog'.
 
 Note that the Verilog frontend does a pretty good job of processing valid
 verilog input, but has not very good error reporting. It generally is
-recommended to use a simulator (for example icarus verilog) for checking
+recommended to use a simulator (for example Icarus Verilog) for checking
 the syntax of the code, rather than to rely on read_verilog for that.
 
 </pre>

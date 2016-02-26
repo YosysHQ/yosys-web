@@ -22,7 +22,7 @@ is used to determine if two resources are share-able.
 
   -fast
     Only consider the simple part of the control logic in SAT solving, resulting
-    in much easier SAT problems at the cost of maybe missing some oportunities
+    in much easier SAT problems at the cost of maybe missing some opportunities
     for resource sharing.
 
   -limit N

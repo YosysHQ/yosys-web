@@ -28,6 +28,9 @@ cell types. Use for example 'all /$add' for all cell types except $add.
     -simlib
         use "techmap -map +/simlib.v -max_iter 2 -autoproc"
 
+    -aigmap
+        instead of calling "techmap", call "aigmap"
+
     -muxdiv
         when creating test benches with dividers, create an additional mux
         to mask out the division-by-zero case
@@ -41,11 +44,14 @@ cell types. Use for example 'all /$add' for all cell types except $add.
     -nosat
         do not check SAT model or run SAT equivalence checking
 
+    -noeval
+        do not check const-eval models
+
     -v
         print additional debug information to the console
 
     -vlog {filename}
-        create a verilog test bench to test simlib and write_verilog
+        create a Verilog test bench to test simlib and write_verilog
 
 </pre>
 @footer@

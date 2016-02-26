@@ -39,8 +39,14 @@ file *.blif when any of this options is used.
         do not generate buffers for connected wires. instead use the
         non-standard .conn statement.
 
+    -attr
+        use the non-standard .attr statement to write cell attributes
+
     -param
-        use the non-standard .param statement to write module parameters
+        use the non-standard .param statement to write cell parameters
+
+    -cname
+        use the non-standard .cname statement to write cell names
 
     -blackbox
         write blackbox cells with .blackbox statement.

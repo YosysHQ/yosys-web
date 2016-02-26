@@ -8,10 +8,10 @@ can only map to very simple PAD cells. Use 'techmap' to further map
 the resulting cells to more sophisticated PAD cells.
 
     -inpad &lt;celltype&gt; &lt;portname&gt;[:&lt;portname&gt;]
-        Map module input ports to the given cell type with
-        the given port name. if a 2nd portname is given, the
+        Map module input ports to the given cell type with the
+        given output port name. if a 2nd portname is given, the
         signal is passed through the pad call, using the 2nd
-        portname as output.
+        portname as input.
 
     -outpad &lt;celltype&gt; &lt;portname&gt;[:&lt;portname&gt;]
     -inoutpad &lt;celltype&gt; &lt;portname&gt;[:&lt;portname&gt;]

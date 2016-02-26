@@ -4,7 +4,7 @@
     techmap [-map filename] [selection]
 
 This pass implements a very simple technology mapper that replaces cells in
-the design with implementations given in form of a verilog or ilang source
+the design with implementations given in form of a Verilog or ilang source
 file.
 
     -map filename
@@ -16,11 +16,6 @@ file.
     -map %&lt;design-name&gt;
         like -map above, but with an in-memory design instead of a file.
 
-    -share_map filename
-        like -map, but look for the file in the share directory (where the
-        yosys data files are). this is mainly used internally when techmap
-        is called from other commands.
-
     -extern
         load the cell implementations as separate modules into the design
         instead of inlining them.
@@ -30,7 +25,7 @@ file.
 
     -recursive
         instead of the iterative breadth-first algorithm use a recursive
-        depth-first algorithm. both methods should yield equivialent results,
+        depth-first algorithm. both methods should yield equivalent results,
         but may differ in performance.
 
     -autoproc
@@ -42,8 +37,8 @@ file.
         as final cell types by this mode.
 
     -D &lt;define&gt;, -I &lt;incdir&gt;
-        this options are passed as-is to the verilog frontend for loading the
-        map file. Note that the verilog frontend is also called with the
+        this options are passed as-is to the Verilog frontend for loading the
+        map file. Note that the Verilog frontend is also called with the
         '-ignore_redef' option set.
 
 When a module in the map file has the 'techmap_celltype' attribute set, it will
@@ -89,7 +84,7 @@ wires are supported:
         of constant inputs and shorted inputs at this point and import the
         constant and connected bits into the map module. All further commands
         are executed in this copy. This is a very convenient way of creating
-        optimizied specializations of techmap modules without using the special
+        optimized specializations of techmap modules without using the special
         parameters described below.
 
         A _TECHMAP_DO_* command may start with the special token 'RECURSION; '.
@@ -125,12 +120,12 @@ the design is connected to a constant value. The parameter is then set to the
 constant value.
 
 A cell with the name _TECHMAP_REPLACE_ in the map file will inherit the name
-of the cell that is beeing replaced.
+of the cell that is being replaced.
 
 See 'help extract' for a pass that does the opposite thing.
 
 See 'help flatten' for a pass that does flatten the design (which is
-esentially techmap but using the design itself as map library).
+essentially techmap but using the design itself as map library).
 
 </pre>
 @footer@

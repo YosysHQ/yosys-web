@@ -14,6 +14,9 @@ This pass performs const folding on internal cell types with constant inputs.
     -undriven
         replace undriven nets with undef (x) constants
 
+    -clkinv
+        optimize clock inverters by changing FF types
+
     -fine
         perform fine-grain optimizations
 

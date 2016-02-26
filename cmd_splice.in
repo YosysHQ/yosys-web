@@ -5,7 +5,7 @@
 
 This command adds $slice and $concat cells to the design to make the splicing
 of multi-bit signals explicit. This for example is useful for coarse grain
-synthesis, where dedidacted hardware is needed to splice signals.
+synthesis, where dedicated hardware is needed to splice signals.
 
     -sel_by_cell
         only select the cell ports to rewire by the cell. if the selection
@@ -19,6 +19,9 @@ synthesis, where dedidacted hardware is needed to splice signals.
     -sel_any_bit
         it is sufficient if the driver of any bit of a cell port is selected.
         by default all bits must be selected.
+
+    -wires
+        also add $slice and $concat cells to drive otherwise unused wires.
 
     -no_outputs
         do not rewire selected module outputs.

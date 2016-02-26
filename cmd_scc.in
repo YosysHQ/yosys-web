@@ -6,10 +6,18 @@
 This command identifies strongly connected components (aka logic loops) in the
 design.
 
+    -expect &lt;num&gt;
+        expect to find exactly &lt;num&gt; SSCs. A different number of SSCs will
+        produce an error.
+
     -max_depth &lt;num&gt;
-        limit to loops not longer than the specified number of cells. This can
-        e.g. be useful in identifying local loops in a module that turns out
-        to be one gigantic SCC.
+        limit to loops not longer than the specified number of cells. This
+        can e.g. be useful in identifying small local loops in a module that
+        implements one large SCC.
+
+    -nofeedback
+        do not count cells that have their output fed back into one of their
+        inputs as single-cell scc.
 
     -all_cell_types
         Usually this command only considers internal non-memory cells. With

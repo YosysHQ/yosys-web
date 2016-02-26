@@ -4,8 +4,8 @@
     write_smt2 [options] [filename]
 
 Write a SMT-LIBv2 [1] description of the current design. For a module with name
-'&lt;mod&gt;' this will declare the sort '&lt;mod&gt;_s' (state of the module) and the the
-function '&lt;mod&gt;_t' (state transition function).
+'&lt;mod&gt;' this will declare the sort '&lt;mod&gt;_s' (state of the module) and the
+functions operating on that state.
 
 The '&lt;mod&gt;_s' sort represents a module state. Additional '&lt;mod&gt;_n' functions
 are provided that can be used to access the values of the signals in the module.
@@ -17,10 +17,36 @@ multi-bit wires are exported as single functions of type BitVec.
 The '&lt;mod&gt;_t' function evaluates to 'true' when the given pair of states
 describes a valid state transition.
 
+The '&lt;mod&gt;_a' function evaluates to 'true' when the given state satisfies
+the asserts in the module.
+
+The '&lt;mod&gt;_u' function evaluates to 'true' when the given state satisfies
+the assumptions in the module.
+
+The '&lt;mod&gt;_i' function evaluates to 'true' when the given state conforms
+to the initial state.
+
+    -verbose
+        this will print the recursive walk used to export the modules.
+
     -bv
         enable support for BitVec (FixedSizeBitVectors theory). with this
         option set multi-bit wires are represented using the BitVec sort and
         support for coarse grain cells (incl. arithmetic) is enabled.
+
+    -mem
+        enable support for memories (via ArraysEx theory). this option
+        also implies -bv. only $mem cells without merged registers in
+        read ports are supported. call "memory" with -nordff to make sure
+        that no registers are merged into $mem read ports. '&lt;mod&gt;_m' functions
+        will be generated for accessing the arrays that are used to represent
+        memories.
+
+    -regs
+        also create '&lt;mod&gt;_n' functions for all registers.
+
+    -wires
+        also create '&lt;mod&gt;_n' functions for all public wires.
 
     -tpl &lt;template_file&gt;
         use the given template file. the line containing only the token '%%'
@@ -68,7 +94,7 @@ For this proof we create the following template (test.tpl).
 The following yosys script will create a 'test.smt2' file for our proof:
 
         read_verilog test.v
-        hierarchy; proc; techmap; opt -fast
+        hierarchy -check; proc; opt; check -assert
         write_smt2 -bv -tpl test.tpl test.smt2
 
 Running 'cvc4 test.smt2' will print 'unsat' because y can never transition

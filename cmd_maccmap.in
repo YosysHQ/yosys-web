@@ -3,8 +3,8 @@
 <pre>
     maccmap [-unmap] [selection]
 
-This pass maps $macc cells to yosys gate primitives. When the -unmap option is
-used then the $macc cell is mapped to $and, $sub, etc. cells instead.
+This pass maps $macc cells to yosys $fa and $alu cells. When the -unmap option
+is used then the $macc cell is mapped to $add, $sub, etc. cells instead.
 
 </pre>
 @footer@

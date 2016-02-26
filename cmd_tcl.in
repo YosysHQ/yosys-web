@@ -9,7 +9,7 @@ Use 'yosys cmd' to run the yosys command 'cmd' from tcl.
 The tcl command 'yosys -import' can be used to import all yosys
 commands directly as tcl commands to the tcl shell. The yosys
 command 'proc' is wrapped using the tcl command 'procs' in order
-to avoid a name collision with the tcl builting command 'proc'.
+to avoid a name collision with the tcl builtin command 'proc'.
 
 </pre>
 @footer@

@@ -4,7 +4,7 @@
     freduce [options] [selection]
 
 This pass performs functional reduction in the circuit. I.e. if two nodes are
-equivialent, they are merged to one node and one of the redundant drivers is
+equivalent, they are merged to one node and one of the redundant drivers is
 disconnected. A subsequent call to 'clean' will remove the redundant drivers.
 
     -v, -vv
@@ -22,7 +22,7 @@ disconnected. A subsequent call to 'clean' will remove the redundant drivers.
         operation. this is mostly used for debugging the freduce command.
 
 This pass is undef-aware, i.e. it considers don't-care values for detecting
-equivialent nodes.
+equivalent nodes.
 
 All selected wires are considered for rewiring. The selected cells cover the
 circuit that is analyzed.

@@ -19,5 +19,9 @@ pattern is '_%_'.
 Assign private names (the ones with $-prefix) to all selected wires and cells
 with public names. This ignores all selected ports.
 
+    rename -top new_name
+
+Rename top module.
+
 </pre>
 @footer@

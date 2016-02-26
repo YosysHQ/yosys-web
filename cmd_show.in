@@ -18,6 +18,10 @@ to a graphics file (usually SVG or PostScript).
         inputs or outputs. This option can be used multiple times to specify
         more than one library.
 
+        note: in most cases it is better to load the library before calling
+        show with 'read_verilog -lib &lt;filename&gt;'. it is also possible to
+        load liberty files with 'read_liberty -lib &lt;filename&gt;'.
+
     -prefix &lt;prefix&gt;
         generate &lt;prefix&gt;.* instead of ~/.yosys_show.*
 
@@ -34,7 +38,7 @@ to a graphics file (usually SVG or PostScript).
     -colors &lt;seed&gt;
         Randomly assign colors to the wires. The integer argument is the seed
         for the random number generator. Change the seed value if the colored
-        graph still is ambigous. A seed of zero deactivates the coloring.
+        graph still is ambiguous. A seed of zero deactivates the coloring.
 
     -colorattr &lt;attribute_name&gt;
         Use the specified attribute to assign colors. A unique color is
@@ -44,7 +48,7 @@ to a graphics file (usually SVG or PostScript).
         annotate busses with a label indicating the width of the bus.
 
     -signed
-        mark ports (A, B) that are declarted as signed (using the [AB]_SIGNED
+        mark ports (A, B) that are declared as signed (using the [AB]_SIGNED
         cell parameter) with an asterisk next to the port name.
 
     -stretch
@@ -58,7 +62,7 @@ to a graphics file (usually SVG or PostScript).
         enumerate objects with internal ($-prefixed) names
 
     -long
-        do not abbeviate objects with internal ($-prefixed) names
+        do not abbreviate objects with internal ($-prefixed) names
 
     -notitle
         do not add the module name as graph title to the dot file
@@ -68,6 +72,9 @@ specified, 'xdot' is used to display the schematic.
 
 The generated output files are '~/.yosys_show.dot' and '~/.yosys_show.&lt;format&gt;',
 unless another prefix is specified using -prefix &lt;prefix&gt;.
+
+Yosys on Windows and YosysJS use different defaults: The output is written
+to 'show.dot' in the current directory and new viewer is launched.
 
 </pre>
 @footer@

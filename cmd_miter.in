@@ -3,7 +3,7 @@
 <pre>
     miter -equiv [options] gold_name gate_name miter_name
 
-Creates a miter circuit for equivialence checking. The gold- and gate- modules
+Creates a miter circuit for equivalence checking. The gold- and gate- modules
 must have the same interfaces. The miter circuit will have all inputs of the
 two source modules, prefixed with 'in_'. The miter circuit has a 'trigger'
 output that goes high if an output mismatch between the two source modules is
@@ -22,6 +22,20 @@ detected.
 
     -make_assert
         also create an 'assert' cell that checks if trigger is always low.
+
+    -flatten
+        call 'flatten; opt_const -keepdc -undriven;;' on the miter circuit.
+
+
+    miter -assert [options] module [miter_name]
+
+Creates a miter circuit for property checking. All input ports are kept,
+output ports are discarded. An additional output 'trigger' is created that
+goes high when an assert is violated. Without a miter_name, the existing
+module is modified.
+
+    -make_outputs
+        keep module output ports.
 
     -flatten
         call 'flatten; opt_const -keepdc -undriven;;' on the miter circuit.

@@ -12,8 +12,18 @@ on partly selected designs.
     -encfile &lt;file&gt;
         passed to 'fsm_recode' via 'fsm'
 
+    -nofsm
+        do not run FSM optimization
+
     -noabc
         do not run abc (as if yosys was compiled without ABC support)
+
+    -noalumacc
+        do not run 'alumacc' pass. i.e. keep arithmetic operators in
+        their direct form ($add, $sub, etc.).
+
+    -nordff
+        passed to 'memory'. prohibits merging of FFs into memory read ports
 
     -run &lt;from_label&gt;[:&lt;to_label&gt;]
         only run the commands between the labels (see below). an empty
@@ -28,6 +38,9 @@ The following commands are executed by this synthesis command:
 
     coarse:
         proc
+        opt_const
+        opt_clean
+        check
         opt
         wreduce
         alumacc
@@ -44,10 +57,13 @@ The following commands are executed by this synthesis command:
         opt -full
         techmap
         opt -fast
-
-    abc:
         abc -fast
         opt -fast
+
+    check:
+        hierarchy -check
+        stat
+        check
 
 </pre>
 @footer@

@@ -5,7 +5,7 @@
 
 The fsm_extract pass is conservative about the cells that belong to a finite
 state machine. This pass can be used to merge additional auxiliary gates into
-the finate state machine.
+the finite state machine.
 
 </pre>
 @footer@
