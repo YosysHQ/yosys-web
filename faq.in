@@ -25,9 +25,9 @@ reproducing your problem and at the same time will decrease the chances of
 your problem being reproduced correctly!</p>
 
 <p>As a golden rule: Always consider that someone reading your bug report only
-has the information you provided. Before clicking the send buttom on your bug
+has the information you provided. Before clicking the send button on your bug
 report and/or support request, double check that you have provided all the
-information necessary to reproduce the problem you are seeing easily.</p>
+information necessary to easily reproduce the problem you are seeing.</p>
 
 <h2>2. What synthesis targets are supported by Yosys?</h2>
 
