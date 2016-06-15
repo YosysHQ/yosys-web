@@ -66,7 +66,7 @@
 a { text-decoration: none; }
 --></style></head>
 <body><h1>Vivado handling of partly out-of-bounds parts select</h1>
-<div class="state"><strong>OPEN:</strong> last verified in <strong>Vivado 2015.1</strong></div>
+<div class="state"><strong>OPEN:</strong> last verified in <strong>Vivado 2016.2</strong></div>
 
 <p>Consider the following test case:</p>
 <div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_057</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
@@ -84,7 +84,8 @@ sets <strong>y[3]=0</strong>.</p>
 (git 1572dcd) implement this correctly. Quartus 14.0 suffers from the same bug.</p>
 <p><strong>History:</strong><br />
 2014-09-27 <a href="http://forums.xilinx.com/t5/Synthesis/Vivado-bug-in-handling-of-partly-out-of-bounds-parts-select/td-p/524661">Reported</a> bug in Xilinx Support Forum<br />
-2015-05-15 <a href="http://forums.xilinx.com/t5/Synthesis/Old-and-new-Vivado-Synthesis-Bugs/td-p/602988">Still broken in Vivado 2015.1</a>  </p>
+2015-05-15 <a href="http://forums.xilinx.com/t5/Synthesis/Old-and-new-Vivado-Synthesis-Bugs/td-p/602988">Still broken in Vivado 2015.1</a><br />
+2016-06-15 Still broken in Vivado 2016.2  </p>
 
 <div><a href="../vloghammer.html">&larr; Back to VlogHammer Project Page</a></div>
 </body></html>
