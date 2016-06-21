@@ -24,10 +24,10 @@ has to write themself will increase the effort someome has to put into
 reproducing your problem and at the same time will decrease the chances of
 your problem being reproduced correctly!</p>
 
-<p>As a golden rule: Always consider that someone reading your bug report only
-has the information you provided. Before clicking the send button on your bug
+<p><b>Always consider that someone reading your bug report only
+has the information you provided.</b> Before clicking the send button on your bug
 report and/or support request, double check that you have provided all the
-information necessary to easily reproduce the problem you are seeing.</p>
+information necessary to easily and quickly reproduce the problem you are seeing.</p>
 
 <h2>2. What synthesis targets are supported by Yosys?</h2>
 
@@ -64,5 +64,20 @@ the iCE40 flow.</p>
 <p>There is limited support for FFs with non-inverted and inverted outputs in
 Yosys and there are plans to further improve support for this cells in the near
 future.</p>
+
+<h2>5. The Verilog front-end does not create nice errors for invalid code!</h2>
+
+<p>Not really a question, but yes, this is correct. The focus so far for
+development of the Yosys Verilog front-end was on features and processing valid
+input, not good error reporting for invalid code. In some cases it will even
+accept invalid code! Use a simulatior (such as <a
+href="http://iverilog.icarus.com/">Icarus Verilog</a> or <a
+href="http://www.veripool.org/wiki/verilator">Verilator</a>) to check your code
+for syntax errors and similar problems. Verilator even has a
+<tt>--lint-only</tt> mode for just checking code without compiling it.</p>
+
+<p>On a side note: I usually get this question from people who do not simulate
+their designs. Don't be this person! Regardless of what tools you are using,
+you should always simulate your designs first before going into synthesis!</p>
 
 @footer@
