@@ -34,7 +34,8 @@ information necessary to easily and quickly reproduce the problem you are seeing
 
 <p>Yosys is retargetable and adding support for additional targets is not very
 hard. At the moment, Yosys ships with support for ASIC synthesis (from liberty
-cell library files), iCE40 FPGAs, and Xilinx 7-Series FPGAs.</p>
+cell library files), iCE40 FPGAs, Xilinx 7-Series FPGAs, Silego GreenPAK4 devices,
+and Gowinsemi GW1N/GW2A FPGAs.</p>
 
 <p>Note that in all this cases Yosys only performs synthesis. For a complete
 open source ASIC flow using Yosys see <a href="http://opencircuitdesign.com/qflow/">Qflow</a>,
