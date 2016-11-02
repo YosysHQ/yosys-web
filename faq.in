@@ -11,7 +11,8 @@ href="http://www.reddit.com/r/yosys/">Yosys Subreddit</a>, or <a
 href="http://stackoverflow.com/questions/tagged/yosys">Stack Overflow</a>, so
 others can profit from your question and the posted answers as well.</p>
 
-<p>A good bug report contains a complete code example that demonstrate the
+<p>A good bug report contains a <a href="http://stackoverflow.com/help/mcve">minimal,
+complete, and verifiable code example</a> that demonstrate the
 problem you are running into. Complete means not just a code snippet, but an
 entire top verilog moduole that can be synthesized. Also include the yosys
 script or command line. If your problem is with one of the flows (e.g.  the
