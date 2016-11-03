@@ -12,7 +12,7 @@ and typical applications:</p>
 <li>Converting Verilog to BLIF / EDIF/ BTOR / SMT-LIB / simple RTL Verilog / etc.
 <li>Built-in formal methods for checking properties and equivalence
 <li>Mapping to ASIC standard cell libraries (in Liberty File Format)
-<li>Mapping to Xilinx 7-Series and Lattice iCE40 FPGAs (use git head)
+<li>Mapping to Xilinx 7-Series and Lattice iCE40 FPGAs
 <li>Foundation and/or front-end for custom flows
 </ul>
 
