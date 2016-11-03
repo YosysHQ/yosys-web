@@ -26,7 +26,7 @@ cell types. Use for example 'all /$add' for all cell types except $add.
         pass this option to techmap.
 
     -simlib
-        use "techmap -map +/simlib.v -max_iter 2 -autoproc"
+        use "techmap -D SIMLIB_NOCHECKS -map +/simlib.v -max_iter 2 -autoproc"
 
     -aigmap
         instead of calling "techmap", call "aigmap"
@@ -46,6 +46,9 @@ cell types. Use for example 'all /$add' for all cell types except $add.
 
     -noeval
         do not check const-eval models
+
+    -edges
+        test cell edges db creator against sat-based implementation
 
     -v
         print additional debug information to the console

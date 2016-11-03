@@ -18,6 +18,10 @@ Write the current design to an SPICE netlist file.
     -nc_prefix
         prefix for not-connected nets (default: _NC)
 
+    -inames
+        include names of internal ($-prefixed) nets in outputs
+        (default is to use net numbers instead)
+
     -top top_module
         set the specified module as design top module
 

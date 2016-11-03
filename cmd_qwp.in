@@ -20,6 +20,9 @@ annotates the cells in the design with 'qwp_position' attributes.
     -dump &lt;html_file_name&gt;
         Dump a protocol of the placement algorithm to the html file.
 
+    -v
+        Verbose solver output for profiling or debugging
+
 Note: This implementation of a quadratic wirelength placer uses exact
 dense matrix operations. It is only a toy-placer for small circuits.
 

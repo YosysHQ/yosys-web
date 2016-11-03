@@ -1,0 +1,68 @@
+@cmd_header synth_gowin@
+<h1>synth_gowin - synthesis for Gowin FPGAs</h1>
+<pre>
+    synth_gowin [options]
+
+This command runs synthesis for Gowin FPGAs. This work is experimental.
+
+    -top &lt;module&gt;
+        use the specified module as top module (default='top')
+
+    -vout &lt;file&gt;
+        write the design to the specified Verilog netlist file. writing of an
+        output file is omitted if this parameter is not specified.
+
+    -run &lt;from_label&gt;:&lt;to_label&gt;
+        only run the commands between the labels (see below). an empty
+        from label is synonymous to 'begin', and empty to label is
+        synonymous to the end of the command list.
+
+    -retime
+        run 'abc' with -dff option
+
+
+The following commands are executed by this synthesis command:
+
+    begin:
+        read_verilog -lib +/gowin/cells_sim.v
+        hierarchy -check -top &lt;top&gt;
+
+    flatten:
+        proc
+        flatten
+        tribuf -logic
+        deminout
+
+    coarse:
+        synth -run coarse
+
+    fine:
+        opt -fast -mux_undef -undriven -fine
+        memory_map
+        opt -undriven -fine
+        techmap
+        clean -purge
+        splitnets -ports
+        setundef -undriven -zero
+        abc -dff    (only if -retime)
+
+    map_luts:
+        abc -lut 4
+        clean
+
+    map_cells:
+        techmap -map +/gowin/cells_map.v
+        hilomap -hicell VCC V -locell GND G
+        iopadmap -inpad IBUF O:I -outpad OBUF I:O
+        clean -purge
+
+    check:
+        hierarchy -check
+        stat
+        check -noinit
+
+    vout:
+        write_verilog -attr2comment -defparam -renameprefix gen &lt;file-name&gt;
+
+</pre>
+@footer@

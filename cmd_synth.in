@@ -9,6 +9,13 @@ on partly selected designs.
     -top &lt;module&gt;
         use the specified module as top module (default='top')
 
+    -auto-top
+        automatically determine the top of the design hierarchy
+
+    -flatten
+        flatten the design before synthesis. this will pass '-auto-top' to
+        'hierarchy' if no top module is specified.
+
     -encfile &lt;file&gt;
         passed to 'fsm_recode' via 'fsm'
 
@@ -34,11 +41,12 @@ on partly selected designs.
 The following commands are executed by this synthesis command:
 
     begin:
-        hierarchy -check [-top &lt;top&gt;]
+        hierarchy -check [-top &lt;top&gt; | -auto-top]
 
     coarse:
         proc
-        opt_const
+        flatten    (if -flatten)
+        opt_expr
         opt_clean
         check
         opt

@@ -21,7 +21,14 @@ Write the current design to an BLIF file.
         use the specified cell types to drive nets that are constant 1, 0, or
         undefined. when '-' is used as &lt;cell-type&gt;, then &lt;out-port&gt; specifies
         the wire name to be used for the constant signal and no cell driving
-        that wire is generated.
+        that wire is generated. when '+' is used as &lt;cell-type&gt;, then &lt;out-port&gt;
+        specifies the wire name to be used for the constant signal and a .names
+        statement is generated to drive the wire.
+
+    -noalias
+        if a net name is aliasing another net name, then by default a net
+        without fanout is created that is driven by the other net. This option
+        suppresses the generation of this nets without fanout.
 
 The following options can be useful when the generated file is not going to be
 read by a BLIF parser but a custom tool. It is recommended to not name the output

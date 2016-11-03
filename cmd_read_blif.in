@@ -5,5 +5,8 @@
 
 Load modules from a BLIF file into the current design.
 
+    -sop
+        Create $sop cells instead of $lut cells
+
 </pre>
 @footer@

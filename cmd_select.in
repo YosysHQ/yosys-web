@@ -2,7 +2,7 @@
 <h1>select - modify and view the list of selected objects</h1>
 <pre>
     select [ -add | -del | -set &lt;name&gt; ] {-read &lt;filename&gt; | &lt;selection&gt;}
-    select [ -assert-none | -assert-any ] {-read &lt;filename&gt; | &lt;selection&gt;}
+    select [ &lt;assert_option&gt; ] {-read &lt;filename&gt; | &lt;selection&gt;}
     select [ -list | -write &lt;filename&gt; | -count | -clear ]
     select -module &lt;modname&gt;
 
@@ -37,6 +37,14 @@ described here.
     -assert-count N
         do not modify the current selection. instead assert that the given
         selection contains exactly N objects.
+
+    -assert-max N
+        do not modify the current selection. instead assert that the given
+        selection contains less than or exactly N objects.
+
+    -assert-min N
+        do not modify the current selection. instead assert that the given
+        selection contains at least N objects.
 
     -list
         list all objects in the current selection

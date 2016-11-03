@@ -2,15 +2,20 @@
 <li><a href="cmd_add.html"> add</a> <span>add objects to the design</span></a>
 <li><a href="cmd_aigmap.html"> aigmap</a> <span>map logic to and-inverter-graph circuit</span></a>
 <li><a href="cmd_alumacc.html"> alumacc</a> <span>extract ALU and MACC cells</span></a>
+<li><a href="cmd_assertpmux.html"> assertpmux</a> <span>convert internal signals to module ports</span></a>
+<li><a href="cmd_attrmap.html"> attrmap</a> <span>renaming attributes</span></a>
+<li><a href="cmd_attrmvcp.html"> attrmvcp</a> <span>move or copy attributes from wires to driving cells</span></a>
 <li><a href="cmd_cd.html"> cd</a> <span>a shortcut for 'select -module &lt;name&gt;'</span></a>
 <li><a href="cmd_check.html"> check</a> <span>check for obvious problems in the design</span></a>
 <li><a href="cmd_chparam.html"> chparam</a> <span>re-evaluate modules with new parameters</span></a>
 <li><a href="cmd_clean.html"> clean</a> <span>remove unused cells and wires</span></a>
+<li><a href="cmd_clk2fflogic.html"> clk2fflogic</a> <span>convert clocked FFs to generic $ff cells</span></a>
 <li><a href="cmd_connect.html"> connect</a> <span>create or remove connections</span></a>
 <li><a href="cmd_connwrappers.html"> connwrappers</a> <span>replace undef values with defined constants</span></a>
 <li><a href="cmd_copy.html"> copy</a> <span>copy modules in the design</span></a>
 <li><a href="cmd_cover.html"> cover</a> <span>print code coverage counters</span></a>
 <li><a href="cmd_delete.html"> delete</a> <span>delete objects in the design</span></a>
+<li><a href="cmd_deminout.html"> deminout</a> <span>demote inout ports to input or output</span></a>
 <li><a href="cmd_design.html"> design</a> <span>save, restore and reset current design</span></a>
 <li><a href="cmd_dff2dffe.html"> dff2dffe</a> <span>transform $dff cells to $dffe cells</span></a>
 <li><a href="cmd_dffinit.html"> dffinit</a> <span>set INIT param on FF cells</span></a>
@@ -43,6 +48,8 @@
 <li><a href="cmd_fsm_map.html"> fsm_map</a> <span>mapping FSMs to basic logic</span></a>
 <li><a href="cmd_fsm_opt.html"> fsm_opt</a> <span>optimize finite state machines</span></a>
 <li><a href="cmd_fsm_recode.html"> fsm_recode</a> <span>recoding finite state machines</span></a>
+<li><a href="cmd_greenpak4_counters.html"> greenpak4_counters</a> <span>Extract GreenPak4 counter cells</span></a>
+<li><a href="cmd_greenpak4_dffinv.html"> greenpak4_dffinv</a> <span>merge greenpak4 inverters and DFFs</span></a>
 <li><a href="cmd_help.html"> help</a> <span>display help messages</span></a>
 <li><a href="cmd_hierarchy.html"> hierarchy</a> <span>check, expand and clean up design hierarchy</span></a>
 <li><a href="cmd_hilomap.html"> hilomap</a> <span>technology mapping of constant hi- and/or lo-drivers</span></a>
@@ -50,6 +57,7 @@
 <li><a href="cmd_ice40_ffinit.html"> ice40_ffinit</a> <span>iCE40: handle FF init values</span></a>
 <li><a href="cmd_ice40_ffssr.html"> ice40_ffssr</a> <span>iCE40: merge synchronous set/reset into FF cells</span></a>
 <li><a href="cmd_ice40_opt.html"> ice40_opt</a> <span>iCE40: perform simple optimizations</span></a>
+<li><a href="cmd_insbuf.html"> insbuf</a> <span>insert buffer cells for connected wires</span></a>
 <li><a href="cmd_iopadmap.html"> iopadmap</a> <span>technology mapping of i/o pads (or buffers)</span></a>
 <li><a href="cmd_json.html"> json</a> <span>write design in JSON format</span></a>
 <li><a href="cmd_log.html"> log</a> <span>print text and log files</span></a>
@@ -61,6 +69,7 @@
 <li><a href="cmd_memory_collect.html"> memory_collect</a> <span>creating multi-port memory cells</span></a>
 <li><a href="cmd_memory_dff.html"> memory_dff</a> <span>merge input/output DFFs into memories</span></a>
 <li><a href="cmd_memory_map.html"> memory_map</a> <span>translate multiport memories to basic cells</span></a>
+<li><a href="cmd_memory_memx.html"> memory_memx</a> <span>emulate vlog sim behavior for mem ports</span></a>
 <li><a href="cmd_memory_share.html"> memory_share</a> <span>consolidate memory ports</span></a>
 <li><a href="cmd_memory_unpack.html"> memory_unpack</a> <span>unpack multi-port memory cells</span></a>
 <li><a href="cmd_miter.html"> miter</a> <span>automatically create a miter circuit</span></a>
@@ -68,11 +77,11 @@
 <li><a href="cmd_nlutmap.html"> nlutmap</a> <span>map to LUTs of different sizes</span></a>
 <li><a href="cmd_opt.html"> opt</a> <span>perform simple optimizations</span></a>
 <li><a href="cmd_opt_clean.html"> opt_clean</a> <span>remove unused cells and wires</span></a>
-<li><a href="cmd_opt_const.html"> opt_const</a> <span>perform const folding</span></a>
+<li><a href="cmd_opt_expr.html"> opt_expr</a> <span>perform const folding and simple expression rewriting</span></a>
+<li><a href="cmd_opt_merge.html"> opt_merge</a> <span>consolidate identical cells</span></a>
 <li><a href="cmd_opt_muxtree.html"> opt_muxtree</a> <span>eliminate dead trees in multiplexer trees</span></a>
 <li><a href="cmd_opt_reduce.html"> opt_reduce</a> <span>simplify large MUXes and AND/OR gates</span></a>
 <li><a href="cmd_opt_rmdff.html"> opt_rmdff</a> <span>remove DFFs with constant inputs</span></a>
-<li><a href="cmd_opt_share.html"> opt_share</a> <span>consolidate identical cells</span></a>
 <li><a href="cmd_plugin.html"> plugin</a> <span>load and list loaded plugins</span></a>
 <li><a href="cmd_pmuxtree.html"> pmuxtree</a> <span>transform $pmux cells to trees of $mux cells</span></a>
 <li><a href="cmd_prep.html"> prep</a> <span>generic synthesis script</span></a>
@@ -101,6 +110,7 @@
 <li><a href="cmd_share.html"> share</a> <span>perform sat-based resource sharing</span></a>
 <li><a href="cmd_shell.html"> shell</a> <span>enter interactive command mode</span></a>
 <li><a href="cmd_show.html"> show</a> <span>generate schematics using graphviz</span></a>
+<li><a href="cmd_shregmap.html"> shregmap</a> <span>map shift registers</span></a>
 <li><a href="cmd_simplemap.html"> simplemap</a> <span>mapping simple coarse-grain cells</span></a>
 <li><a href="cmd_singleton.html"> singleton</a> <span>create singleton modules</span></a>
 <li><a href="cmd_splice.html"> splice</a> <span>create explicit splicing cells</span></a>
@@ -108,6 +118,7 @@
 <li><a href="cmd_stat.html"> stat</a> <span>print some statistics</span></a>
 <li><a href="cmd_submod.html"> submod</a> <span>moving part of a module to a new submodule</span></a>
 <li><a href="cmd_synth.html"> synth</a> <span>generic synthesis script</span></a>
+<li><a href="cmd_synth_gowin.html"> synth_gowin</a> <span>synthesis for Gowin FPGAs</span></a>
 <li><a href="cmd_synth_greenpak4.html"> synth_greenpak4</a> <span>synthesis for GreenPAK4 FPGAs</span></a>
 <li><a href="cmd_synth_ice40.html"> synth_ice40</a> <span>synthesis for iCE40 FPGAs</span></a>
 <li><a href="cmd_synth_xilinx.html"> synth_xilinx</a> <span>synthesis for Xilinx FPGAs</span></a>
@@ -135,3 +146,4 @@
 <li><a href="cmd_write_smv.html"> write_smv</a> <span>write design to SMV file</span></a>
 <li><a href="cmd_write_spice.html"> write_spice</a> <span>write design to SPICE netlist file</span></a>
 <li><a href="cmd_write_verilog.html"> write_verilog</a> <span>write design to Verilog file</span></a>
+<li><a href="cmd_zinit.html"> zinit</a> <span>add inverters so all FF are zero-initialized</span></a>

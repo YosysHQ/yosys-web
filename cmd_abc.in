@@ -7,7 +7,7 @@ This pass uses the ABC tool [1] for technology mapping of yosys's internal gate
 library to a target architecture.
 
     -exe &lt;command&gt;
-        use the specified command name instead of "yosys-abc" to execute ABC.
+        use the specified command instead of "&lt;yosys-bindir&gt;/yosys-abc" to execute ABC.
         This can e.g. be used to call a specific version of ABC or a wrapper.
 
     -script &lt;file&gt;
@@ -21,33 +21,45 @@ library to a target architecture.
         if no -script parameter is given, the following scripts are used:
 
         for -liberty without -constr:
-          strash; scorr; ifraig; retime {D}; strash; dch -f; map {D}
+          strash; dc2; scorr; ifraig; retime -o {D}; strash; dch -f;
+               map {D}
 
         for -liberty with -constr:
-          strash; scorr; ifraig; retime {D}; strash; dch -f; map {D};
-               buffer; upsize {D}; dnsize {D}; stime -p
+          strash; dc2; scorr; ifraig; retime -o {D}; strash; dch -f;
+               map {D}; buffer; upsize {D}; dnsize {D}; stime -p
 
-        for -lut:
-          strash; scorr; ifraig; retime; strash; dch -f; if
+        for -lut/-luts (only one LUT size):
+          strash; dc2; scorr; ifraig; retime -o; strash; dch -f; if; mfs;
+               lutpack
+
+        for -lut/-luts (different LUT sizes):
+          strash; dc2; scorr; ifraig; retime -o; strash; dch -f; if; mfs
+
+        for -sop:
+          strash; dc2; scorr; ifraig; retime -o; strash; dch -f;
+               cover {I} {P}
 
         otherwise:
-          strash; scorr; ifraig; retime; strash; dch -f; map
+          strash; dc2; scorr; ifraig; retime -o; strash; dch -f; map
 
     -fast
         use different default scripts that are slightly faster (at the cost
         of output quality):
 
         for -liberty without -constr:
-          retime {D}; map {D}
+          retime -o {D}; map {D}
 
         for -liberty with -constr:
-          retime {D}; map {D}; buffer; upsize {D}; dnsize {D}; stime -p
+          retime -o {D}; map {D}; buffer; upsize {D}; dnsize {D}; stime -p
 
-        for -lut:
-          retime; if
+        for -lut/-luts:
+          retime -o; if
+
+        for -sop:
+          retime -o; cover -I {I} -P {P}
 
         otherwise:
-          retime; map
+          retime -o; map
 
     -liberty &lt;file&gt;
         generate netlists for the specified cell library (using the liberty
@@ -68,6 +80,14 @@ library to a target architecture.
         set delay target. the string {D} in the default scripts above is
         replaced by this option when used, and an empty string otherwise.
 
+    -I &lt;num&gt;
+        maximum number of SOP inputs.
+        (replaces {I} in the default scripts above)
+
+    -P &lt;num&gt;
+        maximum number of SOP products.
+        (replaces {P} in the default scripts above)
+
     -lut &lt;width&gt;
         generate netlist using luts of (max) the specified width.
 
@@ -80,6 +100,9 @@ library to a target architecture.
     -luts &lt;cost1&gt;,&lt;cost2&gt;,&lt;cost3&gt;,&lt;sizeN&gt;:&lt;cost4-N&gt;,..
         generate netlist using luts. Use the specified costs for luts with 1,
         2, 3, .. inputs.
+
+    -sop
+        map to sum-of-product cells and inverters
 
     -g type1,type2,...
         Map the the specified list of gate types. Supported gates types are:

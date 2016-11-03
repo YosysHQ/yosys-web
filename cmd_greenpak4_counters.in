@@ -1,0 +1,10 @@
+@cmd_header greenpak4_counters@
+<h1>greenpak4_counters - Extract GreenPak4 counter cells</h1>
+<pre>
+    greenpak4_counters [options] [selection]
+
+This pass converts non-resettable or async resettable down counters to GreenPak4
+counter cells (All other GreenPak4 counter modes must be instantiated manually.)
+
+</pre>
+@footer@

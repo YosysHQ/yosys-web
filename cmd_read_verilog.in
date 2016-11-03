@@ -11,8 +11,14 @@ Verilog-2005 is supported.
         of SystemVerilog is supported)
 
     -formal
-        enable support for assert() and assume() from SystemVerilog
+        enable support for SystemVerilog assertions and some Yosys extensions
         replace the implicit -D SYNTHESIS with -D FORMAL
+
+    -norestrict
+        ignore restrict() assertions
+
+    -assume-asserts
+        treat all assert() statements like assume() statements
 
     -dump_ast1
         dump abstract syntax tree (before simplification)
@@ -22,6 +28,9 @@ Verilog-2005 is supported.
 
     -dump_vlog
         dump ast as Verilog code (after simplification)
+
+    -dump_rtlil
+        dump generated RTLIL netlist
 
     -yydebug
         enable parser debug output
@@ -106,6 +115,9 @@ Note that the Verilog frontend does a pretty good job of processing valid
 verilog input, but has not very good error reporting. It generally is
 recommended to use a simulator (for example Icarus Verilog) for checking
 the syntax of the code, rather than to rely on read_verilog for that.
+
+See the Yosys README file for a list of non-standard Verilog features
+supported by the Yosys Verilog front-end.
 
 </pre>
 @footer@

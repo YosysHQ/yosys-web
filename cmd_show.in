@@ -10,8 +10,9 @@ to a graphics file (usually SVG or PostScript).
         Run the specified command with the graphics file as parameter.
 
     -format &lt;format&gt;
-        Generate a graphics file in the specified format.
-        Usually &lt;format&gt; is 'svg' or 'ps'.
+        Generate a graphics file in the specified format. Use 'dot' to just
+        generate a .dot file, or other &lt;format&gt; strings such as 'svg' or 'ps'
+        to generate files in other formats (this calls the 'dot' command).
 
     -lib &lt;verilog_or_ilang_file&gt;
         Use the specified library file for determining whether cell ports are
@@ -74,7 +75,8 @@ The generated output files are '~/.yosys_show.dot' and '~/.yosys_show.&lt;format
 unless another prefix is specified using -prefix &lt;prefix&gt;.
 
 Yosys on Windows and YosysJS use different defaults: The output is written
-to 'show.dot' in the current directory and new viewer is launched.
+to 'show.dot' in the current directory and new viewer is launched each time
+the 'show' command is executed.
 
 </pre>
 @footer@

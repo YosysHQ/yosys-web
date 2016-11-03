@@ -10,6 +10,9 @@ provides a small number of differently sized LUTs.
         The number of LUTs with 1, 2, 3, ... inputs that are
         available in the target architecture.
 
+    -assert
+        Create an error if not all logic can be mapped
+
 Excess logic that does not fit into the specified LUTs is mapped back
 to generic logic gates ($_AND_, etc.).
 

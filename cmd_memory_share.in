@@ -20,7 +20,7 @@ The following methods are used to consolidate the number of memory ports:
 
 Note that in addition to the algorithms implemented in this pass, the $memrd
 and $memwr cells are also subject to generic resource sharing passes (and other
-optimizations) such as opt_share.
+optimizations) such as "share" and "opt_merge".
 
 </pre>
 @footer@

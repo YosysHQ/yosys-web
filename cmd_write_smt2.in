@@ -9,10 +9,10 @@ functions operating on that state.
 
 The '&lt;mod&gt;_s' sort represents a module state. Additional '&lt;mod&gt;_n' functions
 are provided that can be used to access the values of the signals in the module.
-Only ports, and signals with the 'keep' attribute set are made available via
-such functions. Without the -bv option, multi-bit wires are exported as
-separate functions of type Bool for the individual bits. With the -bv option
-multi-bit wires are exported as single functions of type BitVec.
+By default only ports, registers, and wires with the 'keep' attribute set are
+made available via such functions. With the -nobv option, multi-bit wires are
+exported as separate functions of type Bool for the individual bits. Without
+-nobv multi-bit wires are exported as single functions of type BitVec.
 
 The '&lt;mod&gt;_t' function evaluates to 'true' when the given pair of states
 describes a valid state transition.
@@ -24,29 +24,33 @@ The '&lt;mod&gt;_u' function evaluates to 'true' when the given state satisfies
 the assumptions in the module.
 
 The '&lt;mod&gt;_i' function evaluates to 'true' when the given state conforms
-to the initial state.
+to the initial state. Furthermore the '&lt;mod&gt;_is' function should be asserted
+to be true for initial states in addition to '&lt;mod&gt;_i', and should be
+asserted to be false for non-initial states.
+
+For hierarchical designs, the '&lt;mod&gt;_h' function must be asserted for each
+state to establish the design hierarchy. The '&lt;mod&gt;_h &lt;cellname&gt;' function
+evaluates to the state corresponding to the given cell within &lt;mod&gt;.
 
     -verbose
         this will print the recursive walk used to export the modules.
 
-    -bv
-        enable support for BitVec (FixedSizeBitVectors theory). with this
-        option set multi-bit wires are represented using the BitVec sort and
+    -nobv
+        disable support for BitVec (FixedSizeBitVectors theory). without this
+        option multi-bit wires are represented using the BitVec sort and
         support for coarse grain cells (incl. arithmetic) is enabled.
 
-    -mem
-        enable support for memories (via ArraysEx theory). this option
-        also implies -bv. only $mem cells without merged registers in
+    -nomem
+        disable support for memories (via ArraysEx theory). this option is
+        implied by -nobv. only $mem cells without merged registers in
         read ports are supported. call "memory" with -nordff to make sure
         that no registers are merged into $mem read ports. '&lt;mod&gt;_m' functions
         will be generated for accessing the arrays that are used to represent
         memories.
 
-    -regs
-        also create '&lt;mod&gt;_n' functions for all registers.
-
     -wires
-        also create '&lt;mod&gt;_n' functions for all public wires.
+        create '&lt;mod&gt;_n' functions for all public wires. by default only ports,
+        registers, and wires with the 'keep' attribute are exported.
 
     -tpl &lt;template_file&gt;
         use the given template file. the line containing only the token '%%'

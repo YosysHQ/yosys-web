@@ -10,5 +10,11 @@ the 32 bit adders in the following code with adders of more appropriate widths:
         assign y = a + b + c + 1;
     endmodule
 
+Options:
+
+    -memx
+        Do not change the width of memory address ports. Use this options in
+        flows that use the 'memory_memx' pass.
+
 </pre>
 @footer@

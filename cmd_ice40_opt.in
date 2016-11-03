@@ -7,11 +7,14 @@ This command executes the following script:
 
     do
         &lt;ice40 specific optimizations&gt;
-        opt_const -mux_undef -undriven [-full]
-        opt_share
+        opt_expr -mux_undef -undriven [-full]
+        opt_merge
         opt_rmdff
         opt_clean
     while &lt;changed design&gt;
+
+When called with the option -unlut, this command will transform all already
+mapped SB_LUT4 cells back to logic.
 
 </pre>
 @footer@

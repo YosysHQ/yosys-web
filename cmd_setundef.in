@@ -18,5 +18,8 @@ This command replaced undef (x) constants with defined (0/1) constants.
         replace with random bits using the specified integer als seed
         value for the random number generator.
 
+    -init
+        also create/update init values for flip-flops
+
 </pre>
 @footer@

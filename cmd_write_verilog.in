@@ -10,6 +10,9 @@ Write the current design to a Verilog file.
         instead of a backslash prefix) are changed to short names in the
         format '_&lt;number&gt;_'.
 
+    -renameprefix &lt;prefix&gt;
+        insert this prefix in front of auto-generated instance names
+
     -noattr
         with this option no attributes are included in the output
 
@@ -20,6 +23,21 @@ Write the current design to a Verilog file.
         without this option all internal cells are converted to Verilog
         expressions.
 
+    -nodec
+        32-bit constant values are by default dumped as decimal numbers,
+        not bit pattern. This option decativates this feature and instead
+        will write out all constants in binary.
+
+    -nostr
+        Parameters and attributes that are specified as strings in the
+        original input will be output as strings by this back-end. This
+        decativates this feature and instead will write string constants
+        as binary numbers.
+
+    -defparam
+        Use 'defparam' statements instead of the Verilog-2001 syntax for
+        cell parameters.
+
     -blackboxes
         usually modules with the 'blackbox' attribute are ignored. with
         this option set only the modules with the 'blackbox' attribute
@@ -28,6 +46,15 @@ Write the current design to a Verilog file.
     -selected
         only write selected modules. modules must be selected entirely or
         not at all.
+
+    -v
+        verbose output (print new names of all renamed wires and cells)
+
+Note that RTLIL processes can't always be mapped directly to Verilog
+always blocks. This frontend should only be used to export an RTLIL
+netlist, i.e. after the "proc" pass has been used to convert all
+processes to logic networks and registers. A warning is generated when
+this command is called on a design with RTLIL processes.
 
 </pre>
 @footer@

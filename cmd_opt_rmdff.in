@@ -1,7 +1,7 @@
 @cmd_header opt_rmdff@
 <h1>opt_rmdff - remove DFFs with constant inputs</h1>
 <pre>
-    opt_rmdff [selection]
+    opt_rmdff [-keepdc] [selection]
 
 This pass identifies flip-flops with constant inputs and replaces them with
 a constant driver.

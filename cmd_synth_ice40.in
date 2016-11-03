@@ -3,7 +3,7 @@
 <pre>
     synth_ice40 [options]
 
-This command runs synthesis for iCE40 FPGAs. This work is experimental.
+This command runs synthesis for iCE40 FPGAs.
 
     -top &lt;module&gt;
         use the specified module as top module (default='top')
@@ -43,15 +43,16 @@ The following commands are executed by this synthesis command:
         read_verilog -lib +/ice40/cells_sim.v
         hierarchy -check -top &lt;top&gt;
 
-    flatten:         (unless -noflatten)
+    flatten:    (unless -noflatten)
         proc
         flatten
         tribuf -logic
+        deminout
 
     coarse:
         synth -run coarse
 
-    bram:            (skip if -nobram)
+    bram:    (skip if -nobram)
         memory_bram -rules +/ice40/brams.txt
         techmap -map +/ice40/brams_map.v
 
@@ -59,15 +60,15 @@ The following commands are executed by this synthesis command:
         opt -fast -mux_undef -undriven -fine
         memory_map
         opt -undriven -fine
-        techmap -map +/techmap.v [-map +/ice40/arith_map.v]
-        abc -dff     (only if -retime)
+        techmap -map +/techmap.v -map +/ice40/arith_map.v
+        abc -dff    (only if -retime)
         ice40_opt
 
     map_ffs:
         dffsr2dff
         dff2dffe -direct-match $_DFF_*
         techmap -map +/ice40/cells_map.v
-        opt_const -mux_undef
+        opt_expr -mux_undef
         simplemap
         ice40_ffinit
         ice40_ffssr
@@ -76,6 +77,7 @@ The following commands are executed by this synthesis command:
     map_luts:
         abc          (only if -abc2)
         ice40_opt    (only if -abc2)
+        techmap -map +/ice40/latches_map.v
         abc -lut 4
         clean
 

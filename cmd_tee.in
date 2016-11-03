@@ -15,5 +15,8 @@ specified logfile(s).
     -a logfile
         Write output to this file, append if exists.
 
+    +INT, -INT
+        Add/subract INT from the -v setting for this command.
+
 </pre>
 @footer@

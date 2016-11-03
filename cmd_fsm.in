@@ -29,6 +29,9 @@ Options:
     -expand, -norecode, -export, -nomap
         enable or disable passes as indicated above
 
+    -fullexpand
+        call expand with -full option
+
     -encoding type
     -fm_set_fsm_file file
     -encfile file

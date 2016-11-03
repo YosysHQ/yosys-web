@@ -30,6 +30,7 @@ The following commands are executed by this synthesis command:
 
     begin:
         read_verilog -lib +/xilinx/cells_sim.v
+        read_verilog -lib +/xilinx/cells_xtra.v
         read_verilog -lib +/xilinx/brams_bb.v
         read_verilog -lib +/xilinx/drams_bb.v
         hierarchy -check -top &lt;top&gt;
