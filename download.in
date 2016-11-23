@@ -58,7 +58,7 @@ make test
 sudo make install</pre>
 
 See the <a
-href="https://github.com/cliffordwolf/yosys/blob/master/README">README</a> file
+href="https://github.com/cliffordwolf/yosys/blob/master/README.md">README</a> file
 for detailed build instructions.
 
 @footer@
