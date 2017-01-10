@@ -23,6 +23,7 @@ This page contains links to other projects.
 <ul>
 <li><a href="https://chisel.eecs.berkeley.edu/">Chisel</a> -- Constructing Hardware in a Scala Embedded Language
 <li><a href="http://panda.dei.polimi.it/">PandA</a> -- high-level synthesis of C based descriptions
+<li><a href="http://www.clash-lang.org">CLaSH</a> -- A compiler from Haskell to Verilog/VHDL
 <li><a href="http://www.myhdl.org/">MyHDL</a> -- an open source Python package that lets you go from Python to silicon
 <li><a href="http://milkymist.org/3/migen.html">Migen</a> -- a Python-based tool that aims at automating further the VLSI design process
 <li><a href="http://cx-lang.org/">Cx</a> -- A modern C-like language to create digital hardware
