@@ -71,7 +71,7 @@ a { text-decoration: none; }
 <p>According to the Verilog standard (see sec. 5.1.14 of IEEE Std 1364-2005) the
 expressions for <strong>y0</strong> and <strong>y1</strong> in the following example are equivialent and should
 yield the same results:</p>
-<div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_000</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">y1</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><span class="k">module</span> <span class="n">issue_000</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">y1</span><span class="p">);</span>
     <span class="k">input</span> <span class="k">signed</span> <span class="p">[</span><span class="mh">1</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">a</span><span class="p">;</span>
     <span class="k">output</span> <span class="p">[</span><span class="mh">4</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y0</span><span class="p">;</span>
     <span class="k">output</span> <span class="p">[</span><span class="mh">4</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y1</span><span class="p">;</span>
@@ -86,7 +86,7 @@ yield the same results:</p>
 <p>However, XST handles <strong>{a,a}</strong> as an unsigned and <strong>{2{a}}</strong> as a signed expression (it should be handled as unsigned in both cases).</p>
 <p>In other words, XST connects the MSB of <strong>y0</strong> to GND and the MSB of <strong>y1</strong> to the MSB of <strong>a</strong>, but it should set the MSB of <strong>y1</strong> to zero as well.</p>
 <p>This is with ISE 14.7 and the following XST settings:</p>
-<div class="codehilite"><pre><span class="n">run</span> <span class="o">-</span><span class="n">ifn</span> <span class="n">issue_000</span><span class="p">.</span><span class="n">prj</span> <span class="o">-</span><span class="n">ofn</span> <span class="n">issue_000</span> <span class="o">-</span><span class="n">p</span> <span class="n">artix7</span> <span class="o">-</span><span class="n">top</span> <span class="n">issue_000</span> <span class="o">-</span><span class="n">iobuf</span> <span class="n">NO</span>
+<div class="codehilite"><pre><span></span>run -ifn issue_000.prj -ofn issue_000 -p artix7 -top issue_000 -iobuf NO
 </pre></div>
 
 

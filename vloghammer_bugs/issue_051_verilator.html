@@ -69,7 +69,7 @@ a { text-decoration: none; }
 <div class="state"><strong>CLOSED:</strong> fixed in <strong>Verilator GIT e8edbad</strong></div>
 
 <p>For a=5, b=35 this should return y=0, but Verilator f705f9b returns y=8 instead:</p>
-<div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_051</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><span class="k">module</span> <span class="n">issue_051</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
   <span class="k">input</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">a</span><span class="p">;</span>
   <span class="k">input</span> <span class="p">[</span><span class="mh">5</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">b</span><span class="p">;</span>
   <span class="k">output</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y</span><span class="p">;</span>

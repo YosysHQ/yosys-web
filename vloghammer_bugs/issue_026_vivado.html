@@ -66,10 +66,10 @@
 a { text-decoration: none; }
 --></style></head>
 <body><h1>Incorrect bit-extension of undef const in ?: operator</h1>
-<div class="state"><strong>OPEN:</strong> last verified in <strong>Vivado 2016.2</strong></div>
+<div class="state"><strong>OPEN:</strong> last verified in <strong>Vivado 2017.2</strong></div>
 
 <p>Consider the following test case:</p>
-<div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_026</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><span class="k">module</span> <span class="n">issue_026</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
   <span class="k">input</span> <span class="p">[</span><span class="mh">1</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">a</span><span class="p">;</span>
   <span class="k">input</span> <span class="p">[</span><span class="mh">1</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">b</span><span class="p">;</span>
   <span class="k">output</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y</span><span class="p">;</span>
@@ -90,7 +90,8 @@ Verilator (git e5af46d) implement this correctly. Quartus 15.0 gets y2
 right but has a bug regarding y1.</p>
 <p><strong>History:</strong><br />
 2015-05-15 <a href="http://forums.xilinx.com/t5/Synthesis/Old-and-new-Vivado-Synthesis-Bugs/td-p/602988">Reported</a> bug in Xilinx Support Forum<br />
-2016-06-15 Still broken in Vivado 2016.2  </p>
+2016-06-15 Still broken in Vivado 2016.2<br />
+2017-07-01 Still broken in Vivado 2017.2  </p>
 
 <div><a href="../vloghammer.html">&larr; Back to VlogHammer Project Page</a></div>
 </body></html>

@@ -69,7 +69,7 @@ a { text-decoration: none; }
 <div class="state"><strong>CLOSED:</strong> fixed in <strong>Verilator GIT 06744b6</strong></div>
 
 <p>Verilator d7e4bc1 fails with an internal error on the following code:</p>
-<div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_045</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><span class="k">module</span> <span class="n">issue_045</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
   <span class="k">input</span> <span class="k">signed</span> <span class="p">[</span><span class="mh">15</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">a</span><span class="p">;</span>
   <span class="k">output</span> <span class="p">[</span><span class="mh">15</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y</span><span class="p">;</span>
   <span class="k">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="mh">16</span><span class="p">)</span> <span class="o">&gt;&gt;&gt;</span> <span class="mh">32&#39;h7ffffff1</span><span class="p">;</span>
@@ -78,7 +78,7 @@ a { text-decoration: none; }
 
 
 <p>The error created is:</p>
-<div class="codehilite"><pre><span class="c">%Error: Verilator internal fault, sorry.  Consider trying --debug --gdbbt</span>
+<div class="codehilite"><pre><span></span><span class="c">%Error: Verilator internal fault, sorry.  Consider trying --debug --gdbbt</span>
 <span class="c">%Error: Command Failed /usr/local/bin/verilator_bin -cc -Wno-fatal -DSIMLIB_NOMEM -DSIMLIB_NOSR -DSIMLIB_NOLUT --top-module test rtl/test.v</span>
 </pre></div>
 

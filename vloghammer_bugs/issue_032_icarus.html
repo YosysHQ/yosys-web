@@ -70,11 +70,11 @@ a { text-decoration: none; }
 
 <p>The following module should set the output to constant <strong>0</strong>, because
 the <strong>4'b0</strong> makes the whole expression unsigned.</p>
-<div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_032</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><span class="k">module</span> <span class="n">issue_032</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
   <span class="kt">wire</span> <span class="k">signed</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="mh">5</span><span class="p">;</span>
   <span class="kt">wire</span> <span class="k">signed</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">b</span> <span class="o">=</span>  <span class="mh">0</span><span class="p">;</span>
   <span class="k">output</span> <span class="n">y</span><span class="p">;</span>
-  <span class="k">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="mh">1</span> <span class="o">?</span> <span class="n">a</span> <span class="o">:</span> <span class="mh">4&#39;b0</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mh">1</span> <span class="o">?</span> <span class="n">b</span> <span class="o">:</span> <span class="n">b</span><span class="p">);</span> 
+  <span class="k">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="mh">1</span> <span class="o">?</span> <span class="n">a</span> <span class="o">:</span> <span class="mh">4</span><span class="mb">&#39;b0</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mh">1</span> <span class="o">?</span> <span class="n">b</span> <span class="o">:</span> <span class="n">b</span><span class="p">);</span> 
   <span class="k">initial</span> <span class="p">#</span><span class="mh">1</span> <span class="nb">$display</span><span class="p">(</span><span class="s">&quot;%b&quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
 <span class="k">endmodule</span>
 </pre></div>

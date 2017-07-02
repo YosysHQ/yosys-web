@@ -69,7 +69,7 @@ a { text-decoration: none; }
 <div class="state"><strong>CLOSED:</strong> fixed in <strong>Verilator GIT d7e4bc1</strong></div>
 
 <p>Verilator 5f5a3db creates C code that segfaults for a=128.</p>
-<div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_043</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><span class="k">module</span> <span class="n">issue_043</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
   <span class="k">input</span> <span class="k">signed</span> <span class="p">[</span><span class="mh">7</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">a</span><span class="p">;</span>
   <span class="k">output</span> <span class="p">[</span><span class="mh">15</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y</span><span class="p">;</span>
   <span class="k">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="p">{</span><span class="mh">3</span><span class="p">{{</span><span class="o">~</span><span class="mh">22</span><span class="mi">&#39;d0</span><span class="p">}}}</span> <span class="o">&lt;&lt;&lt;</span> <span class="p">{</span><span class="mh">4</span><span class="p">{</span><span class="n">a</span><span class="p">}};</span>

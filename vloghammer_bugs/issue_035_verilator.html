@@ -71,11 +71,11 @@ a { text-decoration: none; }
 <p>The term <strong>(p1 + p2)</strong> below is part of an unsigned expression and thus should
 be zero-extended. Verilator fb4928b however performs signed bit extension
 and thus returns an incorrect result.</p>
-<div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_035</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><span class="k">module</span> <span class="n">issue_035</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
   <span class="k">input</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">a</span><span class="p">;</span>
   <span class="k">output</span> <span class="p">[</span><span class="mh">5</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y</span><span class="p">;</span>
 
-  <span class="k">localparam</span> <span class="k">signed</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">p1</span> <span class="o">=</span> <span class="mh">4&#39;b1000</span><span class="p">;</span>
+  <span class="k">localparam</span> <span class="k">signed</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">p1</span> <span class="o">=</span> <span class="mh">4</span><span class="mb">&#39;b1000</span><span class="p">;</span>
   <span class="k">localparam</span> <span class="k">signed</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">p2</span> <span class="o">=</span> <span class="mh">0</span><span class="p">;</span>
   <span class="k">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="p">(</span><span class="n">p1</span> <span class="o">+</span> <span class="n">p2</span><span class="p">);</span>
 <span class="k">endmodule</span>

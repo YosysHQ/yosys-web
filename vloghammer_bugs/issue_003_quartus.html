@@ -66,14 +66,14 @@
 a { text-decoration: none; }
 --></style></head>
 <body><h1>Quartus Verilog bug in signdness handling of 2nd shift operand</h1>
-<div class="state"><strong>OPEN:</strong> last verified in <strong>Quartus 15.0</strong></div>
+<div class="state"><strong>OPEN:</strong> last verified in <strong>Quartus 17.0</strong></div>
 
 <p>The following module should output <strong>5'b11000</strong>, but quartus 13.1 generates a 
 module that outputs <strong>5'b00000</strong> instead.</p>
-<div class="codehilite"><pre><span class="n">module</span> <span class="nf">issue_003</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
-  <span class="n">output</span> <span class="p">[</span><span class="mi">4</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span> <span class="n">y</span><span class="p">;</span>
-  <span class="n">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">4</span><span class="err">&#39;</span><span class="n">b1111</span> <span class="o">&lt;&lt;</span> <span class="o">-</span><span class="mi">2</span><span class="err">&#39;</span><span class="n">sd1</span><span class="p">;</span>
-<span class="n">endmodule</span>
+<div class="codehilite"><pre><span></span><span class="nt">module</span> <span class="nt">issue_003</span><span class="o">(</span><span class="nt">y</span><span class="o">);</span>
+  <span class="nt">output</span> <span class="cp">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">0</span><span class="cp">]</span> <span class="nt">y</span><span class="o">;</span>
+  <span class="nt">assign</span> <span class="nt">y</span> <span class="o">=</span> <span class="nt">4</span><span class="s1">&#39;b1111 &lt;&lt; -2&#39;</span><span class="nt">sd1</span><span class="o">;</span>
+<span class="nt">endmodule</span>
 </pre></div>
 
 
@@ -82,9 +82,9 @@ self-determined and are always interpreted as unsigned (see sec. 5.1.12 and
 table 5-22 of IEEE Std 1364-2005). So the shift operator in the example
 above should implement a three bit left shift.</p>
 <p>In my tests I have synthesized the module with</p>
-<div class="codehilite"><pre><span class="n">quartus_map</span> <span class="n">issue_003</span> <span class="o">--</span><span class="n">source</span><span class="o">=</span><span class="n">issue_003</span><span class="p">.</span><span class="n">v</span> <span class="o">--</span><span class="n">family</span><span class="o">=</span><span class="s">&quot;Cyclone III&quot;</span>
-<span class="n">quartus_fit</span> <span class="n">issue_003</span>
-<span class="n">quartus_eda</span> <span class="n">issue_003</span> <span class="o">--</span><span class="n">formal_verification</span> <span class="o">--</span><span class="n">tool</span><span class="o">=</span><span class="n">conformal</span>
+<div class="codehilite"><pre><span></span>quartus_map issue_003 --source=issue_003.v --family=&quot;Cyclone III&quot;
+quartus_fit issue_003
+quartus_eda issue_003 --formal_verification --tool=conformal
 </pre></div>
 
 
@@ -95,7 +95,8 @@ correctly.</p>
 2014-01-27 Answer from Altera: Synplify is behaving the same as Quartus II. Altera will investigate.<br />
 2014-02-06 Bugfix for Quartus II v14.1 prospected by Altera Support<br />
 2014-09-28 Verified that bug is still present in Quartus II v14.0<br />
-2015-05-15 Still broken in Quartus II 15.0  </p>
+2015-05-15 Still broken in Quartus II 15.0<br />
+2017-07-01 Still broken in Quartus II 17.0  </p>
 
 <div><a href="../vloghammer.html">&larr; Back to VlogHammer Project Page</a></div>
 </body></html>

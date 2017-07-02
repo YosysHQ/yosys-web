@@ -70,7 +70,7 @@ a { text-decoration: none; }
 
 <p>The following module should set y to constant <strong>6'b110011</strong>, but instead it just
 hangs Verific 463_32_140306:</p>
-<div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_021</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><span class="k">module</span> <span class="n">issue_021</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
     <span class="k">input</span> <span class="p">[</span><span class="mh">31</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">a</span><span class="p">;</span>
     <span class="k">output</span> <span class="p">[</span><span class="mh">5</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y</span><span class="p">;</span>
     <span class="k">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="mh">6</span><span class="mi">&#39;d3</span> <span class="o">**</span> <span class="mh">123456789</span><span class="p">;</span>

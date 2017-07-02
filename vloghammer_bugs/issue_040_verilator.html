@@ -66,10 +66,10 @@
 a { text-decoration: none; }
 --></style></head>
 <body><h1>Verilator uses undeclared helper function for power op &gt; 64 bits</h1>
-<div class="state"><strong>OPEN:</strong> last verified in <strong>Verilator GIT 621c515</strong></div>
+<div class="state"><strong>OPEN:</strong> last verified in <strong>Verilator 3_906</strong></div>
 
 <p>Verilator 621c515 creates code that uses the undeclared function <code>VL_POW_WWI</code>:</p>
-<div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_040</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><span class="k">module</span> <span class="n">issue_040</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
   <span class="k">input</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">a</span><span class="p">;</span>
   <span class="k">output</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y</span><span class="p">;</span>
   <span class="k">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="mh">65</span><span class="mi">&#39;d2</span> <span class="o">**</span> <span class="n">a</span><span class="p">;</span>
@@ -78,14 +78,15 @@ a { text-decoration: none; }
 
 
 <p>The gcc error message is:</p>
-<div class="codehilite"><pre><span class="nx">Vissue_040</span><span class="p">.</span><span class="nx">cpp</span><span class="o">:</span> <span class="nx">In</span> <span class="kr">static</span> <span class="nx">member</span> <span class="kd">function</span> <span class="err">`</span><span class="kr">static</span> <span class="k">void</span> <span class="nx">Vissue_040</span><span class="o">::</span><span class="nx">_combo__TOP__1</span><span class="p">(</span><span class="nx">Vissue_040__Syms</span><span class="o">*</span><span class="p">)</span><span class="s1">&#39;:</span>
-<span class="s1">Vissue_040.cpp:83:63: error: `VL_POW_WWI&#39;</span> <span class="nx">was</span> <span class="nx">not</span> <span class="nx">declared</span> <span class="k">in</span> <span class="k">this</span> <span class="nx">scope</span>
-     <span class="nx">VL_POW_WWI</span><span class="p">(</span><span class="mi">65</span><span class="p">,</span><span class="mi">65</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span> <span class="nx">__Vtemp3</span><span class="p">,</span> <span class="nx">__Vtemp2</span><span class="p">,</span> <span class="p">(</span><span class="nx">IData</span><span class="p">)(</span><span class="nx">vlTOPp</span><span class="o">-&gt;</span><span class="nx">a</span><span class="p">));</span>
+<div class="codehilite"><pre><span></span>Vissue_040.cpp: In static member function `static void Vissue_040::_combo__TOP__1(Vissue_040__Syms*)&#39;:
+Vissue_040.cpp:83:63: error: `VL_POW_WWI&#39; was not declared in this scope
+     VL_POW_WWI(65,65,4, __Vtemp3, __Vtemp2, (IData)(vlTOPp-&gt;a));
 </pre></div>
 
 
 <p><strong>History:</strong><br />
-2014-05-05 Reported as <a href="http://www.veripool.org/issues/761-Verilator-Verilator-uses-undeclared-helper-function-for-power-op-64-bits">Issue #761</a></p>
+2014-05-05 Reported as <a href="http://www.veripool.org/issues/761-Verilator-Verilator-uses-undeclared-helper-function-for-power-op-64-bits">Issue #761</a><br />
+2017-07-01 Still broken in Verilator GIT 1da5a33 (3_906)  </p>
 
 <div><a href="../vloghammer.html">&larr; Back to VlogHammer Project Page</a></div>
 </body></html>

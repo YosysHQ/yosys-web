@@ -71,7 +71,7 @@ a { text-decoration: none; }
 <p>The following module should output <strong>0x00000000</strong> for <strong>a=0</strong> and
 <strong>0x010000ff</strong> for <strong>a=1</strong>. But Verilator GIT 5c39420 outputs <strong>0xffffffff</strong>
 for <strong>a=1</strong> instead.</p>
-<div class="codehilite"><pre><span class="k">module</span> <span class="n">test004</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><span class="k">module</span> <span class="n">test004</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
   <span class="k">input</span> <span class="n">a</span><span class="p">;</span>
   <span class="k">output</span> <span class="p">[</span><span class="mh">31</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y</span><span class="p">;</span>
 

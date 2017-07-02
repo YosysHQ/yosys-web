@@ -66,10 +66,10 @@
 a { text-decoration: none; }
 --></style></head>
 <body><h1>Quartus handling of partly out-of-bounds parts select</h1>
-<div class="state"><strong>OPEN:</strong> last verified in <strong>Quartus 15.0</strong></div>
+<div class="state"><strong>OPEN:</strong> last verified in <strong>Quartus 17.0</strong></div>
 
 <p>Consider the following test case:</p>
-<div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_057</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><span class="k">module</span> <span class="n">issue_057</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
   <span class="k">input</span> <span class="p">[</span><span class="mh">2</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">a</span><span class="p">;</span>
   <span class="k">output</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y</span><span class="p">;</span>
   <span class="k">localparam</span> <span class="p">[</span><span class="mh">5</span><span class="o">:</span><span class="mh">15</span><span class="p">]</span> <span class="n">p</span> <span class="o">=</span> <span class="mh">51681708</span><span class="p">;</span>
@@ -81,7 +81,7 @@ a { text-decoration: none; }
 <p>This is expected to set <strong>y[3]=1</strong> for <strong>a=1</strong>, but the quartus 14.0 synthesis output 
 sets <strong>y[3]=0</strong>.</p>
 <p><strong>Test bench:</strong></p>
-<div class="codehilite"><pre><span class="no">`timescale</span> <span class="mh">1</span><span class="n">ns</span> <span class="o">/</span> <span class="mh">1</span><span class="n">ps</span>
+<div class="codehilite"><pre><span></span><span class="no">`timescale</span> <span class="mh">1</span><span class="n">ns</span> <span class="o">/</span> <span class="mh">1</span><span class="n">ps</span>
 <span class="k">module</span> <span class="n">issue_057_tb</span><span class="p">;</span>
   <span class="kt">reg</span> <span class="p">[</span><span class="mh">2</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">a</span><span class="p">;</span>
   <span class="kt">wire</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y</span><span class="p">;</span>
@@ -97,21 +97,21 @@ sets <strong>y[3]=0</strong>.</p>
 
 
 <p><strong>Test script:</strong></p>
-<div class="codehilite"><pre><span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">altera</span><span class="o">/</span><span class="mf">14.0</span><span class="o">/</span><span class="n">quartus</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">quartus_map</span> <span class="n">issue_057</span> <span class="o">--</span><span class="n">source</span><span class="o">=</span><span class="n">issue_057</span><span class="p">.</span><span class="n">v</span> <span class="o">--</span><span class="n">family</span><span class="o">=</span><span class="err">&#39;</span><span class="n">Cyclone</span> <span class="n">V</span><span class="err">&#39;</span>
-<span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">altera</span><span class="o">/</span><span class="mf">14.0</span><span class="o">/</span><span class="n">quartus</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">quartus_fit</span> <span class="n">issue_057</span> <span class="o">--</span><span class="n">part</span><span class="o">=</span><span class="mi">5</span><span class="n">CGXFC7D6F27C6</span>
-<span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">altera</span><span class="o">/</span><span class="mf">14.0</span><span class="o">/</span><span class="n">quartus</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">quartus_eda</span> <span class="n">issue_057</span> <span class="o">--</span><span class="n">simulation</span> <span class="o">--</span><span class="n">tool</span><span class="o">=</span><span class="n">modelsim</span> <span class="o">--</span><span class="n">format</span><span class="o">=</span><span class="n">verilog</span>
+<div class="codehilite"><pre><span></span>/opt/altera/14.0/quartus/bin/quartus_map issue_057 --source<span class="o">=</span>issue_057.v --family<span class="o">=</span><span class="s1">&#39;Cyclone V&#39;</span>
+/opt/altera/14.0/quartus/bin/quartus_fit issue_057 --part<span class="o">=</span>5CGXFC7D6F27C6
+/opt/altera/14.0/quartus/bin/quartus_eda issue_057 --simulation --tool<span class="o">=</span>modelsim --format<span class="o">=</span>verilog
 
-<span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">altera</span><span class="o">/</span><span class="mf">14.0</span><span class="o">/</span><span class="n">modelsim_ase</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">vlib</span> <span class="n">gold</span>
-<span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">altera</span><span class="o">/</span><span class="mf">14.0</span><span class="o">/</span><span class="n">modelsim_ase</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">vlog</span> <span class="o">-</span><span class="n">work</span> <span class="n">gold</span> <span class="n">issue_057</span><span class="p">.</span><span class="n">v</span>
-<span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">altera</span><span class="o">/</span><span class="mf">14.0</span><span class="o">/</span><span class="n">modelsim_ase</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">vlog</span> <span class="o">-</span><span class="n">work</span> <span class="n">gold</span> <span class="n">issue_057_tb</span><span class="p">.</span><span class="n">v</span>
+/opt/altera/14.0/modelsim_ase/bin/vlib gold
+/opt/altera/14.0/modelsim_ase/bin/vlog -work gold issue_057.v
+/opt/altera/14.0/modelsim_ase/bin/vlog -work gold issue_057_tb.v
 
-<span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">altera</span><span class="o">/</span><span class="mf">14.0</span><span class="o">/</span><span class="n">modelsim_ase</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">vlib</span> <span class="n">gate</span>
-<span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">altera</span><span class="o">/</span><span class="mf">14.0</span><span class="o">/</span><span class="n">modelsim_ase</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">vlog</span> <span class="o">-</span><span class="n">work</span> <span class="n">gate</span> <span class="n">simulation</span><span class="o">/</span><span class="n">modelsim</span><span class="o">/</span><span class="n">issue_057</span><span class="p">.</span><span class="n">vo</span>
-<span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">altera</span><span class="o">/</span><span class="mf">14.0</span><span class="o">/</span><span class="n">modelsim_ase</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">vlog</span> <span class="o">-</span><span class="n">work</span> <span class="n">gate</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">altera</span><span class="o">/</span><span class="mf">14.0</span><span class="o">/</span><span class="n">quartus</span><span class="o">/</span><span class="n">eda</span><span class="o">/</span><span class="n">sim_lib</span><span class="o">/</span><span class="n">cyclonev_atoms</span><span class="p">.</span><span class="n">v</span>
-<span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">altera</span><span class="o">/</span><span class="mf">14.0</span><span class="o">/</span><span class="n">modelsim_ase</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">vlog</span> <span class="o">-</span><span class="n">work</span> <span class="n">gate</span> <span class="n">issue_057_tb</span><span class="p">.</span><span class="n">v</span>
+/opt/altera/14.0/modelsim_ase/bin/vlib gate
+/opt/altera/14.0/modelsim_ase/bin/vlog -work gate simulation/modelsim/issue_057.vo
+/opt/altera/14.0/modelsim_ase/bin/vlog -work gate /opt/altera/14.0/quartus/eda/sim_lib/cyclonev_atoms.v
+/opt/altera/14.0/modelsim_ase/bin/vlog -work gate issue_057_tb.v
 
-<span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">altera</span><span class="o">/</span><span class="mf">14.0</span><span class="o">/</span><span class="n">modelsim_ase</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">vsim</span> <span class="o">-</span><span class="n">c</span> <span class="o">-</span><span class="k">do</span> <span class="err">&#39;</span><span class="n">run</span> <span class="o">-</span><span class="n">all</span><span class="p">;</span> <span class="n">exit</span><span class="err">&#39;</span> <span class="n">gold</span><span class="p">.</span><span class="n">issue_057_tb</span>
-<span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">altera</span><span class="o">/</span><span class="mf">14.0</span><span class="o">/</span><span class="n">modelsim_ase</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">vsim</span> <span class="o">-</span><span class="n">c</span> <span class="o">-</span><span class="k">do</span> <span class="err">&#39;</span><span class="n">run</span> <span class="o">-</span><span class="n">all</span><span class="p">;</span> <span class="n">exit</span><span class="err">&#39;</span> <span class="n">gate</span><span class="p">.</span><span class="n">issue_057_tb</span>
+/opt/altera/14.0/modelsim_ase/bin/vsim -c -do <span class="s1">&#39;run -all; exit&#39;</span> gold.issue_057_tb
+/opt/altera/14.0/modelsim_ase/bin/vsim -c -do <span class="s1">&#39;run -all; exit&#39;</span> gate.issue_057_tb
 </pre></div>
 
 
@@ -119,7 +119,8 @@ sets <strong>y[3]=0</strong>.</p>
 (git 1572dcd) implement this correctly. Vivado 2014.2 suffers from the same bug.</p>
 <p><strong>History:</strong><br />
 2014-09-27 Reported via Altera mySupport (SR #11090526)<br />
-2015-05-15 Still broken in Quartus II 15.0  </p>
+2015-05-15 Still broken in Quartus II 15.0<br />
+2017-07-01 Still broken in Quartus II 17.0  </p>
 
 <div><a href="../vloghammer.html">&larr; Back to VlogHammer Project Page</a></div>
 </body></html>

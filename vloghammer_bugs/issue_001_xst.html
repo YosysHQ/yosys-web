@@ -69,7 +69,7 @@ a { text-decoration: none; }
 <div class="state"><strong>WONTFIX:</strong> last verified in <strong>XST 14.7</strong>, vendor said he would not fix it</div>
 
 <p>In the following test case the output should be constant zero:</p>
-<div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_001</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><span class="k">module</span> <span class="n">issue_001</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
     <span class="k">input</span> <span class="p">[</span><span class="mh">2</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">a</span><span class="p">;</span>
     <span class="k">input</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">b</span><span class="p">;</span>
     <span class="k">output</span> <span class="p">[</span><span class="mh">0</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y</span><span class="p">;</span>
@@ -87,7 +87,7 @@ lengthened to match the longer and zero-filled from the left (the high-order end
 </blockquote>
 <p>So with the condition beeing constant true, the expression in the parentheses must evaluate to {1'b0, a} and not simply a becasue of the size difference of a and b, thus the &amp;-reduce operator should always see at least this one zero-bit and thus always return 0. But XST does not perform the zero filling and therefore produces an incorrect result.</p>
 <p>This is with ISE 14.7 and the following XST settings:</p>
-<div class="codehilite"><pre><span class="n">run</span> <span class="o">-</span><span class="n">ifn</span> <span class="n">issue_001</span><span class="p">.</span><span class="n">prj</span> <span class="o">-</span><span class="n">ofn</span> <span class="n">issue_001</span> <span class="o">-</span><span class="n">p</span> <span class="n">artix7</span> <span class="o">-</span><span class="n">top</span> <span class="n">issue_001</span> <span class="o">-</span><span class="n">iobuf</span> <span class="n">NO</span>
+<div class="codehilite"><pre><span></span>run -ifn issue_001.prj -ofn issue_001 -p artix7 -top issue_001 -iobuf NO
 </pre></div>
 
 

@@ -66,10 +66,10 @@
 a { text-decoration: none; }
 --></style></head>
 <body><h1>Quartus handling of constant first argument in Verilog ?: operator</h1>
-<div class="state"><strong>OPEN:</strong> last verified in <strong>Quartus 15.0</strong></div>
+<div class="state"><strong>OPEN:</strong> last verified in <strong>Quartus 17.0</strong></div>
 
 <p>Consider the following test case:</p>
-<div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_001</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><span class="k">module</span> <span class="n">issue_001</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
     <span class="k">input</span> <span class="p">[</span><span class="mh">2</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">a</span><span class="p">;</span>
     <span class="k">input</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">b</span><span class="p">;</span>
     <span class="k">output</span> <span class="p">[</span><span class="mh">0</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y</span><span class="p">;</span>
@@ -94,9 +94,9 @@ least this one zero-bit and thus always return 0.</p>
 <p>But Quartus 13.1 does not perform the zero filling and therefore produces an
 incorrect result, which is equivalent to <strong>assign y = &a;</strong>.</p>
 <p>In my tests I have synthesized the module with</p>
-<div class="codehilite"><pre><span class="n">quartus_map</span> <span class="n">issue_001</span> <span class="o">--</span><span class="n">source</span><span class="o">=</span><span class="n">issue_001</span><span class="p">.</span><span class="n">v</span> <span class="o">--</span><span class="n">family</span><span class="o">=</span><span class="s">&quot;Cyclone III&quot;</span>
-<span class="n">quartus_fit</span> <span class="n">issue_001</span>
-<span class="n">quartus_eda</span> <span class="n">issue_001</span> <span class="o">--</span><span class="n">formal_verification</span> <span class="o">--</span><span class="n">tool</span><span class="o">=</span><span class="n">conformal</span>
+<div class="codehilite"><pre><span></span>quartus_map issue_001 --source=issue_001.v --family=&quot;Cyclone III&quot;
+quartus_fit issue_001
+quartus_eda issue_001 --formal_verification --tool=conformal
 </pre></div>
 
 
@@ -106,7 +106,8 @@ correctly. Interestingly XST 14.7 suffers from <a href="issue_001_xst.html">the 
 2014-01-13 Reported via Altera mySupport (SR #11021734)<br />
 2014-01-22 Bugfix for Quartus II v14.1 prospected by Altera Support<br />
 2014-09-28 Verified that bug is still present in Quartus II v14.0<br />
-2015-05-15 Still broken in Quartus II 15.0  </p>
+2015-05-15 Still broken in Quartus II 15.0<br />
+2017-07-01 Still broken in Quartus II 17.0  </p>
 
 <div><a href="../vloghammer.html">&larr; Back to VlogHammer Project Page</a></div>
 </body></html>

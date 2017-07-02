@@ -69,7 +69,7 @@ a { text-decoration: none; }
 <div class="state"><strong>CLOSED:</strong> fixed in <strong>Vivado 2014.2</strong></div>
 
 <p>Consider the following test case with Vivado 2013.4:</p>
-<div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_015</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">y3</span><span class="p">,</span> <span class="n">y4</span><span class="p">,</span> <span class="n">y5</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><span class="k">module</span> <span class="n">issue_015</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">y3</span><span class="p">,</span> <span class="n">y4</span><span class="p">,</span> <span class="n">y5</span><span class="p">);</span>
   <span class="k">input</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">a</span><span class="p">;</span>
   <span class="k">output</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y0</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">y3</span><span class="p">,</span> <span class="n">y4</span><span class="p">,</span> <span class="n">y5</span><span class="p">;</span>
 
@@ -89,8 +89,8 @@ simulation results). So correct synthesis outputs would be <strong>4'b0000</stro
 <strong>4'b0001</strong>. The three MSB must always be zero.</p>
 <p>But Vivado 2013.4 sets all outputs to the value <strong>4'b0010</strong> instead.</p>
 <p>I have used the following TCL script for synthesis:</p>
-<div class="codehilite"><pre><span class="n">read_verilog</span> <span class="n">issue_015</span><span class="p">.</span><span class="n">v</span> <span class="n">synth_design</span> <span class="o">-</span><span class="n">part</span> <span class="n">xc7k70t</span> <span class="o">-</span><span class="n">top</span> <span class="n">issue_015</span>
-<span class="n">write_verilog</span> <span class="o">-</span><span class="n">force</span> <span class="n">issue_015_netlist</span><span class="p">.</span><span class="n">v</span>
+<div class="codehilite"><pre><span></span>read_verilog issue_015.v synth_design -part xc7k70t -top issue_015
+write_verilog -force issue_015_netlist.v
 </pre></div>
 
 

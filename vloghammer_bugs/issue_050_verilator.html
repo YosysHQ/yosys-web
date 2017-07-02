@@ -69,7 +69,7 @@ a { text-decoration: none; }
 <div class="state"><strong>CLOSED:</strong> fixed in <strong>Verilator GIT f705f9b</strong></div>
 
 <p>This should return <code>y=0</code> for <code>a=31</code>, but Verilator 06744b6 returns <code>y=31</code> instead:</p>
-<div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_050</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><span class="k">module</span> <span class="n">issue_050</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
   <span class="k">input</span> <span class="p">[</span><span class="mh">4</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">a</span><span class="p">;</span>
   <span class="k">output</span> <span class="p">[</span><span class="mh">4</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y</span><span class="p">;</span>
   <span class="k">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="p">((</span><span class="n">a</span> <span class="o">?</span> <span class="mh">1</span> <span class="o">:</span> <span class="mh">2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">);</span>

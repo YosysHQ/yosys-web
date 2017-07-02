@@ -69,10 +69,10 @@ a { text-decoration: none; }
 <div class="state"><strong>CLOSED:</strong> fixed in <strong>Verific 463_32_140722</strong></div>
 
 <p>The following module should output constant <strong>0</strong>.</p>
-<div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_029</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><span class="k">module</span> <span class="n">issue_029</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
     <span class="k">input</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">a</span><span class="p">;</span>
     <span class="k">output</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y</span><span class="p">;</span>
-    <span class="k">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="mh">4&#39;b1</span> <span class="o">&lt;&lt;</span> <span class="mh">33&#39;h100000000</span><span class="p">;</span>
+    <span class="k">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="mh">4</span><span class="mb">&#39;b1</span> <span class="o">&lt;&lt;</span> <span class="mh">33&#39;h100000000</span><span class="p">;</span>
 <span class="k">endmodule</span>
 </pre></div>
 

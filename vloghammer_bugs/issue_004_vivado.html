@@ -69,12 +69,12 @@ a { text-decoration: none; }
 <div class="state"><strong>CLOSED:</strong> fixed in <strong>Vivado 2015.1</strong></div>
 
 <p>The following test case is synthesized to a constant zero output by Vivado:</p>
-<div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_004</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><span class="k">module</span> <span class="n">issue_004</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
     <span class="k">input</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
     <span class="k">output</span> <span class="k">signed</span> <span class="p">[</span><span class="mh">1</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y</span><span class="p">;</span>
     <span class="c1">// for some reason vivado thinks this is constant 0.</span>
     <span class="c1">// this is obviously not true for a=1 and b=0.</span>
-    <span class="k">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="err">$</span><span class="k">signed</span><span class="p">(</span><span class="n">a</span> <span class="o">&gt;&gt;&gt;</span> <span class="n">b</span><span class="p">);</span>
+    <span class="k">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="n">$signed</span><span class="p">(</span><span class="n">a</span> <span class="o">&gt;&gt;&gt;</span> <span class="n">b</span><span class="p">);</span>
 <span class="k">endmodule</span>
 </pre></div>
 
@@ -83,9 +83,9 @@ a { text-decoration: none; }
 signedness of the left hand side of a verilog assign statement should have no
 effect on the statement at all (see Sec. 5.5.3 of IEEE Std 1364-2005).</p>
 <p>This is with Vivado 2013.4 and the following TCL script:</p>
-<div class="codehilite"><pre><span class="n">read_verilog</span> <span class="n">issue_004</span><span class="p">.</span><span class="n">v</span>
-<span class="n">synth_design</span> <span class="o">-</span><span class="n">part</span> <span class="n">xc7k70t</span> <span class="o">-</span><span class="n">top</span> <span class="n">issue_004</span>
-<span class="n">write_verilog</span> <span class="o">-</span><span class="n">force</span> <span class="n">issue_004_netlist</span><span class="p">.</span><span class="n">v</span>
+<div class="codehilite"><pre><span></span>read_verilog issue_004.v
+synth_design -part xc7k70t -top issue_004
+write_verilog -force issue_004_netlist.v
 </pre></div>
 
 

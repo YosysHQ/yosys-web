@@ -70,7 +70,7 @@ a { text-decoration: none; }
 
 <p>Verilator 06744b6 creates the following error:<br />
 <code>%Error: Internal Error: ../V3Number.cpp:521: toUInt with 4-state 32'bxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</code></p>
-<div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_049</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><span class="k">module</span> <span class="n">issue_049</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
   <span class="k">input</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">a</span><span class="p">;</span>
   <span class="k">output</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y</span><span class="p">;</span>
   <span class="k">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="mh">1</span> <span class="o">&lt;&lt;&lt;</span> <span class="mh">0</span><span class="o">/</span><span class="mh">0</span><span class="p">;</span>

@@ -66,12 +66,12 @@
 a { text-decoration: none; }
 --></style></head>
 <body><h1>Incorrect results with partially out-of-bounds part select</h1>
-<div class="state"><strong>OPEN:</strong> last verified in <strong>Verilator GIT e8edbad</strong></div>
+<div class="state"><strong>OPEN:</strong> last verified in <strong>Verilator 3_906</strong></div>
 
 <p>This should return <code>y=4'b100x</code> for <code>a=1</code>, but verilator returns <code>y=0</code> instead
 (the MSB should be '1', obviously we don't care about the 'x' in the LSB that
 is the result of the (by one bit) out-of-bounds part select):</p>
-<div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_057</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><span class="k">module</span> <span class="n">issue_057</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
   <span class="k">input</span> <span class="p">[</span><span class="mh">2</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">a</span><span class="p">;</span>
   <span class="k">output</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y</span><span class="p">;</span>
   <span class="k">localparam</span> <span class="p">[</span><span class="mh">5</span><span class="o">:</span><span class="mh">15</span><span class="p">]</span> <span class="n">p</span> <span class="o">=</span> <span class="mh">51681708</span><span class="p">;</span>
@@ -87,7 +87,8 @@ is the result of the (by one bit) out-of-bounds part select):</p>
 <a href="http://svn.clifford.at/handicraft/2014/verilatortest/test020.sh">test020.sh</a></p>
 <p>This is with git e8edbad (verilator_3_864).</p>
 <p><strong>History:</strong><br />
-2014-09-23 Reported as <a href="http://www.veripool.org/issues/823-Verilator-Incorrect-results-with-partially-out-of-bounds-part-select">Issue #823</a></p>
+2014-09-23 Reported as <a href="http://www.veripool.org/issues/823-Verilator-Incorrect-results-with-partially-out-of-bounds-part-select">Issue #823</a>
+2017-07-01 Still broken in Verilator GIT 1da5a33 (3_906)  </p>
 
 <div><a href="../vloghammer.html">&larr; Back to VlogHammer Project Page</a></div>
 </body></html>

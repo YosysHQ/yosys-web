@@ -69,17 +69,17 @@ a { text-decoration: none; }
 <div class="state"><strong>CLOSED:</strong> fixed in <strong>Icarus GIT ecce1d2</strong></div>
 
 <p>The following module fails to build with icarus verilog (git 68f8de2):</p>
-<div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_022</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><span class="k">module</span> <span class="n">issue_022</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
   <span class="k">input</span> <span class="p">[</span><span class="mh">1</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">a</span><span class="p">;</span>
   <span class="k">output</span> <span class="p">[</span><span class="mh">1</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y</span><span class="p">;</span>
-  <span class="k">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="p">&#39;</span><span class="n">bx</span> <span class="o">?</span> <span class="mh">2&#39;b0</span> <span class="o">:</span> <span class="n">a</span><span class="p">;</span>
+  <span class="k">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="p">&#39;</span><span class="n">bx</span> <span class="o">?</span> <span class="mh">2</span><span class="mb">&#39;b0</span> <span class="o">:</span> <span class="n">a</span><span class="p">;</span>
 <span class="k">endmodule</span>
 </pre></div>
 
 
 <p>the error message produced is:</p>
-<div class="codehilite"><pre><span class="n">internal</span> <span class="n">error</span><span class="o">:</span> <span class="n">lval</span><span class="o">-</span><span class="n">rval</span> <span class="n">width</span> <span class="n">mismatch</span><span class="o">:</span> <span class="n">rval</span><span class="o">-&gt;</span><span class="n">vector_width</span><span class="p">()</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span> <span class="n">lval</span><span class="o">-&gt;</span><span class="n">vector_width</span><span class="p">()</span><span class="o">==</span><span class="mi">2</span>
-<span class="nl">assert:</span> <span class="n">elaborate</span><span class="p">.</span><span class="n">cc</span><span class="o">:</span><span class="mi">150</span><span class="o">:</span> <span class="n">failed</span> <span class="n">assertion</span> <span class="n">rval</span><span class="o">-&gt;</span><span class="n">vector_width</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="n">lval</span><span class="o">-&gt;</span><span class="n">vector_width</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span>internal error: lval-rval width mismatch: rval-&gt;vector_width()==1, lval-&gt;vector_width()==2
+assert: elaborate.cc:150: failed assertion rval-&gt;vector_width() &gt;= lval-&gt;vector_width()
 </pre></div>
 
 

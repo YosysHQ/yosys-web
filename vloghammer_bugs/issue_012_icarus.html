@@ -71,7 +71,7 @@ a { text-decoration: none; }
 <p>icarus verilog (git d1c9dd5) does not correctly propagate undef through the power
 operator. For example, <strong>y</strong> should be <strong>4'bx</strong> when a is zero in the following test
 case, but iverilog returns <strong>4'd1</strong>:</p>
-<div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_012</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><span class="k">module</span> <span class="n">issue_012</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
   <span class="k">input</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">a</span><span class="p">;</span>
   <span class="k">output</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y</span><span class="p">;</span>
   <span class="k">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="mh">4</span><span class="mi">&#39;d2</span> <span class="o">**</span> <span class="p">(</span><span class="mh">4</span><span class="mi">&#39;d1</span><span class="o">/</span><span class="n">a</span><span class="p">);</span>

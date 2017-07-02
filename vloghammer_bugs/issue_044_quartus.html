@@ -66,10 +66,10 @@
 a { text-decoration: none; }
 --></style></head>
 <body><h1>Ignored width extension for constant ?: condition</h1>
-<div class="state"><strong>OPEN:</strong> last verified in <strong>Quartus 15.0</strong></div>
+<div class="state"><strong>OPEN:</strong> last verified in <strong>Quartus 17.0</strong></div>
 
 <p>Consider the following test case:</p>
-<div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_044</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><span class="k">module</span> <span class="n">issue_044</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
   <span class="k">input</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">a</span><span class="p">;</span>
   <span class="k">output</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y</span><span class="p">;</span>
   <span class="k">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="o">&amp;</span><span class="p">(</span><span class="mh">0</span> <span class="o">?</span> <span class="mh">0</span> <span class="o">:</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">a</span><span class="p">));</span>
@@ -85,7 +85,8 @@ to zero. For all other values of a the example is trivially zero.</p>
 <p>Crosscheck: Vivado 2015.1, XSim 2015.1, Modelsim 10.3d, Icarus Verilog (git
 02ee387), and Verilator (git e5af46d) all agree on the correct behavior.</p>
 <p><strong>History:</strong><br />
-2015-05-15 Reported via Altera mySupport (SR #11146970)  </p>
+2015-05-15 Reported via Altera mySupport (SR #11146970)<br />
+2017-07-01 Still broken in Quartus II 17.0  </p>
 
 <div><a href="../vloghammer.html">&larr; Back to VlogHammer Project Page</a></div>
 </body></html>

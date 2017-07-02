@@ -69,26 +69,26 @@ a { text-decoration: none; }
 <div class="state"><strong>CLOSED:</strong> fixed in <strong>Vivado 2014.2</strong></div>
 
 <p>When I try to synthesize the following module with Vivado 2013.4</p>
-<div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_014</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><span class="k">module</span> <span class="n">issue_014</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
   <span class="k">input</span> <span class="p">[</span><span class="mh">1</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">a</span><span class="p">;</span>
   <span class="k">input</span> <span class="p">[</span><span class="mh">2</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">b</span><span class="p">;</span>
   <span class="k">output</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y</span><span class="p">;</span>
-  <span class="k">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="err">$</span><span class="k">signed</span><span class="p">(</span><span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">);</span>
+  <span class="k">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="n">$signed</span><span class="p">(</span><span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">);</span>
 <span class="k">endmodule</span>
 </pre></div>
 
 
 <p>I get the following error message:</p>
-<div class="codehilite"><pre><span class="nl">vivado:</span> <span class="o">/</span><span class="n">proj</span><span class="o">/</span><span class="n">buildscratch</span><span class="o">/</span><span class="n">builds</span><span class="o">/</span><span class="mf">2013.4</span><span class="o">/</span><span class="n">continuous</span><span class="o">/</span><span class="mi">20131209165331</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">ext</span><span class="o">/</span><span class="n">oasys</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">syn</span><span class="o">/</span><span class="n">gen</span><span class="o">/</span><span class="n">gencore</span><span class="o">/</span><span class="n">dp</span><span class="o">/</span><span class="n">GDpGenDivMod</span><span class="p">.</span><span class="n">cc</span><span class="o">:</span><span class="mi">324</span><span class="o">:</span>
-        <span class="kt">void</span> <span class="n">GDpGen</span><span class="o">::</span><span class="n">implementDivMod</span><span class="p">(</span><span class="n">DFNode</span><span class="o">*</span><span class="p">,</span> <span class="kt">bool</span><span class="p">)</span><span class="o">:</span> <span class="n">Assertion</span> <span class="err">`</span><span class="n">TBD</span><span class="err">&#39;</span> <span class="n">failed</span><span class="p">.</span>
-<span class="n">Abnormal</span> <span class="n">program</span> <span class="n">termination</span> <span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span>vivado: /proj/buildscratch/builds/2013.4/continuous/20131209165331/src/ext/oasys/src/syn/gen/gencore/dp/GDpGenDivMod.cc:324:
+        void GDpGen::implementDivMod(DFNode*, bool): Assertion `TBD&#39; failed.
+Abnormal program termination (6)
 </pre></div>
 
 
 <p>This is the TCL script I was using to build the module:</p>
-<div class="codehilite"><pre><span class="n">read_verilog</span> <span class="n">issue_014</span><span class="p">.</span><span class="n">v</span>
-<span class="n">synth_design</span> <span class="o">-</span><span class="n">part</span> <span class="n">xc7k70t</span> <span class="o">-</span><span class="n">top</span> <span class="n">issue_014</span>
-<span class="n">write_verilog</span> <span class="o">-</span><span class="n">force</span> <span class="n">issue_014_netlist</span><span class="p">.</span><span class="n">v</span>
+<div class="codehilite"><pre><span></span>read_verilog issue_014.v
+synth_design -part xc7k70t -top issue_014
+write_verilog -force issue_014_netlist.v
 </pre></div>
 
 

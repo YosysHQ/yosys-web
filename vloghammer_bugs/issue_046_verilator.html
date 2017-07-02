@@ -69,10 +69,10 @@ a { text-decoration: none; }
 <div class="state"><strong>CLOSED:</strong> fixed in <strong>Verilator GIT 06744b6</strong></div>
 
 <p>This should set y=4'b1111 but Verilator d7e4bc1 sets y=4'b0001 instead.</p>
-<div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_046</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><span class="k">module</span> <span class="n">issue_046</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
   <span class="k">input</span> <span class="k">signed</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">a</span><span class="p">;</span>
   <span class="k">output</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y</span><span class="p">;</span>
-  <span class="k">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="err">$</span><span class="k">signed</span><span class="p">(</span><span class="mh">5</span><span class="mi">&#39;d1</span> <span class="o">&gt;</span> <span class="n">a</span><span class="o">-</span><span class="n">a</span><span class="p">);</span>
+  <span class="k">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="n">$signed</span><span class="p">(</span><span class="mh">5</span><span class="mi">&#39;d1</span> <span class="o">&gt;</span> <span class="n">a</span><span class="o">-</span><span class="n">a</span><span class="p">);</span>
 <span class="k">endmodule</span>
 </pre></div>
 

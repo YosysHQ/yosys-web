@@ -69,9 +69,9 @@ a { text-decoration: none; }
 <div class="state"><strong>CLOSED:</strong> fixed in <strong>XSim 2015.1</strong></div>
 
 <p>The following module should return <strong>3'b001</strong>:</p>
-<div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_017</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><span class="k">module</span> <span class="n">issue_017</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
   <span class="k">output</span> <span class="p">[</span><span class="mh">2</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y</span><span class="p">;</span>
-  <span class="k">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="o">&amp;</span><span class="p">(</span><span class="err">$</span><span class="k">signed</span><span class="p">(</span><span class="mh">2&#39;b11</span><span class="p">));</span>
+  <span class="k">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">$signed</span><span class="p">(</span><span class="mh">2</span><span class="mb">&#39;b11</span><span class="p">));</span>
   <span class="k">initial</span> <span class="p">#</span><span class="mh">10</span> <span class="nb">$display</span><span class="p">(</span><span class="s">&quot;%b&quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
 <span class="k">endmodule</span>
 </pre></div>
@@ -83,8 +83,8 @@ if I do not use <strong>$signed</strong> or <strong>$unsigned</strong> or reduce
 size of <strong>y</strong> "leaks through" to the self-determined operand of the <strong>&amp;</strong> reduce operator
 when used with <strong>$signed</strong> or <strong>$unsigned</strong>.</p>
 <p>In my tests I have run this module with:</p>
-<div class="codehilite"><pre><span class="n">xvlog</span> <span class="n">issue_017</span><span class="p">.</span><span class="n">v</span>
-<span class="n">xelab</span> <span class="o">-</span><span class="n">R</span> <span class="n">work</span><span class="p">.</span><span class="n">issue_017</span>
+<div class="codehilite"><pre><span></span>xvlog issue_017.v
+xelab -R work.issue_017
 </pre></div>
 
 

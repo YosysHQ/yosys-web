@@ -70,11 +70,11 @@ a { text-decoration: none; }
 
 <p>The following module should output <strong>0</strong> for <strong>a = 2'b11</strong> and <strong>b = 3'b111</strong>.
 But Verilator 3.856 outputs <strong>1</strong> instead.</p>
-<div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_002</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><span class="k">module</span> <span class="n">issue_002</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
   <span class="k">input</span> <span class="p">[</span><span class="mh">1</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">a</span><span class="p">;</span>
   <span class="k">input</span> <span class="p">[</span><span class="mh">2</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">b</span><span class="p">;</span>
   <span class="k">output</span> <span class="p">[</span><span class="mh">0</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y</span><span class="p">;</span>
-  <span class="k">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="err">$</span><span class="k">signed</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">==</span> <span class="n">b</span><span class="p">;</span>
+  <span class="k">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="n">$signed</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">==</span> <span class="n">b</span><span class="p">;</span>
 <span class="k">endmodule</span>
 </pre></div>
 

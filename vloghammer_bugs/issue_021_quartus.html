@@ -66,11 +66,11 @@
 a { text-decoration: none; }
 --></style></head>
 <body><h1>Quartus hangs on power operations with large exponents</h1>
-<div class="state"><strong>OPEN:</strong> last verified in <strong>Quartus 15.0</strong></div>
+<div class="state"><strong>OPEN:</strong> last verified in <strong>Quartus 17.0</strong></div>
 
 <p>The following module should set <strong>y</strong> to constant <strong>6'b110011</strong>, but instead it
 just hangs quartus 13.1:</p>
-<div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_021</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><span class="k">module</span> <span class="n">issue_021</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
   <span class="k">output</span> <span class="p">[</span><span class="mh">5</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y</span><span class="p">;</span>
   <span class="k">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="mh">6</span><span class="mi">&#39;d3</span> <span class="o">**</span> <span class="mh">123456789</span><span class="p">;</span>
 <span class="k">endmodule</span>
@@ -80,7 +80,7 @@ just hangs quartus 13.1:</p>
 <p>Quartus seems to try to evaluate this expression by performing 123456789
 multiplications instead of using a proper power-modulus algorithm.</p>
 <p>In my tests I have synthesized the module with</p>
-<div class="codehilite"><pre><span class="n">quartus_map</span> <span class="n">issue_021</span> <span class="o">--</span><span class="n">source</span><span class="o">=</span><span class="n">issue_021</span><span class="p">.</span><span class="n">v</span> <span class="o">--</span><span class="n">family</span><span class="o">=</span><span class="s">&quot;Cyclone III&quot;</span>
+<div class="codehilite"><pre><span></span>quartus_map issue_021 --source=issue_021.v --family=&quot;Cyclone III&quot;
 </pre></div>
 
 
@@ -90,7 +90,8 @@ multiplications instead of using a proper power-modulus algorithm.</p>
 2014-01-25 Reported via Altera mySupport (SR #11025546)<br />
 2014-01-27 Bugfix for Quartus II v14.1 prospected by Altera Support<br />
 2014-09-28 Verified that bug is still present in Quartus II v14.0<br />
-2015-05-15 Still broken in Quartus II 15.0  </p>
+2015-05-15 Still broken in Quartus II 15.0<br />
+2017-07-01 Still broken in Quartus II 17.0  </p>
 
 <div><a href="../vloghammer.html">&larr; Back to VlogHammer Project Page</a></div>
 </body></html>

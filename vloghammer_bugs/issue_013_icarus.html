@@ -73,7 +73,7 @@ of IEEE Std 1365-2005). This is implemented correctly in Icarus Verilog for
 operations involving at least one variable, but bit-wise boolean operations of
 two signed constants yield an unsigned constant.</p>
 <p>For example the following test case:</p>
-<div class="codehilite"><pre><span class="k">module</span> <span class="n">issue_013</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><span class="k">module</span> <span class="n">issue_013</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
   <span class="k">input</span> <span class="k">signed</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">a</span><span class="p">;</span>
   <span class="k">output</span> <span class="p">[</span><span class="mh">1</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y</span><span class="p">;</span>
   <span class="k">assign</span> <span class="n">y</span><span class="p">[</span><span class="mh">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="p">(</span><span class="mh">4</span><span class="p">&#39;</span><span class="n">sb1010</span> <span class="o">|</span> <span class="mh">4</span><span class="p">&#39;</span><span class="n">sd0</span><span class="p">);</span>
