@@ -39,6 +39,7 @@ This page contains links to other projects.
 <li><a href="http://rapidsmith.sourceforge.net/">RapidSmith</a> -- a research-based, open source FPGA CAD tool for modern Xilinx FPGAs
 <li><a href="http://opencircuitdesign.com/">Open Circuit Design</a> -- collection of open-source EDA tools, including Qflow
 <li><a href="https://soc-extras.lip6.fr/en/coriolis/coriolis2-users-guide/">Coriolis2</a> -- an ASIC place and route flow
+<li><a href="https://workcraft.org/">Workcraft</a> -- a framework for interpreted graph models
 </ul>
 
 <h2>Verilog Tutorials</h2>
