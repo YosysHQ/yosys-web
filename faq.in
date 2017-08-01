@@ -14,7 +14,7 @@ others can profit from your question and the posted answers as well.</p>
 <p>A good bug report contains a <a href="http://stackoverflow.com/help/mcve">minimal,
 complete, and verifiable code example</a> that demonstrates the
 problem you are running into. Complete means not just a code snippet, but an
-entire top verilog moduole that can be synthesized. Also include the yosys
+entire top verilog module that can be synthesized. Also include the yosys
 script or command line. If your problem is with one of the flows (e.g.  the
 open source IceStorm flow), also include scripts or command line for the other
 tools in the flow and auxiliary files needed to reporduce the problem (such as
