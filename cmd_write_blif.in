@@ -55,6 +55,11 @@ file *.blif when any of this options is used.
     -cname
         use the non-standard .cname statement to write cell names
 
+    -iname, -iattr
+        enable -cname and -attr functionality for .names statements
+        (the .cname and .attr statements will be included in the BLIF
+        output after the truth table for the .names statement)
+
     -blackbox
         write blackbox cells with .blackbox statement.
 

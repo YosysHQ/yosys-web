@@ -1,5 +1,5 @@
 @cmd_header connwrappers@
-<h1>connwrappers - replace undef values with defined constants</h1>
+<h1>connwrappers - match width of input-output port pairs</h1>
 <pre>
     connwrappers [options] [selection]
 

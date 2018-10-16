@@ -14,6 +14,12 @@ to 'cd &lt;celltype&gt;'.
 
     cd ..
 
+Remove trailing substrings that start with '.' in current module name until
+the name of a module in the current design is generated, then switch to that
+module. Otherwise clear the current selection.
+
+    cd
+
 This is just a shortcut for 'select -clear'.
 
 </pre>

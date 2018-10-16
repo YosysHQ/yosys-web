@@ -1,9 +1,9 @@
-@cmd_header synth_ice40@
-<h1>synth_ice40 - synthesis for iCE40 FPGAs</h1>
+@cmd_header synth_ecp5@
+<h1>synth_ecp5 - synthesis for ECP5 FPGAs</h1>
 <pre>
-    synth_ice40 [options]
+    synth_ecp5 [options]
 
-This command runs synthesis for iCE40 FPGAs.
+This command runs synthesis for ECP5 FPGAs.
 
     -top &lt;module&gt;
         use the specified module as top module
@@ -31,14 +31,20 @@ This command runs synthesis for iCE40 FPGAs.
     -retime
         run 'abc' with -dff option
 
-    -nocarry
-        do not use SB_CARRY cells in output netlist
+    -noccu2
+        do not use CCU2 cells in output netlist
 
     -nodffe
-        do not use SB_DFFE* cells in output netlist
+        do not use flipflops with CE in output netlist
 
     -nobram
-        do not use SB_RAM40_4K* cells in output netlist
+        do not use BRAM cells in output netlist
+
+    -nodram
+        do not use distributed RAM cells in output netlist
+
+    -nomux
+        do not use PFU muxes to implement LUTs larger than LUT4s
 
     -abc2
         run two passes of 'abc' for slightly improved logic density
@@ -51,7 +57,7 @@ This command runs synthesis for iCE40 FPGAs.
 The following commands are executed by this synthesis command:
 
     begin:
-        read_verilog -lib +/ice40/cells_sim.v
+        read_verilog -lib +/ecp5/cells_sim.v
         hierarchy -check -top &lt;top&gt;
 
     flatten:    (unless -noflatten)
@@ -64,36 +70,34 @@ The following commands are executed by this synthesis command:
         synth -run coarse
 
     bram:    (skip if -nobram)
-        memory_bram -rules +/ice40/brams.txt
-        techmap -map +/ice40/brams_map.v
+
+    dram:    (skip if -nodram)
+        memory_bram -rules +/ecp5/dram.txt
+        techmap -map +/ecp5/drams_map.v
 
     fine:
         opt -fast -mux_undef -undriven -fine
         memory_map
         opt -undriven -fine
-        techmap -map +/techmap.v -map +/ice40/arith_map.v
+        techmap -map +/techmap.v -map +/ecp5/arith_map.v
         abc -dff    (only if -retime)
-        ice40_opt
 
     map_ffs:
         dffsr2dff
-        dff2dffe -direct-match $_DFF_*
-        techmap -D NO_LUT -map +/ice40/cells_map.v
+        dff2dffs
+        opt_clean
+        dff2dffe -direct-match $_DFF_* -direct-match $__DFFS_*
+        techmap -D NO_LUT -map +/ecp5/cells_map.v
         opt_expr -mux_undef
         simplemap
-        ice40_ffinit
-        ice40_ffssr
-        ice40_opt -full
 
     map_luts:
         abc          (only if -abc2)
-        ice40_opt    (only if -abc2)
-        techmap -map +/ice40/latches_map.v
-        abc -lut 4
+        abc -lut 4:7
         clean
 
     map_cells:
-        techmap -map +/ice40/cells_map.v    (with -D NO_LUT in vpr mode)
+        techmap -map +/ecp5/cells_map.v    (with -D NO_LUT in vpr mode)
         clean
 
     check:

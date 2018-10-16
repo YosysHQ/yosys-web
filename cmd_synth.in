@@ -32,6 +32,9 @@ on partly selected designs.
     -nordff
         passed to 'memory'. prohibits merging of FFs into memory read ports
 
+    -noshare
+        do not run SAT-based resource sharing
+
     -run &lt;from_label&gt;[:&lt;to_label&gt;]
         only run the commands between the labels (see below). an empty
         from label is synonymous to 'begin', and empty to label is

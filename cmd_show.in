@@ -8,6 +8,7 @@ to a graphics file (usually SVG or PostScript).
 
     -viewer &lt;viewer&gt;
         Run the specified command with the graphics file as parameter.
+        On Windows, this pauses yosys until the viewer exits.
 
     -format &lt;format&gt;
         Generate a graphics file in the specified format. Use 'dot' to just
@@ -69,7 +70,7 @@ to a graphics file (usually SVG or PostScript).
         do not add the module name as graph title to the dot file
 
 When no &lt;format&gt; is specified, 'dot' is used. When no &lt;format&gt; and &lt;viewer&gt; is
-specified, 'xdot' is used to display the schematic.
+specified, 'xdot' is used to display the schematic (POSIX systems only).
 
 The generated output files are '~/.yosys_show.dot' and '~/.yosys_show.&lt;format&gt;',
 unless another prefix is specified using -prefix &lt;prefix&gt;.

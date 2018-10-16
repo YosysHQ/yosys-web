@@ -13,6 +13,10 @@ Write the current design to an EDIF netlist file.
         if the design contains constant nets. use "hilomap" to map to custom
         constant drivers first)
 
+    -pvector {par|bra|ang}
+        sets the delimiting character for module port rename clauses to
+        parentheses, square brackets, or angle brackets.
+
 Unfortunately there are different "flavors" of the EDIF file format. This
 command generates EDIF files for the Xilinx place&amp;route tools. It might be
 necessary to make small modifications to this command when a different tool

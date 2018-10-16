@@ -13,6 +13,10 @@ outputs.
         when exposing a wire, create an input/output pair and cut the internal
         signal path at that wire.
 
+    -input
+        when exposing a wire, create an input port and disconnect the internal
+        driver.
+
     -shared
         only expose those signals that are shared among the selected modules.
         this is useful for preparing modules for equivalence checking.

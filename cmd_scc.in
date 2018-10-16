@@ -25,11 +25,9 @@ design.
         are assumed to be bidirectional 'inout' ports.
 
     -set_attr &lt;name&gt; &lt;value&gt;
-    -set_cell_attr &lt;name&gt; &lt;value&gt;
-    -set_wire_attr &lt;name&gt; &lt;value&gt;
-        set the specified attribute on all cells and/or wires that are part of
-        a logic loop. the special token {} in the value is replaced with a
-        unique identifier for the logic loop.
+        set the specified attribute on all cells that are part of a logic
+        loop. the special token {} in the value is replaced with a unique
+        identifier for the logic loop.
 
     -select
         replace the current selection with a selection of all cells and wires

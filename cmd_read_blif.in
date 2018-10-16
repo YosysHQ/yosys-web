@@ -8,5 +8,9 @@ Load modules from a BLIF file into the current design.
     -sop
         Create $sop cells instead of $lut cells
 
+    -wideports
+        Merge ports that match the pattern 'name[int]' into a single
+        multi-bit port 'name'.
+
 </pre>
 @footer@

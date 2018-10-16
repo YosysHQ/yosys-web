@@ -21,45 +21,47 @@ library to a target architecture.
         if no -script parameter is given, the following scripts are used:
 
         for -liberty without -constr:
-          strash; dc2; scorr; ifraig; retime -o {D}; strash; dch -f;
-               map {D}
+          strash; ifraig; scorr; dc2; dretime; strash; &amp;get -n; &amp;dch -f;
+               &amp;nf {D}; &amp;put
 
         for -liberty with -constr:
-          strash; dc2; scorr; ifraig; retime -o {D}; strash; dch -f;
-               map {D}; buffer; upsize {D}; dnsize {D}; stime -p
+          strash; ifraig; scorr; dc2; dretime; strash; &amp;get -n; &amp;dch -f;
+               &amp;nf {D}; &amp;put; buffer; upsize {D}; dnsize {D}; stime -p
 
         for -lut/-luts (only one LUT size):
-          strash; dc2; scorr; ifraig; retime -o; strash; dch -f; if; mfs;
-               lutpack
+          strash; ifraig; scorr; dc2; dretime; strash; dch -f; if; mfs2;
+               lutpack {S}
 
         for -lut/-luts (different LUT sizes):
-          strash; dc2; scorr; ifraig; retime -o; strash; dch -f; if; mfs
+          strash; ifraig; scorr; dc2; dretime; strash; dch -f; if; mfs2
 
         for -sop:
-          strash; dc2; scorr; ifraig; retime -o; strash; dch -f;
+          strash; ifraig; scorr; dc2; dretime; strash; dch -f;
                cover {I} {P}
 
         otherwise:
-          strash; dc2; scorr; ifraig; retime -o; strash; dch -f; map
+          strash; ifraig; scorr; dc2; dretime; strash; &amp;get -n; &amp;dch -f;
+               &amp;nf {D}; &amp;put
 
     -fast
         use different default scripts that are slightly faster (at the cost
         of output quality):
 
         for -liberty without -constr:
-          retime -o {D}; map {D}
+          strash; dretime; map {D}
 
         for -liberty with -constr:
-          retime -o {D}; map {D}; buffer; upsize {D}; dnsize {D}; stime -p
+          strash; dretime; map {D}; buffer; upsize {D}; dnsize {D};
+               stime -p
 
         for -lut/-luts:
-          retime -o; if
+          strash; dretime; if
 
         for -sop:
-          retime -o; cover -I {I} -P {P}
+          strash; dretime; cover -I {I} -P {P}
 
         otherwise:
-          retime -o; map
+          strash; dretime; map
 
     -liberty &lt;file&gt;
         generate netlists for the specified cell library (using the liberty
@@ -79,6 +81,8 @@ library to a target architecture.
     -D &lt;picoseconds&gt;
         set delay target. the string {D} in the default scripts above is
         replaced by this option when used, and an empty string otherwise.
+        this also replaces 'dretime' with 'dretime; retime -o {D}' in the
+        default scripts above.
 
     -I &lt;num&gt;
         maximum number of SOP inputs.
@@ -87,6 +91,10 @@ library to a target architecture.
     -P &lt;num&gt;
         maximum number of SOP products.
         (replaces {P} in the default scripts above)
+
+    -S &lt;num&gt;
+        maximum number of LUT inputs shared.
+        (replaces {S} in the default scripts above, default: -S 1)
 
     -lut &lt;width&gt;
         generate netlist using luts of (max) the specified width.
@@ -105,9 +113,20 @@ library to a target architecture.
         map to sum-of-product cells and inverters
 
     -g type1,type2,...
-        Map the the specified list of gate types. Supported gates types are:
-        AND, NAND, OR, NOR, XOR, XNOR, MUX, AOI3, OAI3, AOI4, OAI4.
+        Map to the specified list of gate types. Supported gates types are:
+        AND, NAND, OR, NOR, XOR, XNOR, ANDNOT, ORNOT, MUX, AOI3, OAI3, AOI4, OAI4.
         (The NOT gate is always added to this list automatically.)
+
+        The following aliases can be used to reference common sets of gate types:
+          simple: AND OR XOR MUX
+          cmos2: NAND NOR
+          cmos3: NAND NOR AOI3 OAI3
+          cmos4: NAND NOR AOI3 OAI3 AOI4 OAI4
+          gates: AND NAND OR NOR XOR XNOR ANDNOT ORNOT
+          aig: AND NAND OR NOR ANDNOT ORNOT
+
+        Prefix a gate type with a '-' to remove it from the list. For example
+        the arguments 'AND,OR,XOR' and 'simple,-MUX' are equivalent.
 
     -dff
         also pass $_DFF_?_ and $_DFFE_??_ cells through ABC. modules with many
@@ -138,8 +157,12 @@ library to a target architecture.
 When neither -liberty nor -lut is used, the Yosys standard cell library is
 loaded into ABC before the ABC script is executed.
 
-This pass does not operate on modules with unprocessed processes in it.
-(I.e. the 'proc' pass should be used first to convert processes to netlists.)
+Note that this is a logic optimization pass within Yosys that is calling ABC
+internally. This is not going to "run ABC on your design". It will instead run
+ABC on logic snippets extracted from your design. You will not get any useful
+output when passing an ABC script that writes a file. Instead write your full
+design as BLIF file with write_blif and the load that into ABC externally if
+you want to use ABC to convert your design into another format.
 
 [1] http://www.eecs.berkeley.edu/~alanmi/abc/
 

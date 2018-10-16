@@ -23,15 +23,16 @@ on partly selected designs.
 
     -memx
         simulate verilog simulation behavior for out-of-bounds memory accesses
-        using the 'memory_memx' pass. This option implies -nordff.
+        using the 'memory_memx' pass.
 
     -nomem
         do not run any of the memory_* passes
 
-    -nordff
-        passed to 'memory_dff'. prohibits merging of FFs into memory read ports
+    -rdff
+        do not pass -nordff to 'memory_dff'. This enables merging of FFs into
+        memory read ports.
 
-     -nokeepdc
+    -nokeepdc
         do not call opt_* with -keepdc
 
     -run &lt;from_label&gt;[:&lt;to_label&gt;]

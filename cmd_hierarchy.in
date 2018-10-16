@@ -13,6 +13,10 @@ needed.
         also check the design hierarchy. this generates an error when
         an unknown module is used as cell type.
 
+    -simcheck
+        like -check, but also thow an error if blackbox modules are
+        instantiated, and throw an error if the design has no top module
+
     -purge_lib
         by default the hierarchy command will not remove library (blackbox)
         modules. use this option to also remove unused blackbox modules.
@@ -25,6 +29,11 @@ needed.
     -keep_positionals
         per default this pass also converts positional arguments in cells
         to arguments using port names. this option disables this behavior.
+
+    -keep_portwidths
+        per default this pass adjusts the port width on cells that are
+        module instances when the width does not match the module port. this
+        option disables this behavior.
 
     -nokeep_asserts
         per default this pass sets the "keep" attribute on all modules

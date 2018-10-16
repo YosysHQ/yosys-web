@@ -14,6 +14,14 @@ compatible with 7-Series Xilinx devices.
         write the design to the specified edif file. writing of an output file
         is omitted if this parameter is not specified.
 
+    -blif &lt;file&gt;
+        write the design to the specified BLIF file. writing of an output file
+        is omitted if this parameter is not specified.
+
+    -vpr
+        generate an output netlist (and BLIF file) suitable for VPR
+        (this feature is experimental and incomplete)
+
     -run &lt;from_label&gt;:&lt;to_label&gt;
         only run the commands between the labels (see below). an empty
         from label is synonymous to 'begin', and empty to label is
@@ -32,7 +40,6 @@ The following commands are executed by this synthesis command:
         read_verilog -lib +/xilinx/cells_sim.v
         read_verilog -lib +/xilinx/cells_xtra.v
         read_verilog -lib +/xilinx/brams_bb.v
-        read_verilog -lib +/xilinx/drams_bb.v
         hierarchy -check -top &lt;top&gt;
 
     flatten:     (only if -flatten)
@@ -64,7 +71,7 @@ The following commands are executed by this synthesis command:
         clean
 
     map_cells:
-        techmap -map +/xilinx/cells_map.v
+        techmap -map +/xilinx/cells_map.v (with -D NO_LUT in vpr mode)
         dffinit -ff FDRE Q INIT -ff FDCE Q INIT -ff FDPE Q INIT
         clean
 
@@ -75,6 +82,9 @@ The following commands are executed by this synthesis command:
 
     edif:     (only if -edif)
         write_edif &lt;file-name&gt;
+
+    blif:     (only if -blif)
+        write_blif &lt;file-name&gt;
 
 </pre>
 @footer@

@@ -4,6 +4,8 @@
     synth_greenpak4 [options]
 
 This command runs synthesis for GreenPAK4 FPGAs. This work is experimental.
+It is intended to be used with https://github.com/azonenberg/openfpga as the
+place-and-route.
 
     -top &lt;module&gt;
         use the specified module as top module (default='top')
@@ -43,12 +45,13 @@ The following commands are executed by this synthesis command:
         synth -run coarse
 
     fine:
-        greenpak4_counters
+        extract_counter -pout GP_DCMP,GP_DAC -maxwidth 14
         clean
         opt -fast -mux_undef -undriven -fine
         memory_map
         opt -undriven -fine
         techmap
+        techmap -map +/greenpak4/cells_latch.v
         dfflibmap -prepare -liberty +/greenpak4/gp_dff.lib
         opt -fast
         abc -dff    (only if -retime)

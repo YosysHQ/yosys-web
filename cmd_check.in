@@ -14,6 +14,9 @@ This pass identifies the following problems in the current design:
 When called with -noinit then this command also checks for wires which have
 the 'init' attribute set.
 
+When called with -initdrv then this command also checks for wires which have
+the 'init' attribute set and aren't driven by a FF cell type.
+
 When called with -assert then the command will produce an error if any
 problems are found in the current design.
 

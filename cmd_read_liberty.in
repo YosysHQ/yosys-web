@@ -8,9 +8,13 @@ Read cells from liberty file as modules into current design.
     -lib
         only create empty blackbox modules
 
-    -ignore_redef
+    -nooverwrite
         ignore re-definitions of modules. (the default behavior is to
-        create an error message.)
+        create an error message if the existing module is not a blackbox
+        module, and overwrite the existing module if it is  a blackbox module.)
+
+    -overwrite
+        overwrite existing modules with the same name
 
     -ignore_miss_func
         ignore cells with missing function specification of outputs
@@ -18,6 +22,9 @@ Read cells from liberty file as modules into current design.
     -ignore_miss_dir
         ignore cells with a missing or invalid direction
         specification on a pin
+
+    -ignore_miss_data_latch
+        ignore latches with missing data and/or enable pins
 
     -setattr &lt;attribute_name&gt;
         set the specified attribute (to the value 1) on all loaded modules
