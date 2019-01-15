@@ -1,4 +1,4 @@
-<html><head><title>VlogHammer Bug Report: Design Compiler bug regarding shift operations and bit width</title>
+<html><head><title>VlogHammer Bug Report: Strange Vivado bug involving seemingly unrelated expressions</title>
 <style><!--
 .codehilite .hll { background-color: #ffffcc }
 .codehilite  { background: #f0f0f0; margin-left: 3em; margin-right: 3em; }
@@ -65,40 +65,31 @@
 .state { background: #333; color: #fff; margin-left: 1em; margin-right: 1em; padding: 4px; padding-left: 1em; }
 a { text-decoration: none; }
 --></style></head>
-<body><h1>Design Compiler bug regarding shift operations and bit width</h1>
-<div class="state"><strong>WONTFIX:</strong> last verified in <strong>DC G-2012.06-SP4</strong>, vendor said he would not fix it</div>
+<body><h1>Strange Vivado bug involving seemingly unrelated expressions</h1>
+<div class="state"><strong>OPEN:</strong> last verified in <strong>Vivado 2018.3</strong></div>
 
-<p>The following test case demonstrates that there is a bug in DC G-2012.06-SP4
-regarding shift operations and bit width:</p>
-<div class="codehilite"><pre><span></span><span class="k">module</span> <span class="n">issue_036</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">y3</span><span class="p">);</span>
-  <span class="k">input</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">a</span><span class="p">;</span>
-  <span class="k">input</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">b</span><span class="p">;</span>
-  <span class="k">input</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">c</span><span class="p">;</span>
-  <span class="k">input</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">d</span><span class="p">;</span>
-  <span class="k">output</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y1</span><span class="p">;</span>
-  <span class="k">output</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y2</span><span class="p">;</span>
-  <span class="k">output</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y3</span><span class="p">;</span>
+<p>Consider the following test case:</p>
+<div class="codehilite"><pre><span></span><span class="k">module</span> <span class="n">issue_058</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span> 
+    <span class="k">input</span> <span class="p">[</span><span class="mh">1</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">a</span><span class="p">;</span>
+    <span class="k">output</span> <span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y</span><span class="p">;</span>
 
-  <span class="c1">// This should return y=15 for a=15, b=15, c=15, d=15.</span>
-  <span class="c1">// But Design Compiler G-2012.06-SP4 returns y=7 instead.</span>
-  <span class="k">assign</span> <span class="n">y1</span> <span class="o">=</span> <span class="n">a</span> <span class="o">&gt;&gt;&gt;</span> <span class="p">((</span><span class="n">b</span> <span class="o">==</span> <span class="n">c</span><span class="p">)</span> <span class="o">&gt;&gt;&gt;</span> <span class="n">d</span><span class="p">);</span>
+    <span class="kt">wire</span> <span class="p">[</span><span class="mh">1</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y0</span><span class="p">;</span>
+    <span class="kt">wire</span> <span class="p">[</span><span class="mh">1</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">y1</span><span class="p">;</span>
+    <span class="k">assign</span> <span class="n">y</span> <span class="o">=</span> <span class="p">{</span><span class="n">y0</span><span class="p">,</span><span class="n">y1</span><span class="p">};</span>
 
-  <span class="c1">// This should return 1 but DC G-2012.06-SP4 returns 0 instead.</span>
-  <span class="k">assign</span> <span class="n">y2</span> <span class="o">=</span> <span class="p">(</span><span class="o">|</span><span class="mh">1</span> <span class="o">&gt;&gt;&gt;</span> <span class="mh">1</span><span class="p">)</span> <span class="o">==</span> <span class="o">|</span><span class="mh">0</span><span class="p">;</span>
+    <span class="k">localparam</span> <span class="p">[</span><span class="mh">1</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">p1</span> <span class="o">=</span> <span class="mh">1</span><span class="p">;</span>
+    <span class="k">localparam</span> <span class="p">[</span><span class="mh">1</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">pX</span> <span class="o">=</span> <span class="mh">1</span> <span class="o">%</span> <span class="mh">0</span><span class="p">;</span>
 
-  <span class="c1">// This should return 0 but DC G-2012.06-SP4 returns 1 instead.</span>
-  <span class="k">assign</span> <span class="n">y3</span> <span class="o">=</span> <span class="p">{</span><span class="o">|</span><span class="mh">1</span> <span class="o">&gt;&gt;&gt;</span> <span class="mh">1</span><span class="p">};</span>
+    <span class="k">assign</span> <span class="n">y0</span> <span class="o">=</span> <span class="n">a</span> <span class="o">?</span> <span class="n">p1</span> <span class="o">:</span> <span class="n">p1</span><span class="p">;</span>
+    <span class="k">assign</span> <span class="n">y1</span> <span class="o">=</span> <span class="n">a</span> <span class="o">^</span> <span class="p">(</span><span class="n">a</span> <span class="o">!=</span> <span class="n">pX</span><span class="p">);</span>
 <span class="k">endmodule</span>
 </pre></div>
 
 
-<p>A script that does synthesis and pre/post simulation can be found here:<br />
-<a href="http://svn.clifford.at/handicraft/2014/vlogdctests/test001.sh">http://svn.clifford.at/handicraft/2014/vlogdctests/test001.sh</a></p>
-<p>Crosscheck: Vivado 2014.4, Quartus II 13.1, XST 14.7, Verific 35_463_32_140306,
-XSim 2014.4, Modelsim 10.1d, Iacrus GIT 6547fde and Verilator GIT f705f9b
-implement this correctly.</p>
+<p>This is expected to set <strong>y[3]=0</strong> and <strong>y[2]=1</strong>, but the vivado 2018.3 synthesis output 
+sets <strong>y[3]=1</strong> and <strong>y[2]=Z</strong>.</p>
 <p><strong>History:</strong><br />
-2014-05-26 Formulated original bug report  </p>
+2019-01-15 Initial description of bug.  </p>
 
 <div><a href="../vloghammer.html">&larr; Back to VlogHammer Project Page</a></div>
 </body></html>
