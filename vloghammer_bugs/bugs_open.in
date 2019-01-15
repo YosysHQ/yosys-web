@@ -11,5 +11,5 @@
 <tr><td valign="top"><a href="vloghammer_bugs/issue_044_quartus.html">issue_044_quartus</a></td><td valign="top">Quartus 17.0</td><td valign="top">Ignored width extension for constant ?: condition</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_057_quartus.html">issue_057_quartus</a></td><td valign="top">Quartus 17.0</td><td valign="top">Quartus handling of partly out-of-bounds parts select</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_057_verilator.html">issue_057_verilator</a></td><td valign="top">Verilator 3_906</td><td valign="top">Incorrect results with partially out-of-bounds part select</td></tr>
-<tr><td valign="top"><a href="vloghammer_bugs/issue_057_vivado.html">issue_057_vivado</a></td><td valign="top">Vivado 2017.2</td><td valign="top">Vivado handling of partly out-of-bounds parts select</td></tr>
+<tr><td valign="top"><a href="vloghammer_bugs/issue_057_vivado.html">issue_057_vivado</a></td><td valign="top">Vivado 2018.3</td><td valign="top">Vivado handling of partly out-of-bounds parts select</td></tr>
 <tr><td valign="top"><a href="vloghammer_bugs/issue_058_vivado.html">issue_058_vivado</a></td><td valign="top">Vivado 2018.3</td><td valign="top">Strange Vivado bug involving seemingly unrelated expressions</td></tr>
