@@ -41,6 +41,7 @@ This page contains links to other projects.
 <li><a href="https://soc-extras.lip6.fr/en/coriolis/coriolis2-users-guide/">Coriolis2</a> -- an ASIC place and route flow
 <li><a href="https://workcraft.org/">Workcraft</a> -- a framework for interpreted graph models
 <li><a href="https://github.com/nturley/netlistsvg">netlistsvg</a> -- SVG schematic from a Yosys JSON netlist
+<li><a href="https://github.com/emsec/hal">HAL</a> -- The Hardware Analyzer
 </ul>
 
 <h2>Verilog Tutorials</h2>
