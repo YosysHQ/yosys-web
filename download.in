@@ -5,12 +5,12 @@
 <p><b>Note:</b> At the moment Yosys is mostly tested on Linux. Expect some
 difficulties when building on other platforms.</p>
 
-<p>Download the Yosys 0.8 release source code from GitHub:</p>
+<p>Download the Yosys 0.9 release source code from GitHub:</p>
 
 <ul>
-<li><a href="https://github.com/cliffordwolf/yosys/releases/tag/yosys-0.8">Release Notes</a></li>
-<li><a href="https://github.com/cliffordwolf/yosys/archive/yosys-0.8.zip">yosys-0.8.zip</a></li>
-<li><a href="https://github.com/cliffordwolf/yosys/archive/yosys-0.8.tar.gz">yosys-0.8.tar.gz</a></li>
+<li><a href="https://github.com/cliffordwolf/yosys/releases/tag/yosys-0.9">Release Notes</a></li>
+<li><a href="https://github.com/cliffordwolf/yosys/archive/yosys-0.9.zip">yosys-0.9.zip</a></li>
+<li><a href="https://github.com/cliffordwolf/yosys/archive/yosys-0.9.tar.gz">yosys-0.9.tar.gz</a></li>
 </ul>
 
 <h2>Installing on Ubuntu</h2>
@@ -32,12 +32,12 @@ will be available in the standard package repository for Ubuntu.
 There are two versions of Yosys for Win32. First there is the "official binary release"
 of Yosys for Win32 which is cross-compiled using <a href="http://mxe.cc/">MXE</a>:
 
-<ul><li><a href="nogit/win32/yosys-win32-mxebin-0.8.zip">yosys-win32-mxebin-0.8.zip</a></ul>
+<ul><li><a href="nogit/win32/yosys-win32-mxebin-0.9.zip">yosys-win32-mxebin-0.9.zip</a></ul>
 
 And then there is a source code export for VisualStudio for users who want to do
 Yosys C++ development on Windows:
 
-<ul><li><a href="nogit/win32/yosys-win32-vcxsrc-0.8.zip">yosys-win32-vcxsrc-0.8.zip</a></li></ul>
+<ul><li><a href="nogit/win32/yosys-win32-vcxsrc-0.9.zip">yosys-win32-vcxsrc-0.9.zip</a></li></ul>
 
 <h2>Building Development Sources</h2>
 
