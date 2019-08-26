@@ -1,5 +1,5 @@
 @cmd_header assertpmux@
-<h1>assertpmux - convert internal signals to module ports</h1>
+<h1>assertpmux - adds asserts for parallel muxes</h1>
 <pre>
     assertpmux [options] [selection]
 
@@ -11,8 +11,8 @@ This command adds asserts to the design that assert that all parallel muxes
 
     -always
         usually the $pmux condition is only checked when the $pmux output
-        is used be the mux tree it drives. this option will deactivate this
-        additional constrained and check the $pmux condition always.
+        is used by the mux tree it drives. this option will deactivate this
+        additional constraint and check the $pmux condition always.
 
 </pre>
 @footer@

@@ -7,7 +7,7 @@ Execute the specified command, optionally writing the commands output to the
 specified logfile(s).
 
     -q
-        Do not print output to the normal destination (console and/or log file)
+        Do not print output to the normal destination (console and/or log file).
 
     -o logfile
         Write output to this file, truncate if exists.
@@ -16,7 +16,7 @@ specified logfile(s).
         Write output to this file, append if exists.
 
     +INT, -INT
-        Add/subract INT from the -v setting for this command.
+        Add/subtract INT from the -v setting for this command.
 
 </pre>
 @footer@

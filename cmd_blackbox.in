@@ -1,5 +1,5 @@
 @cmd_header blackbox@
-<h1>blackbox - change type of cells in the design</h1>
+<h1>blackbox - convert modules into blackbox modules</h1>
 <pre>
     blackbox [options] [selection]
 

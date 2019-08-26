@@ -83,6 +83,13 @@ Import options:
   -autocover
     Generate automatic cover statements for all asserts
 
+  -chparam name value 
+    Elaborate the specified top modules (all modules when -all given) using
+    this parameter value. Modules on which this parameter does not exist will
+    cause Verific to produce a VERI-1928 or VHDL-1676 message. This option
+    can be specified multiple times to override multiple parameters.
+    String values must be passed in double quotes (").
+
   -v, -vv
     Verbose log messages. (-vv is even more verbose than -v.)
 

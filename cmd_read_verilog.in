@@ -14,11 +14,23 @@ Verilog-2005 is supported.
         enable support for SystemVerilog assertions and some Yosys extensions
         replace the implicit -D SYNTHESIS with -D FORMAL
 
+    -noassert
+        ignore assert() statements
+
+    -noassume
+        ignore assume() statements
+
     -norestrict
-        ignore restrict() assertions
+        ignore restrict() statements
 
     -assume-asserts
         treat all assert() statements like assume() statements
+
+    -assert-assumes
+        treat all assume() statements like assert() statements
+
+    -debug
+        alias for -dump_ast1 -dump_ast2 -dump_vlog1 -dump_vlog2 -yydebug
 
     -dump_ast1
         dump abstract syntax tree (before simplification)
@@ -29,7 +41,10 @@ Verilog-2005 is supported.
     -no_dump_ptr
         do not include hex memory addresses in dump (easier to diff dumps)
 
-    -dump_vlog
+    -dump_vlog1
+        dump ast as Verilog code (before simplification)
+
+    -dump_vlog2
         dump ast as Verilog code (after simplification)
 
     -dump_rtlil
@@ -78,8 +93,21 @@ Verilog-2005 is supported.
     -nodpi
         disable DPI-C support
 
+    -noblackbox
+        do not automatically add a (* blackbox *) attribute to an
+        empty module.
+
     -lib
         only create empty blackbox modules. This implies -DBLACKBOX.
+        modules with the (* whitebox *) attribute will be preserved.
+        (* lib_whitebox *) will be treated like (* whitebox *).
+
+    -nowb
+        delete (* whitebox *) and (* lib_whitebox *) attributes from
+        all modules.
+
+    -specify
+        parse and import specify blocks
 
     -noopt
         don't perform basic optimizations (such as const folding) in the
@@ -87,6 +115,9 @@ Verilog-2005 is supported.
 
     -icells
         interpret cell types starting with '$' as internal cell types
+
+    -pwires
+        add a wire for each module parameter
 
     -nooverwrite
         ignore re-definitions of modules. (the default behavior is to

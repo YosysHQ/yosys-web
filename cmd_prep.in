@@ -53,7 +53,7 @@ The following commands are executed by this synthesis command:
         opt_clean
         check
         opt -keepdc
-        wreduce [-memx]
+        wreduce -keepdc [-memx]
         memory_dff [-nordff]
         memory_memx    (if -memx)
         opt_clean

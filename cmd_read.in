@@ -29,5 +29,13 @@ Unset global Verilog/SystemVerilog defines.
 
 Add directory to global Verilog/SystemVerilog include directories.
 
+
+    read -verific
+    read -noverific
+
+Subsequent calls to 'read' will either use or not use Verific. Calling 'read'
+with -verific will result in an error on Yosys binaries that are built without
+Verific support. The default is to use Verific if it is available.
+
 </pre>
 @footer@

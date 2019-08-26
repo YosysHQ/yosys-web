@@ -24,7 +24,7 @@ detected.
         also create an 'assert' cell that checks if trigger is always low.
 
     -flatten
-        call 'flatten; opt_expr -keepdc -undriven;;' on the miter circuit.
+        call 'flatten -wb; opt_expr -keepdc -undriven;;' on the miter circuit.
 
 
     miter -assert [options] module [miter_name]
@@ -38,7 +38,7 @@ module is modified.
         keep module output ports.
 
     -flatten
-        call 'flatten; opt_expr -keepdc -undriven;;' on the miter circuit.
+        call 'flatten -wb; opt_expr -keepdc -undriven;;' on the miter circuit.
 
 </pre>
 @footer@

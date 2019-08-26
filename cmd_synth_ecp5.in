@@ -43,7 +43,7 @@ This command runs synthesis for ECP5 FPGAs.
     -nodram
         do not use distributed RAM cells in output netlist
 
-    -nomux
+    -nowidelut
         do not use PFU muxes to implement LUTs larger than LUT4s
 
     -abc2
@@ -57,7 +57,7 @@ This command runs synthesis for ECP5 FPGAs.
 The following commands are executed by this synthesis command:
 
     begin:
-        read_verilog -lib +/ecp5/cells_sim.v
+        read_verilog -lib +/ecp5/cells_sim.v +/ecp5/cells_bb.v
         hierarchy -check -top &lt;top&gt;
 
     flatten:    (unless -noflatten)
@@ -70,6 +70,8 @@ The following commands are executed by this synthesis command:
         synth -run coarse
 
     bram:    (skip if -nobram)
+        memory_bram -rules +/ecp5/bram.txt
+        techmap -map +/ecp5/brams_map.v
 
     dram:    (skip if -nodram)
         memory_bram -rules +/ecp5/dram.txt
@@ -88,12 +90,14 @@ The following commands are executed by this synthesis command:
         opt_clean
         dff2dffe -direct-match $_DFF_* -direct-match $__DFFS_*
         techmap -D NO_LUT -map +/ecp5/cells_map.v
-        opt_expr -mux_undef
+        opt_expr -undriven -mux_undef
         simplemap
+        ecp5_ffinit
 
     map_luts:
         abc          (only if -abc2)
-        abc -lut 4:7
+        techmap -map +/ecp5/latches_map.v
+        abc -lut 4:7 -dress
         clean
 
     map_cells:

@@ -4,7 +4,7 @@
     chformal [types] [mode] [options] [selection]
 
 Make changes to the formal constraints of the design. The [types] options
-the type of constraint to operate on. If none of the folling options is given,
+the type of constraint to operate on. If none of the following options are given,
 the command will operate on all constraint types:
 
     -assert       $assert cells, representing assert(...) constraints
@@ -31,7 +31,7 @@ Exactly one of the following modes must be specified:
     -assume2assert
     -live2fair
     -fair2live
-        change the roles of cells as indicated. this options can be combined
+        change the roles of cells as indicated. these options can be combined
 
 </pre>
 @footer@

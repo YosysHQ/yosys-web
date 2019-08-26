@@ -31,6 +31,9 @@ file.
     -autoproc
         Automatically call "proc" on implementations that contain processes.
 
+    -wb
+        Ignore the 'whitebox' attribute on cell implementations.
+
     -assert
         this option will cause techmap to exit with an error if it can't map
         a selected cell. only cell types that end on an underscore are accepted

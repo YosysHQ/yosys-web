@@ -11,7 +11,7 @@ of the design to operate on. This command can be used to modify and view this
 list of selected objects.
 
 Note that many commands support an optional [selection] argument that can be
-used to YS_OVERRIDE the global selection for the command. The syntax of this
+used to override the global selection for the command. The syntax of this
 optional argument is identical to the syntax of the &lt;selection&gt; argument
 described here.
 

@@ -4,7 +4,7 @@
     opt_expr [options] [selection]
 
 This pass performs const folding on internal cell types with constant inputs.
-It also performs some simple expression rewritring.
+It also performs some simple expression rewriting.
 
     -mux_undef
         remove 'undef' inputs from $mux, $pmux and $_MUX_ cells

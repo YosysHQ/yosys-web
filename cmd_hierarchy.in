@@ -7,15 +7,16 @@
 In parametric designs, a module might exists in several variations with
 different parameter values. This pass looks at all modules in the current
 design an re-runs the language frontends for the parametric modules as
-needed.
+needed. It also resolves assignments to wired logic data types (wand/wor),
+resolves positional module parameters, unroll array instances, and more.
 
     -check
         also check the design hierarchy. this generates an error when
         an unknown module is used as cell type.
 
     -simcheck
-        like -check, but also thow an error if blackbox modules are
-        instantiated, and throw an error if the design has no top module
+        like -check, but also throw an error if blackbox modules are
+        instantiated, and throw an error if the design has no top module.
 
     -purge_lib
         by default the hierarchy command will not remove library (blackbox)
@@ -28,20 +29,23 @@ needed.
 
     -keep_positionals
         per default this pass also converts positional arguments in cells
-        to arguments using port names. this option disables this behavior.
+        to arguments using port names. This option disables this behavior.
 
     -keep_portwidths
         per default this pass adjusts the port width on cells that are
-        module instances when the width does not match the module port. this
+        module instances when the width does not match the module port. This
         option disables this behavior.
+
+    -nodefaults
+        do not resolve input port default values
 
     -nokeep_asserts
         per default this pass sets the "keep" attribute on all modules
-        that directly or indirectly contain one or more $assert cells. this
-        option disables this behavior.
+        that directly or indirectly contain one or more formal properties.
+        This option disables this behavior.
 
     -top &lt;module&gt;
-        use the specified top module to built a design hierarchy. modules
+        use the specified top module to build the design hierarchy. Modules
         outside this tree (unused modules) are removed.
 
         when the -top option is used, the 'top' attribute will be set on the
@@ -50,6 +54,12 @@ needed.
 
     -auto-top
         automatically determine the top of the design hierarchy and mark it.
+
+    -chparam name value 
+       elaborate the top module using this parameter value. Modules on which
+       this parameter does not exist may cause a warning message to be output.
+       This option can be specified multiple times to override multiple
+       parameters. String values must be passed in double quotes (").
 
 In -generate mode this pass generates blackbox modules for the given cell
 types (wildcards supported). For this the design is searched for cells that

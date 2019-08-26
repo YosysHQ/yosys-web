@@ -29,5 +29,10 @@ invariant constraints.
     -vmap &lt;filename&gt;
         like -map, but more verbose
 
+    -I, -O, -B
+        If the design contains no input/output/assert then create one
+        dummy input/output/bad_state pin to make the tools reading the
+        AIGER file happy.
+
 </pre>
 @footer@

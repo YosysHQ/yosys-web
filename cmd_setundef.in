@@ -27,11 +27,14 @@ This command replaces undef (x) constants with defined (0/1) constants.
         replace with $anyconst drivers (for formal)
 
     -random &lt;seed&gt;
-        replace with random bits using the specified integer als seed
+        replace with random bits using the specified integer as seed
         value for the random number generator.
 
     -init
         also create/update init values for flip-flops
+
+    -params
+        replace undef in cell parameters
 
 </pre>
 @footer@

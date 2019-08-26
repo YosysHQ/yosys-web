@@ -23,6 +23,10 @@ Write the current design to a Verilog file.
         without this option all internal cells are converted to Verilog
         expressions.
 
+    -siminit
+        add initial statements with hierarchical refs to initialize FFs when
+        in -noexpr mode.
+
     -nodec
         32-bit constant values are by default dumped as decimal numbers,
         not bit pattern. This option deactivates this feature and instead

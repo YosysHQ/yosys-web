@@ -3,7 +3,7 @@
 <pre>
     write_simplec [options] [filename]
 
-Write simple C code for simulating the design. The C code writen can be used to
+Write simple C code for simulating the design. The C code written can be used to
 simulate the design in a C environment, but the purpose of this command is to
 generate code that works well with C-based formal verification.
 

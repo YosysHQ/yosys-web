@@ -11,6 +11,10 @@ $_DFF_P_, $_DFF_N_ and $_MUX_.
         operate in the opposite direction: replace $dffe cells with combinations
         of $dff and $mux cells. the options below are ignore in unmap mode.
 
+    -unmap-mince N
+        Same as -unmap but only unmap $dffe where the clock enable port
+        signal is used by less $dffe than the specified number
+
     -direct &lt;internal_gate_type&gt; &lt;external_gate_type&gt;
         map directly to external gate type. &lt;internal_gate_type&gt; can
         be any internal gate-level FF cell (except $_DFFE_??_). the

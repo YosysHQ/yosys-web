@@ -16,5 +16,8 @@ Options:
         Do not change the width of memory address ports. Use this options in
         flows that use the 'memory_memx' pass.
 
+    -keepdc
+        Do not optimize explicit don't-care values.
+
 </pre>
 @footer@

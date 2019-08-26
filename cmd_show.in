@@ -47,7 +47,7 @@ to a graphics file (usually SVG or PostScript).
         assigned to each unique value of this attribute.
 
     -width
-        annotate busses with a label indicating the width of the bus.
+        annotate buses with a label indicating the width of the bus.
 
     -signed
         mark ports (A, B) that are declared as signed (using the [AB]_SIGNED

@@ -31,14 +31,27 @@ This command runs synthesis for iCE40 FPGAs.
     -retime
         run 'abc' with -dff option
 
+    -relut
+        combine LUTs after synthesis
+
     -nocarry
         do not use SB_CARRY cells in output netlist
 
     -nodffe
         do not use SB_DFFE* cells in output netlist
 
+    -dffe_min_ce_use &lt;min_ce_use&gt;
+        do not use SB_DFFE* cells if the resulting CE line would go to less
+        than min_ce_use SB_DFFE*in output netlist
+
     -nobram
         do not use SB_RAM40_4K* cells in output netlist
+
+    -dsp
+        use iCE40 UltraPlus DSP cells for large arithmetic
+
+    -noabc
+        use built-in Yosys LUT techmapping instead of abc
 
     -abc2
         run two passes of 'abc' for slightly improved logic density
@@ -53,24 +66,44 @@ The following commands are executed by this synthesis command:
     begin:
         read_verilog -lib +/ice40/cells_sim.v
         hierarchy -check -top &lt;top&gt;
+        proc
 
     flatten:    (unless -noflatten)
-        proc
         flatten
         tribuf -logic
         deminout
 
     coarse:
-        synth -run coarse
+        opt_expr
+        opt_clean
+        check
+        opt
+        wreduce
+        peepopt
+        opt_clean
+        share
+        techmap -map +/cmp2lut.v -D LUT_WIDTH=4
+        opt_expr
+        opt_clean
+        ice40_dsp    (if -dsp)
+        alumacc
+        opt
+        fsm
+        opt -fast
+        memory -nomap
+        opt_clean
 
     bram:    (skip if -nobram)
         memory_bram -rules +/ice40/brams.txt
         techmap -map +/ice40/brams_map.v
+        ice40_braminit
 
-    fine:
+    map:
         opt -fast -mux_undef -undriven -fine
         memory_map
         opt -undriven -fine
+
+    map_gates:
         techmap -map +/techmap.v -map +/ice40/arith_map.v
         abc -dff    (only if -retime)
         ice40_opt
@@ -89,8 +122,12 @@ The following commands are executed by this synthesis command:
         abc          (only if -abc2)
         ice40_opt    (only if -abc2)
         techmap -map +/ice40/latches_map.v
-        abc -lut 4
+        simplemap                                   (only if -noabc)
+        techmap -map +/gate2lut.v -D LUT_WIDTH=4    (only if -noabc)
+        abc -dress -lut 4    (skip if -noabc)
         clean
+        ice40_unlut                                (only if -relut)
+        opt_lut -dlogic SB_CARRY:I0=1:I1=2:CI=3    (only if -relut)
 
     map_cells:
         techmap -map +/ice40/cells_map.v    (with -D NO_LUT in vpr mode)

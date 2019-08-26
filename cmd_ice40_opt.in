@@ -13,8 +13,5 @@ This command executes the following script:
         opt_clean
     while &lt;changed design&gt;
 
-When called with the option -unlut, this command will transform all already
-mapped SB_LUT4 cells back to logic.
-
 </pre>
 @footer@

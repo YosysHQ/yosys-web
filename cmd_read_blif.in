@@ -1,7 +1,7 @@
 @cmd_header read_blif@
 <h1>read_blif - read BLIF file</h1>
 <pre>
-    read_blif [filename]
+    read_blif [options] [filename]
 
 Load modules from a BLIF file into the current design.
 

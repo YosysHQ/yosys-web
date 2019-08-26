@@ -4,6 +4,8 @@
     write_firrtl [options] [filename]
 
 Write a FIRRTL netlist of the current design.
+The following commands are executed by this command:
+        pmuxtree
 
 </pre>
 @footer@

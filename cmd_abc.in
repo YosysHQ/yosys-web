@@ -21,47 +21,49 @@ library to a target architecture.
         if no -script parameter is given, the following scripts are used:
 
         for -liberty without -constr:
-          strash; ifraig; scorr; dc2; dretime; strash; &amp;get -n; &amp;dch -f;
-               &amp;nf {D}; &amp;put
+          strash; ifraig; scorr; dc2; dretime; retime {D}; strash; &amp;get -n;
+               &amp;dch -f; &amp;nf {D}; &amp;put
 
         for -liberty with -constr:
-          strash; ifraig; scorr; dc2; dretime; strash; &amp;get -n; &amp;dch -f;
-               &amp;nf {D}; &amp;put; buffer; upsize {D}; dnsize {D}; stime -p
+          strash; ifraig; scorr; dc2; dretime; retime {D}; strash; &amp;get -n;
+               &amp;dch -f; &amp;nf {D}; &amp;put; buffer; upsize {D}; dnsize {D};
+               stime -p
 
         for -lut/-luts (only one LUT size):
-          strash; ifraig; scorr; dc2; dretime; strash; dch -f; if; mfs2;
-               lutpack {S}
+          strash; ifraig; scorr; dc2; dretime; retime {D}; strash; dch -f;
+               if; mfs2; lutpack {S}
 
         for -lut/-luts (different LUT sizes):
-          strash; ifraig; scorr; dc2; dretime; strash; dch -f; if; mfs2
+          strash; ifraig; scorr; dc2; dretime; retime {D}; strash; dch -f;
+               if; mfs2
 
         for -sop:
-          strash; ifraig; scorr; dc2; dretime; strash; dch -f;
+          strash; ifraig; scorr; dc2; dretime; retime {D}; strash; dch -f;
                cover {I} {P}
 
         otherwise:
-          strash; ifraig; scorr; dc2; dretime; strash; &amp;get -n; &amp;dch -f;
-               &amp;nf {D}; &amp;put
+          strash; ifraig; scorr; dc2; dretime; retime {D}; strash; &amp;get -n;
+               &amp;dch -f; &amp;nf {D}; &amp;put
 
     -fast
         use different default scripts that are slightly faster (at the cost
         of output quality):
 
         for -liberty without -constr:
-          strash; dretime; map {D}
+          strash; dretime; retime {D}; map {D}
 
         for -liberty with -constr:
-          strash; dretime; map {D}; buffer; upsize {D}; dnsize {D};
-               stime -p
+          strash; dretime; retime {D}; map {D}; buffer; upsize {D};
+               dnsize {D}; stime -p
 
         for -lut/-luts:
-          strash; dretime; if
+          strash; dretime; retime {D}; if
 
         for -sop:
-          strash; dretime; cover -I {I} -P {P}
+          strash; dretime; retime {D}; cover -I {I} -P {P}
 
         otherwise:
-          strash; dretime; map
+          strash; dretime; retime {D}; map
 
     -liberty &lt;file&gt;
         generate netlists for the specified cell library (using the liberty
@@ -153,6 +155,11 @@ library to a target architecture.
         set a 'abcgroup' attribute on all objects created by ABC. The value of
         this attribute is a unique integer for each ABC process started. This
         is useful for debugging the partitioning of clock domains.
+
+    -dress
+        run the 'dress' command after all other ABC commands. This aims to
+        preserve naming by an equivalence check between the original and post-ABC
+        netlists (experimental).
 
 When neither -liberty nor -lut is used, the Yosys standard cell library is
 loaded into ABC before the ABC script is executed.
