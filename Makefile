@@ -8,7 +8,7 @@ PAGES += $(addsuffix .html,$(basename $(wildcard cmd_*.in)))
 web: $(PAGES)
 
 index.html:
-	ln -s about.html index.html
+	ln -sf about.html index.html
 
 templates/cmd_header.in: templates/header.in
 	sed -r '/<title>/ s,::,:: Command Reference ::,; s,@documentation@,1,g; s,@[a-z]+@,0,g;' < templates/header.in > templates/cmd_header.in.new
@@ -49,7 +49,7 @@ push: web
 	rsync -e ssh -azv --delete --exclude .git --exclude .*.swp --exclude nogit . clifford@clifford.at:/var/www/clifford/yosys/.
 
 clean:
-	rm -f $(PAGES)
+	rm -f $(PAGES) templates/cmd_header.in
 
 .PHONY: web push clean
 

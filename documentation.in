@@ -8,19 +8,18 @@ available for Yosys.</p>
 <h2>Yosys Manual</h2>
 
 <p>A quick first-steps tutorial can be found in the <a
-href="https://github.com/cliffordwolf/yosys/blob/master/README.md">README file</a>.</p>
+href="https://github.com/YosysHQ/yosys/blob/master/README.md">README file</a>.</p>
 
 <p>The Yosys manual can be downloaded <a href="files/yosys_manual.pdf">here</a> (PDF).</p>
 
 <h2>Support</h2>
 
 The best places to ask questions are the <a
-href="http://www.reddit.com/r/yosys/">Yosys Subreddit</a>, <a
-href="http://stackoverflow.com/questions/tagged/yosys">Stack Overflow</a> and
-<a href="http://webchat.freenode.net/?channels=yosys">#yosys on freenode</a>.
+href="https://join.slack.com/t/yosyshq/shared_invite/zt-oe2nxfpv-BJd_9CZpkk_MoTT0s88GcA">YosysHQ Community Slack</a>
+and <a href="https://web.libera.chat/#yosys">#yosys on Libera Chat</a>.
 
 The best place to report a bug is on <a
-href="https://github.com/cliffordwolf/yosys/issues/new">GitHub</a>.
+href="https://github.com/YosysHQ/yosys/issues/new">GitHub</a>.
 
 <h2>Presentation Slides</h2>
 
