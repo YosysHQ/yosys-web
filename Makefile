@@ -2,7 +2,7 @@
 SHELL := /bin/bash
 
 PAGES := index.html about.html documentation.html screenshots.html download.html links.html
-PAGES += donate.html vloghammer.html yosysjs.html faq.html
+PAGES += commercial.html vloghammer.html yosysjs.html faq.html
 PAGES += $(addsuffix .html,$(basename $(wildcard cmd_*.in)))
 
 web: $(PAGES)
@@ -52,4 +52,3 @@ clean:
 	rm -f $(PAGES) templates/cmd_header.in
 
 .PHONY: web push clean
-
