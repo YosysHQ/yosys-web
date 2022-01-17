@@ -5,6 +5,8 @@ PAGES := index.html about.html documentation.html screenshots.html download.html
 PAGES += commercial.html vloghammer.html yosysjs.html faq.html
 PAGES += $(addsuffix .html,$(basename $(wildcard cmd_*.in)))
 
+HOST_REPO := ../yosyshq.github.io/
+
 web: $(PAGES)
 
 index.html:
@@ -41,12 +43,20 @@ update_show:
 	rm -f files/cmos_cells.v
 	git add images/show_*.png
 
-pull_nogit:
+wget_nogit:
 	mkdir -p nogit
-	rsync -e ssh -azv --delete clifford@clifford.at:/var/www/clifford/yosys/nogit/. nogit/.
+	wget -r -nH -np --cut-dirs=1 -R 'index.html*' http://bygone.clairexen.net/yosys/nogit/
 
-push: web
-	rsync -e ssh -azv --delete --exclude .git --exclude .*.swp --exclude nogit . clifford@clifford.at:/var/www/clifford/yosys/.
+# pull_nogit:
+# 	mkdir -p nogit
+# 	rsync -e ssh -azv --delete clifford@clifford.at:/var/www/clifford/yosys/nogit/. nogit/.
+#
+$(HOST_REPO):
+	git clone git@github.com:YosysHQ/yosyshq.github.io.git $(HOST_REPO)
+
+push: web | $(HOST_REPO)
+	rsync -azv --delete --exclude .git --exclude .*.swp --exclude nogit . $(HOST_REPO)/yosys/.
+# 	rsync -e ssh -azv --delete --exclude .git --exclude .*.swp --exclude nogit . clifford@clifford.at:/var/www/clifford/yosys/.
 
 clean:
 	rm -f $(PAGES) templates/cmd_header.in
