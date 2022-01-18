@@ -6,34 +6,23 @@
 
 <a href="https://github.com/YosysHQ/yosys/releases/latest">Release Notes and Download Links</a></p>
 
-<p>Yosys is part of the <a href="https://www.yosyshq.com/tabby-cad-datasheet">Tabby CAD Suite</a> and the <a href="https://github.com/YosysHQ/oss-cad-suite-build">OSS CAD Suite</a>! The easiest way to use Yosys is to install the binary software suite, which contains all required dependencies and related tools. Download the latest binary release here: <a href="https://github.com/YosysHQ/oss-cad-suite-build/releases/latest">OSS CAD Suite Download Links</a></p>
+<p>Yosys is part of the <a href="https://www.yosyshq.com/tabby-cad-datasheet">Tabby CAD Suite</a> and the <a href="https://github.com/YosysHQ/oss-cad-suite-build">OSS CAD Suite</a>! The easiest way to use Yosys is to install the binary software suite, which contains all required dependencies and related tools. Download the latest nightly build here: <a href="https://github.com/YosysHQ/oss-cad-suite-build/releases/latest">OSS CAD Suite Download Links</a></p>
 
-<p>Many Linux distributions also maintain Yosys packages (may or may not be up to date with the latest releases). Check your package manager!</p>
+<p>Many Linux distributions also have Yosys packages (not maintained by us, so they may or may not be up to date with the latest releases). Check your package manager!</p>
 
 <h2>Installing Tabby/OSS CAD Suite</h2>
 
 <p>Binaries are available for Linux (x64, arm, arm64, riscv64), macOS (x64) and Windows (x64). Extract the archive in a location of your choice and source the environment script:</p>
 
-<ul>
-<li>Linux/macOS:
-<pre>source <extracted_location>/oss-cad-suite/environment</pre>
-<li>Windows:
-<pre><extracted_location>\oss-cad-suite\environment.bat</pre> (from existing shell)
+<h3>Linux / macOS</h3>
+<pre>source &lt;extracted_location&gt;/oss-cad-suite/environment</pre>
+<h3>Windows</h3>
 
-<pre><extracted_location>\oss-cad-suite\start.bat</pre> (to create a new shell window)
-</ul>
+From existing shell:
+<pre>&lt;extracted_location&gt;\oss-cad-suite\environment.bat</pre>
+To create a new shell window:
+<pre>&lt;extracted_location&gt;\oss-cad-suite\start.bat</pre>
 
-<h2>Yosys on MS Windows</h2>
-
-<p>There are two versions of Yosys for Win32. First there is the "official binary release"
-of Yosys for Win32 which is cross-compiled using <a href="http://mxe.cc/">MXE</a>:</p>
-
-<ul><li><a href="nogit/win32/yosys-win32-mxebin-0.9.zip">yosys-win32-mxebin-0.9.zip</a></ul>
-
-And then there is a source code export for VisualStudio for users who want to do
-Yosys C++ development on Windows:
-
-<ul><li><a href="nogit/win32/yosys-win32-vcxsrc-0.9.zip">yosys-win32-vcxsrc-0.9.zip</a></li></ul>
 
 <h2>Building Development Sources</h2>
 
