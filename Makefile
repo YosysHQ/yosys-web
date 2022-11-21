@@ -44,7 +44,7 @@ $(HOST_REPO):
 	git clone git@github.com:YosysHQ/yosyshq.github.io.git $(HOST_REPO)
 
 push: web | $(HOST_REPO)
-	rsync -azv --delete --exclude .git --exclude .*.swp --exclude nogit . $(HOST_REPO)/yosys/.
+	rsync -azvR files images *.html *.css vloghammer_bugs/*.html $(HOST_REPO)/yosys/.
 # 	rsync -e ssh -azv --delete --exclude .git --exclude .*.swp --exclude nogit . clifford@clifford.at:/var/www/clifford/yosys/.
 
 clean:
