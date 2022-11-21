@@ -3,7 +3,6 @@ SHELL := /bin/bash
 
 PAGES := index.html about.html documentation.html screenshots.html download.html links.html
 PAGES += commercial.html vloghammer.html yosysjs.html faq.html
-PAGES += $(addsuffix .html,$(basename $(wildcard cmd_*.in)))
 
 HOST_REPO := ../yosyshq.github.io/
 
@@ -12,11 +11,7 @@ web: $(PAGES)
 index.html:
 	ln -sf about.html index.html
 
-templates/cmd_header.in: templates/header.in
-	sed -r '/<title>/ s,::,:: Command Reference ::,; s,@documentation@,1,g; s,@[a-z]+@,0,g;' < templates/header.in > templates/cmd_header.in.new
-	mv templates/cmd_header.in.new templates/cmd_header.in
-
-%.html: %.in templates/cmd_header.in templates/* files/*
+%.html: %.in templates/* files/*
 	perl -pe ' #\
 		if (/^@(\S+)\s*(.*)@\s*$$/) { #\
 			open(F, "<templates/$$1.in") or die $$!; $$y=$$2; $$x=""; $$x.=$$_ while <F>; close F; #\
@@ -26,12 +21,6 @@ templates/cmd_header.in: templates/header.in
 			$$_ .= "<div class=\"file\"><a href=\"files/$$fn\">$$fn</a></div>\n"; } #\
 		' $< > $@.new
 	mv $@.new $@
-
-update_cmd:
-	rm -f cmd_*.html
-	git rm --ignore-unmatch -f cmd_*.in templates/cmd_index.in
-	yosys -qp 'help -write-web-command-reference-manual'
-	git add cmd_*.in templates/cmd_index.in
 
 update_show:
 	git rm --ignore-unmatch -f images/show_*.png
@@ -59,6 +48,6 @@ push: web | $(HOST_REPO)
 # 	rsync -e ssh -azv --delete --exclude .git --exclude .*.swp --exclude nogit . clifford@clifford.at:/var/www/clifford/yosys/.
 
 clean:
-	rm -f $(PAGES) templates/cmd_header.in
+	rm -f $(PAGES)
 
 .PHONY: web push clean
