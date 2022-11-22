@@ -36,16 +36,11 @@ wget_nogit:
 	mkdir -p nogit
 	wget -r -nH -np --cut-dirs=1 -R 'index.html*' http://bygone.clairexen.net/yosys/nogit/
 
-# pull_nogit:
-# 	mkdir -p nogit
-# 	rsync -e ssh -azv --delete clifford@clifford.at:/var/www/clifford/yosys/nogit/. nogit/.
-#
 $(HOST_REPO):
 	git clone git@github.com:YosysHQ/yosyshq.github.io.git $(HOST_REPO)
 
 push: web | $(HOST_REPO)
 	rsync -azvR files images *.html *.css vloghammer_bugs/*.html $(HOST_REPO)/yosys/.
-# 	rsync -e ssh -azv --delete --exclude .git --exclude .*.swp --exclude nogit . clifford@clifford.at:/var/www/clifford/yosys/.
 
 clean:
 	rm -f $(PAGES)
