@@ -32,10 +32,6 @@ update_show:
 	rm -f files/cmos_cells.v
 	git add images/show_*.png
 
-wget_nogit:
-	mkdir -p nogit
-	wget -r -nH -np --cut-dirs=1 -R 'index.html*' http://bygone.clairexen.net/yosys/nogit/
-
 $(HOST_REPO):
 	git clone git@github.com:YosysHQ/yosyshq.github.io.git $(HOST_REPO)
 
