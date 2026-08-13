@@ -2,7 +2,7 @@
 SHELL := /bin/bash
 
 PAGES := index.html about.html documentation.html screenshots.html download.html links.html
-PAGES += commercial.html vloghammer.html yosysjs.html
+PAGES += commercial.html vloghammer.html
 
 HOST_REPO := ../yosyshq.github.io/
 
