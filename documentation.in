@@ -18,12 +18,12 @@ in the manual.  Or, download the <a
 href="https://yosys.readthedocs.io/_/downloads/en/latest/pdf/">manual
 pdf</a>.</p>
 
-<p>The <a href="https://yosyshq.readthedocs.io/en/latest/">YosysHQ ReadTheDocs</a> has links to many resources for Yosys and Yosys-based tools.</p>
+<p>The <a href="https://yosyshq.readthedocs.io/en/latest/">YosysHQ ReadTheDocs</a> has links to many resources for Yosys and Yosys-based tools, including FAQs.</p>
 
 <h2>Support</h2>
 
 The best places to ask questions are the <a
-href="https://join.slack.com/t/yosyshq/shared_invite/zt-oe2nxfpv-BJd_9CZpkk_MoTT0s88GcA">YosysHQ Community Slack</a>
+href="https://yosyshq.discourse.group/">YosysHQ Community Discourse Forum</a>
 and <a href="https://web.libera.chat/#yosys">#yosys on Libera Chat</a>.
 
 The best place to report a bug is on <a
